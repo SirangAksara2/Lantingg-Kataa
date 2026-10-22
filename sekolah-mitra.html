@@ -1,0 +1,1936 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sekolah Mitra | LANTING KATA</title>
+    <link rel="stylesheet" href="css/style.css">
+
+    <style>
+        /* =====================================================
+           SEKOLAH MITRA — VISUAL REDESIGN
+           ===================================================== */
+
+        body.sekolah-mitra-page {
+            margin: 0;
+            background: #f7faf7;
+            color: var(--text);
+            overflow-x: hidden;
+        }
+
+        /* =====================================================
+           HEADER
+           ===================================================== */
+
+        .sekolah-mitra-page .mitra-header {
+            position: relative;
+            width: 100%;
+            min-height: 84px;
+            padding: 10px 7%;
+            box-sizing: border-box;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 24px;
+            background: var(--green-dark);
+            overflow: hidden;
+            box-shadow: 0 4px 18px rgba(33, 72, 61, 0.15);
+            z-index: 20;
+        }
+
+        .sekolah-mitra-page .mitra-header::before {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background-image: url("../assets/sasirangan-hijau.jpg");
+            background-size: 420px auto;
+            background-repeat: repeat;
+            background-position: center;
+            opacity: 0.09;
+            pointer-events: none;
+        }
+
+        .sekolah-mitra-page .mitra-back {
+            position: relative;
+            z-index: 2;
+            display: inline-flex;
+            align-items: center;
+            color: var(--white);
+            text-decoration: none;
+            font-size: 14px;
+            font-weight: 700;
+            transition: 0.25s ease;
+        }
+
+        .sekolah-mitra-page .mitra-back:hover {
+            color: var(--gold);
+            transform: translateX(-3px);
+        }
+
+        /* =====================================================
+           BRAND
+           ===================================================== */
+
+        .sekolah-mitra-page .mitra-brand {
+            position: relative;
+            z-index: 2;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            flex-shrink: 0;
+        }
+
+        .sekolah-mitra-page .mitra-logo {
+            width: 62px;
+            height: 62px;
+            padding: 3px;
+            box-sizing: border-box;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            background: var(--white);
+            border: 3px solid var(--gold);
+            overflow: hidden;
+            box-shadow:
+                0 3px 10px rgba(0, 0, 0, 0.20);
+            transition: 0.25s ease;
+        }
+
+        .sekolah-mitra-page .mitra-logo img {
+            width: 100%;
+            height: 100%;
+            display: block;
+            object-fit: cover;
+            border-radius: 50%;
+        }
+
+        .sekolah-mitra-page .mitra-logo:hover {
+            transform: translateY(-2px);
+            box-shadow:
+                0 7px 17px rgba(0, 0, 0, 0.22);
+        }
+
+        .sekolah-mitra-page .mitra-brand-text {
+            display: flex;
+            flex-direction: column;
+            gap: 4px;
+        }
+
+        .sekolah-mitra-page .mitra-brand-text strong {
+            color: var(--white);
+            font-size: 19px;
+            font-weight: 900;
+            letter-spacing: 1.4px;
+            line-height: 1;
+        }
+
+        .sekolah-mitra-page .mitra-brand-text strong span {
+            color: var(--gold);
+        }
+
+        .sekolah-mitra-page .mitra-brand-text small {
+            color: rgba(255, 255, 255, 0.72);
+            font-size: 10px;
+            font-weight: 700;
+            letter-spacing: 1.5px;
+        }
+
+        /* =====================================================
+           HERO
+           ===================================================== */
+
+        .sekolah-mitra-page .mitra-hero {
+            position: relative;
+            width: 100%;
+            padding: 68px 7% 65px;
+            box-sizing: border-box;
+            text-align: center;
+            background:
+                linear-gradient(
+                    135deg,
+                    #fff8e8 0%,
+                    #ffffff 52%,
+                    #eef6f1 100%
+                );
+            border-bottom: 1px solid rgba(53, 104, 89, 0.10);
+            overflow: hidden;
+        }
+
+        .sekolah-mitra-page .mitra-hero::before {
+            content: "";
+            position: absolute;
+            width: 300px;
+            height: 300px;
+            top: -175px;
+            right: -90px;
+            border-radius: 50%;
+            background: rgba(214, 168, 79, 0.11);
+            pointer-events: none;
+        }
+
+        .sekolah-mitra-page .mitra-hero::after {
+            content: "";
+            position: absolute;
+            width: 260px;
+            height: 260px;
+            bottom: -165px;
+            left: -100px;
+            border-radius: 50%;
+            background: rgba(53, 104, 89, 0.07);
+            pointer-events: none;
+        }
+
+        .sekolah-mitra-page .mitra-hero-decoration {
+            position: absolute;
+            top: 28px;
+            right: 13%;
+            color: var(--gold);
+            font-size: 20px;
+            opacity: 0.65;
+            transform: rotate(12deg);
+        }
+
+        .sekolah-mitra-page .mitra-hero-icon {
+            position: relative;
+            z-index: 2;
+            width: 76px;
+            height: 76px;
+            margin: 0 auto 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 22px;
+            background: rgba(53, 104, 89, 0.09);
+            font-size: 38px;
+            box-shadow:
+                0 8px 22px rgba(33, 72, 61, 0.08);
+        }
+
+        .sekolah-mitra-page .mitra-label {
+            position: relative;
+            z-index: 2;
+            margin: 0 0 10px;
+            color: var(--green);
+            font-size: 11px;
+            font-weight: 900;
+            letter-spacing: 2px;
+        }
+
+        .sekolah-mitra-page .mitra-hero h1 {
+            position: relative;
+            z-index: 2;
+            margin: 0 auto 16px;
+            max-width: 850px;
+            color: var(--green-dark);
+            font-size: clamp(32px, 5vw, 50px);
+            font-weight: 900;
+            line-height: 1.15;
+        }
+
+        .sekolah-mitra-page .mitra-hero h1 span {
+            color: var(--green);
+        }
+
+        .sekolah-mitra-page .mitra-hero > p:last-child {
+            position: relative;
+            z-index: 2;
+            max-width: 720px;
+            margin: 0 auto;
+            color: #66756f;
+            font-size: 15px;
+            line-height: 1.8;
+        }
+
+        /* =====================================================
+           MAIN
+           ===================================================== */
+
+        .sekolah-mitra-page .mitra-main {
+            width: 86%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 70px 0 0;
+        }
+
+        /* =====================================================
+           SECTION HEADING
+           ===================================================== */
+
+        .sekolah-mitra-page .mitra-section-heading {
+            text-align: center;
+            margin-bottom: 38px;
+        }
+
+        .sekolah-mitra-page .mitra-section-heading > p {
+            margin: 0 0 9px;
+            color: var(--green);
+            font-size: 11px;
+            font-weight: 900;
+            letter-spacing: 1.7px;
+        }
+
+        .sekolah-mitra-page .mitra-section-heading h2 {
+            margin: 0;
+            color: var(--green-dark);
+            font-size: clamp(27px, 4vw, 38px);
+            font-weight: 900;
+            line-height: 1.25;
+        }
+
+        .sekolah-mitra-page .mitra-section-heading h2 span {
+            color: var(--green);
+        }
+
+        .sekolah-mitra-page .mitra-line {
+            width: 62px;
+            height: 4px;
+            margin: 17px auto 0;
+            border-radius: 999px;
+            background:
+                linear-gradient(
+                    to right,
+                    var(--green),
+                    var(--gold)
+                );
+        }
+
+        /* =====================================================
+           INTRO
+           ===================================================== */
+
+        .sekolah-mitra-page .mitra-intro-section {
+            padding-bottom: 82px;
+        }
+
+        .sekolah-mitra-page .mitra-intro-text {
+            max-width: 850px;
+            margin: 0 auto 38px;
+            color: #5e6e68;
+            font-size: 15px;
+            line-height: 1.85;
+            text-align: center;
+        }
+
+        /* =====================================================
+           BENEFIT
+           ===================================================== */
+
+        .sekolah-mitra-page .mitra-benefit-grid {
+            display: grid;
+            grid-template-columns:
+                repeat(3, minmax(0, 1fr));
+            gap: 22px;
+        }
+
+        .sekolah-mitra-page .mitra-benefit-card {
+            padding: 30px 25px;
+            background: var(--white);
+            border: 1px solid rgba(53, 104, 89, 0.10);
+            border-radius: 22px;
+            text-align: center;
+            box-shadow:
+                0 8px 25px rgba(33, 72, 61, 0.07);
+            transition:
+                transform 0.25s ease,
+                box-shadow 0.25s ease,
+                border-color 0.25s ease;
+        }
+
+        .sekolah-mitra-page .mitra-benefit-card:hover {
+            transform: translateY(-5px);
+            border-color: rgba(214, 168, 79, 0.40);
+            box-shadow:
+                0 14px 32px rgba(33, 72, 61, 0.11);
+        }
+
+        .sekolah-mitra-page .mitra-benefit-icon {
+            width: 64px;
+            height: 64px;
+            margin: 0 auto 17px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 18px;
+            background: rgba(53, 104, 89, 0.09);
+            font-size: 29px;
+        }
+
+        .sekolah-mitra-page .mitra-benefit-card h3 {
+            margin: 0 0 9px;
+            color: var(--green-dark);
+            font-size: 19px;
+            font-weight: 900;
+        }
+
+        .sekolah-mitra-page .mitra-benefit-card p {
+            margin: 0;
+            color: #697872;
+            font-size: 13px;
+            line-height: 1.75;
+        }
+
+        /* =====================================================
+           SCHOOL SECTION
+           ===================================================== */
+
+        .sekolah-mitra-page .mitra-school-section {
+            padding: 78px 0;
+            position: relative;
+        }
+
+        .sekolah-mitra-page .school-profile-grid {
+            display: grid;
+            grid-template-columns:
+                repeat(2, minmax(0, 1fr));
+            gap: 28px;
+        }
+
+        /* =====================================================
+           SCHOOL CARD
+           ===================================================== */
+
+        .sekolah-mitra-page .school-profile-card {
+            min-width: 0;
+            background: var(--white);
+            border: 1px solid rgba(53, 104, 89, 0.10);
+            border-radius: 26px;
+            overflow: hidden;
+            box-shadow:
+                0 10px 30px rgba(33, 72, 61, 0.08);
+            transition:
+                transform 0.25s ease,
+                box-shadow 0.25s ease;
+        }
+
+        .sekolah-mitra-page .school-profile-card:hover {
+            transform: translateY(-5px);
+            box-shadow:
+                0 16px 38px rgba(33, 72, 61, 0.12);
+        }
+
+        /* =====================================================
+           SCHOOL VISUAL
+           ===================================================== */
+
+        .sekolah-mitra-page .school-profile-visual {
+            position: relative;
+            min-height: 215px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background:
+                linear-gradient(
+                    135deg,
+                    var(--green-dark),
+                    var(--green)
+                );
+            overflow: hidden;
+        }
+
+        .sekolah-mitra-page .school-profile-visual::before {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background-image:
+                url("../assets/sasirangan-hijau.jpg");
+            background-size: 350px auto;
+            background-repeat: repeat;
+            opacity: 0.10;
+        }
+
+        .sekolah-mitra-page .school-visual-pattern {
+            position: absolute;
+            top: 18px;
+            right: 24px;
+            color: var(--gold);
+            font-size: 20px;
+            opacity: 0.75;
+        }
+
+        .sekolah-mitra-page .school-building-icon {
+            position: relative;
+            z-index: 2;
+            width: 105px;
+            height: 105px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 28px;
+            background: rgba(255, 255, 255, 0.94);
+            font-size: 54px;
+            box-shadow:
+                0 10px 25px rgba(0, 0, 0, 0.15);
+        }
+
+        .sekolah-mitra-page .school-mitra-badge {
+            position: absolute;
+            z-index: 3;
+            bottom: 15px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            white-space: nowrap;
+            padding: 7px 13px;
+            border-radius: 999px;
+            background: var(--gold);
+            color: var(--green-dark);
+            font-size: 9px;
+            font-weight: 900;
+            letter-spacing: 0.8px;
+            box-shadow:
+                0 4px 12px rgba(0, 0, 0, 0.15);
+        }
+
+        /* =====================================================
+           SCHOOL CONTENT
+           ===================================================== */
+
+        .sekolah-mitra-page .school-profile-content {
+            padding: 30px;
+        }
+
+        .sekolah-mitra-page .school-profile-label {
+            margin: 0 0 8px;
+            color: var(--gold);
+            font-size: 10px;
+            font-weight: 900;
+            letter-spacing: 1.7px;
+        }
+
+        .sekolah-mitra-page .school-profile-content h3 {
+            margin: 0 0 12px;
+            color: var(--green-dark);
+            font-size: 23px;
+            font-weight: 900;
+            line-height: 1.3;
+        }
+
+        .sekolah-mitra-page .school-location {
+            display: inline-flex;
+            align-items: center;
+            margin-bottom: 17px;
+            padding: 7px 11px;
+            border-radius: 10px;
+            background: #f2f7f4;
+            color: var(--green);
+            font-size: 11px;
+            font-weight: 700;
+        }
+
+        .sekolah-mitra-page .school-description {
+            margin: 0 0 24px;
+            color: #687771;
+            font-size: 13px;
+            line-height: 1.8;
+        }
+
+        /* =====================================================
+           SCHOOL DETAILS
+           ===================================================== */
+
+        .sekolah-mitra-page .school-details {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            padding-top: 20px;
+            border-top:
+                1px solid rgba(53, 104, 89, 0.10);
+        }
+
+        .sekolah-mitra-page .school-detail-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 12px;
+        }
+
+        .sekolah-mitra-page .school-detail-item > span {
+            width: 36px;
+            height: 36px;
+            flex-shrink: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 11px;
+            background: rgba(53, 104, 89, 0.08);
+            font-size: 17px;
+        }
+
+        .sekolah-mitra-page .school-detail-item > div {
+            min-width: 0;
+            display: flex;
+            flex-direction: column;
+            gap: 3px;
+        }
+
+        .sekolah-mitra-page .school-detail-item small {
+            color: #84918c;
+            font-size: 9px;
+            font-weight: 900;
+            letter-spacing: 1px;
+        }
+
+        .sekolah-mitra-page .school-detail-item strong {
+            color: var(--green-dark);
+            font-size: 12px;
+            line-height: 1.45;
+        }
+
+        /* =====================================================
+           FUTURE SCHOOL
+           ===================================================== */
+
+        .sekolah-mitra-page .future-school {
+            position: relative;
+            margin-top: 30px;
+            padding: 23px 28px;
+            display: flex;
+            align-items: center;
+            gap: 17px;
+            border:
+                1px dashed rgba(53, 104, 89, 0.28);
+            border-radius: 20px;
+            background:
+                linear-gradient(
+                    135deg,
+                    #f2f8f4,
+                    #fffdf5
+                );
+        }
+
+        .sekolah-mitra-page .future-school-icon {
+            width: 52px;
+            height: 52px;
+            flex-shrink: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 16px;
+            background: rgba(214, 168, 79, 0.16);
+            font-size: 25px;
+        }
+
+        .sekolah-mitra-page .future-school strong {
+            display: block;
+            margin-bottom: 4px;
+            color: var(--green-dark);
+            font-size: 14px;
+        }
+
+        .sekolah-mitra-page .future-school p {
+            margin: 0;
+            color: #74817c;
+            font-size: 12px;
+            line-height: 1.6;
+        }
+
+        /* =====================================================
+           IMPLEMENTASI
+           ===================================================== */
+
+        .sekolah-mitra-page .implementasi-section {
+            padding: 80px 0;
+        }
+
+        .sekolah-mitra-page .implementasi-grid {
+            display: grid;
+            grid-template-columns:
+                repeat(4, minmax(0, 1fr));
+            gap: 20px;
+        }
+
+        .sekolah-mitra-page .implementasi-card {
+            position: relative;
+            padding: 28px 22px;
+            background: var(--white);
+            border: 1px solid rgba(53, 104, 89, 0.10);
+            border-radius: 22px;
+            box-shadow:
+                0 8px 25px rgba(33, 72, 61, 0.06);
+            overflow: hidden;
+            transition:
+                transform 0.25s ease,
+                box-shadow 0.25s ease;
+        }
+
+        .sekolah-mitra-page .implementasi-card:hover {
+            transform: translateY(-5px);
+            box-shadow:
+                0 14px 32px rgba(33, 72, 61, 0.10);
+        }
+
+        .sekolah-mitra-page .implementasi-number {
+            position: absolute;
+            top: 16px;
+            right: 18px;
+            color: rgba(53, 104, 89, 0.12);
+            font-size: 24px;
+            font-weight: 900;
+        }
+
+        .sekolah-mitra-page .implementasi-icon {
+            width: 55px;
+            height: 55px;
+            margin-bottom: 17px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 16px;
+            background: rgba(53, 104, 89, 0.08);
+            font-size: 25px;
+        }
+
+        .sekolah-mitra-page .implementasi-card h3 {
+            margin: 0 0 9px;
+            color: var(--green-dark);
+            font-size: 17px;
+            font-weight: 900;
+            line-height: 1.35;
+        }
+
+        .sekolah-mitra-page .implementasi-card p {
+            margin: 0;
+            color: #6b7873;
+            font-size: 12px;
+            line-height: 1.75;
+        }
+
+        /* =====================================================
+           GALLERY
+           ===================================================== */
+
+        .sekolah-mitra-page .mitra-gallery-section {
+            padding: 80px 0;
+        }
+
+        .sekolah-mitra-page .gallery-placeholder {
+            position: relative;
+            max-width: 850px;
+            margin: 0 auto;
+            padding: 60px 30px;
+            box-sizing: border-box;
+            text-align: center;
+            border:
+                1px dashed rgba(53, 104, 89, 0.28);
+            border-radius: 26px;
+            background:
+                linear-gradient(
+                    135deg,
+                    #f1f8f4,
+                    #fffdf6
+                );
+            overflow: hidden;
+        }
+
+        .sekolah-mitra-page .gallery-placeholder::before {
+            content: "";
+            position: absolute;
+            width: 190px;
+            height: 190px;
+            top: -110px;
+            right: -70px;
+            border-radius: 50%;
+            background: rgba(214, 168, 79, 0.10);
+        }
+
+        .sekolah-mitra-page .gallery-placeholder-icon {
+            position: relative;
+            z-index: 2;
+            width: 72px;
+            height: 72px;
+            margin: 0 auto 18px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 21px;
+            background: rgba(53, 104, 89, 0.09);
+            font-size: 33px;
+        }
+
+        .sekolah-mitra-page .gallery-placeholder h3 {
+            position: relative;
+            z-index: 2;
+            margin: 0 0 10px;
+            color: var(--green-dark);
+            font-size: 21px;
+            font-weight: 900;
+        }
+
+        .sekolah-mitra-page .gallery-placeholder p {
+            position: relative;
+            z-index: 2;
+            max-width: 600px;
+            margin: 0 auto;
+            color: #6d7974;
+            font-size: 13px;
+            line-height: 1.75;
+        }
+
+        /* =====================================================
+           COLLABORATION
+           ===================================================== */
+
+        .sekolah-mitra-page .mitra-collaboration {
+            position: relative;
+            width: 100%;
+            margin-top: 25px;
+            padding: 78px 7%;
+            box-sizing: border-box;
+            text-align: center;
+            background:
+                linear-gradient(
+                    135deg,
+                    var(--green-dark),
+                    var(--green)
+                );
+            color: var(--white);
+            overflow: hidden;
+        }
+
+        .sekolah-mitra-page .mitra-collaboration::before {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background-image:
+                url("../assets/sasirangan-hijau.jpg");
+            background-size: 430px auto;
+            background-repeat: repeat;
+            opacity: 0.08;
+        }
+
+        .sekolah-mitra-page .collaboration-decoration {
+            position: absolute;
+            top: 30px;
+            right: 12%;
+            color: var(--gold);
+            font-size: 22px;
+            opacity: 0.75;
+        }
+
+        .sekolah-mitra-page .collaboration-icon {
+            position: relative;
+            z-index: 2;
+            width: 72px;
+            height: 72px;
+            margin: 0 auto 19px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 22px;
+            background: rgba(255, 255, 255, 0.12);
+            font-size: 32px;
+        }
+
+        .sekolah-mitra-page .mitra-collaboration > p:first-of-type {
+            position: relative;
+            z-index: 2;
+            margin: 0 0 10px;
+            color: var(--gold);
+            font-size: 10px;
+            font-weight: 900;
+            letter-spacing: 1.8px;
+        }
+
+        .sekolah-mitra-page .mitra-collaboration h2 {
+            position: relative;
+            z-index: 2;
+            max-width: 800px;
+            margin: 0 auto 16px;
+            color: var(--white);
+            font-size: clamp(27px, 4vw, 39px);
+            font-weight: 900;
+            line-height: 1.25;
+        }
+
+        .sekolah-mitra-page .mitra-collaboration h2 span {
+            color: var(--gold);
+        }
+
+        .sekolah-mitra-page .collaboration-text {
+            position: relative;
+            z-index: 2;
+            max-width: 680px;
+            margin: 0 auto 28px;
+            color: rgba(255, 255, 255, 0.76);
+            font-size: 13px;
+            line-height: 1.8;
+        }
+
+        .sekolah-mitra-page .collaboration-button {
+            position: relative;
+            z-index: 2;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 13px;
+            padding: 13px 21px;
+            border-radius: 13px;
+            background: var(--gold);
+            color: var(--green-dark);
+            text-decoration: none;
+            font-size: 12px;
+            font-weight: 900;
+            box-shadow:
+                0 7px 18px rgba(0, 0, 0, 0.15);
+            transition:
+                transform 0.25s ease,
+                box-shadow 0.25s ease,
+                background 0.25s ease;
+        }
+
+        .sekolah-mitra-page .collaboration-button:hover {
+            transform: translateY(-3px);
+            background: #e2b961;
+            box-shadow:
+                0 11px 25px rgba(0, 0, 0, 0.20);
+        }
+
+        .sekolah-mitra-page .collaboration-button span {
+            font-size: 17px;
+        }
+
+        /* =====================================================
+           FOOTER — STANDARD LANTING KATA
+           ===================================================== */
+
+        .sekolah-mitra-page .mitra-footer {
+            position: relative !important;
+            width: 100% !important;
+            min-width: 100% !important;
+            min-height: 0 !important;
+            margin: 0 !important;
+            padding: 38px 7% 28px !important;
+            box-sizing: border-box !important;
+
+            display: flex !important;
+            flex-direction: column !important;
+            align-items: center !important;
+            justify-content: center !important;
+            gap: 8px !important;
+
+            text-align: center !important;
+
+            background:
+                linear-gradient(
+                    135deg,
+                    #21483d 0%,
+                    #356859 55%,
+                    #21483d 100%
+                ) !important;
+
+            color: #fff !important;
+            border-top: 3px solid #d6a84f !important;
+            overflow: hidden !important;
+        }
+
+        .sekolah-mitra-page .mitra-footer::before {
+            content: "";
+            position: absolute;
+            inset: 0;
+
+            background-image:
+                url("assets/sasirangan-hijau.jpg");
+
+            background-size: 420px auto;
+            background-repeat: repeat;
+            background-position: center;
+
+            opacity: 0.09;
+            pointer-events: none;
+        }
+
+        .sekolah-mitra-page .mitra-footer::after {
+            content: "";
+            position: absolute;
+
+            width: 420px;
+            height: 420px;
+
+            right: -180px;
+            bottom: -280px;
+
+            border-radius: 50%;
+
+            background: rgba(214, 168, 79, 0.10);
+
+            pointer-events: none;
+        }
+
+        .sekolah-mitra-page .mitra-footer > * {
+            position: relative;
+            z-index: 2;
+        }
+
+        .sekolah-mitra-page .mitra-footer-logo {
+            position: relative !important;
+
+            width: 100% !important;
+            margin: 0 auto 5px !important;
+
+            display: flex !important;
+            align-items: center !important;
+            justify-content: center !important;
+
+            gap: 12px !important;
+
+            color: #fff !important;
+        }
+
+        .sekolah-mitra-page .mitra-footer-logo > div {
+            width: 44px !important;
+            height: 44px !important;
+            flex: 0 0 44px !important;
+
+            padding: 0 !important;
+
+            display: flex !important;
+            align-items: center !important;
+            justify-content: center !important;
+
+            box-sizing: border-box !important;
+
+            border-radius: 50% !important;
+
+            background: #fff !important;
+            border: 2px solid #d6a84f !important;
+
+            overflow: hidden !important;
+
+            box-shadow:
+                0 4px 12px rgba(0, 0, 0, 0.18) !important;
+        }
+
+        .sekolah-mitra-page .mitra-footer-logo > div img {
+            width: 100% !important;
+            height: 100% !important;
+
+            object-fit: cover !important;
+
+            border-radius: 50% !important;
+
+            display: block !important;
+        }
+
+        .sekolah-mitra-page .mitra-footer-logo > strong {
+            color: #fff !important;
+
+            font-size: 20px !important;
+            font-weight: 900 !important;
+
+            letter-spacing: 1.2px !important;
+        }
+
+        .sekolah-mitra-page .mitra-footer-logo > strong span {
+            color: #d6a84f !important;
+        }
+
+        .sekolah-mitra-page .mitra-footer > p {
+            display: block !important;
+
+            width: 100% !important;
+            max-width: 500px !important;
+
+            margin: 0 auto !important;
+
+            color: rgba(255, 255, 255, 0.86) !important;
+
+            font-size: 13px !important;
+            font-weight: 600 !important;
+
+            line-height: 1.6 !important;
+            letter-spacing: 0.35px !important;
+
+            text-align: center !important;
+        }
+
+        .sekolah-mitra-page .mitra-footer > small {
+            display: block !important;
+
+            color: rgba(255, 255, 255, 0.68) !important;
+
+            font-size: 11px !important;
+            font-weight: 600 !important;
+
+            text-align: center !important;
+        }
+
+        /* =====================================================
+           RESPONSIVE — TABLET
+           ===================================================== */
+
+        @media (max-width: 950px) {
+
+            .sekolah-mitra-page .mitra-main {
+                width: 90%;
+            }
+
+            .sekolah-mitra-page .implementasi-grid {
+                grid-template-columns:
+                    repeat(2, minmax(0, 1fr));
+            }
+        }
+
+        /* =====================================================
+           RESPONSIVE — 850PX
+           ===================================================== */
+
+        @media (max-width: 850px) {
+
+            .sekolah-mitra-page .mitra-header {
+                padding: 10px 5%;
+            }
+
+            .sekolah-mitra-page .mitra-benefit-grid {
+                grid-template-columns:
+                    1fr;
+            }
+
+            .sekolah-mitra-page .school-profile-grid {
+                grid-template-columns:
+                    1fr;
+            }
+
+            .sekolah-mitra-page .mitra-hero {
+                padding-left: 5%;
+                padding-right: 5%;
+            }
+        }
+
+        /* =====================================================
+           RESPONSIVE — MOBILE
+           ===================================================== */
+
+        @media (max-width: 650px) {
+
+            .sekolah-mitra-page .mitra-header {
+                min-height: auto;
+                padding: 14px 5% 16px;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                gap: 13px;
+            }
+
+            .sekolah-mitra-page .mitra-back {
+                order: 1;
+                font-size: 12px;
+            }
+
+            .sekolah-mitra-page .mitra-brand {
+                order: 2;
+            }
+
+            .sekolah-mitra-page .mitra-logo {
+                width: 56px;
+                height: 56px;
+                border-width: 2px;
+            }
+
+            .sekolah-mitra-page .mitra-brand-text strong {
+                font-size: 17px;
+            }
+
+            .sekolah-mitra-page .mitra-brand-text small {
+                font-size: 9px;
+            }
+
+            .sekolah-mitra-page .mitra-hero {
+                padding-top: 55px;
+                padding-bottom: 53px;
+            }
+
+            .sekolah-mitra-page .mitra-hero-icon {
+                width: 68px;
+                height: 68px;
+                border-radius: 19px;
+                font-size: 32px;
+            }
+
+            .sekolah-mitra-page .mitra-main {
+                width: 90%;
+                padding-top: 55px;
+            }
+
+            .sekolah-mitra-page .mitra-section-heading {
+                margin-bottom: 30px;
+            }
+
+            .sekolah-mitra-page .mitra-section-heading h2 {
+                font-size: 27px;
+            }
+
+            .sekolah-mitra-page .mitra-intro-text {
+                font-size: 13px;
+            }
+
+            .sekolah-mitra-page .mitra-school-section,
+            .sekolah-mitra-page .implementasi-section,
+            .sekolah-mitra-page .mitra-gallery-section {
+                padding: 60px 0;
+            }
+
+            .sekolah-mitra-page .school-profile-visual {
+                min-height: 195px;
+            }
+
+            .sekolah-mitra-page .school-profile-content {
+                padding: 25px 22px;
+            }
+
+            .sekolah-mitra-page .school-profile-content h3 {
+                font-size: 20px;
+            }
+
+            .sekolah-mitra-page .future-school {
+                align-items: flex-start;
+                padding: 20px;
+            }
+
+            .sekolah-mitra-page .implementasi-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .sekolah-mitra-page .gallery-placeholder {
+                padding: 45px 22px;
+            }
+
+            .sekolah-mitra-page .mitra-collaboration {
+                padding: 65px 5%;
+            }
+
+            .sekolah-mitra-page .mitra-footer {
+                padding: 32px 18px 25px !important;
+            }
+
+            .sekolah-mitra-page .mitra-footer-logo {
+                gap: 9px !important;
+            }
+
+            .sekolah-mitra-page .mitra-footer-logo > div {
+                width: 38px !important;
+                height: 38px !important;
+                flex-basis: 38px !important;
+            }
+
+            .sekolah-mitra-page .mitra-footer-logo > strong {
+                font-size: 17px !important;
+            }
+        }
+
+        /* =====================================================
+           RESPONSIVE — SMALL MOBILE
+           ===================================================== */
+
+        @media (max-width: 420px) {
+
+            .sekolah-mitra-page .mitra-brand-text strong {
+                font-size: 15px;
+                letter-spacing: 1px;
+            }
+
+            .sekolah-mitra-page .mitra-brand-text small {
+                font-size: 8px;
+                letter-spacing: 1.2px;
+            }
+
+            .sekolah-mitra-page .mitra-logo {
+                width: 51px;
+                height: 51px;
+            }
+
+            .sekolah-mitra-page .mitra-hero h1 {
+                font-size: 29px;
+            }
+
+            .sekolah-mitra-page .school-mitra-badge {
+                font-size: 8px;
+                padding-left: 10px;
+                padding-right: 10px;
+            }
+
+            .sekolah-mitra-page .future-school {
+                flex-direction: column;
+            }
+
+            .sekolah-mitra-page .mitra-collaboration h2 {
+                font-size: 27px;
+            }
+        }
+    </style>
+</head>
+
+<body class="sekolah-mitra-page">
+
+    <!-- =====================================================
+         HEADER
+         ===================================================== -->
+
+    <header class="mitra-header">
+
+        <a href="dashboard.html" class="mitra-back">
+            ← Kembali ke Dashboard
+        </a>
+
+        <div class="mitra-brand">
+
+            <div class="mitra-logo">
+                <img
+                    src="assets/logo-lanting-kata.png"
+                    alt="Logo LANTING KATA"
+                >
+            </div>
+
+            <div class="mitra-brand-text">
+                <strong>
+                    LANTING <span>KATA</span>
+                </strong>
+
+                <small>
+                    SEKOLAH MITRA
+                </small>
+            </div>
+
+        </div>
+
+    </header>
+
+    <!-- =====================================================
+         HERO
+         ===================================================== -->
+
+    <section class="mitra-hero">
+
+        <div class="mitra-hero-decoration">
+            ✦
+        </div>
+
+        <div class="mitra-hero-icon">
+            🏫
+        </div>
+
+        <p class="mitra-label">
+            SEKOLAH MITRA
+        </p>
+
+        <h1>
+            Kenali Sekolah Mitra
+            <span>LANTING KATA</span>
+        </h1>
+
+        <p>
+            LANTING KATA hadir melalui kolaborasi bersama
+            sekolah untuk mengenalkan, menggunakan, dan
+            melestarikan Bahasa Banjar dalam lingkungan
+            pendidikan.
+        </p>
+
+    </section>
+
+    <!-- =====================================================
+         MAIN
+         ===================================================== -->
+
+    <main class="mitra-main">
+
+        <!-- =================================================
+             MENGAPA SEKOLAH MITRA
+             ================================================= -->
+
+        <section class="mitra-intro-section">
+
+            <div class="mitra-section-heading">
+
+                <p>
+                    🌱 KOLABORASI PENDIDIKAN
+                </p>
+
+                <h2>
+                    Mengapa Ada
+                    <span>Sekolah Mitra?</span>
+                </h2>
+
+                <div class="mitra-line"></div>
+
+            </div>
+
+            <p class="mitra-intro-text">
+                LANTING KATA tidak hanya dirancang sebagai
+                kamus Bahasa Banjar digital, tetapi juga sebagai
+                media yang dapat digunakan secara nyata dalam
+                lingkungan pendidikan. Melalui sekolah mitra,
+                LANTING KATA dapat diperkenalkan dan digunakan
+                oleh guru serta peserta didik dalam kegiatan
+                pembelajaran.
+            </p>
+
+            <!-- BENEFIT -->
+
+            <div class="mitra-benefit-grid">
+
+                <article class="mitra-benefit-card">
+
+                    <div class="mitra-benefit-icon">
+                        📚
+                    </div>
+
+                    <h3>
+                        Implementasi
+                    </h3>
+
+                    <p>
+                        LANTING KATA dapat digunakan sebagai
+                        media pendukung untuk mengenalkan
+                        kosakata Bahasa Banjar kepada peserta didik.
+                    </p>
+
+                </article>
+
+                <article class="mitra-benefit-card">
+
+                    <div class="mitra-benefit-icon">
+                        🌱
+                    </div>
+
+                    <h3>
+                        Pelestarian
+                    </h3>
+
+                    <p>
+                        Siswa diajak mengenal dan menggunakan
+                        Bahasa Banjar sebagai bagian dari
+                        lingkungan dan budaya daerah.
+                    </p>
+
+                </article>
+
+                <article class="mitra-benefit-card">
+
+                    <div class="mitra-benefit-icon">
+                        🤝
+                    </div>
+
+                    <h3>
+                        Kolaborasi
+                    </h3>
+
+                    <p>
+                        Sekolah, guru, dan peserta didik dapat
+                        memberikan pengalaman serta masukan
+                        untuk pengembangan LANTING KATA.
+                    </p>
+
+                </article>
+
+            </div>
+
+        </section>
+
+        <!-- =================================================
+             SEKOLAH MITRA
+             ================================================= -->
+
+        <section class="mitra-school-section">
+
+            <div class="mitra-section-heading">
+
+                <p>
+                    🏫 MITRA IMPLEMENTASI
+                </p>
+
+                <h2>
+                    Sekolah yang
+                    <span>Berbagi Langkah</span>
+                </h2>
+
+                <div class="mitra-line"></div>
+
+            </div>
+
+            <!-- GRID SEKOLAH -->
+
+            <div class="school-profile-grid">
+
+                <!-- SEKOLAH 1 -->
+
+                <article class="school-profile-card">
+
+                    <div class="school-profile-visual">
+
+                        <div class="school-visual-pattern">
+                            ✦
+                        </div>
+
+                        <div class="school-building-icon">
+                            🏫
+                        </div>
+
+                        <span class="school-mitra-badge">
+                            ✓ MITRA IMPLEMENTASI
+                        </span>
+
+                    </div>
+
+                    <div class="school-profile-content">
+
+                        <p class="school-profile-label">
+                            SEKOLAH MITRA 01
+                        </p>
+
+                        <h3>
+                            SDN-SN Karang Mekar 1
+                        </h3>
+
+                        <div class="school-location">
+                            📍 Banjarmasin, Kalimantan Selatan
+                        </div>
+
+                        <p class="school-description">
+                            Menjadi salah satu lingkungan
+                            implementasi LANTING KATA dalam
+                            pengenalan Bahasa Banjar melalui
+                            media pembelajaran digital yang
+                            interaktif dan menyenangkan.
+                        </p>
+
+                        <div class="school-details">
+
+                            <div class="school-detail-item">
+
+                                <span>
+                                    👩‍🏫
+                                </span>
+
+                                <div>
+
+                                    <small>
+                                        MITRA
+                                    </small>
+
+                                    <strong>
+                                        Guru dan Peserta Didik
+                                    </strong>
+
+                                </div>
+
+                            </div>
+
+                            <div class="school-detail-item">
+
+                                <span>
+                                    📖
+                                </span>
+
+                                <div>
+
+                                    <small>
+                                        IMPLEMENTASI
+                                    </small>
+
+                                    <strong>
+                                        Media Pendukung Pembelajaran
+                                    </strong>
+
+                                </div>
+
+                            </div>
+
+                            <div class="school-detail-item">
+
+                                <span>
+                                    🌿
+                                </span>
+
+                                <div>
+
+                                    <small>
+                                        FOKUS
+                                    </small>
+
+                                    <strong>
+                                        Pengenalan Bahasa Banjar
+                                    </strong>
+
+                                </div>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </article>
+
+                <!-- SEKOLAH 2 -->
+
+                <article class="school-profile-card">
+
+                    <div class="school-profile-visual">
+
+                        <div class="school-visual-pattern">
+                            ✦
+                        </div>
+
+                        <div class="school-building-icon">
+                            🏫
+                        </div>
+
+                        <span class="school-mitra-badge">
+                            ✓ MITRA IMPLEMENTASI
+                        </span>
+
+                    </div>
+
+                    <div class="school-profile-content">
+
+                        <p class="school-profile-label">
+                            SEKOLAH MITRA 02
+                        </p>
+
+                        <h3>
+                            SDN Sungai Andai 3
+                        </h3>
+
+                        <div class="school-location">
+                            📍 Banjarmasin, Kalimantan Selatan
+                        </div>
+
+                        <p class="school-description">
+                            Menjadi bagian dari perjalanan
+                            LANTING KATA dalam mengenalkan
+                            Bahasa Banjar melalui media digital
+                            yang dekat dengan pengalaman belajar
+                            peserta didik.
+                        </p>
+
+                        <div class="school-details">
+
+                            <div class="school-detail-item">
+
+                                <span>
+                                    👩‍🏫
+                                </span>
+
+                                <div>
+
+                                    <small>
+                                        MITRA
+                                    </small>
+
+                                    <strong>
+                                        Guru dan Peserta Didik
+                                    </strong>
+
+                                </div>
+
+                            </div>
+
+                            <div class="school-detail-item">
+
+                                <span>
+                                    📖
+                                </span>
+
+                                <div>
+
+                                    <small>
+                                        IMPLEMENTASI
+                                    </small>
+
+                                    <strong>
+                                        Media Pendukung Pembelajaran
+                                    </strong>
+
+                                </div>
+
+                            </div>
+
+                            <div class="school-detail-item">
+
+                                <span>
+                                    🌿
+                                </span>
+
+                                <div>
+
+                                    <small>
+                                        FOKUS
+                                    </small>
+
+                                    <strong>
+                                        Pengenalan Bahasa Banjar
+                                    </strong>
+
+                                </div>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </article>
+
+            </div>
+
+            <!-- TAMBAH SEKOLAH NANTI -->
+
+            <div class="future-school">
+
+                <div class="future-school-icon">
+                    🌱
+                </div>
+
+                <div>
+
+                    <strong>
+                        Perjalanan LANTING KATA terus berkembang
+                    </strong>
+
+                    <p>
+                        Sekolah mitra lainnya dapat menjadi bagian
+                        dari perjalanan ini di kemudian hari.
+                    </p>
+
+                </div>
+
+            </div>
+
+        </section>
+
+        <!-- =================================================
+             BENTUK IMPLEMENTASI
+             ================================================= -->
+
+        <section class="implementasi-section">
+
+            <div class="mitra-section-heading">
+
+                <p>
+                    📚 BENTUK IMPLEMENTASI
+                </p>
+
+                <h2>
+                    Belajar Bahasa Banjar
+                    <span>Dengan Cara Menyenangkan</span>
+                </h2>
+
+                <div class="mitra-line"></div>
+
+            </div>
+
+            <div class="implementasi-grid">
+
+                <div class="implementasi-card">
+
+                    <div class="implementasi-number">
+                        01
+                    </div>
+
+                    <div class="implementasi-icon">
+                        📖
+                    </div>
+
+                    <h3>
+                        Mengenal Kosakata
+                    </h3>
+
+                    <p>
+                        Peserta didik mengenal kosakata
+                        Bahasa Banjar beserta arti dan
+                        contoh penggunaannya.
+                    </p>
+
+                </div>
+
+                <div class="implementasi-card">
+
+                    <div class="implementasi-number">
+                        02
+                    </div>
+
+                    <div class="implementasi-icon">
+                        🎮
+                    </div>
+
+                    <h3>
+                        Belajar Sambil Bermain
+                    </h3>
+
+                    <p>
+                        Games interaktif membantu peserta
+                        didik belajar Bahasa Banjar dengan
+                        suasana yang menyenangkan.
+                    </p>
+
+                </div>
+
+                <div class="implementasi-card">
+
+                    <div class="implementasi-number">
+                        03
+                    </div>
+
+                    <div class="implementasi-icon">
+                        💬
+                    </div>
+
+                    <h3>
+                        Menggunakan dalam Kalimat
+                    </h3>
+
+                    <p>
+                        Peserta didik mengenal penggunaan
+                        kosakata melalui contoh kalimat
+                        Bahasa Banjar.
+                    </p>
+
+                </div>
+
+                <div class="implementasi-card">
+
+                    <div class="implementasi-number">
+                        04
+                    </div>
+
+                    <div class="implementasi-icon">
+                        🌱
+                    </div>
+
+                    <h3>
+                        Ikut Melestarikan
+                    </h3>
+
+                    <p>
+                        Pengalaman belajar menjadi bagian
+                        dari upaya menjaga Bahasa Banjar
+                        agar tetap dikenal generasi muda.
+                    </p>
+
+                </div>
+
+            </div>
+
+        </section>
+
+        <!-- =================================================
+             DOKUMENTASI
+             ================================================= -->
+
+        <section class="mitra-gallery-section">
+
+            <div class="mitra-section-heading">
+
+                <p>
+                    📸 DOKUMENTASI
+                </p>
+
+                <h2>
+                    Momen Implementasi
+                    <span>LANTING KATA</span>
+                </h2>
+
+                <div class="mitra-line"></div>
+
+            </div>
+
+            <div class="gallery-placeholder">
+
+                <div class="gallery-placeholder-icon">
+                    📷
+                </div>
+
+                <h3>
+                    Dokumentasi Segera Hadir
+                </h3>
+
+                <p>
+                    Foto kegiatan implementasi LANTING KATA
+                    bersama sekolah mitra akan ditampilkan
+                    di bagian ini.
+                </p>
+
+            </div>
+
+        </section>
+
+        <!-- =================================================
+             AJAKAN KOLABORASI
+             ================================================= -->
+
+        <section class="mitra-collaboration">
+
+            <div class="collaboration-decoration">
+                ✦
+            </div>
+
+            <div class="collaboration-icon">
+                🤝
+            </div>
+
+            <p>
+                BERSAMA MELESTARIKAN BAHASA BANJAR
+            </p>
+
+            <h2>
+                Mari Tumbuhkan Kecintaan
+                <span>Terhadap Bahasa Banjar</span>
+            </h2>
+
+            <p class="collaboration-text">
+                LANTING KATA terbuka untuk terus belajar,
+                berkembang, dan berkolaborasi bersama
+                lingkungan pendidikan dalam mengenalkan
+                Bahasa Banjar kepada generasi muda.
+            </p>
+
+            <a
+                href="dashboard.html"
+                class="collaboration-button"
+            >
+                🌿 Jelajahi LANTING KATA
+
+                <span>
+                    →
+                </span>
+            </a>
+
+        </section>
+
+    </main>
+
+    <!-- =====================================================
+         FOOTER
+         ===================================================== -->
+
+    <footer class="mitra-footer">
+
+        <div class="mitra-footer-logo">
+
+            <div>
+                <img
+                    src="assets/logo-lanting-kata.png"
+                    alt="Logo LANTING KATA"
+                >
+            </div>
+
+            <strong>
+                LANTING <span>KATA</span>
+            </strong>
+
+        </div>
+
+        <p>
+            Mengenal Bahasa Banjar, melestarikan kata,
+            dan tumbuh bersama generasi muda.
+        </p>
+
+        <small>
+            © 2026 LANTING KATA — Sekolah Mitra
+        </small>
+
+    </footer>
+
+</body>
+</html>

@@ -1,0 +1,845 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Tentang Aplikasi | LANTING KATA</title>
+
+    <link rel="stylesheet" href="css/style.css">
+
+    <style>
+
+        /* =====================================================
+           FOOTER TENTANG APLIKASI — FULL WIDTH
+           ===================================================== */
+
+        .about-page .page-footer {
+            position: relative;
+
+            width: 100%;
+            min-width: 100%;
+
+            margin: 0;
+
+            padding: 38px 7% 28px;
+
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+
+            gap: 8px;
+
+            box-sizing: border-box;
+
+            text-align: center;
+
+            background:
+                linear-gradient(
+                    135deg,
+                    #21483d 0%,
+                    #356859 55%,
+                    #21483d 100%
+                );
+
+            color: #ffffff;
+
+            border-top:
+                3px solid #d6a84f;
+
+            overflow: hidden;
+        }
+
+
+        .about-page .page-footer::before {
+            content: "";
+
+            position: absolute;
+            inset: 0;
+
+            background-image:
+                url("assets/sasirangan-hijau.jpg");
+
+            background-size: 420px auto;
+            background-repeat: repeat;
+            background-position: center;
+
+            opacity: .09;
+
+            pointer-events: none;
+        }
+
+
+        .about-page .page-footer::after {
+            content: "";
+
+            position: absolute;
+
+            width: 420px;
+            height: 420px;
+
+            right: -180px;
+            bottom: -280px;
+
+            border-radius: 50%;
+
+            background:
+                rgba(214,168,79,.10);
+
+            pointer-events: none;
+        }
+
+
+        .about-page .page-footer > * {
+            position: relative;
+
+            z-index: 2;
+        }
+
+
+        /* =====================================================
+           FOOTER BRAND
+           ===================================================== */
+
+        .about-page .page-footer .footer-brand {
+            width: 100%;
+
+            margin: 0 auto 5px;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            gap: 12px;
+
+            text-align: center;
+        }
+
+
+        .about-page .page-footer .footer-brand .brand-logo {
+            width: 44px;
+            height: 44px;
+
+            flex: 0 0 44px;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            overflow: hidden;
+
+            border-radius: 50%;
+
+            border:
+                2px solid #d6a84f;
+
+            background: #ffffff;
+
+            box-shadow:
+                0 4px 12px rgba(0,0,0,.18);
+        }
+
+
+        .about-page .page-footer .footer-brand .brand-logo img {
+            width: 100%;
+            height: 100%;
+
+            display: block;
+
+            object-fit: cover;
+            object-position: center;
+        }
+
+
+        .about-page .page-footer .footer-brand .brand-name {
+            color: #ffffff;
+
+            font-size: 20px;
+            font-weight: 900;
+
+            line-height: 1.1;
+
+            letter-spacing: 1.2px;
+
+            text-align: center;
+        }
+
+
+        .about-page .page-footer .footer-brand .brand-name span {
+            color: #d6a84f;
+        }
+
+
+        /* =====================================================
+           FOOTER DESCRIPTION
+           ===================================================== */
+
+        .about-page .page-footer > p:not(.copyright) {
+            display: block;
+
+            width: 100%;
+            max-width: 500px;
+
+            margin: 0 auto;
+
+            color:
+                rgba(255,255,255,.86);
+
+            font-size: 13px;
+            font-weight: 600;
+
+            line-height: 1.6;
+
+            letter-spacing: .35px;
+
+            text-align: center;
+        }
+
+
+        /* =====================================================
+           COPYRIGHT
+           ===================================================== */
+
+        .about-page .page-footer .copyright {
+            display: block;
+
+            width: 100%;
+            max-width: 700px;
+
+            margin: 5px auto 0;
+
+            color:
+                rgba(255,255,255,.70);
+
+            font-size: 11px;
+            font-weight: 500;
+
+            line-height: 1.6;
+
+            text-align: center;
+        }
+
+
+        /* =====================================================
+           MOBILE
+           ===================================================== */
+
+        @media (max-width: 520px) {
+
+            .about-page .page-footer {
+                padding:
+                    32px 18px 25px;
+            }
+
+
+            .about-page .page-footer .footer-brand {
+                gap: 9px;
+            }
+
+
+            .about-page .page-footer .footer-brand .brand-logo {
+                width: 38px;
+                height: 38px;
+
+                flex-basis: 38px;
+            }
+
+
+            .about-page .page-footer .footer-brand .brand-name {
+                font-size: 17px;
+            }
+
+
+            .about-page .page-footer > p:not(.copyright) {
+                font-size: 12px;
+            }
+
+
+            .about-page .page-footer .copyright {
+                font-size: 10px;
+            }
+
+        }
+
+    </style>
+
+</head>
+
+<body class="about-page">
+
+    <!-- ================= HEADER ================= -->
+
+    <header class="page-header">
+
+        <a href="dashboard.html" class="back-link">
+            ← Kembali ke Dashboard
+        </a>
+
+
+        <div class="brand">
+
+            <div class="brand-logo">
+                <img
+                    src="assets/logo-lanting-kata.png"
+                    alt="Logo LANTING KATA"
+                >
+            </div>
+
+            <div class="brand-name">
+                LANTING <span>KATA</span>
+            </div>
+
+        </div>
+
+    </header>
+
+
+    <!-- ================= KONTEN UTAMA ================= -->
+
+    <main class="about-page">
+
+
+        <!-- ================= HERO ================= -->
+
+        <section class="about-hero">
+
+            <div class="section-label">
+                TENTANG LANTING KATA
+            </div>
+
+            <h1>
+                Belajar Bahasa Banjar,
+                <span>Melestarikan Budaya</span>
+            </h1>
+
+            <p>
+                LANTING KATA merupakan website pembelajaran Bahasa Banjar
+                yang dirancang untuk menghadirkan pengalaman belajar yang
+                mudah, menyenangkan, interaktif, dan berbasis budaya lokal.
+            </p>
+
+        </section>
+
+
+        <!-- ================= TUJUAN ================= -->
+
+        <section class="about-section">
+
+            <div class="section-label">
+                MENGAPA LANTING KATA?
+            </div>
+
+            <h2>
+                Dari bahasa daerah,
+                <span>untuk generasi masa depan.</span>
+            </h2>
+
+            <p class="section-intro">
+                LANTING KATA hadir sebagai sebuah inovasi pembelajaran
+                digital yang menghubungkan teknologi dengan pelestarian
+                Bahasa Banjar.
+            </p>
+
+
+            <div class="purpose-grid">
+
+                <!-- 01 -->
+
+                <div class="purpose-card">
+
+                    <div class="purpose-icon">
+                        📚
+                    </div>
+
+                    <h3>
+                        Mempermudah Pembelajaran
+                    </h3>
+
+                    <p>
+                        Membantu siswa mempelajari Bahasa Banjar melalui
+                        kamus digital, cerita, permainan, gambar, dan
+                        berbagai aktivitas interaktif.
+                    </p>
+
+                </div>
+
+
+                <!-- 02 -->
+
+                <div class="purpose-card">
+
+                    <div class="purpose-icon">
+                        🌱
+                    </div>
+
+                    <h3>
+                        Melestarikan Bahasa Daerah
+                    </h3>
+
+                    <p>
+                        Menjadi ruang digital untuk mengenal, menggunakan,
+                        dan menjaga keberadaan kosakata Bahasa Banjar.
+                    </p>
+
+                </div>
+
+
+                <!-- 03 -->
+
+                <div class="purpose-card">
+
+                    <div class="purpose-icon">
+                        💡
+                    </div>
+
+                    <h3>
+                        Menciptakan Pembelajaran Interaktif
+                    </h3>
+
+                    <p>
+                        Menghadirkan pengalaman belajar yang tidak hanya
+                        membaca, tetapi juga bermain, mendengar, melihat,
+                        dan berkontribusi.
+                    </p>
+
+                </div>
+
+
+                <!-- 04 -->
+
+                <div class="purpose-card">
+
+                    <div class="purpose-icon">
+                        🤝
+                    </div>
+
+                    <h3>
+                        Mengajak Masyarakat Berkontribusi
+                    </h3>
+
+                    <p>
+                        Memberikan kesempatan kepada pengguna untuk
+                        menambahkan kosakata, cerita, dan karya berbahasa
+                        Banjar.
+                    </p>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- ================= MANFAAT ================= -->
+
+        <section class="about-section">
+
+            <div class="section-label">
+                MANFAAT
+            </div>
+
+            <h2>
+                Satu platform,
+                <span>banyak manfaat.</span>
+            </h2>
+
+
+            <div class="benefit-grid">
+
+                <!-- 01 -->
+
+                <div class="benefit-card">
+
+                    <div class="benefit-number">
+                        01
+                    </div>
+
+                    <div>
+
+                        <h3>
+                            Untuk Siswa
+                        </h3>
+
+                        <p>
+                            Siswa dapat belajar Bahasa Banjar dengan cara
+                            yang lebih menarik melalui permainan, cerita,
+                            video, kamus, gambar, dan suara.
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <!-- 02 -->
+
+                <div class="benefit-card">
+
+                    <div class="benefit-number">
+                        02
+                    </div>
+
+                    <div>
+
+                        <h3>
+                            Untuk Guru
+                        </h3>
+
+                        <p>
+                            Guru memperoleh media pembelajaran berbasis
+                            budaya lokal yang dapat digunakan untuk
+                            mendukung pembelajaran Bahasa Banjar.
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <!-- 03 -->
+
+                <div class="benefit-card">
+
+                    <div class="benefit-number">
+                        03
+                    </div>
+
+                    <div>
+
+                        <h3>
+                            Untuk Masyarakat
+                        </h3>
+
+                        <p>
+                            Masyarakat dapat ikut menjaga dan memperkaya
+                            kosakata Bahasa Banjar melalui kontribusi
+                            kosakata, cerita, maupun karya lainnya.
+                        </p>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- ================= SDGs ================= -->
+
+        <section class="sdg-section">
+
+            <div class="section-label">
+                LANTING KATA &amp; SDGs
+            </div>
+
+            <h2>
+                Belajar lokal,
+                <span>berdampak global.</span>
+            </h2>
+
+            <p class="section-intro">
+                Pengembangan LANTING KATA turut mendukung beberapa
+                Sustainable Development Goals (SDGs).
+            </p>
+
+
+            <div class="sdg-grid">
+
+                <!-- SDG 4 -->
+
+                <div class="sdg-card">
+
+                    <div class="sdg-number">
+                        4
+                    </div>
+
+                    <div class="sdg-content">
+
+                        <h3>
+                            Pendidikan Berkualitas
+                        </h3>
+
+                        <p>
+                            Mendukung pembelajaran yang inklusif, kreatif,
+                            interaktif, dan berbasis teknologi.
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <!-- SDG 11 -->
+
+                <div class="sdg-card">
+
+                    <div class="sdg-number">
+                        11
+                    </div>
+
+                    <div class="sdg-content">
+
+                        <h3>
+                            Kota dan Komunitas Berkelanjutan
+                        </h3>
+
+                        <p>
+                            Mendukung pelestarian budaya lokal dan
+                            keberagaman bahasa dalam kehidupan masyarakat.
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <!-- SDG 17 -->
+
+                <div class="sdg-card">
+
+                    <div class="sdg-number">
+                        17
+                    </div>
+
+                    <div class="sdg-content">
+
+                        <h3>
+                            Kemitraan untuk Mencapai Tujuan
+                        </h3>
+
+                        <p>
+                            Membangun kolaborasi antara mahasiswa, sekolah
+                            mitra, guru, siswa, dan masyarakat.
+                        </p>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- ================= PERJALANAN ================= -->
+
+        <section class="journey-section">
+
+            <div class="section-label">
+                PERJALANAN LANTING KATA
+            </div>
+
+            <h2>
+                Dari permasalahan
+                <span>menuju solusi inovatif.</span>
+            </h2>
+
+
+            <div class="journey-timeline">
+
+                <!-- 01 -->
+
+                <div class="journey-item">
+
+                    <div class="journey-number">
+                        01
+                    </div>
+
+                    <div class="journey-content">
+
+                        <div class="journey-icon">
+                            🔎
+                        </div>
+
+                        <h3>
+                            Permasalahan
+                        </h3>
+
+                        <p>
+                            Murid semakin jarang menggunakan Bahasa Banjar
+                            dalam kehidupan sehari-hari, sementara media
+                            pembelajaran digital berbasis budaya lokal
+                            masih terbatas.
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <!-- 02 -->
+
+                <div class="journey-item">
+
+                    <div class="journey-number">
+                        02
+                    </div>
+
+                    <div class="journey-content">
+
+                        <div class="journey-icon">
+                            💭
+                        </div>
+
+                        <h3>
+                            Ide Pembuatan LANTING KATA
+                        </h3>
+
+                        <p>
+                            Muncul gagasan untuk menghadirkan sebuah
+                            platform digital yang dapat membantu generasi
+                            muda mengenal dan mempelajari Bahasa Banjar
+                            dengan cara yang menyenangkan.
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <!-- 03 -->
+
+                <div class="journey-item">
+
+                    <div class="journey-number">
+                        03
+                    </div>
+
+                    <div class="journey-content">
+
+                        <div class="journey-icon">
+                            💻
+                        </div>
+
+                        <h3>
+                            Pengembangan Website
+                        </h3>
+
+                        <p>
+                            LANTING KATA dikembangkan dengan berbagai fitur
+                            seperti kamus digital, pencarian kosakata,
+                            cerita pendek, games, serta fitur kontribusi masyarakat.
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <!-- 04 -->
+
+                <div class="journey-item">
+
+                    <div class="journey-number">
+                        04
+                    </div>
+
+                    <div class="journey-content">
+
+                        <div class="journey-icon">
+                            🏫
+                        </div>
+
+                        <h3>
+                            Implementasi di Sekolah Mitra
+                        </h3>
+
+                        <p>
+                            LANTING KATA diimplementasikan bersama sekolah
+                            mitra untuk mendukung pembelajaran Bahasa Banjar
+                            yang lebih interaktif dan berbasis budaya lokal.
+                        </p>
+
+                        <div class="school-tags">
+
+                            <span>
+                                SDN-SN Karang Mekar 1
+                            </span>
+
+                            <span>
+                                SDN Sungai Andai 3
+                            </span>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- ================= PENUTUP ================= -->
+
+        <section class="about-closing">
+
+            <div class="closing-icon">
+                🛶
+            </div>
+
+            <h2>
+                Yuk, jaga Bahasa Banjar bersama!
+            </h2>
+
+            <p>
+                Setiap kata memiliki cerita.
+                Setiap bahasa memiliki budaya.
+                Mari bersama-sama menjaga Bahasa Banjar
+                agar tetap hidup dan dikenal oleh generasi berikutnya.
+            </p>
+
+            <a href="dashboard.html" class="closing-button">
+                Jelajahi LANTING KATA
+                <span>→</span>
+            </a>
+
+        </section>
+
+
+    </main>
+
+
+    <!-- ================= FOOTER ================= -->
+
+    <footer class="page-footer">
+
+        <div class="footer-brand">
+
+            <div class="brand-logo">
+
+                <img
+                    src="assets/logo-lanting-kata.png"
+                    alt="Logo LANTING KATA"
+                >
+
+            </div>
+
+            <div class="brand-name">
+                LANTING <span>KATA</span>
+            </div>
+
+        </div>
+
+
+        <p>
+            Belajar Bahasa Banjar menjadi lebih mudah,
+            menyenangkan, dan interaktif.
+        </p>
+
+
+        <p class="copyright">
+            © 2026 LANTING KATA. Dikembangkan untuk Proyek Kepemimpinan
+            PPG Prajabatan PGSD Universitas Lambung Mangkurat.
+        </p>
+
+    </footer>
+
+
+</body>
+
+</html>

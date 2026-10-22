@@ -1,0 +1,2342 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cerita Pendek | LANTING KATA</title>
+    <link rel="stylesheet" href="css/style.css">
+
+    <style>
+        /* =====================================================
+           CERITA PAGE
+        ===================================================== */
+        body.cerita-page {
+            min-height: 100vh;
+            background:
+                radial-gradient(
+                    circle at 85% 20%,
+                    rgba(111, 159, 135, 0.10),
+                    transparent 28%
+                ),
+                var(--cream);
+            color: var(--text);
+        }
+
+        /* =====================================================
+           HEADER
+        ===================================================== */
+        .cerita-page .cerita-header {
+            position: relative;
+            width: 100%;
+            min-height: 88px;
+            padding: 10px 7%;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            background-color: var(--green-dark);
+            overflow: hidden;
+            box-shadow:
+                0 3px 15px rgba(33, 72, 61, 0.14);
+            z-index: 20;
+        }
+
+        .cerita-page .cerita-header::before {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background-image:
+                url("assets/sasirangan-hijau.jpg");
+            background-size: 420px auto;
+            background-repeat: repeat;
+            background-position: center;
+            opacity: 0.09;
+            pointer-events: none;
+        }
+
+        /* =====================================================
+           TOMBOL KEMBALI
+        ===================================================== */
+        .cerita-page .cerita-back {
+            position: relative;
+            z-index: 2;
+            display: inline-flex;
+            align-items: center;
+            padding: 10px 17px;
+            border: 1px solid rgba(255,255,255,0.28);
+            border-radius: 999px;
+            background: rgba(255,255,255,0.08);
+            color: var(--white);
+            text-decoration: none;
+            font-size: 13px;
+            font-weight: 700;
+            transition:
+                background 0.25s ease,
+                transform 0.25s ease,
+                border-color 0.25s ease;
+        }
+
+        .cerita-page .cerita-back:hover {
+            background: rgba(255,255,255,0.17);
+            border-color:
+                rgba(255,255,255,0.55);
+            transform: translateY(-2px);
+        }
+
+        /* =====================================================
+           BRAND HEADER
+        ===================================================== */
+        .cerita-page .cerita-brand {
+            position: relative;
+            z-index: 2;
+            display: flex;
+            align-items: center;
+            gap: 11px;
+        }
+
+        .cerita-page .cerita-brand-logo {
+            width: 58px;
+            height: 58px;
+            padding: 3px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            background: var(--white);
+            border: 3px solid var(--gold);
+            color: var(--green-dark);
+            font-size: 0;
+            box-shadow:
+                0 3px 10px rgba(0,0,0,0.18);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .cerita-page .cerita-brand-logo::before {
+            content: "";
+            position: absolute;
+            inset: 4px;
+            border-radius: 50%;
+            background-image:
+                url("assets/logo-lanting-kata.png");
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+        }
+
+        .cerita-page .cerita-brand-logo::after {
+            content: "";
+            position: absolute;
+            inset: 5px;
+            border-radius: 50%;
+            border:
+                1px solid
+                rgba(214,168,79,0.50);
+            pointer-events: none;
+        }
+
+        .cerita-page .cerita-brand-name {
+            color: var(--white);
+            font-size: 18px;
+            font-weight: 900;
+            letter-spacing: 1.5px;
+            line-height: 1;
+        }
+
+        .cerita-page .cerita-brand-name span {
+            color: var(--gold);
+        }
+
+        /* =====================================================
+           HERO
+        ===================================================== */
+        .cerita-page .cerita-hero {
+            position: relative;
+            width: 100%;
+            padding:
+                75px 7%
+                70px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            background:
+                linear-gradient(
+                    180deg,
+                    #eef8f3 0%,
+                    var(--cream) 100%
+                );
+            overflow: hidden;
+        }
+
+        .cerita-page .cerita-hero::before {
+            content: "";
+            position: absolute;
+            width: 360px;
+            height: 360px;
+            top: -190px;
+            right: -120px;
+            border-radius: 50%;
+            background:
+                rgba(105,184,194,0.13);
+            pointer-events: none;
+        }
+
+        .cerita-page .cerita-hero::after {
+            content: "";
+            position: absolute;
+            width: 280px;
+            height: 280px;
+            bottom: -170px;
+            left: -100px;
+            border-radius: 50%;
+            background:
+                rgba(111,159,135,0.12);
+            pointer-events: none;
+        }
+
+        .cerita-page .cerita-hero-icon {
+            position: relative;
+            z-index: 2;
+            width: 72px;
+            height: 72px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 20px;
+            border-radius: 22px;
+            background:
+                linear-gradient(
+                    145deg,
+                    #ffffff,
+                    #e7f3ed
+                );
+            border:
+                1px solid
+                rgba(53,104,89,0.10);
+            font-size: 34px;
+            box-shadow:
+                0 10px 28px
+                rgba(33,72,61,0.10);
+        }
+
+        .cerita-page .cerita-label {
+            position: relative;
+            z-index: 2;
+            margin: 0 0 12px;
+            color: var(--gold);
+            font-size: 11px;
+            font-weight: 900;
+            letter-spacing: 2px;
+        }
+
+        .cerita-page .cerita-hero h1 {
+            position: relative;
+            z-index: 2;
+            max-width: 800px;
+            margin: 0 0 18px;
+            color: var(--green-dark);
+            font-size:
+                clamp(34px, 5vw, 52px);
+            font-weight: 900;
+            line-height: 1.12;
+            letter-spacing: -0.5px;
+        }
+
+        .cerita-page .cerita-hero h1 span {
+            color: var(--green);
+        }
+
+        .cerita-page .cerita-hero > p:last-child {
+            position: relative;
+            z-index: 2;
+            max-width: 700px;
+            margin: 0;
+            color:
+                rgba(38,59,54,0.72);
+            font-size: 15px;
+            line-height: 1.8;
+        }
+
+        /* =====================================================
+           MAIN
+        ===================================================== */
+        .cerita-page .cerita-main {
+            width: 86%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding:
+                65px 0 80px;
+        }
+
+        /* =====================================================
+           SECTION HEADING
+        ===================================================== */
+        .cerita-page .cerita-section-heading {
+            text-align: center;
+            margin-bottom: 42px;
+        }
+
+        .cerita-page .cerita-section-heading > p {
+            margin: 0 0 9px;
+            color: var(--gold);
+            font-size: 10px;
+            font-weight: 900;
+            letter-spacing: 2px;
+        }
+
+        .cerita-page .cerita-section-heading h2 {
+            margin: 0;
+            color: var(--green-dark);
+            font-size:
+                clamp(27px, 4vw, 36px);
+            font-weight: 900;
+            line-height: 1.2;
+        }
+
+        .cerita-page .cerita-section-heading h2 span {
+            color: var(--green);
+        }
+
+        .cerita-page .cerita-line {
+            width: 60px;
+            height: 4px;
+            margin: 16px auto 0;
+            border-radius: 999px;
+            background:
+                linear-gradient(
+                    90deg,
+                    var(--green),
+                    var(--gold)
+                );
+        }
+
+        /* =====================================================
+           CERITA CARD
+        ===================================================== */
+        .cerita-page .cerita-card {
+            width: 100%;
+            margin-bottom: 32px;
+            display: grid;
+            grid-template-columns:
+                minmax(230px, 0.72fr)
+                minmax(0, 1.7fr);
+            gap: 0;
+            background: var(--white);
+            border:
+                1px solid
+                rgba(53,104,89,0.10);
+            border-radius: 25px;
+            overflow: hidden;
+            box-shadow:
+                0 9px 28px
+                rgba(33,72,61,0.075);
+            transition:
+                transform 0.25s ease,
+                box-shadow 0.25s ease;
+        }
+
+        .cerita-page .cerita-card:hover {
+            transform: translateY(-4px);
+            box-shadow:
+                0 15px 35px
+                rgba(33,72,61,0.11);
+        }
+
+        /* =====================================================
+           COVER
+        ===================================================== */
+        .cerita-page .cerita-cover {
+            min-height: 430px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 28px;
+            background:
+                linear-gradient(
+                    145deg,
+                    #dff3f5,
+                    #eef8f3
+                );
+            position: relative;
+            overflow: hidden;
+        }
+
+        .cerita-page .cerita-cover::before {
+            content: "";
+            position: absolute;
+            width: 240px;
+            height: 240px;
+            top: -100px;
+            left: -90px;
+            border-radius: 50%;
+            background:
+                rgba(255,255,255,0.45);
+        }
+
+        .cerita-page .cerita-cover::after {
+            content: "";
+            position: absolute;
+            width: 180px;
+            height: 180px;
+            right: -70px;
+            bottom: -80px;
+            border-radius: 50%;
+            background:
+                rgba(105,184,194,0.15);
+        }
+
+        .cerita-page .cover-placeholder {
+            position: relative;
+            z-index: 2;
+            width: 175px;
+            height: 210px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 20px;
+            background:
+                linear-gradient(
+                    145deg,
+                    #ffffff,
+                    #edf7f2
+                );
+            border:
+                3px solid
+                rgba(214,168,79,0.65);
+            font-size: 58px;
+            letter-spacing: 4px;
+            box-shadow:
+                0 12px 30px
+                rgba(33,72,61,0.12);
+        }
+
+        /* =====================================================
+           CARD CONTENT
+        ===================================================== */
+        .cerita-page .cerita-card-content {
+            min-width: 0;
+            padding:
+                35px 38px 38px;
+        }
+
+        .cerita-page .cerita-category {
+            display: inline-flex;
+            align-items: center;
+            padding: 7px 12px;
+            margin-bottom: 13px;
+            border-radius: 999px;
+            background:
+                #edf7f2;
+            color: var(--green);
+            font-size: 11px;
+            font-weight: 800;
+        }
+
+        .cerita-page .cerita-card-content h3 {
+            margin: 0 0 8px;
+            color: var(--green-dark);
+            font-size:
+                clamp(24px, 3vw, 30px);
+            font-weight: 900;
+            line-height: 1.25;
+        }
+
+        .cerita-page .cerita-author {
+            margin: 0 0 25px;
+            color:
+                rgba(38,59,54,0.58);
+            font-size: 12px;
+            line-height: 1.6;
+        }
+
+        /* =====================================================
+           TEXT CERITA
+        ===================================================== */
+        .cerita-page .cerita-text,
+        .cerita-page .cerita-translation {
+            margin-top: 18px;
+            padding: 22px 24px;
+            border-radius: 17px;
+        }
+
+        .cerita-page .cerita-text {
+            background:
+                #f3faf6;
+            border-left:
+                4px solid
+                var(--green);
+        }
+
+        .cerita-page .cerita-translation {
+            background:
+                #fff9eb;
+            border-left:
+                4px solid
+                var(--gold);
+        }
+
+        .cerita-page .cerita-text h4,
+        .cerita-page .cerita-translation h4 {
+            margin: 0 0 13px;
+            font-size: 13px;
+            font-weight: 900;
+            color: var(--green-dark);
+        }
+
+        .cerita-page .cerita-translation h4 {
+            color: var(--brown-dark);
+        }
+
+        .cerita-page .cerita-text p,
+        .cerita-page .cerita-translation p {
+            margin: 0 0 12px;
+            color:
+                rgba(38,59,54,0.78);
+            font-size: 14px;
+            line-height: 1.85;
+        }
+
+        .cerita-page .cerita-text p:last-child,
+        .cerita-page .cerita-translation p:last-child {
+            margin-bottom: 0;
+        }
+
+        /* =====================================================
+           CERITA PENGUNJUNG
+        ===================================================== */
+        .cerita-page .cerita-pengunjung {
+            margin-top: 32px;
+        }
+
+        .cerita-page .cerita-pengunjung .cerita-cover img {
+            display: block;
+            width: 100%;
+            height: 100%;
+            min-height: 430px;
+            object-fit: cover;
+        }
+
+        /* =====================================================
+           PAGINATION
+        ===================================================== */
+        .cerita-page .pagination-cerita {
+            width: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin:
+                35px 0 60px;
+        }
+
+        .cerita-page .pagination-btn {
+            min-width: 42px;
+            min-height: 40px;
+            padding:
+                8px 13px;
+            border:
+                1px solid
+                rgba(53,104,89,0.15);
+            border-radius: 10px;
+            background:
+                var(--white);
+            color:
+                var(--green-dark);
+            font-family: inherit;
+            font-size: 12px;
+            font-weight: 800;
+            cursor: pointer;
+            transition:
+                background 0.2s ease,
+                color 0.2s ease,
+                transform 0.2s ease;
+        }
+
+        .cerita-page .pagination-btn:hover:not(:disabled) {
+            background:
+                #edf7f2;
+            transform: translateY(-2px);
+        }
+
+        .cerita-page .pagination-btn.active {
+            background:
+                var(--green-dark);
+            color:
+                var(--white);
+            border-color:
+                var(--green-dark);
+        }
+
+        .cerita-page .pagination-btn:disabled {
+            opacity: 0.40;
+            cursor: not-allowed;
+        }
+
+        /* =====================================================
+           BAGIKAN CERITA
+        ===================================================== */
+        .cerita-page .tambah-cerita {
+            position: relative;
+            width: 100%;
+            padding:
+                45px 48px 50px;
+            border-radius: 28px;
+            background:
+                linear-gradient(
+                    145deg,
+                    #f1f8f4,
+                    #ffffff
+                );
+            border:
+                1px solid
+                rgba(53,104,89,0.10);
+            box-shadow:
+                0 9px 28px
+                rgba(33,72,61,0.065);
+            overflow: hidden;
+        }
+
+        .cerita-page .tambah-cerita::before {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background-image:
+                url("assets/sasirangan-hijau.jpg");
+            background-size: 420px auto;
+            background-repeat: repeat;
+            opacity: 0.035;
+            pointer-events: none;
+        }
+
+        .cerita-page .tambah-cerita > * {
+            position: relative;
+            z-index: 2;
+        }
+
+        .cerita-page .tambah-cerita-heading {
+            display: flex;
+            align-items: center;
+            gap: 17px;
+            margin-bottom: 16px;
+        }
+
+        .cerita-page .tambah-icon {
+            width: 58px;
+            height: 58px;
+            flex-shrink: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 17px;
+            background:
+                var(--green-dark);
+            color: var(--white);
+            font-size: 25px;
+            box-shadow:
+                0 6px 16px
+                rgba(33,72,61,0.15);
+        }
+
+        .cerita-page .tambah-cerita-heading p {
+            margin: 0 0 5px;
+            color: var(--gold);
+            font-size: 10px;
+            font-weight: 900;
+            letter-spacing: 1.8px;
+        }
+
+        .cerita-page .tambah-cerita-heading h2 {
+            margin: 0;
+            color: var(--green-dark);
+            font-size: 29px;
+            font-weight: 900;
+        }
+
+        .cerita-page .tambah-cerita-heading h2 span {
+            color: var(--green);
+        }
+
+        .cerita-page .tambah-description {
+            max-width: 760px;
+            margin: 0 0 30px;
+            color:
+                rgba(38,59,54,0.68);
+            font-size: 14px;
+            line-height: 1.75;
+        }
+
+        /* =====================================================
+           FORM
+        ===================================================== */
+        .cerita-page .form-cerita {
+            display: grid;
+            grid-template-columns:
+                repeat(2, minmax(0, 1fr));
+            gap: 20px 22px;
+        }
+
+        .cerita-page .form-group {
+            min-width: 0;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .cerita-page .form-group.full-width {
+            grid-column: 1 / -1;
+        }
+
+        .cerita-page .form-group label {
+            margin-bottom: 8px;
+            color: var(--green-dark);
+            font-size: 12px;
+            font-weight: 800;
+        }
+
+        .cerita-page .form-group input,
+        .cerita-page .form-group select,
+        .cerita-page .form-group textarea {
+            width: 100%;
+            padding:
+                13px 15px;
+            border:
+                1px solid
+                rgba(53,104,89,0.18);
+            border-radius: 12px;
+            background:
+                rgba(255,255,255,0.90);
+            color: var(--text);
+            font-family: inherit;
+            font-size: 13px;
+            outline: none;
+            transition:
+                border-color 0.2s ease,
+                box-shadow 0.2s ease,
+                background 0.2s ease;
+            box-sizing: border-box;
+        }
+
+        .cerita-page .form-group input:focus,
+        .cerita-page .form-group select:focus,
+        .cerita-page .form-group textarea:focus {
+            border-color:
+                var(--green);
+            background:
+                var(--white);
+            box-shadow:
+                0 0 0 3px
+                rgba(53,104,89,0.09);
+        }
+
+        .cerita-page .form-group textarea {
+            min-height: 190px;
+            resize: vertical;
+            line-height: 1.7;
+        }
+
+        .cerita-page .form-group small {
+            margin-top: 6px;
+            color:
+                rgba(38,59,54,0.52);
+            font-size: 10px;
+            line-height: 1.5;
+        }
+
+        /* =====================================================
+           TOMBOL SIMPAN
+        ===================================================== */
+        .cerita-page .simpan-cerita {
+            grid-column: 1 / -1;
+            justify-self: center;
+            min-width: 220px;
+            margin-top: 5px;
+            padding:
+                14px 25px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 9px;
+            border: none;
+            border-radius: 999px;
+            background:
+                var(--green-dark);
+            color:
+                var(--white);
+            font-family: inherit;
+            font-size: 13px;
+            font-weight: 800;
+            cursor: pointer;
+            box-shadow:
+                0 7px 18px
+                rgba(33,72,61,0.16);
+            transition:
+                transform 0.2s ease,
+                box-shadow 0.2s ease,
+                background 0.2s ease;
+        }
+
+        .cerita-page .simpan-cerita:hover:not(:disabled) {
+            background:
+                var(--green);
+            transform:
+                translateY(-2px);
+            box-shadow:
+                0 10px 23px
+                rgba(33,72,61,0.20);
+        }
+
+        .cerita-page .simpan-cerita:disabled {
+            opacity: 0.70;
+            cursor: wait;
+        }
+
+        /* =====================================================
+           FOOTER — STANDARD LANTING KATA
+        ===================================================== */
+        .cerita-page .cerita-footer {
+            position: relative;
+            width: 100%;
+            min-width: 100%;
+            margin: 0;
+            padding: 38px 7% 28px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            box-sizing: border-box;
+            text-align: center;
+            background:
+                linear-gradient(
+                    135deg,
+                    #21483d 0%,
+                    #356859 55%,
+                    #21483d 100%
+                );
+            color: #fff;
+            border-top: 3px solid #d6a84f;
+            overflow: hidden;
+        }
+
+        .cerita-page .cerita-footer::before {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background-image:
+                url("assets/sasirangan-hijau.jpg");
+            background-size: 420px auto;
+            background-repeat: repeat;
+            background-position: center;
+            opacity: 0.09;
+            pointer-events: none;
+        }
+
+        .cerita-page .cerita-footer::after {
+            content: "";
+            position: absolute;
+            width: 420px;
+            height: 420px;
+            right: -180px;
+            bottom: -280px;
+            border-radius: 50%;
+            background:
+                rgba(214,168,79,0.10);
+            pointer-events: none;
+        }
+
+        .cerita-page .cerita-footer > * {
+            position: relative;
+            z-index: 2;
+        }
+
+        .cerita-page .cerita-footer-logo {
+            width: 100%;
+            margin: 0 auto 5px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 12px;
+        }
+
+        .cerita-page .cerita-footer-logo > div {
+            width: 44px;
+            height: 44px;
+            flex: 0 0 44px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            background: #fff;
+            border: 2px solid #d6a84f;
+            box-shadow:
+                0 4px 12px rgba(0,0,0,0.18);
+            overflow: hidden;
+            font-size: 0;
+            position: relative;
+        }
+
+        .cerita-page .cerita-footer-logo > div::before {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background-image:
+                url("assets/logo-lanting-kata.png");
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+        }
+
+        .cerita-page .cerita-footer-logo strong {
+            color: #fff;
+            font-size: 20px;
+            font-weight: 900;
+            letter-spacing: 1.2px;
+            line-height: 1;
+        }
+
+        .cerita-page .cerita-footer-logo strong span {
+            color: #d6a84f;
+        }
+
+        .cerita-page .cerita-footer > p {
+            display: block;
+            width: 100%;
+            max-width: 500px;
+            margin: 0 auto;
+            color:
+                rgba(255,255,255,0.86);
+            font-size: 13px;
+            font-weight: 600;
+            line-height: 1.6;
+            letter-spacing: 0.35px;
+            text-align: center;
+        }
+
+        .cerita-page .cerita-footer .cerita-copyright {
+            margin-top: 2px;
+            color:
+                rgba(255,255,255,0.64);
+            font-size: 11px;
+            font-weight: 500;
+            line-height: 1.6;
+        }
+
+        /* =====================================================
+           RESPONSIVE — TABLET
+        ===================================================== */
+        @media (max-width: 900px) {
+
+            .cerita-page .cerita-card {
+                grid-template-columns:
+                    1fr;
+            }
+
+            .cerita-page .cerita-cover {
+                min-height: 260px;
+            }
+
+            .cerita-page .cover-placeholder {
+                width: 150px;
+                height: 175px;
+                font-size: 48px;
+            }
+
+            .cerita-page .cerita-pengunjung .cerita-cover img {
+                min-height: 260px;
+            }
+        }
+
+        /* =====================================================
+           RESPONSIVE — TABLET KECIL
+        ===================================================== */
+        @media (max-width: 700px) {
+
+            .cerita-page .cerita-header {
+                min-height: 80px;
+                padding:
+                    10px 5%;
+            }
+
+            .cerita-page .cerita-back {
+                padding:
+                    9px 13px;
+                font-size: 11px;
+            }
+
+            .cerita-page .cerita-brand-name {
+                display: none;
+            }
+
+            .cerita-page .cerita-brand-logo {
+                width: 54px;
+                height: 54px;
+            }
+
+            .cerita-page .cerita-hero {
+                padding:
+                    60px 6%
+                    55px;
+            }
+
+            .cerita-page .cerita-hero h1 {
+                font-size: 35px;
+            }
+
+            .cerita-page .cerita-hero > p:last-child {
+                font-size: 13px;
+            }
+
+            .cerita-page .cerita-main {
+                width: 90%;
+                padding:
+                    50px 0 60px;
+            }
+
+            .cerita-page .cerita-card-content {
+                padding:
+                    28px 24px 30px;
+            }
+
+            .cerita-page .tambah-cerita {
+                padding:
+                    32px 25px 35px;
+                border-radius: 23px;
+            }
+
+            .cerita-page .form-cerita {
+                grid-template-columns: 1fr;
+            }
+
+            .cerita-page .form-group.full-width {
+                grid-column: auto;
+            }
+
+            .cerita-page .simpan-cerita {
+                grid-column: auto;
+                width: 100%;
+            }
+
+            .cerita-page .cerita-footer {
+                padding:
+                    34px 18px 25px;
+            }
+
+            .cerita-page .cerita-footer-logo strong {
+                font-size: 17px;
+            }
+        }
+
+        /* =====================================================
+           RESPONSIVE — HP
+        ===================================================== */
+        @media (max-width: 480px) {
+
+            .cerita-page .cerita-header {
+                justify-content: space-between;
+            }
+
+            .cerita-page .cerita-back {
+                padding:
+                    8px 11px;
+                font-size: 10px;
+            }
+
+            .cerita-page .cerita-brand-logo {
+                width: 48px;
+                height: 48px;
+                border-width: 2px;
+            }
+
+            .cerita-page .cerita-hero {
+                padding:
+                    48px 20px
+                    45px;
+            }
+
+            .cerita-page .cerita-hero-icon {
+                width: 62px;
+                height: 62px;
+                border-radius: 18px;
+                font-size: 29px;
+            }
+
+            .cerita-page .cerita-label {
+                font-size: 9px;
+            }
+
+            .cerita-page .cerita-hero h1 {
+                font-size: 29px;
+            }
+
+            .cerita-page .cerita-hero > p:last-child {
+                font-size: 12px;
+                line-height: 1.75;
+            }
+
+            .cerita-page .cerita-main {
+                width: 91%;
+                padding:
+                    42px 0 55px;
+            }
+
+            .cerita-page .cerita-section-heading {
+                margin-bottom: 30px;
+            }
+
+            .cerita-page .cerita-section-heading h2 {
+                font-size: 25px;
+            }
+
+            .cerita-page .cerita-cover {
+                min-height: 220px;
+                padding: 22px;
+            }
+
+            .cerita-page .cover-placeholder {
+                width: 125px;
+                height: 145px;
+                border-radius: 16px;
+                font-size: 42px;
+            }
+
+            .cerita-page .cerita-pengunjung .cerita-cover img {
+                min-height: 220px;
+            }
+
+            .cerita-page .cerita-card-content {
+                padding:
+                    23px 18px 25px;
+            }
+
+            .cerita-page .cerita-card-content h3 {
+                font-size: 23px;
+            }
+
+            .cerita-page .cerita-text,
+            .cerita-page .cerita-translation {
+                padding:
+                    18px 17px;
+            }
+
+            .cerita-page .cerita-text p,
+            .cerita-page .cerita-translation p {
+                font-size: 13px;
+                line-height: 1.8;
+            }
+
+            .cerita-page .tambah-cerita {
+                padding:
+                    27px 18px 30px;
+            }
+
+            .cerita-page .tambah-icon {
+                width: 50px;
+                height: 50px;
+                font-size: 21px;
+            }
+
+            .cerita-page .tambah-cerita-heading h2 {
+                font-size: 25px;
+            }
+
+            .cerita-page .tambah-description {
+                font-size: 12px;
+            }
+
+            .cerita-page .cerita-footer {
+                padding:
+                    32px 18px 25px;
+            }
+
+            .cerita-page .cerita-footer-logo {
+                gap: 9px;
+            }
+
+            .cerita-page .cerita-footer-logo > div {
+                width: 38px;
+                height: 38px;
+                flex-basis: 38px;
+            }
+
+            .cerita-page .cerita-footer-logo strong {
+                font-size: 16px;
+            }
+
+            .cerita-page .cerita-footer > p {
+                font-size: 11px;
+            }
+
+            .cerita-page .cerita-footer .cerita-copyright {
+                font-size: 10px;
+            }
+        }
+    </style>
+</head>
+
+<body class="cerita-page">
+
+    <!-- =====================================================
+         HEADER
+    ===================================================== -->
+    <header class="cerita-header">
+
+        <a href="dashboard.html"
+           class="cerita-back">
+            ← Kembali ke Dashboard
+        </a>
+
+        <div class="cerita-brand">
+
+            <div class="cerita-brand-logo">
+                LK
+            </div>
+
+            <div class="cerita-brand-name">
+                LANTING <span>KATA</span>
+            </div>
+
+        </div>
+
+    </header>
+
+
+    <!-- =====================================================
+         HERO
+    ===================================================== -->
+    <section class="cerita-hero">
+
+        <div class="cerita-hero-icon">
+            📖
+        </div>
+
+        <p class="cerita-label">
+            RUANG CERITA
+        </p>
+
+        <h1>
+            Mari Membaca dan
+            <span>Bercerita</span>
+        </h1>
+
+        <p>
+            Nikmati cerita-cerita pendek dalam Bahasa Banjar
+            beserta terjemahannya dalam Bahasa Indonesia.
+            Di sini, kamu juga dapat berbagi cerita buatanmu
+            sendiri.
+        </p>
+
+    </section>
+
+
+    <!-- =====================================================
+         KONTEN UTAMA
+    ===================================================== -->
+    <main class="cerita-main">
+
+        <!-- =================================================
+             RAK CERITA
+        ================================================== -->
+        <section class="rak-cerita">
+
+            <div class="cerita-section-heading">
+
+                <p>
+                    📚 RAK CERITA
+                </p>
+
+                <h2>
+                    Cerita Pilihan
+                    <span>LANTING KATA</span>
+                </h2>
+
+                <div class="cerita-line"></div>
+
+            </div>
+
+
+            <!-- =================================================
+                 CERITA 1
+            ================================================== -->
+            <article class="cerita-card">
+
+                <div class="cerita-cover">
+
+                    <div class="cover-placeholder">
+                        🦆🌿
+                    </div>
+
+                </div>
+
+
+                <div class="cerita-card-content">
+
+                    <span class="cerita-category">
+                        🌿 Kehidupan Sungai
+                    </span>
+
+                    <h3>
+                        Si Itik di Pinggir Batang
+                    </h3>
+
+                    <p class="cerita-author">
+                        ✍️ Pengarang: LANTING KATA
+                    </p>
+
+
+                    <div class="cerita-text">
+
+                        <h4>
+                            🇧🇩 Bahasa Banjar
+                        </h4>
+
+                        <p>
+                            Baisukan ari, Siti duduk di pinggir batang
+                            sambil maunjun. Kada jauh dari rumahnya,
+                            ada saikung itik putih nang hanyar
+                            tajun ka banyu.
+                        </p>
+
+                        <p>
+                            Itik ngintu hanyar bisa bakunyung, tapi am
+                            kada bisa tapi jauh jua. Siti lalu manyambat,
+                            “Jangan jauh-jauh, itik. Kalo sasat kena tu!”
+                        </p>
+
+                        <p>
+                            Itik itu balalu ha pulang baparak ka pinggir
+                            batang. Siti pun sanang melihatnya.
+                            Subuh ari ngintu, Siti belajar bahwa menjaga
+                            binatang adalah salah satu cara
+                            manyayangi alam.
+                        </p>
+
+                    </div>
+
+
+                    <div class="cerita-translation">
+
+                        <h4>
+                            🇮🇩 Arti Bahasa Indonesia
+                        </h4>
+
+                        <p>
+                            Pagi-pagi, Siti duduk di tepi sungai
+                            sambil memancing. Tidak jauh dari
+                            rumahnya, ada seekor itik putih
+                            yang baru turun ke air.
+                        </p>
+
+                        <p>
+                            Itik itu baru bisa berenang, tetapi
+                            belum bisa berenang jauh. Siti lalu
+                            berkata, “Jangan jauh-jauh, itik.
+                            Nanti tersesat!”
+                        </p>
+
+                        <p>
+                            Itik itu kemudian kembali ke tepi
+                            sungai. Siti pun senang melihatnya.
+                            Pagi itu, Siti belajar bahwa menjaga
+                            hewan merupakan salah satu cara
+                            menyayangi alam.
+                        </p>
+
+                    </div>
+
+                </div>
+
+            </article>
+
+
+            <!-- =================================================
+                 CERITA 2
+            ================================================== -->
+            <article class="cerita-card">
+
+                <div class="cerita-cover">
+
+                    <div class="cover-placeholder">
+                        🍰🏡
+                    </div>
+
+                </div>
+
+
+                <div class="cerita-card-content">
+
+                    <span class="cerita-category">
+                        🏡 Kehidupan Sehari-hari
+                    </span>
+
+                    <h3>
+                        Acil dan Wadai
+                    </h3>
+
+                    <p class="cerita-author">
+                        ✍️ Pengarang: LANTING KATA
+                    </p>
+
+
+                    <div class="cerita-text">
+
+                        <h4>
+                            🇧🇩 Bahasa Banjar
+                        </h4>
+
+                        <p>
+                            Kamarian ari, Rina membantui acilnya
+                            maulah wadai di dapur. Acil Rina
+                            maulah wadai bingka nang harum
+                            banar.
+                        </p>
+
+                        <p>
+                            Rina diminta manyiapakan piring
+                            gasan maandak wadai ngintu. “Bagamatan
+                            haja, Rin,” ujar acilnya.
+                        </p>
+
+                        <p>
+                            Imbah wadai masak, Rina membantui
+                            manyusun wadai di atas piring.
+                            Rina sanang karena bisa membantu
+                            acil di rumah.
+                        </p>
+
+                    </div>
+
+
+                    <div class="cerita-translation">
+
+                        <h4>
+                            🇮🇩 Arti Bahasa Indonesia
+                        </h4>
+
+                        <p>
+                            Sore hari, Rina membantu bibinya
+                            membuat kue di dapur. Bibinya
+                            membuat kue bingka yang sangat
+                            harum.
+                        </p>
+
+                        <p>
+                            Rina diminta menyiapkan piring
+                            untuk meletakkan kue. “Pelan-pelan
+                            saja, Rin,” kata bibinya.
+                        </p>
+
+                        <p>
+                            Setelah kue matang, Rina membantu
+                            menyusun kue di atas piring.
+                            Rina senang karena dapat membantu
+                            bibinya di rumah.
+                        </p>
+
+                    </div>
+
+                </div>
+
+            </article>
+
+
+            <!-- =================================================
+                 CERITA DARI PENGUNJUNG
+            ================================================== -->
+            <div id="ceritaPengunjung"></div>
+
+            <div id="paginationCerita"
+                 class="pagination-cerita">
+            </div>
+
+        </section>
+
+
+        <!-- =================================================
+             BAGIKAN CERITA
+        ================================================== -->
+        <section class="tambah-cerita">
+
+            <div class="tambah-cerita-heading">
+
+                <div class="tambah-icon">
+                    ✍️
+                </div>
+
+                <div>
+
+                    <p>
+                        RUANG BERBAGI
+                    </p>
+
+                    <h2>
+                        Bagikan
+                        <span>Ceritamu</span>
+                    </h2>
+
+                </div>
+
+            </div>
+
+
+            <p class="tambah-description">
+                Punya cerita pendek dalam Bahasa Banjar?
+                Yuk, bagikan ceritamu agar dapat dibaca
+                oleh teman-teman lainnya.
+            </p>
+
+
+            <!-- =================================================
+                 FORM
+            ================================================== -->
+            <form class="form-cerita">
+
+                <div class="form-group">
+
+                    <label for="judulCerita">
+                        Judul Cerita
+                    </label>
+
+                    <input
+                        type="text"
+                        id="judulCerita"
+                        name="judulCerita"
+                        placeholder="Contoh: Bapanduk di Sungai"
+                        required
+                    >
+
+                </div>
+
+
+                <div class="form-group">
+
+                    <label for="kategoriCerita">
+                        Kategori Cerita
+                    </label>
+
+                    <select
+                        id="kategoriCerita"
+                        name="kategoriCerita"
+                        required
+                    >
+
+                        <option value="">
+                            Pilih kategori
+                        </option>
+
+                        <option value="Kehidupan Sehari-hari">
+                            Kehidupan Sehari-hari
+                        </option>
+
+                        <option value="Kehidupan Sungai">
+                            Kehidupan Sungai
+                        </option>
+
+                        <option value="Keluarga">
+                            Keluarga
+                        </option>
+
+                        <option value="Persahabatan">
+                            Persahabatan
+                        </option>
+
+                        <option value="Sekolah">
+                            Sekolah
+                        </option>
+
+                        <option value="Alam">
+                            Alam
+                        </option>
+
+                        <option value="Budaya Banjar">
+                            Budaya Banjar
+                        </option>
+
+                        <option value="Lainnya">
+                            Lainnya
+                        </option>
+
+                    </select>
+
+                </div>
+
+
+                <div class="form-group">
+
+                    <label for="namaPengarang">
+                        Nama Pengarang
+                    </label>
+
+                    <input
+                        type="text"
+                        id="namaPengarang"
+                        name="namaPengarang"
+                        placeholder="Tuliskan namamu"
+                        required
+                    >
+
+                </div>
+
+
+                <div class="form-group">
+
+                    <label for="linkGambar">
+                        Link Gambar (URL)
+                    </label>
+
+                    <input
+                        type="url"
+                        id="linkGambar"
+                        name="linkGambar"
+                        placeholder="https://..."
+                    >
+
+                    <small>
+                        Masukkan link gambar sampul cerita jika ada.
+                    </small>
+
+                </div>
+
+
+                <div class="form-group full-width">
+
+                    <label for="ceritaBanjar">
+                        Cerita dalam Bahasa Banjar
+                    </label>
+
+                    <textarea
+                        id="ceritaBanjar"
+                        name="ceritaBanjar"
+                        placeholder="Tuliskan cerita Bahasa Banjar di sini..."
+                        required
+                    ></textarea>
+
+                </div>
+
+
+                <div class="form-group full-width">
+
+                    <label for="terjemahanIndonesia">
+                        Terjemahan Bahasa Indonesia
+                    </label>
+
+                    <textarea
+                        id="terjemahanIndonesia"
+                        name="terjemahanIndonesia"
+                        placeholder="Tuliskan terjemahan Bahasa Indonesia di sini..."
+                        required
+                    ></textarea>
+
+                </div>
+
+
+                <button
+                    type="submit"
+                    class="simpan-cerita"
+                >
+
+                    <span>
+                        💾
+                    </span>
+
+                    Simpan ke Rak Cerita
+
+                </button>
+
+            </form>
+
+        </section>
+
+    </main>
+
+
+    <!-- =====================================================
+         FOOTER
+    ===================================================== -->
+    <footer class="cerita-footer">
+
+        <div class="cerita-footer-logo">
+
+            <div></div>
+
+            <strong>
+                LANTING <span>KATA</span>
+            </strong>
+
+        </div>
+
+        <p>
+            Mengenal Bahasa Banjar, melestarikan kata,
+            dan berbagi cerita.
+        </p>
+
+        <p class="cerita-copyright">
+            © 2026 LANTING KATA — Ruang Bahasa dan Cerita Banjar
+        </p>
+
+    </footer>
+
+
+    <script>
+
+        const WEB_APP_URL =
+            "https://script.google.com/macros/s/AKfycbx8Nzfe6mgbMtrpj7B72IbGbm4rkg70p0HPRrIE6AduH0dCqeoAs3tqg9I7N_Aa71F8/exec";
+
+        const formCerita =
+            document.querySelector(".form-cerita");
+
+
+        formCerita.addEventListener(
+            "submit",
+            async function(event) {
+
+                event.preventDefault();
+
+                const tombol =
+                    formCerita.querySelector(
+                        ".simpan-cerita"
+                    );
+
+                const dataCerita = {
+
+                    judul:
+                        document.getElementById(
+                            "judulCerita"
+                        ).value.trim(),
+
+                    kategori:
+                        document.getElementById(
+                            "kategoriCerita"
+                        ).value,
+
+                    pengarang:
+                        document.getElementById(
+                            "namaPengarang"
+                        ).value.trim(),
+
+                    gambar:
+                        document.getElementById(
+                            "linkGambar"
+                        ).value.trim(),
+
+                    banjar:
+                        document.getElementById(
+                            "ceritaBanjar"
+                        ).value.trim(),
+
+                    indonesia:
+                        document.getElementById(
+                            "terjemahanIndonesia"
+                        ).value.trim()
+                };
+
+
+                tombol.disabled = true;
+
+                tombol.innerHTML = `
+                    <span>⏳</span>
+                    Menyimpan cerita...
+                `;
+
+
+                try {
+
+                    await fetch(
+                        WEB_APP_URL,
+                        {
+                            method: "POST",
+                            mode: "no-cors",
+                            headers: {
+                                "Content-Type":
+                                    "text/plain;charset=utf-8"
+                            },
+                            body:
+                                JSON.stringify(
+                                    dataCerita
+                                )
+                        }
+                    );
+
+
+                    alert(
+                        "🎉 Cerita berhasil dikirim!\n\n" +
+                        "Cerita kamu akan diperiksa oleh admin terlebih dahulu " +
+                        "sebelum ditampilkan di Rak Cerita."
+                    );
+
+
+                    formCerita.reset();
+
+
+                } catch (error) {
+
+                    console.error(
+                        "Gagal mengirim cerita:",
+                        error
+                    );
+
+                    alert(
+                        "❌ Maaf, cerita belum berhasil dikirim.\n\n" +
+                        "Silakan coba lagi."
+                    );
+
+                } finally {
+
+                    tombol.disabled = false;
+
+                    tombol.innerHTML = `
+                        <span>💾</span>
+                        Simpan ke Rak Cerita
+                    `;
+
+                }
+
+            }
+        );
+
+
+        // ======================================================
+        // RAK CERITA + PAGINATION
+        // Maksimal 3 cerita per halaman
+        // ======================================================
+
+        let semuaCerita = [];
+
+        let halamanSekarang = 1;
+
+        const CERITA_PER_HALAMAN = 3;
+
+
+        // ======================================================
+        // MENGAMBIL CERITA DARI GOOGLE SHEET
+        // ======================================================
+
+        async function tampilkanCeritaPengunjung() {
+
+            const wadahCerita =
+                document.getElementById(
+                    "ceritaPengunjung"
+                );
+
+            try {
+
+                const response =
+                    await fetch(
+                        WEB_APP_URL
+                    );
+
+                const ceritaPengunjung =
+                    await response.json();
+
+
+                if (
+                    Array.isArray(
+                        ceritaPengunjung
+                    )
+                ) {
+
+                    semuaCerita =
+                        ceritaPengunjung;
+
+                } else {
+
+                    semuaCerita = [];
+
+                }
+
+
+                ceritaPengunjung.forEach(
+                    function(item) {
+
+                        const artikel =
+                            document.createElement(
+                                "article"
+                            );
+
+
+                        artikel.className =
+                            "cerita-card cerita-pengunjung";
+
+
+                        artikel.innerHTML = `
+
+                            <div class="cerita-cover">
+
+                                ${
+                                    item.gambar
+                                    ? `
+                                        <img
+                                            src="${item.gambar}"
+                                            alt="Sampul ${item.judul}"
+                                            style="
+                                                width:100%;
+                                                height:100%;
+                                                object-fit:cover;
+                                            "
+                                        >
+                                    `
+                                    : `
+                                        <div class="cover-placeholder">
+                                            📖🌿
+                                        </div>
+                                    `
+                                }
+
+                            </div>
+
+
+                            <div class="cerita-card-content">
+
+                                <span class="cerita-category">
+                                    🌿 ${item.kategori || "Cerita Banjar"}
+                                </span>
+
+
+                                <h3>
+                                    ${item.judul || "Tanpa Judul"}
+                                </h3>
+
+
+                                <p class="cerita-author">
+                                    ✍️ Pengarang:
+                                    ${item.pengarang || "Anonim"}
+                                </p>
+
+
+                                <div class="cerita-text">
+
+                                    <h4>
+                                        🇧🇩 Bahasa Banjar
+                                    </h4>
+
+                                    ${ubahMenjadiParagraf(item.banjar)}
+
+                                </div>
+
+
+                                <div class="cerita-translation">
+
+                                    <h4>
+                                        🇮🇩 Arti Bahasa Indonesia
+                                    </h4>
+
+                                    ${ubahMenjadiParagraf(item.indonesia)}
+
+                                </div>
+
+                            </div>
+
+                        `;
+
+
+                        wadahCerita.appendChild(
+                            artikel
+                        );
+
+                    }
+                );
+
+
+                siapkanPagination();
+
+
+            } catch (error) {
+
+                console.error(
+                    "Gagal mengambil cerita pengunjung:",
+                    error
+                );
+
+            }
+
+        }
+
+
+        // ======================================================
+        // MENGUBAH TEKS MENJADI PARAGRAF
+        // ======================================================
+
+        function ubahMenjadiParagraf(teks) {
+
+            if (!teks) {
+
+                return "<p>Tidak ada teks.</p>";
+
+            }
+
+
+            return teks
+
+                .split(/\n+/)
+
+                .map(
+                    function(paragraf) {
+
+                        return `<p>${paragraf}</p>`;
+
+                    }
+                )
+
+                .join("");
+
+        }
+
+
+        // ======================================================
+        // MENYIAPKAN PAGINATION
+        // ======================================================
+
+        function siapkanPagination() {
+
+            const rakCerita =
+                document.querySelector(
+                    ".rak-cerita"
+                );
+
+
+            const semuaKartu =
+                rakCerita.querySelectorAll(
+                    ".cerita-card"
+                );
+
+
+            const jumlahCerita =
+                semuaKartu.length;
+
+
+            const jumlahHalaman =
+                Math.ceil(
+                    jumlahCerita /
+                    CERITA_PER_HALAMAN
+                );
+
+
+            if (jumlahHalaman <= 1) {
+
+                semuaKartu.forEach(
+                    function(kartu) {
+
+                        kartu.style.display = "";
+
+                    }
+                );
+
+
+                document.getElementById(
+                    "paginationCerita"
+                ).innerHTML = "";
+
+                return;
+
+            }
+
+
+            if (
+                halamanSekarang >
+                jumlahHalaman
+            ) {
+
+                halamanSekarang =
+                    jumlahHalaman;
+
+            }
+
+
+            tampilkanHalaman(
+                halamanSekarang,
+                semuaKartu,
+                jumlahHalaman
+            );
+
+        }
+
+
+        // ======================================================
+        // MENAMPILKAN HALAMAN TERTENTU
+        // ======================================================
+
+        function tampilkanHalaman(
+            nomorHalaman,
+            semuaKartu,
+            jumlahHalaman
+        ) {
+
+            halamanSekarang =
+                nomorHalaman;
+
+
+            const mulai =
+                (nomorHalaman - 1)
+                * CERITA_PER_HALAMAN;
+
+
+            const selesai =
+                mulai +
+                CERITA_PER_HALAMAN;
+
+
+            semuaKartu.forEach(
+                function(kartu, index) {
+
+                    if (
+                        index >= mulai &&
+                        index < selesai
+                    ) {
+
+                        kartu.style.display = "";
+
+                    } else {
+
+                        kartu.style.display = "none";
+
+                    }
+
+                }
+            );
+
+
+            buatTombolPagination(
+                jumlahHalaman
+            );
+
+        }
+
+
+        // ======================================================
+        // MEMBUAT TOMBOL PAGINATION
+        // ======================================================
+
+        function buatTombolPagination(
+            jumlahHalaman
+        ) {
+
+            const pagination =
+                document.getElementById(
+                    "paginationCerita"
+                );
+
+
+            pagination.innerHTML = "";
+
+
+            // TOMBOL SEBELUMNYA
+
+            const tombolSebelumnya =
+                document.createElement(
+                    "button"
+                );
+
+
+            tombolSebelumnya.type =
+                "button";
+
+
+            tombolSebelumnya.className =
+                "pagination-btn";
+
+
+            tombolSebelumnya.innerHTML =
+                "← Sebelumnya";
+
+
+            tombolSebelumnya.disabled =
+                halamanSekarang === 1;
+
+
+            tombolSebelumnya.addEventListener(
+                "click",
+                function() {
+
+                    if (
+                        halamanSekarang > 1
+                    ) {
+
+                        const semuaKartu =
+                            document.querySelectorAll(
+                                ".rak-cerita .cerita-card"
+                            );
+
+
+                        tampilkanHalaman(
+                            halamanSekarang - 1,
+                            semuaKartu,
+                            jumlahHalaman
+                        );
+
+
+                        scrollKeRakCerita();
+
+                    }
+
+                }
+            );
+
+
+            pagination.appendChild(
+                tombolSebelumnya
+            );
+
+
+            // NOMOR HALAMAN
+
+            for (
+                let i = 1;
+                i <= jumlahHalaman;
+                i++
+            ) {
+
+                const tombolNomor =
+                    document.createElement(
+                        "button"
+                    );
+
+
+                tombolNomor.type =
+                    "button";
+
+
+                tombolNomor.className =
+                    "pagination-btn";
+
+
+                if (
+                    i === halamanSekarang
+                ) {
+
+                    tombolNomor.classList.add(
+                        "active"
+                    );
+
+                }
+
+
+                tombolNomor.textContent =
+                    i;
+
+
+                tombolNomor.addEventListener(
+                    "click",
+                    function() {
+
+                        const semuaKartu =
+                            document.querySelectorAll(
+                                ".rak-cerita .cerita-card"
+                            );
+
+
+                        tampilkanHalaman(
+                            i,
+                            semuaKartu,
+                            jumlahHalaman
+                        );
+
+
+                        scrollKeRakCerita();
+
+                    }
+                );
+
+
+                pagination.appendChild(
+                    tombolNomor
+                );
+
+            }
+
+
+            // TOMBOL BERIKUTNYA
+
+            const tombolBerikutnya =
+                document.createElement(
+                    "button"
+                );
+
+
+            tombolBerikutnya.type =
+                "button";
+
+
+            tombolBerikutnya.className =
+                "pagination-btn";
+
+
+            tombolBerikutnya.innerHTML =
+                "Berikutnya →";
+
+
+            tombolBerikutnya.disabled =
+                halamanSekarang ===
+                jumlahHalaman;
+
+
+            tombolBerikutnya.addEventListener(
+                "click",
+                function() {
+
+                    if (
+                        halamanSekarang <
+                        jumlahHalaman
+                    ) {
+
+                        const semuaKartu =
+                            document.querySelectorAll(
+                                ".rak-cerita .cerita-card"
+                            );
+
+
+                        tampilkanHalaman(
+                            halamanSekarang + 1,
+                            semuaKartu,
+                            jumlahHalaman
+                        );
+
+
+                        scrollKeRakCerita();
+
+                    }
+
+                }
+            );
+
+
+            pagination.appendChild(
+                tombolBerikutnya
+            );
+
+        }
+
+
+        // ======================================================
+        // KEMBALI KE BAGIAN RAK CERITA
+        // ======================================================
+
+        function scrollKeRakCerita() {
+
+            const rakCerita =
+                document.querySelector(
+                    ".rak-cerita"
+                );
+
+
+            if (!rakCerita) return;
+
+
+            rakCerita.scrollIntoView({
+                behavior: "smooth",
+                block: "start"
+            });
+
+        }
+
+
+        // ======================================================
+        // JALANKAN SAAT HALAMAN SELESAI DIMUAT
+        // ======================================================
+
+        tampilkanCeritaPengunjung();
+
+    </script>
+
+</body>
+
+</html>

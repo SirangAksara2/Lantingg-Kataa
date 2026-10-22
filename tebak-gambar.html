@@ -1,0 +1,2123 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>Tebak Gambar | LANTING KATA</title>
+
+    <link rel="stylesheet" href="css/style.css">
+
+</head>
+
+
+<body class="tebak-gambar-page">
+
+
+<!-- =====================================================
+     HEADER
+===================================================== -->
+
+<header class="game-play-header">
+
+    <a href="games.html" class="game-back">
+        ← Kembali ke Games
+    </a>
+
+    <div class="game-play-brand">
+
+        <div class="game-play-logo">
+            <img src="assets/logo-lanting-kata.png" alt="Logo LANTING KATA">
+        </div>
+
+        <div class="game-play-brand-text">
+
+            <strong>
+                LANTING KATA
+            </strong>
+
+            <small>
+                RUANG PERMAINAN
+            </small>
+
+        </div>
+
+    </div>
+
+</header>
+
+
+
+<!-- =====================================================
+     HERO GAME
+===================================================== -->
+
+<section class="tebak-hero">
+
+    <div class="tebak-hero-decoration">
+        ✦
+    </div>
+
+    <div class="tebak-icon">
+        🖼️
+    </div>
+
+    <p class="tebak-label">
+        GAME 02
+    </p>
+
+    <h1>
+        Tebak <span>Gambar</span>
+    </h1>
+
+    <p>
+        Perhatikan gambar dan temukan
+        kata Bahasa Banjar yang tepat.
+    </p>
+
+</section>
+
+
+
+<!-- =====================================================
+     MAIN GAME
+===================================================== -->
+
+<main class="tebak-kata-main">
+
+
+    <!-- =================================================
+         LOADING
+    ================================================== -->
+
+    <section
+        id="loadingGame"
+        class="game-loading"
+    >
+
+        <div class="loading-icon">
+            ⏳
+        </div>
+
+        <h2>
+            Menyiapkan permainan...
+        </h2>
+
+        <p>
+            Sedang mengambil gambar
+            dari Kamus LANTING KATA.
+        </p>
+
+    </section>
+
+
+
+    <!-- =================================================
+         AREA PERMAINAN
+    ================================================== -->
+
+    <section
+        id="gameArea"
+        class="game-area"
+        style="display:none;"
+    >
+
+
+        <!-- STATUS GAME -->
+
+        <div class="game-status">
+
+            <div class="game-question-number">
+
+                <span>
+                    SOAL
+                </span>
+
+                <strong id="nomorSoal">
+                    1 / 10
+                </strong>
+
+            </div>
+
+
+            <div class="game-score">
+
+                <span>
+                    ⭐
+                </span>
+
+                <strong id="skorSaatIni">
+                    0 poin
+                </strong>
+
+            </div>
+
+        </div>
+
+
+
+        <!-- PROGRESS -->
+
+        <div class="game-progress">
+
+            <div class="game-progress-track">
+
+                <div
+                    id="progressFill"
+                    class="game-progress-fill"
+                ></div>
+
+            </div>
+
+        </div>
+
+
+
+        <!-- =================================================
+             KARTU SOAL
+        ================================================== -->
+
+        <div class="question-card">
+
+
+            <div class="question-card-top">
+
+                <span class="question-badge">
+                    APA NAMANYA?
+                </span>
+
+            </div>
+
+
+
+            <!-- =================================================
+                 GAMBAR SOAL
+            ================================================== -->
+
+            <div class="gambar-soal-wrapper">
+
+                <img
+                    id="gambarSoal"
+                    class="gambar-soal"
+                    src=""
+                    alt="Gambar soal"
+                >
+
+                <div
+                    id="gambarError"
+                    style="display:none; text-align:center; padding:20px;"
+                >
+
+                    <div style="font-size:42px;">
+                        ⚠️
+                    </div>
+
+                    <p>
+                        Gambar tidak dapat ditampilkan.
+                    </p>
+
+                    <small>
+                        Pastikan gambar dapat diakses
+                        melalui Google Drive.
+                    </small>
+
+                </div>
+
+            </div>
+
+
+            <p class="question-hint">
+                Pilih kata Bahasa Banjar
+                yang paling tepat.
+            </p>
+
+
+
+            <!-- PILIHAN JAWABAN -->
+
+            <div
+                id="pilihanJawaban"
+                class="pilihan-jawaban"
+            ></div>
+
+
+        </div>
+
+
+
+        <!-- =================================================
+             FEEDBACK
+        ================================================== -->
+
+        <div
+            id="feedback"
+            class="game-feedback"
+            style="display:none;"
+        >
+
+            <div
+                id="feedbackIcon"
+                class="feedback-icon"
+            >
+                ✓
+            </div>
+
+
+            <div class="feedback-content">
+
+                <strong id="feedbackTitle">
+                    Benar!
+                </strong>
+
+                <p id="feedbackText">
+                    Jawaban kamu benar.
+                </p>
+
+            </div>
+
+        </div>
+
+
+
+        <!-- =================================================
+             TOMBOL LANJUT
+        ================================================== -->
+
+        <button
+            id="tombolLanjut"
+            class="next-question"
+            style="display:none;"
+            type="button"
+        >
+
+            Soal Berikutnya
+
+            <span>
+                →
+            </span>
+
+        </button>
+
+
+    </section>
+
+
+
+    <!-- =================================================
+         HASIL AKHIR
+    ================================================== -->
+
+    <section
+        id="hasilGame"
+        class="hasil-game"
+        style="display:none;"
+    >
+
+        <div class="hasil-decoration">
+            ✦
+        </div>
+
+        <div class="hasil-icon">
+            🏆
+        </div>
+
+        <p class="hasil-label">
+            PERMAINAN SELESAI
+        </p>
+
+        <h2>
+            Hebat!
+        </h2>
+
+        <p class="hasil-description">
+            Kamu telah menyelesaikan
+            10 soal Tebak Gambar.
+        </p>
+
+
+
+        <!-- SKOR -->
+
+        <div class="hasil-score">
+
+            <span>
+                SKOR KAMU
+            </span>
+
+            <strong id="skorAkhir">
+                0
+            </strong>
+
+            <small>
+                POIN
+            </small>
+
+        </div>
+
+
+
+        <!-- INFORMASI HASIL -->
+
+        <div class="hasil-info">
+
+            <div>
+
+                <strong id="jumlahBenar">
+                    0
+                </strong>
+
+                <span>
+                    jawaban benar
+                </span>
+
+            </div>
+
+            <div class="hasil-divider"></div>
+
+            <div>
+
+                <strong>
+                    10
+                </strong>
+
+                <span>
+                    jumlah soal
+                </span>
+
+            </div>
+
+        </div>
+
+
+
+        <!-- =================================================
+             SIMPAN SKOR
+        ================================================== -->
+
+        <div class="simpan-skor-box">
+
+            <label for="namaPemain">
+                Masukkan Nama Kamu
+            </label>
+
+            <input
+                type="text"
+                id="namaPemain"
+                placeholder="Nama kamu"
+                maxlength="30"
+                autocomplete="off"
+            >
+
+
+            <button
+                id="simpanSkor"
+                class="play-again"
+                type="button"
+            >
+
+                🏆 Simpan Skor
+
+            </button>
+
+
+            <p
+                id="statusSimpanSkor"
+                style="display:none;"
+            ></p>
+
+        </div>
+
+
+
+        <!-- =================================================
+             TOMBOL HASIL
+        ================================================== -->
+
+        <div class="hasil-buttons">
+
+            <button
+                id="mainLagi"
+                class="play-again"
+                type="button"
+            >
+
+                🔄 Main Lagi
+
+            </button>
+
+
+            <a
+                href="games.html"
+                class="back-games"
+            >
+
+                🎮 Kembali ke Games
+
+            </a>
+
+        </div>
+
+
+    </section>
+
+
+</main>
+
+
+
+<!-- =====================================================
+     FOOTER
+===================================================== -->
+
+<footer class="game-footer">
+
+    <div class="game-footer-logo">
+
+        <div class="game-footer-emblem">
+            <img src="assets/logo-lanting-kata.png" alt="Logo LANTING KATA">
+        </div>
+
+        <strong>
+            LANTING <span>KATA</span>
+        </strong>
+
+    </div>
+
+
+    <p>
+        Mengenal Bahasa Banjar, melestarikan kata,
+        dan bermain sambil belajar.
+    </p>
+
+
+    <small>
+        © 2026 LANTING KATA
+    </small>
+
+</footer>
+
+
+
+<!-- =====================================================
+     JAVASCRIPT GAME 02
+===================================================== -->
+
+<script>
+
+
+// ======================================================
+// WEB APP LANTING KATA
+// ======================================================
+
+const WEB_APP_URL =
+"https://script.google.com/macros/s/AKfycbx9NSf3eh2Q5Jr4PYggXFbAw4a6_PgsslxUSZui8yyWu1zzcuUjSecky6YQtEcFoj75/exec";
+
+
+// ======================================================
+// IDENTITAS GAME
+// ======================================================
+
+const GAME_ID = "2";
+
+
+// ======================================================
+// PENGATURAN GAME
+// ======================================================
+
+const JUMLAH_SOAL = 10;
+
+const POIN_PER_JAWABAN = 10;
+
+
+// ======================================================
+// VARIABEL
+// ======================================================
+
+let semuaKata = [];
+
+let soal = [];
+
+let nomorSekarang = 0;
+
+let skor = 0;
+
+let jumlahBenar = 0;
+
+let skorSudahDisimpan = false;
+
+
+// ======================================================
+// ELEMENT HTML
+// ======================================================
+
+const loadingGame =
+    document.getElementById("loadingGame");
+
+const gameArea =
+    document.getElementById("gameArea");
+
+const hasilGame =
+    document.getElementById("hasilGame");
+
+const gambarSoal =
+    document.getElementById("gambarSoal");
+
+const gambarError =
+    document.getElementById("gambarError");
+
+const pilihanJawaban =
+    document.getElementById("pilihanJawaban");
+
+const nomorSoal =
+    document.getElementById("nomorSoal");
+
+const skorSaatIni =
+    document.getElementById("skorSaatIni");
+
+const progressFill =
+    document.getElementById("progressFill");
+
+const feedback =
+    document.getElementById("feedback");
+
+const feedbackIcon =
+    document.getElementById("feedbackIcon");
+
+const feedbackTitle =
+    document.getElementById("feedbackTitle");
+
+const feedbackText =
+    document.getElementById("feedbackText");
+
+const tombolLanjut =
+    document.getElementById("tombolLanjut");
+
+const mainLagi =
+    document.getElementById("mainLagi");
+
+const namaPemain =
+    document.getElementById("namaPemain");
+
+const simpanSkorButton =
+    document.getElementById("simpanSkor");
+
+const statusSimpanSkor =
+    document.getElementById("statusSimpanSkor");
+
+
+// ======================================================
+// ACAK ARRAY
+// ======================================================
+
+function acakArray(array) {
+
+    return [...array].sort(
+        () => Math.random() - 0.5
+    );
+
+}
+
+
+// ======================================================
+// MENGAMBIL ID FILE GOOGLE DRIVE
+// ======================================================
+
+function ambilIdDrive(link) {
+
+    if (!link) {
+
+        return "";
+
+    }
+
+
+    link = String(link).trim();
+
+
+    // Format:
+    // https://drive.google.com/file/d/ID/view
+
+    let hasil =
+        link.match(
+            /\/file\/d\/([a-zA-Z0-9_-]+)/
+        );
+
+
+    if (hasil) {
+
+        return hasil[1];
+
+    }
+
+
+    // Format:
+    // https://drive.google.com/open?id=ID
+
+    hasil =
+        link.match(
+            /[?&]id=([a-zA-Z0-9_-]+)/
+        );
+
+
+    if (hasil) {
+
+        return hasil[1];
+
+    }
+
+
+    // Format:
+    // https://drive.google.com/uc?id=ID
+
+    hasil =
+        link.match(
+            /\/uc\?.*id=([a-zA-Z0-9_-]+)/
+        );
+
+
+    if (hasil) {
+
+        return hasil[1];
+
+    }
+
+
+    return "";
+
+}
+
+
+// ======================================================
+// MEMBUAT URL GAMBAR GOOGLE DRIVE
+// ======================================================
+
+function buatUrlGambar(link) {
+
+    if (!link) {
+
+        return "";
+
+    }
+
+
+    const idDrive =
+        ambilIdDrive(link);
+
+
+    // ==================================================
+    // JIKA GOOGLE DRIVE
+    // ==================================================
+
+    if (idDrive) {
+
+        return (
+            "https://drive.google.com/thumbnail" +
+            "?id=" +
+            encodeURIComponent(idDrive) +
+            "&sz=w1200"
+        );
+
+    }
+
+
+    // ==================================================
+    // JIKA LINK GAMBAR BIASA
+    // ==================================================
+
+    return String(link).trim();
+
+}
+
+
+// ======================================================
+// MENGAMBIL DATA KAMUS
+// ======================================================
+
+async function ambilDataKamus() {
+
+    try {
+
+        loadingGame.style.display =
+            "block";
+
+        gameArea.style.display =
+            "none";
+
+        hasilGame.style.display =
+            "none";
+
+
+        const response =
+            await fetch(
+                WEB_APP_URL +
+                "?action=kamus&t=" +
+                Date.now()
+            );
+
+
+        if (!response.ok) {
+
+            throw new Error(
+                "Server kamus tidak dapat diakses."
+            );
+
+        }
+
+
+        const data =
+            await response.json();
+
+
+        console.log(
+            "Data kamus diterima:",
+            data
+        );
+
+
+        if (!Array.isArray(data)) {
+
+            throw new Error(
+                "Format data kamus tidak sesuai."
+            );
+
+        }
+
+
+        semuaKata =
+            data.filter(
+                item =>
+                    item.banjar &&
+                    item.indonesia &&
+                    item.gambar
+            );
+
+
+        console.log(
+            "Jumlah kosakata dengan gambar:",
+            semuaKata.length
+        );
+
+
+        if (
+            semuaKata.length <
+            JUMLAH_SOAL
+        ) {
+
+            throw new Error(
+                "Data kamus belum memiliki minimal 10 kosakata yang mempunyai link gambar."
+            );
+
+        }
+
+
+        mulaiPermainan();
+
+
+    } catch (error) {
+
+        console.error(
+            "ERROR GAME 02:",
+            error
+        );
+
+
+        loadingGame.innerHTML = `
+
+            <div class="loading-icon">
+                ⚠️
+            </div>
+
+            <h2>
+                Permainan belum dapat dimuat
+            </h2>
+
+            <p>
+                ${error.message}
+            </p>
+
+            <button
+                onclick="location.reload()"
+                class="play-again"
+                type="button"
+            >
+
+                🔄 Coba Lagi
+
+            </button>
+
+        `;
+
+    }
+
+}
+
+
+// ======================================================
+// MEMBUAT SOAL
+// ======================================================
+
+function buatSoal() {
+
+    const dataAcak =
+        acakArray(
+            semuaKata
+        );
+
+
+    soal =
+        dataAcak
+            .slice(
+                0,
+                JUMLAH_SOAL
+            )
+            .map(item => {
+
+
+                const jawabanSalah =
+
+                    acakArray(
+
+                        semuaKata.filter(
+                            pilihan =>
+                                pilihan.banjar !==
+                                item.banjar
+                        )
+
+                    )
+                    .slice(
+                        0,
+                        3
+                    )
+                    .map(
+                        pilihan =>
+                            pilihan.banjar
+                    );
+
+
+                const semuaPilihan =
+
+                    acakArray([
+
+                        item.banjar,
+
+                        ...jawabanSalah
+
+                    ]);
+
+
+                return {
+
+                    gambar:
+                        item.gambar,
+
+                    banjar:
+                        item.banjar,
+
+                    indonesia:
+                        item.indonesia,
+
+                    kategori:
+                        item.kategori,
+
+                    pilihan:
+                        semuaPilihan
+
+                };
+
+            });
+
+}
+
+
+// ======================================================
+// MULAI PERMAINAN
+// ======================================================
+
+function mulaiPermainan() {
+
+    nomorSekarang = 0;
+
+    skor = 0;
+
+    jumlahBenar = 0;
+
+    skorSudahDisimpan = false;
+
+
+    namaPemain.value = "";
+
+    statusSimpanSkor.style.display =
+        "none";
+
+    statusSimpanSkor.textContent =
+        "";
+
+
+    simpanSkorButton.disabled =
+        false;
+
+    simpanSkorButton.textContent =
+        "🏆 Simpan Skor";
+
+
+    buatSoal();
+
+
+    loadingGame.style.display =
+        "none";
+
+    hasilGame.style.display =
+        "none";
+
+    gameArea.style.display =
+        "block";
+
+
+    tampilkanSoal();
+
+}
+
+
+// ======================================================
+// MENAMPILKAN SOAL
+// ======================================================
+
+function tampilkanSoal() {
+
+    const pertanyaan =
+        soal[nomorSekarang];
+
+
+    // ==================================================
+    // RESET GAMBAR
+    // ==================================================
+
+    gambarSoal.style.display =
+        "none";
+
+    gambarError.style.display =
+        "none";
+
+
+    // ==================================================
+    // BUAT URL GAMBAR
+    // ==================================================
+
+    const urlGambar =
+        buatUrlGambar(
+            pertanyaan.gambar
+        );
+
+
+    console.log(
+        "Link gambar asli:",
+        pertanyaan.gambar
+    );
+
+
+    console.log(
+        "URL gambar:",
+        urlGambar
+    );
+
+
+    // ==================================================
+    // EVENT GAMBAR BERHASIL
+    // ==================================================
+
+    gambarSoal.onload =
+        function() {
+
+            gambarSoal.style.display =
+                "block";
+
+            gambarError.style.display =
+                "none";
+
+        };
+
+
+    // ==================================================
+    // EVENT GAMBAR GAGAL
+    // ==================================================
+
+    gambarSoal.onerror =
+        function() {
+
+            console.error(
+                "Gambar gagal dimuat:",
+                urlGambar
+            );
+
+
+            gambarSoal.style.display =
+                "none";
+
+
+            gambarError.style.display =
+                "block";
+
+        };
+
+
+    // ==================================================
+    // PASANG GAMBAR
+    // ==================================================
+
+    gambarSoal.src =
+        urlGambar;
+
+
+    gambarSoal.alt =
+        "Gambar " +
+        pertanyaan.indonesia;
+
+
+    // ==================================================
+    // STATUS GAME
+    // ==================================================
+
+    nomorSoal.textContent =
+        `${nomorSekarang + 1} / ${JUMLAH_SOAL}`;
+
+
+    skorSaatIni.textContent =
+        `${skor} poin`;
+
+
+    progressFill.style.width =
+        `${((nomorSekarang + 1) / JUMLAH_SOAL) * 100}%`;
+
+
+    // ==================================================
+    // RESET FEEDBACK
+    // ==================================================
+
+    pilihanJawaban.innerHTML =
+        "";
+
+    feedback.style.display =
+        "none";
+
+    tombolLanjut.style.display =
+        "none";
+
+
+    // ==================================================
+    // PILIHAN JAWABAN
+    // ==================================================
+
+    pertanyaan.pilihan.forEach(
+        (jawaban, index) => {
+
+
+            const tombol =
+                document.createElement(
+                    "button"
+                );
+
+
+            tombol.className =
+                "answer-button";
+
+
+            tombol.type =
+                "button";
+
+
+            tombol.innerHTML = `
+
+                <span class="answer-letter">
+                    ${String.fromCharCode(65 + index)}
+                </span>
+
+                <span class="answer-text">
+                    ${jawaban}
+                </span>
+
+            `;
+
+
+            tombol.addEventListener(
+                "click",
+                () => {
+
+                    periksaJawaban(
+                        jawaban,
+                        pertanyaan.banjar
+                    );
+
+                }
+            );
+
+
+            pilihanJawaban.appendChild(
+                tombol
+            );
+
+        }
+    );
+
+}
+
+
+// ======================================================
+// MEMERIKSA JAWABAN
+// ======================================================
+
+function periksaJawaban(
+    jawabanDipilih,
+    jawabanBenar
+) {
+
+    const semuaTombol =
+        document.querySelectorAll(
+            ".answer-button"
+        );
+
+
+    semuaTombol.forEach(
+        tombol =>
+            tombol.disabled = true
+    );
+
+
+    const benar =
+        jawabanDipilih ===
+        jawabanBenar;
+
+
+    if (benar) {
+
+        skor +=
+            POIN_PER_JAWABAN;
+
+        jumlahBenar++;
+
+
+        feedbackIcon.textContent =
+            "✓";
+
+
+        feedbackTitle.textContent =
+            "Benar! 🎉";
+
+
+        feedbackText.textContent =
+            `Hebat! Kamu mendapatkan +${POIN_PER_JAWABAN} poin.`;
+
+    } else {
+
+        feedbackIcon.textContent =
+            "✗";
+
+
+        feedbackTitle.textContent =
+            "Belum tepat";
+
+
+        feedbackText.textContent =
+            `Jawaban yang benar adalah "${jawabanBenar}".`;
+
+    }
+
+
+    // ==================================================
+    // TANDAI JAWABAN
+    // ==================================================
+
+    semuaTombol.forEach(
+        tombol => {
+
+            const teks =
+                tombol
+                    .querySelector(
+                        ".answer-text"
+                    )
+                    .textContent
+                    .trim();
+
+
+            if (
+                teks ===
+                jawabanBenar
+            ) {
+
+                tombol.classList.add(
+                    "correct"
+                );
+
+            }
+
+
+            if (
+                teks ===
+                jawabanDipilih &&
+                !benar
+            ) {
+
+                tombol.classList.add(
+                    "wrong"
+                );
+
+            }
+
+        }
+    );
+
+
+    feedback.style.display =
+        "flex";
+
+
+    tombolLanjut.style.display =
+        "flex";
+
+
+    skorSaatIni.textContent =
+        `${skor} poin`;
+
+}
+
+
+// ======================================================
+// SOAL BERIKUTNYA
+// ======================================================
+
+tombolLanjut.addEventListener(
+    "click",
+    function() {
+
+        nomorSekarang++;
+
+
+        if (
+            nomorSekarang >=
+            JUMLAH_SOAL
+        ) {
+
+            tampilkanHasil();
+
+        } else {
+
+            tampilkanSoal();
+
+        }
+
+    }
+);
+
+
+// ======================================================
+// HASIL AKHIR
+// ======================================================
+
+function tampilkanHasil() {
+
+    gameArea.style.display =
+        "none";
+
+
+    hasilGame.style.display =
+        "block";
+
+
+    document.getElementById(
+        "skorAkhir"
+    ).textContent =
+        skor;
+
+
+    document.getElementById(
+        "jumlahBenar"
+    ).textContent =
+        jumlahBenar;
+
+
+    namaPemain.value = "";
+
+
+    statusSimpanSkor.style.display =
+        "none";
+
+    statusSimpanSkor.textContent =
+        "";
+
+
+    simpanSkorButton.disabled =
+        false;
+
+
+    simpanSkorButton.textContent =
+        "🏆 Simpan Skor";
+
+
+    skorSudahDisimpan =
+        false;
+
+}
+
+
+// ======================================================
+// SIMPAN SKOR KE LEADERBOARD
+// ======================================================
+
+async function kirimSkorKeLeaderboard() {
+
+    const nama =
+        namaPemain.value.trim();
+
+
+    if (!nama) {
+
+        statusSimpanSkor.textContent =
+            "⚠️ Silakan masukkan nama terlebih dahulu.";
+
+        statusSimpanSkor.style.display =
+            "block";
+
+        namaPemain.focus();
+
+        return;
+
+    }
+
+
+    if (skorSudahDisimpan) {
+
+        return;
+
+    }
+
+
+    simpanSkorButton.disabled =
+        true;
+
+
+    simpanSkorButton.textContent =
+        "⏳ Menyimpan...";
+
+
+    statusSimpanSkor.style.display =
+        "block";
+
+
+    statusSimpanSkor.textContent =
+        "Sedang menyimpan skor...";
+
+
+    try {
+
+
+        const url =
+            WEB_APP_URL +
+            "?action=simpanSkor" +
+            "&nama=" +
+            encodeURIComponent(nama) +
+            "&skor=" +
+            encodeURIComponent(skor) +
+            "&game=" +
+            encodeURIComponent(GAME_ID) +
+            "&t=" +
+            Date.now();
+
+
+        console.log(
+            "Mengirim skor Game 02:",
+            {
+                nama:
+                    nama,
+
+                skor:
+                    skor,
+
+                game:
+                    GAME_ID
+            }
+        );
+
+
+        const response =
+            await fetch(
+                url
+            );
+
+
+        if (!response.ok) {
+
+            throw new Error(
+                "Server tidak dapat diakses."
+            );
+
+        }
+
+
+        const data =
+            await response.json();
+
+
+        console.log(
+            "Respon simpan skor:",
+            data
+        );
+
+
+        if (!data.success) {
+
+            throw new Error(
+                data.message ||
+                "Skor gagal disimpan."
+            );
+
+        }
+
+
+        skorSudahDisimpan =
+            true;
+
+
+        localStorage.setItem(
+            "lantingKataNamaPemain",
+            nama
+        );
+
+
+        statusSimpanSkor.textContent =
+            `✅ Skor Game 02 berhasil disimpan! Total poin kamu: ${data.totalPoin}`;
+
+
+        simpanSkorButton.textContent =
+            "✅ Skor Tersimpan";
+
+
+    } catch (error) {
+
+        console.error(
+            "ERROR SIMPAN SKOR:",
+            error
+        );
+
+
+        statusSimpanSkor.textContent =
+            "❌ Skor gagal disimpan. Silakan coba lagi.";
+
+
+        simpanSkorButton.disabled =
+            false;
+
+
+        simpanSkorButton.textContent =
+            "🏆 Simpan Skor";
+
+    }
+
+}
+
+
+// ======================================================
+// TOMBOL SIMPAN SKOR
+// ======================================================
+
+simpanSkorButton.addEventListener(
+    "click",
+    kirimSkorKeLeaderboard
+);
+
+
+// ======================================================
+// MAIN LAGI
+// ======================================================
+
+mainLagi.addEventListener(
+    "click",
+    function() {
+
+        mulaiPermainan();
+
+    }
+);
+
+
+// ======================================================
+// JALANKAN GAME
+// ======================================================
+
+ambilDataKamus();
+
+
+</script>
+
+
+
+
+<style>
+/* =========================================================
+   IDENTITAS VISUAL GAME 02 — TEBAK GAMBAR
+   ========================================================= */
+.tebak-gambar-page {
+    background: var(--cream, #fff8e8);
+    color: var(--text, #263b36);
+}
+
+.tebak-gambar-page .game-play-header {
+    position: relative;
+    overflow: hidden;
+    background: var(--green-dark, #21483d) !important;
+    color: var(--white, #fff) !important;
+    min-height: 82px;
+    padding: 8px 7%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    box-sizing: border-box;
+    box-shadow: 0 3px 15px rgba(33,72,61,.14);
+}
+
+.tebak-gambar-page .game-play-header::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background-image: url("../assets/sasirangan-hijau.jpg");
+    background-size: 420px auto;
+    background-repeat: repeat;
+    background-position: center;
+    opacity: .09;
+    pointer-events: none;
+}
+
+.tebak-gambar-page .game-back,
+.tebak-gambar-page .game-play-brand {
+    position: relative;
+    z-index: 2;
+}
+
+.tebak-gambar-page .game-back {
+    color: rgba(255,255,255,.9) !important;
+    text-decoration: none;
+    font-weight: 700;
+    transition: .2s ease;
+}
+
+.tebak-gambar-page .game-back:hover {
+    color: var(--gold, #d6a84f) !important;
+    transform: translateX(-2px);
+}
+
+.tebak-gambar-page .game-play-brand {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.tebak-gambar-page .game-play-logo {
+    width: 60px !important;
+    height: 60px !important;
+    padding: 3px !important;
+    border-radius: 50% !important;
+    background: #fff !important;
+    border: 3px solid var(--gold, #d6a84f) !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    overflow: hidden;
+    box-shadow: 0 3px 10px rgba(0,0,0,.2);
+    box-sizing: border-box;
+}
+
+.tebak-gambar-page .game-play-logo img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 50%;
+    display: block;
+}
+
+.tebak-gambar-page .game-play-brand-text {
+    display: flex;
+    flex-direction: column;
+    gap: 3px;
+}
+
+.tebak-gambar-page .game-play-brand-text strong {
+    color: #fff !important;
+    font-size: 18px;
+    letter-spacing: 1.2px;
+}
+
+.tebak-gambar-page .game-play-brand-text small {
+    color: rgba(255,255,255,.7) !important;
+    font-size: 10px;
+    letter-spacing: 1.8px;
+}
+
+.tebak-gambar-page .tebak-hero {
+    position: relative;
+    overflow: hidden;
+    background: linear-gradient(135deg, #edf7f0, #fff8e8) !important;
+    padding: 58px 20px 52px;
+    text-align: center;
+}
+
+.tebak-gambar-page .tebak-hero::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background-image: url("../assets/sasirangan-hijau.jpg");
+    background-size: 520px auto;
+    background-repeat: repeat;
+    opacity: .045;
+    pointer-events: none;
+}
+
+.tebak-gambar-page .tebak-hero > * {
+    position: relative;
+    z-index: 1;
+}
+
+.tebak-gambar-page .tebak-icon {
+    width: 70px;
+    height: 70px;
+    margin: 0 auto 14px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 20px;
+    background: #fff;
+    box-shadow: 0 8px 22px rgba(33,72,61,.1);
+    font-size: 32px;
+}
+
+.tebak-gambar-page .tebak-label,
+.tebak-gambar-page .hasil-label {
+    color: var(--green, #356859) !important;
+    font-weight: 900;
+    letter-spacing: 2px;
+    font-size: 11px;
+}
+
+.tebak-gambar-page .tebak-hero h1 {
+    margin: 7px 0 10px;
+    color: var(--green-dark, #21483d) !important;
+}
+
+.tebak-gambar-page .tebak-hero h1 span {
+    color: var(--gold, #d6a84f) !important;
+}
+
+.tebak-gambar-page .tebak-hero > p:last-child {
+    max-width: 600px;
+    margin: 0 auto;
+    color: #5c6e67;
+    line-height: 1.7;
+}
+
+.tebak-gambar-page .tebak-kata-main {
+    width: min(92%, 900px);
+    margin: 0 auto;
+    padding: 45px 0 65px;
+}
+
+.tebak-gambar-page .game-status {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+    margin-bottom: 12px;
+}
+
+.tebak-gambar-page .game-question-number,
+.tebak-gambar-page .game-score {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.tebak-gambar-page .game-question-number span {
+    color: var(--green, #356859);
+    font-size: 10px;
+    font-weight: 900;
+    letter-spacing: 1.5px;
+}
+
+.tebak-gambar-page .game-question-number strong,
+.tebak-gambar-page .game-score strong {
+    color: var(--green-dark, #21483d);
+}
+
+.tebak-gambar-page .game-progress-track {
+    height: 8px;
+    overflow: hidden;
+    border-radius: 999px;
+    background: #e4ece7;
+}
+
+.tebak-gambar-page .game-progress-fill {
+    height: 100%;
+    border-radius: inherit;
+    background: linear-gradient(90deg, var(--green, #356859), var(--gold, #d6a84f));
+    transition: width .3s ease;
+}
+
+.tebak-gambar-page .question-card {
+    margin-top: 24px;
+    padding: 28px;
+    background: #fff;
+    border: 1px solid rgba(53,104,89,.1);
+    border-radius: 24px;
+    box-shadow: 0 10px 30px rgba(33,72,61,.08);
+}
+
+.tebak-gambar-page .question-card-top {
+    text-align: center;
+    margin-bottom: 22px;
+}
+
+.tebak-gambar-page .question-badge {
+    display: inline-flex;
+    padding: 7px 14px;
+    border-radius: 999px;
+    background: var(--blue-light, #dff3f5);
+    color: var(--green-dark, #21483d);
+    font-size: 10px;
+    font-weight: 900;
+    letter-spacing: 1.5px;
+}
+
+.tebak-gambar-page .gambar-soal-wrapper {
+    min-height: 260px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    border-radius: 18px;
+    background: #f5f8f5;
+}
+
+.tebak-gambar-page .gambar-soal {
+    display: block;
+    width: 100%;
+    max-width: 620px;
+    max-height: 360px;
+    object-fit: contain;
+    border-radius: 16px;
+}
+
+.tebak-gambar-page .question-hint {
+    margin: 18px 0 14px;
+    text-align: center;
+    color: #6a7a74;
+    font-size: 13px;
+}
+
+.tebak-gambar-page .pilihan-jawaban {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0,1fr));
+    gap: 12px;
+}
+
+.tebak-gambar-page .answer-button {
+    min-height: 58px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 10px 15px;
+    border: 1px solid #dbe6df;
+    border-radius: 15px;
+    background: #fff;
+    color: var(--green-dark, #21483d);
+    text-align: left;
+    cursor: pointer;
+    transition: .2s ease;
+}
+
+.tebak-gambar-page .answer-button:hover:not(:disabled) {
+    border-color: var(--gold, #d6a84f);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 16px rgba(33,72,61,.08);
+}
+
+.tebak-gambar-page .answer-letter {
+    width: 32px;
+    height: 32px;
+    flex: 0 0 32px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 10px;
+    background: #edf5f0;
+    color: var(--green-dark, #21483d);
+    font-weight: 900;
+}
+
+.tebak-gambar-page .answer-text {
+    line-height: 1.4;
+    font-weight: 700;
+}
+
+.tebak-gambar-page .answer-button.correct {
+    border-color: var(--green, #356859);
+    background: #edf7f0;
+}
+
+.tebak-gambar-page .answer-button.wrong {
+    border-color: #c97878;
+    background: #fff0f0;
+}
+
+.tebak-gambar-page .game-feedback {
+    margin-top: 16px;
+    border-radius: 18px;
+}
+
+.tebak-gambar-page .next-question {
+    margin: 16px 0 0 auto;
+    border: 0;
+    border-radius: 14px;
+    background: var(--green-dark, #21483d);
+    color: #fff;
+    padding: 13px 20px;
+    cursor: pointer;
+    align-items: center;
+    gap: 12px;
+    font-weight: 800;
+}
+
+.tebak-gambar-page .next-question:hover {
+    background: var(--green, #356859);
+}
+
+.tebak-gambar-page .hasil-game {
+    max-width: 720px;
+    margin: 0 auto;
+    padding: 50px 30px;
+    text-align: center;
+    background: #fff;
+    border: 1px solid rgba(53,104,89,.1);
+    border-radius: 28px;
+    box-shadow: 0 10px 30px rgba(33,72,61,.08);
+}
+
+.tebak-gambar-page .hasil-icon {
+    font-size: 54px;
+    margin: 8px 0 10px;
+}
+
+.tebak-gambar-page .hasil-game h2 {
+    color: var(--green-dark, #21483d);
+    margin: 5px 0;
+}
+
+.tebak-gambar-page .hasil-description {
+    color: #6a7a74;
+    line-height: 1.7;
+}
+
+.tebak-gambar-page .hasil-score {
+    width: 170px;
+    margin: 25px auto;
+    padding: 20px;
+    border-radius: 22px;
+    background: var(--green-dark, #21483d);
+    color: #fff;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.tebak-gambar-page .hasil-score strong {
+    color: var(--gold, #d6a84f);
+    font-size: 48px;
+    line-height: 1.1;
+}
+
+.tebak-gambar-page .hasil-score span,
+.tebak-gambar-page .hasil-score small {
+    font-size: 10px;
+    font-weight: 900;
+    letter-spacing: 1.5px;
+}
+
+.tebak-gambar-page .hasil-info {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 28px;
+    margin-bottom: 28px;
+}
+
+.tebak-gambar-page .hasil-info > div:not(.hasil-divider) {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.tebak-gambar-page .hasil-info strong {
+    color: var(--green-dark, #21483d);
+    font-size: 24px;
+}
+
+.tebak-gambar-page .hasil-info span {
+    color: #72817b;
+    font-size: 11px;
+}
+
+.tebak-gambar-page .hasil-divider {
+    width: 1px;
+    height: 40px;
+    background: #dce5df;
+}
+
+.tebak-gambar-page .simpan-skor-box {
+    max-width: 420px;
+    margin: 0 auto 25px;
+    padding: 20px;
+    border-radius: 18px;
+    background: #f5f8f5;
+}
+
+.tebak-gambar-page .simpan-skor-box label {
+    display: block;
+    margin-bottom: 8px;
+    color: var(--green-dark, #21483d);
+    font-size: 12px;
+    font-weight: 800;
+}
+
+.tebak-gambar-page .simpan-skor-box input {
+    width: 100%;
+    box-sizing: border-box;
+    padding: 13px 15px;
+    border: 1px solid #d6e1da;
+    border-radius: 12px;
+    outline: none;
+    background: #fff;
+}
+
+.tebak-gambar-page .simpan-skor-box input:focus {
+    border-color: var(--gold, #d6a84f);
+    box-shadow: 0 0 0 3px rgba(214,168,79,.12);
+}
+
+.tebak-gambar-page .simpan-skor-box .play-again {
+    width: 100%;
+    margin-top: 10px;
+}
+
+.tebak-gambar-page .hasil-buttons {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 12px;
+    flex-wrap: wrap;
+}
+
+.tebak-gambar-page .game-footer {
+    width: 100% !important;
+    min-width: 100% !important;
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    justify-content: center !important;
+    text-align: center !important;
+    box-sizing: border-box;
+    background: var(--green-dark, #21483d) !important;
+    position: relative;
+    overflow: hidden;
+}
+
+.tebak-gambar-page .game-footer::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background-image: url("../assets/sasirangan-hijau.jpg");
+    background-size: 420px auto;
+    background-repeat: repeat;
+    opacity: .08;
+    pointer-events: none;
+}
+
+.tebak-gambar-page .game-footer > * {
+    position: relative;
+    z-index: 1;
+}
+
+.tebak-gambar-page .game-footer-logo {
+    width: 100% !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    gap: 10px;
+    text-align: center !important;
+    margin: 0 auto 10px !important;
+}
+
+.tebak-gambar-page .game-footer-emblem {
+    width: 38px;
+    height: 38px;
+    padding: 2px;
+    border-radius: 50%;
+    background: #fff;
+    border: 2px solid var(--gold, #d6a84f);
+    box-sizing: border-box;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.tebak-gambar-page .game-footer-emblem img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 50%;
+    display: block;
+}
+
+.tebak-gambar-page .game-footer p {
+    display: block !important;
+    width: 100% !important;
+    max-width: 430px !important;
+    margin: 13px auto !important;
+    padding: 0 !important;
+    text-align: center !important;
+}
+
+.tebak-gambar-page .game-footer small {
+    display: block !important;
+    width: 100% !important;
+    margin: 5px auto 0 !important;
+    text-align: center !important;
+}
+
+@media (max-width: 700px) {
+    .tebak-gambar-page .game-play-header { padding: 8px 5%; }
+    .tebak-gambar-page .game-back { font-size: 12px; }
+    .tebak-gambar-page .game-play-logo { width: 52px !important; height: 52px !important; }
+    .tebak-gambar-page .game-play-brand-text strong { font-size: 15px; }
+    .tebak-gambar-page .game-play-brand-text small { font-size: 8px; }
+    .tebak-gambar-page .pilihan-jawaban { grid-template-columns: 1fr; }
+    .tebak-gambar-page .question-card { padding: 20px; }
+}
+
+@media (max-width: 480px) {
+    .tebak-gambar-page .game-play-header { min-height: 72px; }
+    .tebak-gambar-page .game-back { font-size: 11px; }
+    .tebak-gambar-page .game-play-brand { gap: 7px; }
+    .tebak-gambar-page .game-play-logo { width: 45px !important; height: 45px !important; border-width: 2px !important; }
+    .tebak-gambar-page .game-play-brand-text strong { font-size: 13px; }
+    .tebak-gambar-page .game-play-brand-text small { font-size: 7px; letter-spacing: 1px; }
+    .tebak-gambar-page .tebak-hero { padding: 42px 16px 38px; }
+    .tebak-gambar-page .tebak-kata-main { width: 94%; padding-top: 30px; }
+    .tebak-gambar-page .gambar-soal-wrapper { min-height: 210px; }
+    .tebak-gambar-page .hasil-game { padding: 38px 18px; }
+    .tebak-gambar-page .hasil-info { gap: 18px; }
+}
+</style>
+
+</body>
+
+</html>

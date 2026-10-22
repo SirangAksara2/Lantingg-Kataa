@@ -1,0 +1,2573 @@
+/* =========================================================
+   HINDARI OMBAK — LANTING KATA
+   VERSION 2.2
+   ========================================================= */
+
+
+/* =========================================================
+   RESET
+   ========================================================= */
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body.hindari-page {
+  min-height: 100vh;
+
+  font-family: "Poppins", "Segoe UI", Arial, sans-serif;
+
+  background:
+    linear-gradient(
+      180deg,
+      #f7fbf8 0%,
+      #eef6f1 45%,
+      #e5f1eb 100%
+    );
+
+  color: #21483d;
+
+  overflow-x: hidden;
+}
+
+button,
+input {
+  font: inherit;
+}
+
+
+/* =========================================================
+   UTILITY
+   ========================================================= */
+
+.hidden {
+  display: none !important;
+}
+
+.sr-only {
+  position: absolute;
+
+  width: 1px;
+  height: 1px;
+
+  padding: 0;
+  margin: -1px;
+
+  overflow: hidden;
+
+  clip: rect(0, 0, 0, 0);
+
+  white-space: nowrap;
+
+  border: 0;
+}
+
+
+/* =========================================================
+   HEADER
+   ========================================================= */
+
+.hindari-page .hindari-header {
+  position: relative;
+
+  width: 100%;
+  min-height: 150px;
+
+  padding: 14px 7% 24px;
+
+  display: grid;
+
+  grid-template-columns: auto 1fr auto;
+
+  align-items: start;
+
+  gap: 28px;
+
+  background:
+    linear-gradient(
+      135deg,
+      #21483d 0%,
+      #356859 55%,
+      #21483d 100%
+    );
+
+  color: #fff;
+
+  border-bottom: 3px solid #d6a84f;
+
+  box-shadow:
+    0 4px 18px rgba(33, 72, 61, 0.15);
+
+  overflow: hidden;
+
+  z-index: 10;
+}
+
+.hindari-page .hindari-header::before {
+  content: "";
+
+  position: absolute;
+  inset: 0;
+
+  background-image:
+    url("../assets/sasirangan-hijau.jpg");
+
+  background-size: 420px auto;
+
+  background-repeat: repeat;
+
+  background-position: center;
+
+  opacity: 0.09;
+
+  pointer-events: none;
+}
+
+.hindari-page .hindari-header::after {
+  content: "";
+
+  position: absolute;
+
+  width: 280px;
+  height: 280px;
+
+  right: -130px;
+  top: -170px;
+
+  border-radius: 50%;
+
+  background:
+    rgba(214, 168, 79, 0.12);
+
+  pointer-events: none;
+}
+
+
+/* =========================================================
+   BACK BUTTON
+   ========================================================= */
+
+.hindari-page .back-button {
+  position: relative;
+
+  z-index: 2;
+
+  display: inline-flex;
+
+  align-items: center;
+
+  gap: 7px;
+
+  padding: 10px 16px;
+
+  color: #fff;
+
+  text-decoration: none;
+
+  border:
+    1px solid rgba(255, 255, 255, 0.45);
+
+  border-radius: 999px;
+
+  background:
+    rgba(255, 255, 255, 0.10);
+
+  font-size: 13px;
+
+  font-weight: 700;
+
+  transition:
+    background 0.2s ease,
+    transform 0.2s ease;
+}
+
+.hindari-page .back-button:hover {
+  background:
+    rgba(255, 255, 255, 0.18);
+
+  transform:
+    translateX(-2px);
+}
+
+
+/* =========================================================
+   BRAND
+   ========================================================= */
+
+.hindari-page .brand {
+  position: relative;
+
+  z-index: 2;
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  gap: 12px;
+
+  padding-top: 1px;
+}
+
+.hindari-page .brand-logo {
+  width: 58px;
+  height: 58px;
+
+  flex: 0 0 58px;
+
+  border-radius: 50%;
+
+  border: 3px solid #d6a84f;
+
+  background: #fff;
+
+  overflow: hidden;
+
+  box-shadow:
+    0 4px 12px rgba(0, 0, 0, 0.18);
+}
+
+.hindari-page .brand-logo img {
+  width: 100%;
+  height: 100%;
+
+  display: block;
+
+  object-fit: cover;
+}
+
+.hindari-page .brand-name {
+  color: #fff;
+
+  font-size: 19px;
+
+  font-weight: 900;
+
+  letter-spacing: 1.5px;
+}
+
+
+/* =========================================================
+   HEADER TITLE
+   ========================================================= */
+
+.hindari-page .header-title {
+  position: relative;
+
+  z-index: 2;
+
+  text-align: right;
+}
+
+.hindari-page .header-title .eyebrow {
+  display: block;
+
+  margin-bottom: 3px;
+
+  color: #d6a84f;
+
+  font-size: 10px;
+
+  font-weight: 800;
+
+  letter-spacing: 1.7px;
+}
+
+.hindari-page .header-title h1 {
+  margin-bottom: 3px;
+
+  color: #fff;
+
+  font-size:
+    clamp(24px, 3vw, 34px);
+
+  line-height: 1.05;
+
+  font-weight: 900;
+}
+
+.hindari-page .header-title p {
+  max-width: 430px;
+
+  margin-left: auto;
+
+  color:
+    rgba(255, 255, 255, 0.82);
+
+  font-size: 12px;
+
+  line-height: 1.5;
+}
+
+
+/* =========================================================
+   MAIN
+   ========================================================= */
+
+.hindari-page main {
+  width: min(1120px, 92%);
+
+  margin: 0 auto;
+
+  padding: 38px 0 55px;
+}
+
+
+/* =========================================================
+   PANEL
+   ========================================================= */
+
+.hindari-page .panel {
+  width: 100%;
+
+  padding: 42px 30px;
+
+  background: #fff;
+
+  border:
+    1px solid #d9e7df;
+
+  border-radius: 24px;
+
+  box-shadow:
+    0 12px 35px rgba(33, 72, 61, 0.09);
+
+  text-align: center;
+}
+
+
+/* =========================================================
+   START PANEL
+   ========================================================= */
+
+.hindari-page .start-panel {
+  max-width: 760px;
+
+  margin: 20px auto;
+}
+
+.hindari-page .start-icon {
+  width: 82px;
+  height: 82px;
+
+  margin: 0 auto 18px;
+
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 50%;
+
+  background:
+    linear-gradient(
+      145deg,
+      #dff2e8,
+      #f7dfaa
+    );
+
+  border:
+    3px solid #d6a84f;
+
+  font-size: 42px;
+}
+
+.hindari-page .start-panel h2 {
+  margin-bottom: 10px;
+
+  color: #21483d;
+
+  font-size: 28px;
+
+  font-weight: 900;
+}
+
+.hindari-page .start-panel > p {
+  max-width: 600px;
+
+  margin: 0 auto 25px;
+
+  color: #5b7169;
+
+  font-size: 14px;
+
+  line-height: 1.7;
+}
+
+
+/* =========================================================
+   GAME INFO
+   ========================================================= */
+
+.hindari-page .game-info {
+  width: min(600px, 100%);
+
+  margin: 0 auto 24px;
+
+  display: grid;
+
+  grid-template-columns:
+    repeat(2, 1fr);
+
+  gap: 12px;
+}
+
+.hindari-page .info-item {
+  min-height: 82px;
+
+  padding: 13px 14px;
+
+  display: flex;
+
+  align-items: center;
+
+  gap: 12px;
+
+  text-align: left;
+
+  background: #f3f8f5;
+
+  border:
+    1px solid #d6e7de;
+
+  border-radius: 16px;
+}
+
+.hindari-page .info-icon {
+  width: 46px;
+  height: 46px;
+
+  flex:
+    0 0 46px;
+
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 13px;
+
+  background: #dfeee7;
+
+  font-size: 23px;
+}
+
+.hindari-page .info-item div {
+  display: flex;
+
+  flex-direction: column;
+
+  gap: 3px;
+}
+
+.hindari-page .info-item strong {
+  color: #21483d;
+
+  font-size: 12px;
+
+  font-weight: 900;
+}
+
+.hindari-page .info-item span {
+  color: #687b74;
+
+  font-size: 11px;
+
+  line-height: 1.4;
+}
+
+
+/* =========================================================
+   RULES
+   ========================================================= */
+
+.hindari-page .rules {
+  width: min(650px, 100%);
+
+  margin: 0 auto 26px;
+
+  display: grid;
+
+  grid-template-columns:
+    repeat(3, 1fr);
+
+  gap: 12px;
+}
+
+.hindari-page .rule-item {
+  min-height: 105px;
+
+  padding: 16px 12px;
+
+  display: flex;
+
+  flex-direction: column;
+
+  align-items: center;
+
+  justify-content: center;
+
+  gap: 8px;
+
+  background: #fafcfb;
+
+  border:
+    1px solid #e0ebe5;
+
+  border-radius: 15px;
+}
+
+.hindari-page .rule-item > span {
+  font-size: 25px;
+}
+
+.hindari-page .rule-item p {
+  color: #61756e;
+
+  font-size: 11px;
+
+  line-height: 1.5;
+}
+
+.hindari-page .rule-item strong {
+  color: #21483d;
+}
+
+
+/* =========================================================
+   PRIMARY BUTTON
+   ========================================================= */
+
+.hindari-page .primary-button {
+  border: none;
+
+  padding: 13px 24px;
+
+  border-radius: 999px;
+
+  background:
+    linear-gradient(
+      135deg,
+      #356859,
+      #21483d
+    );
+
+  color: #fff;
+
+  font-size: 14px;
+
+  font-weight: 800;
+
+  cursor: pointer;
+
+  box-shadow:
+    0 6px 15px rgba(33, 72, 61, 0.20);
+
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease,
+    opacity 0.2s ease;
+}
+
+.hindari-page .primary-button:hover {
+  transform:
+    translateY(-2px);
+
+  box-shadow:
+    0 9px 20px rgba(33, 72, 61, 0.25);
+}
+
+.hindari-page .primary-button:active {
+  transform:
+    translateY(0);
+}
+
+.hindari-page .primary-button:disabled {
+  opacity: 0.55;
+
+  cursor: not-allowed;
+
+  transform: none;
+}
+
+
+/* =========================================================
+   LOADING
+   ========================================================= */
+
+.hindari-page .loading-text {
+  margin-top: 13px !important;
+
+  color: #8a9b95 !important;
+
+  font-size: 11px !important;
+}
+
+
+/* =========================================================
+   GAME SECTION
+   ========================================================= */
+
+.hindari-page .game-section {
+  width: 100%;
+}
+
+
+/* =========================================================
+   GAME TOPBAR
+   ========================================================= */
+
+.hindari-page .game-topbar {
+  margin-bottom: 15px;
+
+  display: grid;
+
+  grid-template-columns:
+    1fr 1.2fr 1fr;
+
+  gap: 12px;
+}
+
+.hindari-page .game-stat,
+.hindari-page .lives-box {
+  min-height: 72px;
+
+  padding: 12px 18px;
+
+  display: flex;
+
+  flex-direction: column;
+
+  align-items: center;
+
+  justify-content: center;
+
+  background: #fff;
+
+  border:
+    1px solid #d9e7df;
+
+  border-radius: 16px;
+
+  box-shadow:
+    0 6px 18px rgba(33, 72, 61, 0.07);
+}
+
+.hindari-page .game-stat span,
+.hindari-page .lives-box span {
+  margin-bottom: 3px;
+
+  color: #84958f;
+
+  font-size: 10px;
+
+  font-weight: 800;
+
+  letter-spacing: 1px;
+}
+
+.hindari-page .game-stat strong {
+  color: #21483d;
+
+  font-size: 20px;
+
+  font-weight: 900;
+}
+
+.hindari-page .lives-box strong {
+  font-size: 17px;
+
+  letter-spacing: 2px;
+}
+
+
+/* =========================================================
+   GAME WORLD
+   ========================================================= */
+
+.hindari-page .game-world {
+  position: relative;
+
+  width: 100%;
+
+  height: 720px;
+
+  overflow: hidden;
+
+  border:
+    4px solid #fff;
+
+  border-radius: 24px;
+
+  background:
+    linear-gradient(
+      180deg,
+      #a9dce9 0%,
+      #d9efef 34%,
+      #d8eee4 35%,
+      #b5d9c6 100%
+    );
+
+  box-shadow:
+    0 12px 35px rgba(33, 72, 61, 0.14);
+}
+
+
+/* =========================================================
+   SKY
+   ========================================================= */
+
+.hindari-page .sky {
+  position: absolute;
+
+  inset: 0;
+
+  height: 38%;
+
+  overflow: hidden;
+
+  pointer-events: none;
+}
+
+.hindari-page .sun {
+  position: absolute;
+
+  top: 32px;
+  right: 8%;
+
+  font-size: 52px;
+
+  animation:
+    sunFloat 4s ease-in-out infinite;
+}
+
+@keyframes sunFloat {
+
+  0%,
+  100% {
+    transform:
+      translateY(0);
+  }
+
+  50% {
+    transform:
+      translateY(-5px);
+  }
+}
+
+.hindari-page .cloud {
+  position: absolute;
+
+  opacity: 0.75;
+
+  font-size: 38px;
+
+  animation:
+    cloudMove 12s linear infinite;
+}
+
+.hindari-page .cloud-one {
+  top: 65px;
+  left: 14%;
+}
+
+.hindari-page .cloud-two {
+  top: 145px;
+  left: 58%;
+
+  font-size: 28px;
+
+  animation-duration: 17s;
+}
+
+@keyframes cloudMove {
+
+  0% {
+    transform:
+      translateX(-20px);
+  }
+
+  50% {
+    transform:
+      translateX(25px);
+  }
+
+  100% {
+    transform:
+      translateX(-20px);
+  }
+}
+
+
+/* =========================================================
+   SAFE AREA
+   ========================================================= */
+
+.hindari-page .safe-area {
+  position: absolute;
+
+  top: 22px;
+  left: 50%;
+
+  transform:
+    translateX(-50%);
+
+  z-index: 5;
+
+  min-width: 190px;
+
+  padding: 11px 22px;
+
+  text-align: center;
+
+  background:
+    rgba(255, 255, 255, 0.94);
+
+  border:
+    2px solid #d6a84f;
+
+  border-radius: 999px;
+
+  color: #21483d;
+
+  font-size: 12px;
+
+  font-weight: 900;
+
+  box-shadow:
+    0 6px 18px rgba(33, 72, 61, 0.15);
+
+  animation:
+    safeFloat 2.8s ease-in-out infinite;
+}
+
+@keyframes safeFloat {
+
+  0%,
+  100% {
+    transform:
+      translateX(-50%)
+      translateY(0);
+  }
+
+  50% {
+    transform:
+      translateX(-50%)
+      translateY(-4px);
+  }
+}
+
+
+/* =========================================================
+   SAFE LAND / CLIFF
+   ========================================================= */
+
+.hindari-page .safe-area::after {
+  content: "";
+
+  position: absolute;
+
+  left: 50%;
+
+  bottom: -38px;
+
+  transform:
+    translateX(-50%);
+
+  width: 280px;
+  height: 48px;
+
+  border-radius:
+    50% 50% 18px 18px;
+
+  background:
+    linear-gradient(
+      180deg,
+      #78a86d,
+      #4e7950
+    );
+
+  border:
+    3px solid #416643;
+
+  box-shadow:
+    0 7px 0 #345239;
+
+  z-index: -1;
+}
+
+
+/* =========================================================
+   BOX PATH
+   =========================================================
+
+   PENTING:
+   DOM:
+   1, 2, 3, 4 ... 15
+
+   VISUAL:
+   15
+   14
+   ...
+   2
+   1
+
+   Jadi kotak 1 berada PALING BAWAH.
+   ========================================================= */
+
+.hindari-page .box-path {
+  position: absolute;
+
+  left: 50%;
+
+  bottom: 82px;
+
+  width: 360px;
+
+  height: 620px;
+
+  transform:
+    translateX(-50%);
+
+  display: flex;
+
+  /*
+    INI YANG MEMBALIK POSISI:
+    1 = bawah
+    15 = atas
+  */
+  flex-direction: column-reverse;
+
+  align-items: center;
+
+  justify-content: flex-start;
+
+  gap: 5px;
+
+  z-index: 4;
+
+  pointer-events: none;
+}
+
+
+/* =========================================================
+   INDIVIDUAL BOX
+   ========================================================= */
+
+.hindari-page .step-box {
+  position: relative;
+
+  width: 72px;
+  height: 36px;
+
+  flex:
+    0 0 36px;
+
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  border-radius:
+    8px 8px 5px 5px;
+
+  background:
+    linear-gradient(
+      135deg,
+      #d9b36a,
+      #b9883d
+    );
+
+  border:
+    2px solid #8c652e;
+
+  color: #fff;
+
+  font-size: 10px;
+
+  font-weight: 900;
+
+  box-shadow:
+    0 4px 0 #765321,
+    0 7px 9px rgba(33, 72, 61, 0.15);
+
+  transition:
+    background 0.3s ease,
+    box-shadow 0.3s ease,
+    opacity 0.3s ease;
+
+  z-index: 4;
+}
+
+
+/* =========================================================
+   ALTERNATING PATH
+   ========================================================= */
+
+.hindari-page .step-box:nth-child(odd) {
+  transform:
+    translateX(-58px);
+}
+
+.hindari-page .step-box:nth-child(even) {
+  transform:
+    translateX(58px);
+}
+
+
+/* =========================================================
+   BOX REACHED
+   ========================================================= */
+
+.hindari-page .step-box.reached {
+  background:
+    linear-gradient(
+      135deg,
+      #4e8c6f,
+      #356859
+    );
+
+  border-color:
+    #21483d;
+
+  box-shadow:
+    0 4px 0 #1c3d34,
+    0 7px 10px rgba(33, 72, 61, 0.15);
+}
+
+
+/* =========================================================
+   CURRENT BOX
+   ========================================================= */
+
+.hindari-page .step-box.current {
+  animation:
+    currentBox 1s ease-in-out infinite;
+}
+
+.hindari-page .step-box:nth-child(odd).current {
+  animation-name:
+    currentBoxLeft;
+}
+
+.hindari-page .step-box:nth-child(even).current {
+  animation-name:
+    currentBoxRight;
+}
+
+@keyframes currentBoxLeft {
+
+  0%,
+  100% {
+    transform:
+      translateX(-58px)
+      translateY(0)
+      scale(1);
+  }
+
+  50% {
+    transform:
+      translateX(-58px)
+      translateY(-6px)
+      scale(1.05);
+  }
+}
+
+@keyframes currentBoxRight {
+
+  0%,
+  100% {
+    transform:
+      translateX(58px)
+      translateY(0)
+      scale(1);
+  }
+
+  50% {
+    transform:
+      translateX(58px)
+      translateY(-6px)
+      scale(1.05);
+  }
+}
+
+
+/* =========================================================
+   PLAYER
+   ========================================================= */
+
+.hindari-page .player {
+  position: absolute;
+
+  left: 50%;
+
+  /*
+    Posisi START:
+    berada di bawah kotak 1.
+  */
+  bottom: 35px;
+
+  transform:
+    translateX(-50%);
+
+  /*
+    Player di atas kotak,
+    tetapi masih DI BAWAH AIR.
+  */
+  z-index: 5;
+
+  width: 60px;
+  height: 60px;
+
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  font-size: 44px;
+
+  transition:
+    left 0.38s cubic-bezier(.22,.61,.36,1),
+    bottom 0.38s cubic-bezier(.22,.61,.36,1);
+
+  filter:
+    drop-shadow(
+      0 5px 3px rgba(0, 0, 0, 0.20)
+    );
+
+  will-change:
+    left,
+    bottom,
+    transform;
+}
+
+
+/* =========================================================
+   PLAYER CLIMB — LOMPAT LEBIH TERLIHAT
+   ========================================================= */
+
+.hindari-page .player.jumping {
+  animation:
+    playerClimb 0.78s cubic-bezier(.22,.61,.36,1);
+}
+
+@keyframes playerClimb {
+
+  0% {
+    transform:
+      translateX(-50%)
+      translateY(10px)
+      rotate(0deg)
+      scale(0.96);
+  }
+
+  18% {
+    transform:
+      translateX(-50%)
+      translateY(-20px)
+      rotate(-7deg)
+      scale(1.04);
+  }
+
+  40% {
+    transform:
+      translateX(-50%)
+      translateY(-62px)
+      rotate(6deg)
+      scale(1.12);
+  }
+
+  55% {
+    transform:
+      translateX(-50%)
+      translateY(-78px)
+      rotate(-4deg)
+      scale(1.15);
+  }
+
+  72% {
+    transform:
+      translateX(-50%)
+      translateY(-45px)
+      rotate(4deg)
+      scale(1.08);
+  }
+
+  88% {
+    transform:
+      translateX(-50%)
+      translateY(-15px)
+      rotate(-2deg)
+      scale(1.02);
+  }
+
+  100% {
+    transform:
+      translateX(-50%)
+      translateY(0)
+      rotate(0deg)
+      scale(1);
+  }
+}
+
+
+/* =========================================================
+   PLAYER DANGER
+   ========================================================= */
+
+.hindari-page .player.danger {
+  animation:
+    playerDanger 0.42s ease-in-out infinite;
+}
+
+@keyframes playerDanger {
+
+  0%,
+  100% {
+    transform:
+      translateX(-50%)
+      translateY(0)
+      rotate(0deg);
+  }
+
+  25% {
+    transform:
+      translateX(-50%)
+      translateY(-4px)
+      rotate(-3deg);
+  }
+
+  75% {
+    transform:
+      translateX(-50%)
+      translateY(-4px)
+      rotate(3deg);
+  }
+}
+
+
+/* =========================================================
+   WATER
+   ========================================================= */
+
+.hindari-page .water {
+  position: absolute;
+
+  left: 0;
+  right: 0;
+  bottom: 0;
+
+  height: 95px;
+
+  /*
+    AIR PALING DEPAN.
+    Jadi air bisa menutupi:
+    - kotak yang sudah dilewati
+    - karakter jika air sudah tinggi
+  */
+  z-index: 6;
+
+  overflow: hidden;
+
+  background:
+    linear-gradient(
+      180deg,
+      #58b4bd 0%,
+      #318d9a 45%,
+      #267b88 100%
+    );
+
+  transition:
+    height 1.05s cubic-bezier(.22,.61,.36,1);
+
+  will-change:
+    height;
+}
+
+
+/* =========================================================
+   WATER SURFACE
+   ========================================================= */
+
+.hindari-page .water::before {
+  content: "";
+
+  position: absolute;
+
+  left: -10%;
+
+  top: 7px;
+
+  width: 120%;
+
+  height: 10px;
+
+  border-radius: 50%;
+
+  background:
+    rgba(255, 255, 255, 0.38);
+
+  filter:
+    blur(2px);
+
+  animation:
+    waterShine 2.2s linear infinite;
+
+  z-index: 3;
+}
+
+.hindari-page .water::after {
+  content: "";
+
+  position: absolute;
+
+  left: -5%;
+
+  top: 0;
+
+  width: 110%;
+
+  height: 18px;
+
+  border-radius:
+    50%;
+
+  background:
+    rgba(255, 255, 255, 0.16);
+
+  filter:
+    blur(4px);
+
+  pointer-events: none;
+
+  z-index: 4;
+}
+
+@keyframes waterShine {
+
+  0% {
+    transform:
+      translateX(-8%);
+  }
+
+  100% {
+    transform:
+      translateX(8%);
+  }
+}
+
+
+/* =========================================================
+   WAVE
+   ========================================================= */
+
+.hindari-page .wave {
+  position: absolute;
+
+  top: -31px;
+
+  white-space: nowrap;
+
+  font-size: 44px;
+
+  letter-spacing: -9px;
+
+  opacity: 0.95;
+
+  transform-origin:
+    center bottom;
+
+  animation:
+    waveMove 3s ease-in-out infinite;
+
+  z-index: 5;
+}
+
+.hindari-page .wave-one {
+  left: -25px;
+}
+
+.hindari-page .wave-two {
+  left: 35%;
+
+  top: -25px;
+
+  animation-duration: 4s;
+
+  animation-direction: reverse;
+}
+
+.hindari-page .wave-three {
+  left: 70%;
+
+  top: -32px;
+
+  animation-duration: 3.5s;
+}
+
+@keyframes waveMove {
+
+  0% {
+    transform:
+      translateX(-25px)
+      scaleY(1);
+  }
+
+  50% {
+    transform:
+      translateX(25px)
+      scaleY(1.08);
+  }
+
+  100% {
+    transform:
+      translateX(-25px)
+      scaleY(1);
+  }
+}
+
+
+/* =========================================================
+   WAVE RISING EFFECT
+   ========================================================= */
+
+.hindari-page .water.rising {
+  animation:
+    waterRisePulse 0.85s ease-out;
+}
+
+@keyframes waterRisePulse {
+
+  0% {
+    filter:
+      brightness(1);
+  }
+
+  35% {
+    filter:
+      brightness(1.10);
+  }
+
+  100% {
+    filter:
+      brightness(1);
+  }
+}
+
+.hindari-page .water.rising .wave {
+  animation:
+    waveSurge 0.85s ease-out,
+    waveMove 3s ease-in-out infinite;
+}
+
+@keyframes waveSurge {
+
+  0% {
+    transform:
+      translateY(12px)
+      scaleY(0.85);
+  }
+
+  45% {
+    transform:
+      translateY(-12px)
+      scaleY(1.18);
+  }
+
+  100% {
+    transform:
+      translateY(0)
+      scaleY(1);
+  }
+}
+
+
+/* =========================================================
+   TIMER
+   ========================================================= */
+
+.hindari-page .timer-box {
+  position: absolute;
+
+  top: 72px;
+  right: 20px;
+
+  z-index: 9;
+
+  min-width: 78px;
+
+  padding: 9px 12px;
+
+  display: flex;
+
+  flex-direction: column;
+
+  align-items: center;
+
+  background:
+    rgba(255, 255, 255, 0.94);
+
+  border:
+    2px solid #d6a84f;
+
+  border-radius: 14px;
+
+  box-shadow:
+    0 6px 15px rgba(33, 72, 61, 0.12);
+}
+
+.hindari-page .timer-box span {
+  color: #73847e;
+
+  font-size: 9px;
+
+  font-weight: 800;
+}
+
+.hindari-page .timer-box strong {
+  color: #21483d;
+
+  font-size: 23px;
+
+  line-height: 1;
+
+  font-weight: 900;
+}
+
+.hindari-page .timer-box.warning strong {
+  color: #b84c3a;
+
+  animation:
+    timerWarning 0.6s ease-in-out infinite;
+}
+
+@keyframes timerWarning {
+
+  0%,
+  100% {
+    transform:
+      scale(1);
+  }
+
+  50% {
+    transform:
+      scale(1.15);
+  }
+}
+
+
+/* =========================================================
+   QUESTION CARD
+   ========================================================= */
+
+.hindari-page .question-card {
+  position: relative;
+
+  margin-top: 18px;
+
+  padding: 28px 30px;
+
+  background: #fff;
+
+  border:
+    1px solid #d9e7df;
+
+  border-radius: 22px;
+
+  text-align: center;
+
+  box-shadow:
+    0 10px 28px rgba(33, 72, 61, 0.08);
+}
+
+.hindari-page .question-label {
+  display: inline-block;
+
+  margin-bottom: 8px;
+
+  color: #d09e3c;
+
+  font-size: 10px;
+
+  font-weight: 900;
+
+  letter-spacing: 1.4px;
+}
+
+.hindari-page .question-text {
+  margin-bottom: 8px;
+
+  color: #667a73;
+
+  font-size: 13px;
+}
+
+
+/* =========================================================
+   INDONESIA WORD
+   ========================================================= */
+
+.hindari-page .indonesia-word {
+  margin-bottom: 20px;
+
+  color: #21483d;
+
+  font-size:
+    clamp(32px, 5vw, 48px);
+
+  line-height: 1;
+
+  font-weight: 900;
+
+  letter-spacing: 1px;
+}
+
+
+/* =========================================================
+   ANSWER FORM
+   ========================================================= */
+
+.hindari-page .answer-form {
+  width: min(620px, 100%);
+
+  margin: 0 auto;
+
+  display: flex;
+
+  gap: 10px;
+}
+
+.hindari-page .answer-form input {
+  flex: 1;
+
+  min-width: 0;
+
+  height: 48px;
+
+  padding: 0 17px;
+
+  color: #21483d;
+
+  background: #f7faf8;
+
+  border:
+    2px solid #d9e7df;
+
+  border-radius: 12px;
+
+  outline: none;
+
+  font-size: 14px;
+
+  transition:
+    border-color 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.hindari-page .answer-form input:focus {
+  border-color: #4e8c6f;
+
+  box-shadow:
+    0 0 0 4px rgba(78, 140, 111, 0.10);
+}
+
+.hindari-page .answer-form input::placeholder {
+  color: #a0ada8;
+}
+
+
+/* =========================================================
+   FEEDBACK
+   ========================================================= */
+
+.hindari-page .feedback {
+  min-height: 25px;
+
+  margin-top: 13px;
+
+  font-size: 13px;
+
+  font-weight: 800;
+}
+
+.hindari-page .feedback.correct {
+  color: #3d825f;
+}
+
+.hindari-page .feedback.wrong {
+  color: #b84c3a;
+}
+
+.hindari-page .feedback.info {
+  color: #9a7430;
+}
+
+
+/* =========================================================
+   RESULT PANEL
+   ========================================================= */
+
+.hindari-page .result-panel {
+  max-width: 700px;
+
+  margin: 20px auto;
+}
+
+.hindari-page .result-icon {
+  width: 90px;
+  height: 90px;
+
+  margin: 0 auto 18px;
+
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 50%;
+
+  background:
+    linear-gradient(
+      145deg,
+      #e1f1e8,
+      #f6dfaa
+    );
+
+  border:
+    3px solid #d6a84f;
+
+  font-size: 46px;
+}
+
+.hindari-page .result-panel h2 {
+  margin-bottom: 10px;
+
+  color: #21483d;
+
+  font-size: 29px;
+
+  font-weight: 900;
+}
+
+.hindari-page .result-panel > p {
+  max-width: 520px;
+
+  margin: 0 auto 24px;
+
+  color: #687b74;
+
+  font-size: 14px;
+
+  line-height: 1.6;
+}
+
+
+/* =========================================================
+   FINAL SCORE
+   ========================================================= */
+
+.hindari-page .final-score {
+  width: 220px;
+
+  margin: 0 auto 18px;
+
+  padding: 18px;
+
+  display: flex;
+
+  flex-direction: column;
+
+  gap: 3px;
+
+  background: #f3f8f5;
+
+  border:
+    1px solid #d8e8df;
+
+  border-radius: 18px;
+}
+
+.hindari-page .final-score span {
+  color: #80918b;
+
+  font-size: 10px;
+
+  font-weight: 800;
+
+  letter-spacing: 1.2px;
+}
+
+.hindari-page .final-score strong {
+  color: #21483d;
+
+  font-size: 38px;
+
+  font-weight: 900;
+}
+
+
+/* =========================================================
+   RESULT DETAIL
+   ========================================================= */
+
+.hindari-page .result-detail {
+  width: min(440px, 100%);
+
+  margin: 0 auto 25px;
+
+  display: grid;
+
+  grid-template-columns:
+    repeat(2, 1fr);
+
+  gap: 10px;
+}
+
+.hindari-page .result-detail > div {
+  padding: 13px;
+
+  display: flex;
+
+  flex-direction: column;
+
+  gap: 3px;
+
+  background: #fafcfb;
+
+  border:
+    1px solid #e0ebe5;
+
+  border-radius: 14px;
+}
+
+.hindari-page .result-detail span {
+  color: #83938d;
+
+  font-size: 10px;
+}
+
+.hindari-page .result-detail strong {
+  color: #21483d;
+
+  font-size: 20px;
+}
+
+
+/* =========================================================
+   FOOTER
+   ========================================================= */
+
+.hindari-page footer {
+  position: relative;
+
+  width: 100%;
+
+  padding: 38px 7% 28px;
+
+  display: flex;
+
+  flex-direction: column;
+
+  align-items: center;
+
+  justify-content: center;
+
+  gap: 8px;
+
+  text-align: center;
+
+  background:
+    linear-gradient(
+      135deg,
+      #21483d 0%,
+      #356859 55%,
+      #21483d 100%
+    );
+
+  color: #fff;
+
+  border-top: 3px solid #d6a84f;
+
+  overflow: hidden;
+}
+
+.hindari-page footer::before {
+  content: "";
+
+  position: absolute;
+
+  inset: 0;
+
+  background-image:
+    url("../assets/sasirangan-hijau.jpg");
+
+  background-size: 420px auto;
+
+  background-repeat: repeat;
+
+  background-position: center;
+
+  opacity: 0.09;
+
+  pointer-events: none;
+}
+
+.hindari-page footer::after {
+  content: "";
+
+  position: absolute;
+
+  width: 420px;
+  height: 420px;
+
+  right: -180px;
+  bottom: -280px;
+
+  border-radius: 50%;
+
+  background:
+    rgba(214, 168, 79, 0.10);
+
+  pointer-events: none;
+}
+
+.hindari-page footer > * {
+  position: relative;
+
+  z-index: 2;
+}
+
+.hindari-page .footer-brand {
+  color: #fff;
+
+  font-size: 18px;
+
+  letter-spacing: 1.4px;
+}
+
+.hindari-page footer p {
+  color:
+    rgba(255, 255, 255, 0.75);
+
+  font-size: 11px;
+}
+
+
+/* =========================================================
+   RESPONSIVE — TABLET
+   ========================================================= */
+
+@media (max-width: 850px) {
+
+  .hindari-page .hindari-header {
+    min-height: 125px;
+
+    padding: 11px 5% 20px;
+
+    grid-template-columns:
+      auto 1fr;
+
+    gap: 18px;
+  }
+
+  .hindari-page .brand {
+    justify-content: flex-end;
+  }
+
+  .hindari-page .header-title {
+    grid-column: 1 / -1;
+
+    text-align: center;
+  }
+
+  .hindari-page .header-title p {
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .hindari-page .brand-logo {
+    width: 55px;
+    height: 55px;
+
+    flex-basis: 55px;
+  }
+
+  .hindari-page .brand-name {
+    font-size: 17px;
+  }
+
+  .hindari-page main {
+    width: 94%;
+  }
+
+  .hindari-page .game-world {
+    height: 650px;
+  }
+
+  .hindari-page .box-path {
+    width: 320px;
+
+    height: 560px;
+
+    bottom: 70px;
+
+    flex-direction: column-reverse !important;
+  }
+
+  .hindari-page .step-box {
+    width: 66px;
+    height: 32px;
+
+    flex-basis: 32px;
+  }
+
+  .hindari-page .step-box:nth-child(odd) {
+    transform:
+      translateX(-50px);
+  }
+
+  .hindari-page .step-box:nth-child(even) {
+    transform:
+      translateX(50px);
+  }
+
+}
+
+
+/* =========================================================
+   RESPONSIVE — MOBILE
+   ========================================================= */
+
+@media (max-width: 650px) {
+
+  .hindari-page .hindari-header {
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: center;
+
+    padding: 14px 5% 20px;
+
+    gap: 12px;
+  }
+
+  .hindari-page .brand {
+    order: 1;
+  }
+
+  .hindari-page .back-button {
+    order: 2;
+
+    align-self: flex-start;
+
+    font-size: 11px;
+  }
+
+  .hindari-page .header-title {
+    order: 3;
+
+    width: 100%;
+  }
+
+  .hindari-page .header-title h1 {
+    font-size: 26px;
+  }
+
+  .hindari-page .header-title p {
+    font-size: 11px;
+  }
+
+  .hindari-page main {
+    width: 94%;
+
+    padding-top: 25px;
+  }
+
+  .hindari-page .panel {
+    padding: 30px 18px;
+  }
+
+
+  /* =====================================================
+     GAME INFO
+     ===================================================== */
+
+  .hindari-page .game-info {
+    grid-template-columns: 1fr;
+
+    gap: 9px;
+  }
+
+  .hindari-page .info-item {
+    min-height: 70px;
+  }
+
+
+  /* =====================================================
+     RULES
+     ===================================================== */
+
+  .hindari-page .rules {
+    grid-template-columns: 1fr;
+  }
+
+  .hindari-page .rule-item {
+    min-height: 72px;
+
+    flex-direction: row;
+
+    justify-content: flex-start;
+
+    padding: 10px 15px;
+
+    text-align: left;
+  }
+
+
+  /* =====================================================
+     TOPBAR
+     ===================================================== */
+
+  .hindari-page .game-topbar {
+    grid-template-columns:
+      repeat(2, 1fr);
+  }
+
+  .hindari-page .lives-box {
+    grid-column: 1 / -1;
+
+    grid-row: 1;
+  }
+
+  .hindari-page .game-stat {
+    grid-row: 2;
+  }
+
+
+  /* =====================================================
+     GAME WORLD
+     ===================================================== */
+
+  .hindari-page .game-world {
+    height: 600px;
+  }
+
+
+  /* =====================================================
+     SAFE AREA
+     ===================================================== */
+
+  .hindari-page .safe-area {
+    top: 18px;
+
+    min-width: 165px;
+
+    padding: 8px 14px;
+
+    font-size: 10px;
+  }
+
+  .hindari-page .safe-area::after {
+    width: 230px;
+    height: 40px;
+  }
+
+
+  /* =====================================================
+     BOX PATH
+     ===================================================== */
+
+  .hindari-page .box-path {
+    width: 235px;
+
+    height: 510px;
+
+    bottom: 62px;
+
+    gap: 4px;
+
+    flex-direction: column-reverse !important;
+  }
+
+  .hindari-page .step-box {
+    width: 58px;
+    height: 30px;
+
+    flex-basis: 30px;
+
+    font-size: 9px;
+
+    box-shadow:
+      0 3px 0 #765321,
+      0 5px 7px rgba(33, 72, 61, 0.14);
+  }
+
+  .hindari-page .step-box:nth-child(odd) {
+    transform:
+      translateX(-38px);
+  }
+
+  .hindari-page .step-box:nth-child(even) {
+    transform:
+      translateX(38px);
+  }
+
+  .hindari-page .step-box:nth-child(odd).current {
+    animation-name:
+      currentBoxMobileLeft;
+  }
+
+  .hindari-page .step-box:nth-child(even).current {
+    animation-name:
+      currentBoxMobileRight;
+  }
+
+  @keyframes currentBoxMobileLeft {
+
+    0%,
+    100% {
+      transform:
+        translateX(-38px)
+        translateY(0)
+        scale(1);
+    }
+
+    50% {
+      transform:
+        translateX(-38px)
+        translateY(-4px)
+        scale(1.05);
+    }
+  }
+
+  @keyframes currentBoxMobileRight {
+
+    0%,
+    100% {
+      transform:
+        translateX(38px)
+        translateY(0)
+        scale(1);
+    }
+
+    50% {
+      transform:
+        translateX(38px)
+        translateY(-4px)
+        scale(1.05);
+    }
+  }
+
+
+  /* =====================================================
+     PLAYER
+     ===================================================== */
+
+  .hindari-page .player {
+    width: 48px;
+    height: 48px;
+
+    font-size: 37px;
+
+    bottom: 30px;
+  }
+
+
+  /* =====================================================
+     WATER
+     ===================================================== */
+
+  .hindari-page .water {
+    height: 90px;
+  }
+
+  .hindari-page .wave {
+    font-size: 36px;
+
+    letter-spacing: -8px;
+  }
+
+
+  /* =====================================================
+     ANSWER
+     ===================================================== */
+
+  .hindari-page .answer-form {
+    flex-direction: column;
+  }
+
+  .hindari-page .answer-form input {
+    width: 100%;
+  }
+
+  .hindari-page .answer-form .primary-button {
+    width: 100%;
+  }
+
+
+  /* =====================================================
+     QUESTION
+     ===================================================== */
+
+  .hindari-page .question-card {
+    padding: 24px 18px;
+  }
+
+
+  /* =====================================================
+     RESULT
+     ===================================================== */
+
+  .hindari-page .result-detail {
+    grid-template-columns: 1fr;
+  }
+
+}
+
+
+/* =========================================================
+   RESPONSIVE — SMALL MOBILE
+   ========================================================= */
+
+@media (max-width: 480px) {
+
+  .hindari-page .hindari-header {
+    padding-left: 4%;
+    padding-right: 4%;
+  }
+
+  .hindari-page .brand-logo {
+    width: 50px;
+    height: 50px;
+
+    flex-basis: 50px;
+  }
+
+  .hindari-page .brand-name {
+    font-size: 15px;
+  }
+
+  .hindari-page .header-title h1 {
+    font-size: 23px;
+  }
+
+  .hindari-page .header-title p {
+    font-size: 10px;
+  }
+
+  .hindari-page .start-panel h2 {
+    font-size: 24px;
+  }
+
+
+  /* =====================================================
+     GAME WORLD
+     ===================================================== */
+
+  .hindari-page .game-world {
+    height: 570px;
+  }
+
+
+  /* =====================================================
+     SAFE
+     ===================================================== */
+
+  .hindari-page .safe-area {
+    top: 13px;
+
+    min-width: 145px;
+
+    padding: 7px 11px;
+
+    font-size: 9px;
+  }
+
+  .hindari-page .safe-area::after {
+    width: 205px;
+    height: 35px;
+  }
+
+
+  /* =====================================================
+     TIMER
+     ===================================================== */
+
+  .hindari-page .timer-box {
+    top: 55px;
+
+    right: 10px;
+
+    min-width: 68px;
+
+    padding: 7px 9px;
+  }
+
+  .hindari-page .timer-box strong {
+    font-size: 20px;
+  }
+
+
+  /* =====================================================
+     BOX PATH
+     ===================================================== */
+
+  .hindari-page .box-path {
+    width: 195px;
+
+    height: 475px;
+
+    bottom: 54px;
+
+    gap: 3px;
+
+    flex-direction: column-reverse !important;
+  }
+
+  .hindari-page .step-box {
+    width: 50px;
+    height: 27px;
+
+    flex-basis: 27px;
+
+    font-size: 8px;
+  }
+
+  .hindari-page .step-box:nth-child(odd) {
+    transform:
+      translateX(-29px);
+  }
+
+  .hindari-page .step-box:nth-child(even) {
+    transform:
+      translateX(29px);
+  }
+
+  .hindari-page .step-box:nth-child(odd).current {
+    animation-name:
+      currentBoxSmallLeft;
+  }
+
+  .hindari-page .step-box:nth-child(even).current {
+    animation-name:
+      currentBoxSmallRight;
+  }
+
+  @keyframes currentBoxSmallLeft {
+
+    0%,
+    100% {
+      transform:
+        translateX(-29px)
+        translateY(0)
+        scale(1);
+    }
+
+    50% {
+      transform:
+        translateX(-29px)
+        translateY(-3px)
+        scale(1.04);
+    }
+  }
+
+  @keyframes currentBoxSmallRight {
+
+    0%,
+    100% {
+      transform:
+        translateX(29px)
+        translateY(0)
+        scale(1);
+    }
+
+    50% {
+      transform:
+        translateX(29px)
+        translateY(-3px)
+        scale(1.04);
+    }
+  }
+
+
+  /* =====================================================
+     PLAYER
+     ===================================================== */
+
+  .hindari-page .player {
+    width: 44px;
+    height: 44px;
+
+    font-size: 33px;
+
+    bottom: 26px;
+  }
+
+
+  /* =====================================================
+     WATER
+     ===================================================== */
+
+  .hindari-page .water {
+    height: 86px;
+  }
+
+  .hindari-page .wave {
+    font-size: 31px;
+
+    letter-spacing: -7px;
+  }
+
+
+  /* =====================================================
+     QUESTION
+     ===================================================== */
+
+  .hindari-page .question-card {
+    padding: 22px 15px;
+  }
+
+  .hindari-page .indonesia-word {
+    font-size: 36px;
+  }
+
+
+  /* =====================================================
+     FOOTER
+     ===================================================== */
+
+  .hindari-page footer {
+    padding: 32px 18px 25px;
+  }
+
+}
+
+
+/* =========================================================
+   FINAL OVERRIDE
+   JANGAN HAPUS
+   ========================================================= */
+
+.hindari-page .box-path {
+  flex-direction: column-reverse !important;
+}
+
+.hindari-page .step-box {
+  z-index: 4;
+}
+
+.hindari-page .player {
+  z-index: 5;
+}
+
+.hindari-page .water {
+  z-index: 6;
+}

@@ -1,0 +1,1793 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>Games | LANTING KATA</title>
+
+    <link rel="stylesheet" href="css/style.css">
+
+
+    <!-- =====================================================
+         STYLE KHUSUS HALAMAN GAMES
+    ====================================================== -->
+    <style>
+
+        /* =====================================================
+           ROOT
+        ====================================================== */
+        .games-page {
+            margin: 0;
+            background: #fffdf7;
+            color: var(--text);
+        }
+
+
+        /* =====================================================
+           HEADER
+        ====================================================== */
+        .games-page .games-header {
+            position: relative;
+            width: 100%;
+            min-height: 88px;
+            padding: 10px 7%;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            box-sizing: border-box;
+            background-color: var(--green-dark);
+            overflow: hidden;
+            box-shadow:
+                0 4px 18px rgba(33, 72, 61, 0.15);
+            z-index: 10;
+        }
+
+        .games-page .games-header::before {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background-image:
+                url("assets/sasirangan-hijau.jpg");
+            background-size: 420px auto;
+            background-repeat: repeat;
+            background-position: center;
+            opacity: 0.09;
+            pointer-events: none;
+        }
+
+
+        /* =====================================================
+           BACK BUTTON
+        ====================================================== */
+        .games-page .games-back {
+            position: relative;
+            z-index: 2;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            padding: 10px 16px;
+            border-radius: 999px;
+            border: 1px solid rgba(255,255,255,0.22);
+            background: rgba(255,255,255,0.08);
+            color: rgba(255,255,255,0.92);
+            text-decoration: none;
+            font-size: 13px;
+            font-weight: 700;
+            transition:
+                background .25s ease,
+                transform .25s ease;
+        }
+
+        .games-page .games-back:hover {
+            background: rgba(255,255,255,0.16);
+            transform: translateX(-3px);
+        }
+
+
+        /* =====================================================
+           BRAND
+        ====================================================== */
+        .games-page .games-brand {
+            position: relative;
+            z-index: 2;
+            display: flex;
+            align-items: center;
+            gap: 11px;
+        }
+
+        .games-page .games-brand-logo {
+            position: relative;
+            width: 62px;
+            height: 62px;
+            padding: 3px;
+            box-sizing: border-box;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+            border-radius: 50%;
+            background: var(--white);
+            border: 3px solid var(--gold);
+            box-shadow:
+                0 3px 10px rgba(0,0,0,0.20);
+            font-size: 0;
+        }
+
+        .games-page .games-brand-logo img {
+            width: 100%;
+            height: 100%;
+            display: block;
+            object-fit: cover;
+            border-radius: 50%;
+        }
+
+        .games-page .games-brand-logo::after {
+            content: "";
+            position: absolute;
+            width: 48px;
+            height: 48px;
+            border-radius: 50%;
+            border: 1px solid rgba(214,168,79,0.55);
+            pointer-events: none;
+        }
+
+        .games-page .games-brand-name {
+            color: var(--white);
+            font-size: 20px;
+            font-weight: 900;
+            letter-spacing: 1.5px;
+            line-height: 1;
+        }
+
+        .games-page .games-brand-name span {
+            color: var(--gold);
+            margin-left: 4px;
+        }
+
+
+        /* =====================================================
+           HERO
+        ====================================================== */
+        .games-page .games-hero {
+            position: relative;
+            width: 100%;
+            padding: 75px 7% 65px;
+            box-sizing: border-box;
+            text-align: center;
+            overflow: hidden;
+            background:
+                radial-gradient(
+                    circle at 20% 30%,
+                    rgba(111,159,135,0.16),
+                    transparent 28%
+                ),
+                radial-gradient(
+                    circle at 80% 20%,
+                    rgba(105,184,194,0.13),
+                    transparent 28%
+                ),
+                linear-gradient(
+                    180deg,
+                    #f8f5e9 0%,
+                    #fffdf7 100%
+                );
+        }
+
+        .games-page .games-hero::after {
+            content: "";
+            position: absolute;
+            left: 50%;
+            bottom: 0;
+            width: 100px;
+            height: 4px;
+            transform: translateX(-50%);
+            border-radius: 999px;
+            background:
+                linear-gradient(
+                    90deg,
+                    var(--gold),
+                    var(--green),
+                    var(--gold)
+                );
+        }
+
+        .games-page .games-hero-icon {
+            width: 76px;
+            height: 76px;
+            margin: 0 auto 18px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 22px;
+            background: var(--green-dark);
+            border: 4px solid var(--gold);
+            box-shadow:
+                0 10px 25px rgba(33,72,61,0.18);
+            font-size: 34px;
+        }
+
+        .games-page .games-label {
+            margin: 0 0 12px;
+            color: var(--green);
+            font-size: 12px;
+            font-weight: 900;
+            letter-spacing: 2.5px;
+        }
+
+        .games-page .games-hero h1 {
+            max-width: 850px;
+            margin: 0 auto 18px;
+            color: var(--green-dark);
+            font-size: clamp(34px, 5vw, 56px);
+            line-height: 1.1;
+            font-weight: 900;
+        }
+
+        .games-page .games-hero h1 span {
+            color: var(--gold);
+            display: inline-block;
+        }
+
+        .games-page .games-hero > p:last-child {
+            max-width: 700px;
+            margin: 0 auto;
+            color: #5f7069;
+            font-size: 16px;
+            line-height: 1.8;
+        }
+
+
+        /* =====================================================
+           MAIN
+        ====================================================== */
+        .games-page .games-main {
+            width: 86%;
+            max-width: 1250px;
+            margin: auto;
+            padding: 70px 0 80px;
+            box-sizing: border-box;
+        }
+
+
+        /* =====================================================
+           LEADERBOARD
+           SEKARANG DILETAKKAN DI ATAS DAFTAR GAME
+        ====================================================== */
+        .games-page .leaderboard-section {
+            position: relative;
+            margin: 0 0 75px;
+            padding: 42px 42px 45px;
+            box-sizing: border-box;
+            background: var(--white);
+            border:
+                1px solid rgba(53,104,89,0.10);
+            border-radius: 28px;
+            box-shadow:
+                0 10px 30px rgba(33,72,61,0.08);
+            overflow: hidden;
+        }
+
+        .games-page .leaderboard-section::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 6px;
+            background:
+                linear-gradient(
+                    90deg,
+                    var(--gold),
+                    var(--green),
+                    var(--gold)
+                );
+        }
+
+        .games-page .leaderboard-heading {
+            display: flex;
+            align-items: center;
+            gap: 18px;
+        }
+
+        .games-page .leaderboard-icon {
+            width: 66px;
+            height: 66px;
+            flex-shrink: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 19px;
+            background: #fff8e8;
+            border:
+                1px solid rgba(214,168,79,0.28);
+            font-size: 30px;
+        }
+
+        .games-page .leaderboard-heading p {
+            margin: 0 0 5px;
+            color: var(--green);
+            font-size: 10px;
+            font-weight: 900;
+            letter-spacing: 2px;
+        }
+
+        .games-page .leaderboard-heading h2 {
+            margin: 0;
+            color: var(--green-dark);
+            font-size: 29px;
+            font-weight: 900;
+            line-height: 1.2;
+        }
+
+        .games-page .leaderboard-heading h2 span {
+            color: var(--gold);
+        }
+
+        .games-page .leaderboard-description {
+            max-width: 650px;
+            margin: 18px 0 28px;
+            color: #64746e;
+            font-size: 14px;
+            line-height: 1.7;
+        }
+
+
+        /* =====================================================
+           LEADERBOARD LIST
+        ====================================================== */
+        .games-page .leaderboard-list {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .games-page .leaderboard-item {
+            display: grid;
+            grid-template-columns:
+                55px minmax(0,1fr) auto;
+            align-items: center;
+            gap: 16px;
+            padding: 15px 18px;
+            box-sizing: border-box;
+            border-radius: 16px;
+            background: #f8faf7;
+            border:
+                1px solid rgba(53,104,89,0.08);
+            transition:
+                transform .2s ease,
+                box-shadow .2s ease;
+        }
+
+        .games-page .leaderboard-item:hover {
+            transform: translateX(3px);
+            box-shadow:
+                0 5px 15px rgba(33,72,61,0.07);
+        }
+
+        .games-page .leaderboard-rank {
+            width: 42px;
+            height: 42px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 13px;
+            background: var(--green-dark);
+            color: var(--white);
+            font-size: 16px;
+            font-weight: 900;
+        }
+
+        .games-page .leaderboard-player {
+            min-width: 0;
+            display: flex;
+            flex-direction: column;
+            gap: 3px;
+        }
+
+        .games-page .leaderboard-player strong {
+            color: var(--green-dark);
+            font-size: 15px;
+            font-weight: 900;
+            overflow-wrap: anywhere;
+        }
+
+        .games-page .leaderboard-player small {
+            color: #81908a;
+            font-size: 11px;
+        }
+
+        .games-page .leaderboard-score {
+            white-space: nowrap;
+            color: var(--green-dark);
+            font-size: 16px;
+            font-weight: 900;
+        }
+
+        .games-page .leaderboard-score span {
+            margin-left: 3px;
+            color: #81908a;
+            font-size: 11px;
+            font-weight: 700;
+        }
+
+
+        /* =====================================================
+           LEADERBOARD EMPTY
+        ====================================================== */
+        .games-page .leaderboard-empty {
+            padding: 38px 20px;
+            text-align: center;
+            border-radius: 18px;
+            background: #f8faf7;
+            border:
+                1px dashed rgba(53,104,89,0.20);
+            color: #7a8983;
+        }
+
+        .games-page .leaderboard-empty > p {
+            margin: 10px 0 0;
+            font-size: 13px;
+            line-height: 1.6;
+        }
+
+
+        /* =====================================================
+           SECTION HEADING
+        ====================================================== */
+        .games-page .games-section-heading {
+            margin-bottom: 38px;
+            text-align: center;
+        }
+
+        .games-page .games-section-heading > p {
+            margin: 0 0 8px;
+            color: var(--green);
+            font-size: 11px;
+            font-weight: 900;
+            letter-spacing: 2px;
+        }
+
+        .games-page .games-section-heading h2 {
+            margin: 0;
+            color: var(--green-dark);
+            font-size: clamp(28px, 4vw, 40px);
+            font-weight: 900;
+            line-height: 1.2;
+        }
+
+        .games-page .games-section-heading h2 span {
+            color: var(--gold);
+        }
+
+        .games-page .games-line {
+            width: 70px;
+            height: 4px;
+            margin: 15px auto 0;
+            border-radius: 999px;
+            background:
+                linear-gradient(
+                    90deg,
+                    var(--green),
+                    var(--gold)
+                );
+        }
+
+
+        /* =====================================================
+           GAME GRID
+        ====================================================== */
+        .games-page .games-grid {
+            display: grid;
+            grid-template-columns:
+                repeat(3, minmax(0, 1fr));
+            gap: 24px;
+            align-items: stretch;
+        }
+
+
+        /* =====================================================
+           GAME CARD
+        ====================================================== */
+        .games-page .game-card {
+            position: relative;
+            min-width: 0;
+            min-height: 365px;
+            padding: 30px 25px 25px;
+            box-sizing: border-box;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            background: var(--white);
+            border:
+                1px solid rgba(53,104,89,0.10);
+            border-radius: 24px;
+            box-shadow:
+                0 8px 25px rgba(33,72,61,0.07);
+            overflow: hidden;
+            transition:
+                transform .25s ease,
+                box-shadow .25s ease,
+                border-color .25s ease;
+        }
+
+        .games-page .game-card::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 5px;
+            background:
+                linear-gradient(
+                    90deg,
+                    var(--green),
+                    var(--gold)
+                );
+        }
+
+        .games-page .game-card:hover {
+            transform: translateY(-7px);
+            border-color:
+                rgba(53,104,89,0.22);
+            box-shadow:
+                0 16px 35px rgba(33,72,61,0.13);
+        }
+
+
+        /* =====================================================
+           GAME ICON
+        ====================================================== */
+        .games-page .game-icon {
+            width: 72px;
+            height: 72px;
+            margin-bottom: 17px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 20px;
+            background:
+                linear-gradient(
+                    145deg,
+                    #edf7f1,
+                    #e1f1eb
+                );
+            border:
+                1px solid rgba(53,104,89,0.10);
+            font-size: 31px;
+            box-shadow:
+                0 5px 14px rgba(33,72,61,0.07);
+        }
+
+
+        /* =====================================================
+           GAME NUMBER
+        ====================================================== */
+        .games-page .game-number {
+            margin-bottom: 8px;
+            color: var(--gold);
+            font-size: 10px;
+            font-weight: 900;
+            letter-spacing: 1.8px;
+        }
+
+
+        /* =====================================================
+           GAME TITLE
+        ====================================================== */
+        .games-page .game-card h3 {
+            width: 100%;
+            min-height: 28px;
+            margin: 0 0 9px;
+            color: var(--green-dark);
+            font-size: 21px;
+            font-weight: 900;
+            line-height: 1.3;
+        }
+
+
+        /* =====================================================
+           GAME DESCRIPTION
+        ====================================================== */
+        .games-page .game-card p {
+            width: 100%;
+            min-height: 55px;
+            margin: 0 0 17px;
+            color: #64746e;
+            font-size: 13px;
+            line-height: 1.7;
+        }
+
+
+        /* =====================================================
+           GAME BUTTON
+           TETAP DI BAGIAN BAWAH KARTU
+        ====================================================== */
+        .games-page .game-button {
+            width: 100%;
+            box-sizing: border-box;
+            margin-top: auto;
+            padding: 12px 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 13px;
+            background: var(--green-dark);
+            color: var(--white);
+            text-decoration: none;
+            font-size: 13px;
+            font-weight: 800;
+            transition:
+                background .25s ease,
+                transform .25s ease,
+                box-shadow .25s ease;
+        }
+
+        .games-page .game-button:hover {
+            background: var(--green);
+            transform: translateY(-2px);
+            box-shadow:
+                0 6px 15px rgba(33,72,61,0.18);
+        }
+
+
+        /* =====================================================
+           FOOTER
+           FOOTER SERAGAM LANTING KATA
+        ====================================================== */
+        .games-page .games-footer {
+            position: relative;
+            width: 100%;
+            min-width: 100%;
+            margin: 0;
+            padding: 38px 7% 28px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            box-sizing: border-box;
+            text-align: center;
+            background:
+                linear-gradient(
+                    135deg,
+                    #21483d 0%,
+                    #356859 55%,
+                    #21483d 100%
+                );
+            color: #fff;
+            border-top: 3px solid #d6a84f;
+            overflow: hidden;
+        }
+
+        .games-page .games-footer::before {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background-image:
+                url("assets/sasirangan-hijau.jpg");
+            background-size: 420px auto;
+            background-repeat: repeat;
+            background-position: center;
+            opacity: .09;
+            pointer-events: none;
+        }
+
+        .games-page .games-footer::after {
+            content: "";
+            position: absolute;
+            width: 420px;
+            height: 420px;
+            right: -180px;
+            bottom: -280px;
+            border-radius: 50%;
+            background:
+                rgba(214,168,79,.10);
+            pointer-events: none;
+        }
+
+        .games-page .games-footer > * {
+            position: relative;
+            z-index: 2;
+        }
+
+        .games-page .games-footer-logo {
+            width: 100%;
+            margin: 0 auto 5px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 12px;
+        }
+
+        .games-page .games-footer-logo > div {
+            width: 44px;
+            height: 44px;
+            flex: 0 0 44px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            border: 2px solid #d6a84f;
+            background: #fff;
+            box-shadow:
+                0 4px 12px rgba(0,0,0,.18);
+            overflow: hidden;
+        }
+
+        .games-page .games-footer-logo > div img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+
+        .games-page .games-footer-logo strong {
+            color: #fff;
+            font-size: 20px;
+            font-weight: 900;
+            letter-spacing: 1.2px;
+            line-height: 1;
+        }
+
+        .games-page .games-footer-logo strong span {
+            color: #d6a84f;
+        }
+
+        .games-page .games-footer > p:not(.games-copyright) {
+            display: block;
+            width: 100%;
+            max-width: 500px;
+            margin: 0 auto;
+            color: rgba(255,255,255,.86);
+            font-size: 13px;
+            font-weight: 600;
+            line-height: 1.6;
+            letter-spacing: .35px;
+            text-align: center;
+        }
+
+        .games-page .games-footer .games-copyright {
+            display: block;
+            width: 100%;
+            max-width: 800px;
+            margin: 4px auto 0;
+            color: rgba(255,255,255,.64);
+            font-size: 11px;
+            font-weight: 500;
+            line-height: 1.6;
+            text-align: center;
+        }
+
+
+        /* =====================================================
+           RESPONSIVE 1050px
+        ====================================================== */
+        @media (max-width: 1050px) {
+
+            .games-page .games-grid {
+                grid-template-columns:
+                    repeat(2, minmax(0,1fr));
+            }
+
+        }
+
+
+        /* =====================================================
+           RESPONSIVE 850px
+        ====================================================== */
+        @media (max-width: 850px) {
+
+            .games-page .games-header {
+                min-height: 78px;
+                padding: 8px 5%;
+            }
+
+            .games-page .games-brand-logo {
+                width: 55px;
+                height: 55px;
+                border-width: 2px;
+            }
+
+            .games-page .games-brand-name {
+                font-size: 17px;
+            }
+
+            .games-page .games-back {
+                padding: 8px 12px;
+                font-size: 12px;
+            }
+
+            .games-page .games-hero {
+                padding:
+                    60px 6%
+                    55px;
+            }
+
+            .games-page .games-main {
+                width: 90%;
+                padding-top: 55px;
+            }
+
+            .games-page .leaderboard-section {
+                padding: 35px 28px 38px;
+            }
+
+        }
+
+
+        /* =====================================================
+           RESPONSIVE 650px
+        ====================================================== */
+        @media (max-width: 650px) {
+
+            .games-page .games-header {
+                flex-direction: column;
+                gap: 12px;
+                align-items: stretch;
+                padding: 15px 5%;
+            }
+
+            .games-page .games-brand {
+                order: -1;
+                justify-content: center;
+            }
+
+            .games-page .games-back {
+                align-self: flex-start;
+            }
+
+            .games-page .games-hero-icon {
+                width: 66px;
+                height: 66px;
+                font-size: 28px;
+            }
+
+            .games-page .games-hero h1 {
+                font-size: 34px;
+            }
+
+            .games-page .games-hero > p:last-child {
+                font-size: 14px;
+            }
+
+            .games-page .games-grid {
+                grid-template-columns: 1fr;
+                gap: 18px;
+            }
+
+            .games-page .game-card {
+                min-height: 340px;
+            }
+
+            .games-page .leaderboard-section {
+                margin: 0 0 50px;
+                padding: 30px 20px 32px;
+            }
+
+            .games-page .leaderboard-heading {
+                align-items: flex-start;
+            }
+
+            .games-page .leaderboard-heading h2 {
+                font-size: 24px;
+            }
+
+            .games-page .leaderboard-icon {
+                width: 56px;
+                height: 56px;
+                font-size: 25px;
+            }
+
+        }
+
+
+        /* =====================================================
+           RESPONSIVE 480px
+        ====================================================== */
+        @media (max-width: 480px) {
+
+            .games-page .games-header {
+                padding:
+                    13px 4%;
+            }
+
+            .games-page .games-brand-logo {
+                width: 50px;
+                height: 50px;
+                padding: 2px;
+            }
+
+            .games-page .games-brand-name {
+                font-size: 15px;
+                letter-spacing: 1px;
+            }
+
+            .games-page .games-back {
+                font-size: 11px;
+                padding: 8px 11px;
+            }
+
+            .games-page .games-hero {
+                padding:
+                    48px 5%
+                    48px;
+            }
+
+            .games-page .games-hero h1 {
+                font-size: 30px;
+            }
+
+            .games-page .games-hero > p:last-child {
+                font-size: 13px;
+                line-height: 1.7;
+            }
+
+            .games-page .games-main {
+                width: 92%;
+                padding:
+                    48px 0
+                    60px;
+            }
+
+            .games-page .game-card {
+                padding:
+                    27px 20px
+                    23px;
+            }
+
+            .games-page .leaderboard-item {
+                grid-template-columns:
+                    45px minmax(0,1fr);
+                gap: 12px;
+            }
+
+            .games-page .leaderboard-score {
+                grid-column: 2;
+                margin-top: -4px;
+            }
+
+            .games-page .leaderboard-heading {
+                gap: 12px;
+            }
+
+            .games-page .leaderboard-heading h2 {
+                font-size: 21px;
+            }
+
+            .games-page .games-footer {
+                padding: 32px 18px 25px;
+            }
+
+            .games-page .games-footer-logo strong {
+                font-size: 17px;
+            }
+
+            .games-page .games-footer-logo > div {
+                width: 38px;
+                height: 38px;
+                flex-basis: 38px;
+            }
+
+            .games-page .games-footer > p:not(.games-copyright) {
+                font-size: 12px;
+            }
+
+            .games-page .games-footer .games-copyright {
+                font-size: 10px;
+            }
+
+        }
+
+    </style>
+
+</head>
+
+
+<body class="games-page">
+
+
+<!-- =====================================================
+     HEADER
+====================================================== -->
+
+<header class="games-header">
+
+    <a href="dashboard.html"
+       class="games-back">
+
+        ← Kembali ke Dashboard
+
+    </a>
+
+
+    <div class="games-brand">
+
+        <div class="games-brand-logo">
+
+            <img
+                src="assets/logo-lanting-kata.png"
+                alt="Logo LANTING KATA"
+            >
+
+        </div>
+
+
+        <div class="games-brand-name">
+
+            LANTING
+
+            <span>KATA</span>
+
+        </div>
+
+    </div>
+
+</header>
+
+
+<!-- =====================================================
+     HERO
+====================================================== -->
+
+<section class="games-hero">
+
+    <div class="games-hero-icon">
+        🎮
+    </div>
+
+
+    <p class="games-label">
+        RUANG BERMAIN
+    </p>
+
+
+    <h1>
+
+        Yuk, Bermain
+
+        <span>Bahasa Banjar!</span>
+
+    </h1>
+
+
+    <p>
+
+        Belajar Bahasa Banjar menjadi lebih menyenangkan
+        melalui berbagai permainan sederhana dan menarik.
+        Pilih permainan yang kamu sukai dan kumpulkan
+        poin sebanyak-banyaknya!
+
+    </p>
+
+</section>
+
+
+<!-- =====================================================
+     MAIN
+====================================================== -->
+
+<main class="games-main">
+
+
+    <!-- =================================================
+         LEADERBOARD
+         SEKARANG DI ATAS PILIHAN GAME
+    ================================================== -->
+
+    <section class="leaderboard-section">
+
+
+        <div class="leaderboard-heading">
+
+
+            <div class="leaderboard-icon">
+                🏆
+            </div>
+
+
+            <div>
+
+                <p>
+                    PAPAN PERINGKAT
+                </p>
+
+
+                <h2>
+
+                    Leaderboard
+
+                    <span>LANTING KATA</span>
+
+                </h2>
+
+            </div>
+
+        </div>
+
+
+        <p class="leaderboard-description">
+
+            Kumpulkan poin dari berbagai permainan
+            dan jadilah pemain dengan skor tertinggi!
+
+        </p>
+
+
+        <!-- =================================================
+             TEMPAT LEADERBOARD
+        ================================================== -->
+
+        <div
+            id="leaderboard"
+            class="leaderboard-list"
+        >
+
+            <div class="leaderboard-empty">
+
+                ⏳
+
+                <p>
+                    Memuat leaderboard...
+                </p>
+
+            </div>
+
+        </div>
+
+
+    </section>
+
+
+    <!-- =================================================
+         PILIHAN GAMES
+    ================================================== -->
+
+    <section class="pilihan-games">
+
+
+        <div class="games-section-heading">
+
+            <p>
+                🕹️ PILIH PERMAINAN
+            </p>
+
+
+            <h2>
+
+                Mainkan
+
+                <span>Sekarang!</span>
+
+            </h2>
+
+
+            <div class="games-line"></div>
+
+        </div>
+
+
+        <!-- =================================================
+             GRID GAME
+        ================================================== -->
+
+        <div class="games-grid">
+
+
+            <!-- =================================================
+                 GAME 1
+            ================================================== -->
+
+            <article class="game-card">
+
+                <div class="game-icon">
+                    📝
+                </div>
+
+
+                <span class="game-number">
+                    GAME 01
+                </span>
+
+
+                <h3>
+                    Tebak Kata
+                </h3>
+
+
+                <p>
+                    Tebak arti kata Bahasa Banjar
+                    yang diberikan.
+                </p>
+
+
+                <a
+                    href="tebak-kata.html"
+                    class="game-button"
+                >
+                    Mulai Bermain →
+                </a>
+
+            </article>
+
+
+            <!-- =================================================
+                 GAME 2
+            ================================================== -->
+
+            <article class="game-card">
+
+                <div class="game-icon">
+                    🖼️
+                </div>
+
+
+                <span class="game-number">
+                    GAME 02
+                </span>
+
+
+                <h3>
+                    Tebak Gambar
+                </h3>
+
+
+                <p>
+                    Perhatikan gambar dan temukan
+                    kata Bahasa Banjar yang tepat.
+                </p>
+
+
+                <a
+                    href="tebak-gambar.html"
+                    class="game-button"
+                >
+                    Mulai Bermain →
+                </a>
+
+            </article>
+
+
+            <!-- =================================================
+                 GAME 3
+            ================================================== -->
+
+            <article class="game-card">
+
+                <div class="game-icon">
+                    🔊
+                </div>
+
+
+                <span class="game-number">
+                    GAME 03
+                </span>
+
+
+                <h3>
+                    Dengar &amp; Jawab
+                </h3>
+
+
+                <p>
+                    Dengarkan audio Bahasa Banjar
+                    kemudian pilih jawabannya.
+                </p>
+
+
+                <a
+                    href="dengar-jawab.html"
+                    class="game-button"
+                >
+                    Mulai Bermain →
+                </a>
+
+            </article>
+
+
+            <!-- =================================================
+                 GAME 4
+            ================================================== -->
+
+            <article class="game-card">
+
+                <div class="game-icon">
+                    🔤
+                </div>
+
+
+                <span class="game-number">
+                    GAME 04
+                </span>
+
+
+                <h3>
+                    Susun Kata
+                </h3>
+
+
+                <p>
+                    Susun kata-kata yang diacak
+                    menjadi kalimat yang benar.
+                </p>
+
+
+                <a
+                    href="susun-kata.html"
+                    class="game-button"
+                >
+                    Mulai Bermain →
+                </a>
+
+            </article>
+
+
+            <!-- =================================================
+                 GAME 5
+            ================================================== -->
+
+            <article class="game-card">
+
+                <div class="game-icon">
+                    ✅
+                </div>
+
+
+                <span class="game-number">
+                    GAME 05
+                </span>
+
+
+                <h3>
+                    Benar atau Salah
+                </h3>
+
+
+                <p>
+                    Tentukan apakah arti kata
+                    atau kalimat tersebut benar.
+                </p>
+
+
+                <a
+                    href="benar-salah.html"
+                    class="game-button"
+                >
+                    Mulai Bermain →
+                </a>
+
+            </article>
+
+
+            <!-- =================================================
+                 GAME 6
+            ================================================== -->
+
+            <article class="game-card">
+
+                <div class="game-icon">
+                    🔗
+                </div>
+
+
+                <span class="game-number">
+                    GAME 06
+                </span>
+
+
+                <h3>
+                    Pasangkan Kata
+                </h3>
+
+
+                <p>
+                    Pasangkan kata Bahasa Banjar
+                    dengan arti Bahasa Indonesia.
+                </p>
+
+
+                <a
+                    href="pasangkan-kata.html"
+                    class="game-button"
+                >
+                    Mulai Bermain →
+                </a>
+
+            </article>
+
+
+            <!-- =================================================
+                 GAME 7
+            ================================================== -->
+
+            <article class="game-card">
+
+                <div class="game-icon">
+                    🛶
+                </div>
+
+
+                <span class="game-number">
+                    GAME 07
+                </span>
+
+
+                <h3>
+                    Lanting Berlayar
+                </h3>
+
+
+                <p>
+                    Berlayarlah dengan lanting sambil
+                    mengenal dan mengumpulkan kosakata
+                    Bahasa Banjar.
+                </p>
+
+
+                <a
+                    href="lanting-berlayar.html"
+                    class="game-button"
+                >
+                    Mulai Bermain →
+                </a>
+
+            </article>
+
+
+            <!-- =================================================
+                 GAME 8
+            ================================================== -->
+
+            <article class="game-card">
+
+                <div class="game-icon">
+                    🌊
+                </div>
+
+
+                <span class="game-number">
+                    GAME 08
+                </span>
+
+
+                <h3>
+                    Hindari Ombak
+                </h3>
+
+
+                <p>
+                    Ketik kosakata Bahasa Banjar dengan
+                    cepat untuk menghindari ombak dan
+                    teruskan perjalananmu!
+                </p>
+
+
+                <a
+                    href="hindari-ombak.html"
+                    class="game-button"
+                >
+                    Mulai Bermain →
+                </a>
+
+            </article>
+
+
+        </div>
+
+    </section>
+
+
+</main>
+
+
+<!-- =====================================================
+     FOOTER
+====================================================== -->
+
+<footer class="games-footer">
+
+
+    <div class="games-footer-logo">
+
+
+        <div>
+
+            <img
+                src="assets/logo-lanting-kata.png"
+                alt="Logo LANTING KATA"
+            >
+
+        </div>
+
+
+        <strong>
+
+            LANTING
+
+            <span>KATA</span>
+
+        </strong>
+
+
+    </div>
+
+
+    <p>
+        Belajar Bahasa Banjar sambil bermain.
+    </p>
+
+
+    <p class="games-copyright">
+
+        © 2026 LANTING KATA —
+        Ruang Belajar dan Bermain
+
+    </p>
+
+
+</footer>
+
+
+<!-- =====================================================
+     JAVASCRIPT LEADERBOARD
+====================================================== -->
+
+<script>
+
+
+    // ======================================================
+    // WEB APP LANTING KATA
+    // ======================================================
+
+    const WEB_APP_URL =
+        "https://script.google.com/macros/s/AKfycbwJaZhoaDdKjlyyQOhyICRY7APeQrLvJesOxTel-qQy6xTIuvBqQZ0Y5dX7HEAZu695/exec";
+
+
+    // ======================================================
+    // ELEMENT
+    // ======================================================
+
+    const leaderboard =
+        document.getElementById("leaderboard");
+
+
+    // ======================================================
+    // AMBIL LEADERBOARD
+    // ======================================================
+
+    async function ambilLeaderboard() {
+
+        try {
+
+            const response =
+                await fetch(
+                    WEB_APP_URL +
+                    "?action=leaderboard&t=" +
+                    Date.now()
+                );
+
+
+            if (!response.ok) {
+
+                throw new Error(
+                    "Leaderboard tidak dapat diakses."
+                );
+
+            }
+
+
+            const hasil =
+                await response.json();
+
+
+            console.log(
+                "Data leaderboard:",
+                hasil
+            );
+
+
+            if (
+                !hasil.success ||
+                !Array.isArray(hasil.data)
+            ) {
+
+                throw new Error(
+                    "Format leaderboard tidak sesuai."
+                );
+
+            }
+
+
+            tampilkanLeaderboard(
+                hasil.data
+            );
+
+
+        } catch (error) {
+
+            console.error(
+                "ERROR LEADERBOARD:",
+                error
+            );
+
+
+            leaderboard.innerHTML = `
+
+                <div class="leaderboard-empty">
+
+                    ⚠️
+
+                    <p>
+                        Leaderboard belum dapat dimuat.
+                    </p>
+
+                </div>
+
+            `;
+
+        }
+
+    }
+
+
+    // ======================================================
+    // TAMPILKAN LEADERBOARD
+    // ======================================================
+
+    function tampilkanLeaderboard(data) {
+
+
+        if (data.length === 0) {
+
+            leaderboard.innerHTML = `
+
+                <div class="leaderboard-empty">
+
+                    🏆
+
+                    <p>
+                        Belum ada skor pemain.
+                    </p>
+
+                </div>
+
+            `;
+
+            return;
+
+        }
+
+
+        leaderboard.innerHTML = "";
+
+
+        data.forEach(
+            (pemain, index) => {
+
+
+                const item =
+                    document.createElement("div");
+
+
+                item.className =
+                    "leaderboard-item";
+
+
+                let ikonPeringkat;
+
+
+                if (index === 0) {
+
+                    ikonPeringkat =
+                        "🥇";
+
+                } else if (index === 1) {
+
+                    ikonPeringkat =
+                        "🥈";
+
+                } else if (index === 2) {
+
+                    ikonPeringkat =
+                        "🥉";
+
+                } else {
+
+                    ikonPeringkat =
+                        `${index + 1}`;
+
+                }
+
+
+                item.innerHTML = `
+
+                    <div class="leaderboard-rank">
+
+                        ${ikonPeringkat}
+
+                    </div>
+
+
+                    <div class="leaderboard-player">
+
+                        <strong>
+
+                            ${escapeHTML(pemain.nama)}
+
+                        </strong>
+
+
+                        <small>
+
+                            Total poin
+
+                        </small>
+
+                    </div>
+
+
+                    <div class="leaderboard-score">
+
+                        ⭐
+
+                        ${Number(pemain.totalPoin || 0)}
+
+                        <span>
+
+                            poin
+
+                        </span>
+
+                    </div>
+
+                `;
+
+
+                leaderboard.appendChild(
+                    item
+                );
+
+            }
+        );
+
+    }
+
+
+    // ======================================================
+    // ESCAPE HTML
+    // ======================================================
+
+    function escapeHTML(text) {
+
+
+        const div =
+            document.createElement("div");
+
+
+        div.textContent =
+            text;
+
+
+        return div.innerHTML;
+
+    }
+
+
+    // ======================================================
+    // JALANKAN
+    // ======================================================
+
+    ambilLeaderboard();
+
+
+</script>
+
+
+</body>
+
+</html>

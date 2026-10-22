@@ -1,0 +1,994 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+        content="width=device-width, initial-scale=1.0">
+    <title>Kamus - LANTING KATA</title>
+    <link rel="stylesheet" href="css/style.css">
+
+    <style>
+
+        /* =========================================================
+           KAMUS PAGE
+        ========================================================= */
+
+        body.kamus-page {
+            min-height: 100vh;
+            background:
+                radial-gradient(
+                    circle at 85% 15%,
+                    rgba(111, 159, 135, 0.10),
+                    transparent 28%
+                ),
+                var(--cream);
+            color: var(--text);
+        }
+
+
+        /* =========================================================
+           HEADER
+        ========================================================= */
+
+        .kamus-page .header-kamus {
+            position: relative;
+            width: 100%;
+            min-height: 270px;
+            padding: 30px 7% 55px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            background-color: var(--green-dark);
+            color: var(--white);
+            overflow: hidden;
+        }
+
+        .kamus-page .header-kamus::before {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background-image:
+                linear-gradient(
+                    rgba(33, 72, 61, 0.82),
+                    rgba(33, 72, 61, 0.82)
+                ),
+                url("../assets/sasirangan-hijau.jpg");
+            background-size:
+                auto,
+                420px auto;
+            background-repeat:
+                no-repeat,
+                repeat;
+            background-position:
+                center,
+                center;
+            opacity: 1;
+            pointer-events: none;
+        }
+
+
+        /* =========================================================
+           TOMBOL KEMBALI
+        ========================================================= */
+
+        .kamus-page .tombol-kembali {
+            position: absolute;
+            top: 28px;
+            left: 7%;
+            z-index: 3;
+            padding: 10px 18px;
+            border: 1px solid rgba(255, 255, 255, 0.35);
+            border-radius: 999px;
+            background: rgba(255, 255, 255, 0.10);
+            color: var(--white);
+            font-size: 13px;
+            font-weight: 700;
+            cursor: pointer;
+            transition:
+                background 0.25s ease,
+                transform 0.25s ease,
+                border-color 0.25s ease;
+        }
+
+        .kamus-page .tombol-kembali:hover {
+            background: rgba(255, 255, 255, 0.18);
+            border-color: rgba(255, 255, 255, 0.60);
+            transform: translateY(-2px);
+        }
+
+
+        /* =========================================================
+           JUDUL HEADER
+        ========================================================= */
+
+        .kamus-page .judul-kamus {
+            position: relative;
+            z-index: 2;
+            max-width: 800px;
+            margin-top: 35px;
+        }
+
+        .kamus-page .judul-kamus::before {
+            content: "KAMUS DIGITAL BAHASA BANJAR";
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 14px;
+            padding: 7px 15px;
+            border: 1px solid rgba(214, 168, 79, 0.55);
+            border-radius: 999px;
+            background: rgba(255, 255, 255, 0.08);
+            color: var(--gold);
+            font-size: 10px;
+            font-weight: 900;
+            letter-spacing: 1.8px;
+        }
+
+        .kamus-page .judul-kamus h1 {
+            margin: 0 0 12px;
+            color: var(--white);
+            font-size: clamp(30px, 4vw, 46px);
+            font-weight: 900;
+            letter-spacing: 0.5px;
+            line-height: 1.15;
+        }
+
+        .kamus-page .judul-kamus p {
+            margin: 0;
+            color: rgba(255, 255, 255, 0.82);
+            font-size: 15px;
+            line-height: 1.7;
+        }
+
+
+        /* =========================================================
+           KONTEN UTAMA
+        ========================================================= */
+
+        .kamus-page .konten-kamus {
+            width: 86%;
+            max-width: 1250px;
+            margin: 0 auto;
+            padding: 60px 0 80px;
+        }
+
+
+        /* =========================================================
+           BAGIAN KATEGORI
+        ========================================================= */
+
+        .kamus-page .bagian-kategori {
+            width: 100%;
+        }
+
+        .kamus-page .bagian-kategori h2 {
+            margin: 0;
+            color: var(--green-dark);
+            font-size: 28px;
+            font-weight: 900;
+            text-align: center;
+        }
+
+        .kamus-page .subjudul-kategori {
+            max-width: 620px;
+            margin: 10px auto 35px;
+            color: rgba(38, 59, 54, 0.70);
+            font-size: 14px;
+            line-height: 1.7;
+            text-align: center;
+        }
+
+
+        /* =========================================================
+           GRID KATEGORI
+        ========================================================= */
+
+        .kamus-page .grid-kategori {
+            width: 100%;
+            display: grid;
+            grid-template-columns:
+                repeat(4, minmax(0, 1fr));
+            gap: 18px;
+        }
+
+
+        /* =========================================================
+           KARTU KATEGORI
+        ========================================================= */
+
+        .kamus-page .kartu-kategori {
+            position: relative;
+            min-height: 125px;
+            padding: 20px 15px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            border: 1px solid rgba(53, 104, 89, 0.10);
+            border-radius: 20px;
+            background: var(--white);
+            color: var(--green-dark);
+            box-shadow:
+                0 7px 22px rgba(33, 72, 61, 0.07);
+            cursor: pointer;
+            font-family: inherit;
+            font-size: 14px;
+            font-weight: 800;
+            line-height: 1.35;
+            text-align: center;
+            transition:
+                transform 0.25s ease,
+                box-shadow 0.25s ease,
+                border-color 0.25s ease,
+                background 0.25s ease;
+        }
+
+        .kamus-page .kartu-kategori::after {
+            content: "";
+            position: absolute;
+            left: 18px;
+            right: 18px;
+            bottom: 0;
+            height: 3px;
+            border-radius: 999px 999px 0 0;
+            background: var(--gold);
+            transform: scaleX(0);
+            transition: transform 0.25s ease;
+        }
+
+        .kamus-page .kartu-kategori:hover {
+            transform: translateY(-6px);
+            border-color:
+                rgba(53, 104, 89, 0.22);
+            background:
+                linear-gradient(
+                    145deg,
+                    #ffffff,
+                    #f4faf7
+                );
+            box-shadow:
+                0 13px 30px rgba(33, 72, 61, 0.12);
+        }
+
+        .kamus-page .kartu-kategori:hover::after {
+            transform: scaleX(1);
+        }
+
+        .kamus-page .kartu-kategori:active {
+            transform: translateY(-2px);
+        }
+
+        .kamus-page .kartu-kategori:focus-visible {
+            outline: 3px solid rgba(214, 168, 79, 0.45);
+            outline-offset: 3px;
+        }
+
+
+        /* =========================================================
+           IKON
+        ========================================================= */
+
+        .kamus-page .ikon-kategori {
+            width: 52px;
+            height: 52px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 16px;
+            background:
+                linear-gradient(
+                    145deg,
+                    #eef8f3,
+                    #dceee5
+                );
+            font-size: 25px;
+            box-shadow:
+                inset 0 0 0 1px
+                rgba(53, 104, 89, 0.07);
+            transition:
+                transform 0.25s ease,
+                background 0.25s ease;
+        }
+
+        .kamus-page .kartu-kategori:hover .ikon-kategori {
+            transform: scale(1.08) rotate(-2deg);
+            background:
+                linear-gradient(
+                    145deg,
+                    #fff8e8,
+                    #f6e7bf
+                );
+        }
+
+
+        /* =========================================================
+           AREA HASIL KAMUS
+        ========================================================= */
+
+        .kamus-page .hasil-kamus {
+            width: 100%;
+            margin-top: 45px;
+        }
+
+
+        /* =========================================================
+           RESPONSIVE — TABLET
+        ========================================================= */
+
+        @media (max-width: 1000px) {
+
+            .kamus-page .grid-kategori {
+                grid-template-columns:
+                    repeat(3, minmax(0, 1fr));
+            }
+
+        }
+
+
+        /* =========================================================
+           RESPONSIVE — TABLET KECIL
+        ========================================================= */
+
+        @media (max-width: 750px) {
+
+            .kamus-page .header-kamus {
+                min-height: 250px;
+                padding:
+                    85px 6% 45px;
+            }
+
+            .kamus-page .tombol-kembali {
+                top: 20px;
+                left: 6%;
+                padding: 9px 14px;
+                font-size: 12px;
+            }
+
+            .kamus-page .judul-kamus {
+                margin-top: 15px;
+            }
+
+            .kamus-page .judul-kamus h1 {
+                font-size: 32px;
+            }
+
+            .kamus-page .konten-kamus {
+                width: 90%;
+                padding-top: 45px;
+            }
+
+            .kamus-page .grid-kategori {
+                grid-template-columns:
+                    repeat(2, minmax(0, 1fr));
+                gap: 15px;
+            }
+
+            .kamus-page .kartu-kategori {
+                min-height: 120px;
+            }
+
+        }
+
+
+        /* =========================================================
+           RESPONSIVE — HP
+        ========================================================= */
+
+        @media (max-width: 480px) {
+
+            .kamus-page .header-kamus {
+                min-height: 235px;
+                padding:
+                    80px 20px 40px;
+            }
+
+            .kamus-page .tombol-kembali {
+                left: 20px;
+                top: 18px;
+                padding: 8px 12px;
+                font-size: 11px;
+            }
+
+            .kamus-page .judul-kamus::before {
+                margin-bottom: 11px;
+                padding: 6px 11px;
+                font-size: 8px;
+                letter-spacing: 1.3px;
+            }
+
+            .kamus-page .judul-kamus h1 {
+                font-size: 27px;
+            }
+
+            .kamus-page .judul-kamus p {
+                font-size: 13px;
+            }
+
+            .kamus-page .konten-kamus {
+                width: 91%;
+                padding:
+                    38px 0 60px;
+            }
+
+            .kamus-page .bagian-kategori h2 {
+                font-size: 24px;
+            }
+
+            .kamus-page .subjudul-kategori {
+                margin-bottom: 27px;
+                font-size: 13px;
+            }
+
+            .kamus-page .grid-kategori {
+                grid-template-columns:
+                    repeat(2, minmax(0, 1fr));
+                gap: 12px;
+            }
+
+            .kamus-page .kartu-kategori {
+                min-height: 112px;
+                padding: 15px 9px;
+                border-radius: 17px;
+                font-size: 12px;
+            }
+
+            .kamus-page .ikon-kategori {
+                width: 45px;
+                height: 45px;
+                border-radius: 13px;
+                font-size: 22px;
+            }
+
+        }
+
+
+        /* =========================================================
+           HP SANGAT KECIL
+        ========================================================= */
+
+        @media (max-width: 350px) {
+
+            .kamus-page .grid-kategori {
+                grid-template-columns: 1fr;
+            }
+
+            .kamus-page .kartu-kategori {
+                min-height: 95px;
+                flex-direction: row;
+                justify-content: flex-start;
+                padding: 14px 18px;
+                text-align: left;
+            }
+
+            .kamus-page .ikon-kategori {
+                flex-shrink: 0;
+            }
+
+        }
+
+
+        /* =========================================================
+           FOOTER LANTING KATA
+        ========================================================= */
+
+        .kamus-page .page-footer {
+            position: relative;
+            width: 100%;
+            min-width: 100%;
+            margin: 0;
+            padding: 38px 7% 28px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            box-sizing: border-box;
+            text-align: center;
+            background:
+                linear-gradient(
+                    135deg,
+                    #21483d 0%,
+                    #356859 55%,
+                    #21483d 100%
+                );
+            color: #fff;
+            border-top: 3px solid #d6a84f;
+            overflow: hidden;
+        }
+
+        .kamus-page .page-footer::before {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background-image:
+                url("assets/sasirangan-hijau.jpg");
+            background-size: 420px auto;
+            background-repeat: repeat;
+            background-position: center;
+            opacity: 0.09;
+            pointer-events: none;
+        }
+
+        .kamus-page .page-footer::after {
+            content: "";
+            position: absolute;
+            width: 420px;
+            height: 420px;
+            right: -180px;
+            bottom: -280px;
+            border-radius: 50%;
+            background: rgba(214, 168, 79, 0.10);
+            pointer-events: none;
+        }
+
+        .kamus-page .page-footer > * {
+            position: relative;
+            z-index: 2;
+        }
+
+        .kamus-page .page-footer .footer-brand {
+            position: relative;
+            width: 100%;
+            margin: 0 auto 5px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 12px;
+        }
+
+        .kamus-page .page-footer .footer-brand .brand-logo {
+            width: 44px;
+            height: 44px;
+            flex: 0 0 44px;
+            padding: 2px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: #fff;
+            border: 2px solid #d6a84f;
+            border-radius: 50%;
+            overflow: hidden;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.18);
+        }
+
+        .kamus-page .page-footer .footer-brand .brand-logo img {
+            width: 100%;
+            height: 100%;
+            display: block;
+            object-fit: cover;
+            border-radius: 50%;
+        }
+
+        .kamus-page .page-footer .footer-brand .brand-name {
+            color: #fff;
+            font-size: 20px;
+            font-weight: 900;
+            letter-spacing: 1.2px;
+            line-height: 1;
+        }
+
+        .kamus-page .page-footer .footer-brand .brand-name span {
+            color: #d6a84f;
+            margin-left: 4px;
+        }
+
+        .kamus-page .page-footer > p {
+            display: block;
+            width: 100%;
+            max-width: 600px;
+            margin: 0 auto;
+            color: rgba(255, 255, 255, 0.86);
+            font-size: 13px;
+            font-weight: 600;
+            line-height: 1.6;
+            letter-spacing: 0.35px;
+            text-align: center;
+        }
+
+        .kamus-page .page-footer > p.copyright {
+            margin-top: 3px;
+            color: rgba(255, 255, 255, 0.68);
+            font-size: 12px;
+            font-weight: 500;
+        }
+
+        @media (max-width: 520px) {
+
+            .kamus-page .page-footer {
+                padding: 32px 18px 25px;
+            }
+
+            .kamus-page .page-footer .footer-brand {
+                gap: 9px;
+            }
+
+            .kamus-page .page-footer .footer-brand .brand-logo {
+                width: 38px;
+                height: 38px;
+                flex-basis: 38px;
+            }
+
+            .kamus-page .page-footer .footer-brand .brand-name {
+                font-size: 17px;
+            }
+
+            .kamus-page .page-footer > p {
+                font-size: 12px;
+            }
+
+            .kamus-page .page-footer > p.copyright {
+                font-size: 11px;
+            }
+
+        }
+
+    </style>
+</head>
+
+
+<body class="kamus-page">
+
+    <!-- ================================
+         HEADER KAMUS
+    ================================= -->
+
+    <header class="header-kamus">
+
+        <button
+            class="tombol-kembali"
+            onclick="kembaliDashboard()">
+            ← Kembali ke Dashboard
+        </button>
+
+
+        <div class="judul-kamus">
+
+            <h1>📖 Kamus LANTING KATA</h1>
+
+            <p>
+                Jelajahi kosakata Bahasa Banjar
+                berdasarkan kategori.
+            </p>
+
+        </div>
+
+    </header>
+
+
+    <!-- ================================
+         KONTEN UTAMA
+    ================================= -->
+
+    <main class="konten-kamus">
+
+        <section class="bagian-kategori">
+
+            <h2>
+                Pilih Kategori
+            </h2>
+
+            <p class="subjudul-kategori">
+                Pilih kategori untuk menemukan
+                kosakata Bahasa Banjar.
+            </p>
+
+
+            <!-- =================================
+                 22 KATEGORI
+            ================================== -->
+
+            <div class="grid-kategori">
+
+
+                <button
+                    class="kartu-kategori"
+                    onclick="pilihKategori('Benda')">
+
+                    <span class="ikon-kategori">🎒</span>
+
+                    <span>Benda</span>
+
+                </button>
+
+
+                <button
+                    class="kartu-kategori"
+                    onclick="pilihKategori('Tempat')">
+
+                    <span class="ikon-kategori">🏠</span>
+
+                    <span>Tempat</span>
+
+                </button>
+
+
+                <button
+                    class="kartu-kategori"
+                    onclick="pilihKategori('Makanan')">
+
+                    <span class="ikon-kategori">🍲</span>
+
+                    <span>Makanan</span>
+
+                </button>
+
+
+                <button
+                    class="kartu-kategori"
+                    onclick="pilihKategori('Hewan')">
+
+                    <span class="ikon-kategori">🐟</span>
+
+                    <span>Hewan</span>
+
+                </button>
+
+
+                <button
+                    class="kartu-kategori"
+                    onclick="pilihKategori('Tumbuhan')">
+
+                    <span class="ikon-kategori">🌿</span>
+
+                    <span>Tumbuhan</span>
+
+                </button>
+
+
+                <button
+                    class="kartu-kategori"
+                    onclick="pilihKategori('Anggota Tubuh')">
+
+                    <span class="ikon-kategori">🖐️</span>
+
+                    <span>Anggota Tubuh</span>
+
+                </button>
+
+
+                <button
+                    class="kartu-kategori"
+                    onclick="pilihKategori('Keluarga/Kekerabatan')">
+
+                    <span class="ikon-kategori">👨‍👩‍👧</span>
+
+                    <span>Keluarga/Kekerabatan</span>
+
+                </button>
+
+
+                <button
+                    class="kartu-kategori"
+                    onclick="pilihKategori('Kata Kerja')">
+
+                    <span class="ikon-kategori">🏃</span>
+
+                    <span>Kata Kerja</span>
+
+                </button>
+
+
+                <button
+                    class="kartu-kategori"
+                    onclick="pilihKategori('Kata Sifat')">
+
+                    <span class="ikon-kategori">✨</span>
+
+                    <span>Kata Sifat</span>
+
+                </button>
+
+
+                <button
+                    class="kartu-kategori"
+                    onclick="pilihKategori('Warna')">
+
+                    <span class="ikon-kategori">🎨</span>
+
+                    <span>Warna</span>
+
+                </button>
+
+
+                <button
+                    class="kartu-kategori"
+                    onclick="pilihKategori('Angka/Bilangan')">
+
+                    <span class="ikon-kategori">🔢</span>
+
+                    <span>Angka/Bilangan</span>
+
+                </button>
+
+
+                <button
+                    class="kartu-kategori"
+                    onclick="pilihKategori('Waktu')">
+
+                    <span class="ikon-kategori">⏰</span>
+
+                    <span>Waktu</span>
+
+                </button>
+
+
+                <button
+                    class="kartu-kategori"
+                    onclick="pilihKategori('Orang/Sapaan')">
+
+                    <span class="ikon-kategori">👋</span>
+
+                    <span>Orang/Sapaan</span>
+
+                </button>
+
+
+                <button
+                    class="kartu-kategori"
+                    onclick="pilihKategori('Pekerjaan/Profesi')">
+
+                    <span class="ikon-kategori">👩‍🏫</span>
+
+                    <span>Pekerjaan/Profesi</span>
+
+                </button>
+
+
+                <button
+                    class="kartu-kategori"
+                    onclick="pilihKategori('Alam/Lingkungan')">
+
+                    <span class="ikon-kategori">🌳</span>
+
+                    <span>Alam/Lingkungan</span>
+
+                </button>
+
+
+                <button
+                    class="kartu-kategori"
+                    onclick="pilihKategori('Perasaan/Emosi')">
+
+                    <span class="ikon-kategori">😊</span>
+
+                    <span>Perasaan/Emosi</span>
+
+                </button>
+
+
+                <button
+                    class="kartu-kategori"
+                    onclick="pilihKategori('Adat/Budaya Banjar')">
+
+                    <span class="ikon-kategori">🏛️</span>
+
+                    <span>Adat/Budaya Banjar</span>
+
+                </button>
+
+
+                <button
+                    class="kartu-kategori"
+                    onclick="pilihKategori('Peralatan Tradisional')">
+
+                    <span class="ikon-kategori">🧺</span>
+
+                    <span>Peralatan Tradisional</span>
+
+                </button>
+
+
+                <button
+                    class="kartu-kategori"
+                    onclick="pilihKategori('Bahasa/Ungkapan')">
+
+                    <span class="ikon-kategori">💬</span>
+
+                    <span>Bahasa/Ungkapan</span>
+
+                </button>
+
+
+                <button
+                    class="kartu-kategori"
+                    onclick="pilihKategori('Kata Tanya')">
+
+                    <span class="ikon-kategori">❓</span>
+
+                    <span>Kata Tanya</span>
+
+                </button>
+
+
+                <button
+                    class="kartu-kategori"
+                    onclick="pilihKategori('Kata Hubung')">
+
+                    <span class="ikon-kategori">🔗</span>
+
+                    <span>Kata Hubung</span>
+
+                </button>
+
+
+                <button
+                    class="kartu-kategori"
+                    onclick="pilihKategori('Keterangan')">
+
+                    <span class="ikon-kategori">📝</span>
+
+                    <span>Keterangan</span>
+
+                </button>
+
+
+            </div>
+
+        </section>
+
+
+        <!-- =================================
+             AREA HASIL
+        ================================== -->
+
+        <section
+            id="hasilKamus"
+            class="hasil-kamus">
+        </section>
+
+    </main>
+
+
+    <!-- ================================
+         FOOTER
+    ================================= -->
+
+    <footer class="page-footer">
+
+        <div class="footer-brand">
+
+            <div class="brand-logo">
+
+                <img
+                    src="assets/logo-lanting-kata.png"
+                    alt="Logo LANTING KATA"
+                >
+
+            </div>
+
+            <div class="brand-name">
+
+                LANTING <span>KATA</span>
+
+            </div>
+
+        </div>
+
+
+        <p>
+            Belajar Bahasa Banjar menjadi lebih mudah,
+            menyenangkan, dan interaktif.
+        </p>
+
+
+        <p class="copyright">
+            © 2026 LANTING KATA. Dikembangkan untuk Proyek Kepemimpinan
+            PPG Prajabatan PGSD Universitas Lambung Mangkurat.
+        </p>
+
+    </footer>
+
+
+    <!-- ================================
+         JAVASCRIPT
+    ================================= -->
+
+    <script src="kamus.js"></script>
+
+</body>
+
+</html>

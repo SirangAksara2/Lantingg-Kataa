@@ -1,0 +1,242 @@
+
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Masuk | LANTING KATA</title>
+
+    <link rel="stylesheet" href="css/style.css">
+
+    <style>
+        /* =====================================================
+           LOGIN — FOTO RUMAH LANTING
+        ===================================================== */
+
+        .login-illustration {
+            position: relative;
+            overflow: hidden;
+            background: #dcefeb;
+            padding: 0 !important;
+        }
+
+        .login-house-photo-wrapper {
+            position: absolute;
+            inset: 0;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+        }
+
+        .login-house-photo {
+            width: 100%;
+            height: 100%;
+            display: block;
+            object-fit: cover;
+            object-position: center;
+            transition: transform 0.5s ease;
+        }
+
+        .login-illustration:hover .login-house-photo {
+            transform: scale(1.03);
+        }
+
+        /* Gradasi foto */
+        .login-house-photo-wrapper::after {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(
+                to top,
+                rgba(33, 72, 61, 0.70),
+                rgba(33, 72, 61, 0.05) 55%,
+                rgba(33, 72, 61, 0.05)
+            );
+            pointer-events: none;
+        }
+
+        .login-photo-caption {
+            position: absolute;
+            left: 35px;
+            right: 35px;
+            bottom: 35px;
+            z-index: 5;
+            color: #ffffff;
+            text-shadow: 0 2px 8px rgba(0, 0, 0, 0.30);
+        }
+
+        .login-photo-caption strong {
+            display: block;
+            font-size: 26px;
+            font-weight: 900;
+            line-height: 1.2;
+        }
+
+        .login-photo-caption span {
+            display: block;
+            margin-top: 7px;
+            font-size: 13px;
+            font-weight: 600;
+            letter-spacing: 0.4px;
+            opacity: 0.92;
+        }
+
+        /* =====================================================
+           FORM LOGIN
+        ===================================================== */
+
+        .login-description {
+            max-width: 440px;
+        }
+
+        /* =====================================================
+           RESPONSIVE
+        ===================================================== */
+
+        @media (max-width: 800px) {
+            .login-illustration {
+                min-height: 280px;
+            }
+
+            .login-photo-caption {
+                left: 25px;
+                right: 25px;
+                bottom: 25px;
+            }
+
+            .login-photo-caption strong {
+                font-size: 22px;
+            }
+        }
+    </style>
+</head>
+
+<body class="login-page">
+
+    <!-- LOGIN CONTAINER -->
+    <main class="login-container">
+
+        <!-- FOTO RUMAH LANTING -->
+        <section class="login-illustration">
+
+            <div class="login-house-photo-wrapper">
+
+                <img
+                    src="assets/rumah-lanting.jpeg"
+                    alt="Rumah Lanting Kalimantan Selatan"
+                    class="login-house-photo"
+                >
+
+                <div class="login-photo-caption">
+                    <strong>Rumah Lanting</strong>
+                    <span>Budaya Banjar di Tepian Sungai</span>
+                </div>
+
+            </div>
+
+        </section>
+
+        <!-- FORM LOGIN -->
+        <section class="login-form-section">
+
+            <a href="index.html" class="back-home">
+                ← Kembali ke beranda
+            </a>
+
+            <div class="login-content">
+
+                <!-- LOGO -->
+                <div class="login-logo">
+
+                    <div class="login-logo-emblem">
+                        <img
+                            src="assets/logo-lanting-kata.png"
+                            alt="Logo LANTING KATA"
+                        >
+                    </div>
+
+                    <div>
+                        <strong>LANTING</strong>
+                        <span>KATA</span>
+                    </div>
+
+                </div>
+
+                <p class="login-label">
+                    SELAMAT DATANG
+                </p>
+
+                <h1>
+                    Uy! Sanak 👋
+                </h1>
+
+                <p class="login-description">
+                    Kenalan dulu, yuk!
+                    Masukkan nama kamu
+                    untuk mulai menjelajahi
+                    LANTING KATA.
+                </p>
+
+                <!-- INPUT NAMA -->
+                <div class="input-group">
+
+                    <label for="nama">
+                        Nama Lengkap
+                    </label>
+
+                    <input
+                        type="text"
+                        id="nama"
+                        placeholder="Contoh: Nadratun Najah"
+                        autocomplete="name"
+                        enterkeyhint="go"
+                    >
+
+                </div>
+
+                <!-- TOMBOL LOGIN -->
+                <button
+                    type="button"
+                    class="login-button"
+                    id="loginButton"
+                >
+
+                    <span>Mulai Menjelajah</span>
+
+                    <span class="login-arrow">→</span>
+
+                </button>
+
+                <p class="login-note">
+                    Dengan melanjutkan,
+                    kamu siap belajar,
+                    bermain, dan mengenal
+                    Bahasa Banjar. 🌿
+                </p>
+
+            </div>
+
+        </section>
+
+    </main>
+
+    <!-- JAVASCRIPT LOGIN YANG SUDAH ADA -->
+    <script src="js/login.js"></script>
+
+    <!-- DUKUNGAN TOMBOL ENTER -->
+    <script>
+        const inputNama = document.getElementById("nama");
+        const tombolLogin = document.getElementById("loginButton");
+
+        inputNama.addEventListener("keydown", function (event) {
+            if (event.key === "Enter") {
+                event.preventDefault();
+                tombolLogin.click();
+            }
+        });
+    </script>
+
+</body>
+</html>

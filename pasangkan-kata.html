@@ -1,0 +1,2379 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Pasangkan Kata | LANTING KATA</title>
+<link rel="stylesheet" href="css/style.css">
+
+<style>
+
+/* =====================================================
+   GAME 06 — PASANGKAN KATA
+   Konsep: 4 kata Banjar di atas + 4 arti Indonesia di bawah.
+   Pemain menarik garis dari titik kata ke titik pasangan.
+===================================================== */
+
+.tebak-kata-page .game-play-header {
+    position: relative !important;
+    z-index: 20 !important;
+    min-height: 82px !important;
+    padding: 9px 7% !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: space-between !important;
+    gap: 20px !important;
+    background: var(--green-dark) !important;
+    color: var(--white) !important;
+    overflow: hidden !important;
+}
+
+.tebak-kata-page .game-play-header::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background-image: url("assets/sasirangan-hijau.jpg");
+    background-size: 420px auto;
+    background-repeat: repeat;
+    opacity: .09;
+    pointer-events: none;
+}
+
+.tebak-kata-page .game-back,
+.tebak-kata-page .game-back:visited {
+    position: relative !important;
+    z-index: 3 !important;
+    display: inline-flex !important;
+    align-items: center !important;
+    color: #fff !important;
+    text-decoration: none !important;
+    font-weight: 800 !important;
+    white-space: nowrap !important;
+}
+
+.tebak-kata-page .game-back:hover {
+    color: var(--gold) !important;
+}
+
+.tebak-kata-page .game-play-brand {
+    position: relative !important;
+    z-index: 3 !important;
+    display: flex !important;
+    align-items: center !important;
+    gap: 12px !important;
+}
+
+.tebak-kata-page .game-play-logo {
+    width: 62px !important;
+    height: 62px !important;
+    padding: 3px !important;
+    border-radius: 50% !important;
+    background: #fff !important;
+    border: 3px solid var(--gold) !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    overflow: hidden !important;
+    flex: 0 0 62px !important;
+    box-shadow: 0 3px 10px rgba(0,0,0,.20) !important;
+}
+
+.tebak-kata-page .game-play-logo img {
+    width: 100% !important;
+    height: 100% !important;
+    object-fit: cover !important;
+    border-radius: 50% !important;
+    display: block !important;
+}
+
+.tebak-kata-page .game-play-brand-text {
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 3px !important;
+}
+
+.tebak-kata-page .game-play-brand-text strong {
+    color: #fff !important;
+    font-size: 19px !important;
+    letter-spacing: 1px !important;
+}
+
+.tebak-kata-page .game-play-brand-text small {
+    color: rgba(255,255,255,.72) !important;
+    font-size: 10px !important;
+    letter-spacing: 1.5px !important;
+    font-weight: 800 !important;
+}
+
+.tebak-kata-page .tebak-hero {
+    position: relative !important;
+    overflow: hidden !important;
+    padding: 58px 20px 55px !important;
+    text-align: center !important;
+    background: linear-gradient(135deg,#fff8e8 0%,#fff 55%,#eef6f1 100%) !important;
+    color: var(--green-dark) !important;
+    border-bottom: 1px solid rgba(53,104,89,.12) !important;
+}
+
+.tebak-kata-page .tebak-hero::before {
+    content: "";
+    position: absolute;
+    width: 260px;
+    height: 260px;
+    top: -150px;
+    right: -80px;
+    border-radius: 50%;
+    background: rgba(214,168,79,.10);
+}
+
+.tebak-kata-page .tebak-hero::after {
+    content: "";
+    position: absolute;
+    width: 220px;
+    height: 220px;
+    bottom: -140px;
+    left: -70px;
+    border-radius: 50%;
+    background: rgba(53,104,89,.06);
+}
+
+.tebak-kata-page .tebak-hero h1 {
+    color: var(--green-dark) !important;
+}
+
+.tebak-kata-page .tebak-hero h1 span {
+    color: var(--green) !important;
+}
+
+.tebak-kata-page .tebak-hero > p:last-child {
+    color: #66756f !important;
+}
+
+/* ---------- papan permainan ---------- */
+
+.tebak-kata-page .matching-card {
+    overflow: visible !important;
+}
+
+.matching-board {
+    position: relative !important;
+    width: 100% !important;
+    max-width: 900px !important;
+    min-height: 500px !important;
+    margin: 24px auto 8px !important;
+    padding: 18px 10px 26px !important;
+    box-sizing: border-box !important;
+    touch-action: none !important;
+}
+
+.matching-board.drawing {
+    cursor: grabbing !important;
+}
+
+.matching-section-title {
+    position: relative;
+    z-index: 6;
+    text-align: center;
+    margin: 0 0 14px;
+    color: var(--green-dark);
+    font-size: 13px;
+    font-weight: 900;
+    letter-spacing: .8px;
+}
+
+.matching-section-title small {
+    display: block;
+    margin-top: 4px;
+    color: #7b8984;
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0;
+}
+
+.matching-row {
+    position: relative;
+    z-index: 4;
+    display: grid;
+    grid-template-columns: repeat(4, minmax(140px, 1fr));
+    gap: 24px;
+    width: 100%;
+    padding: 0 12px;
+    box-sizing: border-box;
+}
+
+.matching-row.top-row {
+    margin-bottom: 0;
+}
+
+.matching-row.bottom-row {
+    margin-top: 0;
+}
+
+.matching-card-item {
+    position: relative;
+    min-width: 0;
+    min-height: 88px;
+    padding: 18px 13px;
+    box-sizing: border-box;
+    border-radius: 18px;
+    background: #fff;
+    border: 2px solid rgba(53,104,89,.15);
+    box-shadow: 0 7px 20px rgba(33,72,61,.08);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    user-select: none;
+    -webkit-user-select: none;
+    transition:
+        transform .18s ease,
+        border-color .18s ease,
+        box-shadow .18s ease,
+        background .18s ease;
+}
+
+.matching-card-item.source-card {
+    background: var(--green-dark);
+    color: #fff;
+    border-color: var(--gold);
+    cursor: default;
+}
+
+.matching-card-item.target-card {
+    cursor: crosshair;
+}
+
+.matching-card-item.target-card:hover,
+.matching-card-item.target-card.hover-target {
+    transform: translateY(-3px);
+    border-color: var(--gold);
+    box-shadow: 0 10px 23px rgba(214,168,79,.20);
+}
+
+.matching-card-item.connected {
+    border-color: var(--green) !important;
+    background: #eef7f1 !important;
+    box-shadow: 0 7px 20px rgba(53,104,89,.12) !important;
+}
+
+.matching-card-item.wrong {
+    border-color: #b86b58 !important;
+    animation: matchingWrong .35s ease;
+}
+
+@keyframes matchingWrong {
+    0%,100% {
+        transform: translateX(0);
+    }
+
+    25% {
+        transform: translateX(-5px);
+    }
+
+    75% {
+        transform: translateX(5px);
+    }
+}
+
+.matching-card-letter {
+    position: absolute;
+    top: 8px;
+    left: 9px;
+    width: 25px;
+    height: 25px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(53,104,89,.10);
+    color: var(--green);
+    font-size: 10px;
+    font-weight: 900;
+}
+
+.source-card .matching-card-letter {
+    background: rgba(255,255,255,.14);
+    color: #fff;
+}
+
+.matching-card-text {
+    width: 100%;
+    padding: 5px 8px;
+    font-size: 14px;
+    line-height: 1.4;
+    font-weight: 800;
+    overflow-wrap: anywhere;
+}
+
+.source-card .matching-card-text {
+    color: #fff;
+    font-size: 16px;
+}
+
+.matching-dot {
+    position: absolute;
+    width: 19px;
+    height: 19px;
+    border-radius: 50%;
+    box-sizing: border-box;
+    background: var(--gold);
+    border: 3px solid #fff;
+    box-shadow:
+        0 0 0 2px var(--gold),
+        0 3px 8px rgba(33,72,61,.18);
+    z-index: 10;
+    transition:
+        transform .15s ease,
+        background .15s ease;
+}
+
+.source-dot {
+    left: 50%;
+    bottom: -12px;
+    transform: translateX(-50%);
+    cursor: grab;
+}
+
+.source-dot.active {
+    background: var(--green-light);
+    transform: translateX(-50%) scale(1.25);
+    cursor: grabbing;
+}
+
+.source-dot.connected {
+    background: var(--green-light);
+    transform: translateX(-50%) scale(1.15);
+}
+
+.target-dot {
+    left: 50%;
+    top: -12px;
+    transform: translateX(-50%);
+}
+
+.target-card.connected .target-dot {
+    background: var(--green);
+}
+
+.matching-middle-note {
+    position: relative;
+    z-index: 7;
+    left: auto;
+    top: auto;
+    transform: none;
+    min-height: 58px;
+    margin: 4px 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    color: var(--green);
+    font-size: 12px;
+    font-weight: 800;
+    white-space: nowrap;
+    pointer-events: none;
+}
+
+.matching-middle-note::before,
+.matching-middle-note::after {
+    content: "";
+    width: 90px;
+    height: 1px;
+    background: rgba(53,104,89,.16);
+}
+
+.matching-svg {
+    position: absolute !important;
+    inset: 0 !important;
+    width: 100% !important;
+    height: 100% !important;
+    overflow: visible !important;
+    pointer-events: none !important;
+    z-index: 5 !important;
+}
+
+.matching-svg line {
+    stroke: var(--gold);
+    stroke-width: 6;
+    stroke-linecap: round;
+    filter: drop-shadow(0 2px 2px rgba(33,72,61,.14));
+}
+
+.matching-svg line.correct-line {
+    stroke: var(--green);
+    stroke-width: 7;
+}
+
+.matching-help {
+    position: relative;
+    z-index: 6;
+    margin: 20px auto 0;
+    padding: 11px 16px;
+    width: fit-content;
+    max-width: 92%;
+    border-radius: 999px;
+    background: rgba(53,104,89,.07);
+    color: #60716a;
+    font-size: 11px;
+    font-weight: 700;
+    text-align: center;
+}
+
+.tebak-kata-page .game-feedback {
+    max-width: 820px;
+    margin-left: auto !important;
+    margin-right: auto !important;
+}
+
+/* ---------- footer standar LANTING KATA ---------- */
+
+.tebak-kata-page .game-footer {
+    position: relative !important;
+    width: 100% !important;
+    min-width: 100% !important;
+    margin: 0 !important;
+    padding: 38px 7% 28px !important;
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    justify-content: center !important;
+    gap: 8px !important;
+    box-sizing: border-box !important;
+    text-align: center !important;
+    background: linear-gradient(
+        135deg,
+        #21483d 0%,
+        #356859 55%,
+        #21483d 100%
+    ) !important;
+    color: #fff !important;
+    border-top: 3px solid #d6a84f !important;
+    overflow: hidden !important;
+}
+
+.tebak-kata-page .game-footer::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background-image: url("assets/sasirangan-hijau.jpg");
+    background-size: 420px auto;
+    background-repeat: repeat;
+    background-position: center;
+    opacity: .09;
+    pointer-events: none;
+}
+
+.tebak-kata-page .game-footer::after {
+    content: "";
+    position: absolute;
+    width: 420px;
+    height: 420px;
+    right: -180px;
+    bottom: -280px;
+    border-radius: 50%;
+    background: rgba(214,168,79,.10);
+    pointer-events: none;
+}
+
+.tebak-kata-page .game-footer > * {
+    position: relative;
+    z-index: 2;
+}
+
+.tebak-kata-page .game-footer-logo {
+    width: 100%;
+    margin: 0 auto 5px !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    gap: 12px !important;
+    color: #fff !important;
+}
+
+.tebak-kata-page .game-footer-logo > div {
+    width: 44px !important;
+    height: 44px !important;
+    flex: 0 0 44px !important;
+    padding: 0 !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    border-radius: 50% !important;
+    background: #fff !important;
+    border: 2px solid #d6a84f !important;
+    overflow: hidden !important;
+    box-shadow: 0 4px 12px rgba(0,0,0,.18) !important;
+    box-sizing: border-box !important;
+}
+
+.tebak-kata-page .game-footer-logo > div img {
+    width: 100% !important;
+    height: 100% !important;
+    object-fit: cover !important;
+    border-radius: 50% !important;
+    display: block !important;
+}
+
+.tebak-kata-page .game-footer-logo > strong {
+    color: #fff !important;
+    font-size: 20px !important;
+    font-weight: 900 !important;
+    letter-spacing: 1.2px !important;
+}
+
+.tebak-kata-page .game-footer-logo > strong span {
+    color: #fff !important;
+}
+
+.tebak-kata-page .game-footer p {
+    display: block !important;
+    width: 100% !important;
+    max-width: 500px !important;
+    margin: 0 auto !important;
+    color: rgba(255,255,255,.86) !important;
+    font-size: 13px !important;
+    font-weight: 600 !important;
+    line-height: 1.6 !important;
+    letter-spacing: .35px !important;
+    text-align: center !important;
+}
+
+.tebak-kata-page .game-footer small {
+    display: block !important;
+    margin: 0 auto !important;
+    color: rgba(255,255,255,.68) !important;
+    font-size: 11px !important;
+    font-weight: 600 !important;
+    text-align: center !important;
+}
+
+@media (max-width: 760px) {
+
+    .tebak-kata-page .game-play-header {
+        padding: 9px 20px !important;
+    }
+
+    .tebak-kata-page .game-play-brand-text {
+        display: none !important;
+    }
+
+    .matching-board {
+        min-height: 590px !important;
+    }
+
+    .matching-row {
+        gap: 10px;
+    }
+
+    .matching-card-item {
+        min-height: 96px;
+        padding: 17px 8px;
+    }
+
+    .matching-card-text {
+        font-size: 12px;
+    }
+
+    .source-card .matching-card-text {
+        font-size: 14px;
+    }
+}
+
+@media (max-width: 560px) {
+
+    .tebak-kata-page .game-play-header {
+        min-height: 72px !important;
+    }
+
+    .tebak-kata-page .game-play-logo {
+        width: 54px !important;
+        height: 54px !important;
+        flex-basis: 54px !important;
+    }
+
+    .matching-board {
+        min-height: 690px !important;
+        padding-left: 0 !important;
+        padding-right: 0 !important;
+    }
+
+    .matching-row {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 12px;
+    }
+
+    .matching-row.top-row {
+        margin-bottom: 88px;
+    }
+
+    .matching-row.bottom-row {
+        margin-top: 88px;
+    }
+
+    .matching-card-item {
+        min-height: 86px;
+    }
+
+    .matching-middle-note {
+        top: 50%;
+    }
+
+    .matching-middle-note::before,
+    .matching-middle-note::after {
+        width: 30px;
+    }
+
+    .tebak-kata-page .game-footer {
+        padding: 32px 18px 25px !important;
+    }
+
+    .tebak-kata-page .game-footer-logo > strong {
+        font-size: 17px !important;
+    }
+
+    .tebak-kata-page .game-footer-logo {
+        gap: 9px !important;
+    }
+
+    .tebak-kata-page .game-footer-logo > div {
+        width: 38px !important;
+        height: 38px !important;
+        flex-basis: 38px !important;
+    }
+}
+
+@media (max-width: 400px) {
+
+    .tebak-kata-page .game-back {
+        font-size: 12px !important;
+    }
+
+    .matching-card-item {
+        min-height: 82px;
+        border-radius: 15px;
+    }
+
+    .matching-card-text {
+        font-size: 11px;
+    }
+
+    .source-card .matching-card-text {
+        font-size: 13px;
+    }
+}
+
+/* ---------- final refinements GAME 06 ---------- */
+
+.matching-board {
+    position: relative !important;
+    overflow: visible !important;
+    padding: 28px 8px 24px !important;
+}
+
+.matching-row {
+    grid-template-columns: repeat(4, minmax(140px, 1fr)) !important;
+    gap: 24px !important;
+    padding: 0 12px !important;
+}
+
+.matching-middle-note {
+    position: relative !important;
+    left: auto !important;
+    top: auto !important;
+    transform: none !important;
+    min-height: 58px !important;
+    margin: 4px 0 !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    z-index: 20 !important;
+}
+
+.matching-svg {
+    z-index: 6 !important;
+    pointer-events: none !important;
+}
+
+@media (max-width: 900px) {
+
+    .matching-row {
+        grid-template-columns: repeat(2, minmax(150px, 1fr)) !important;
+        gap: 22px !important;
+    }
+}
+
+@media (max-width: 560px) {
+
+    .matching-board {
+        padding: 22px 4px 20px !important;
+    }
+
+    .matching-row {
+        grid-template-columns: 1fr !important;
+        gap: 18px !important;
+        padding: 0 10px !important;
+    }
+
+    .matching-middle-note {
+        min-height: 54px !important;
+        white-space: normal !important;
+        text-align: center !important;
+    }
+
+    .matching-middle-note::before,
+    .matching-middle-note::after {
+        width: 42px !important;
+    }
+}
+
+</style>
+</head>
+
+<body class="tebak-kata-page">
+
+<header class="game-play-header">
+
+    <a href="games.html" class="game-back">← Kembali ke Games</a>
+
+    <div class="game-play-brand">
+
+        <div class="game-play-logo">
+            <img src="assets/logo-lanting-kata.png" alt="Logo LANTING KATA">
+        </div>
+
+        <div class="game-play-brand-text">
+            <strong>LANTING KATA</strong>
+            <small>RUANG PERMAINAN</small>
+        </div>
+
+    </div>
+
+</header>
+
+<section class="tebak-hero">
+
+    <div class="tebak-hero-decoration">✦</div>
+
+    <div class="tebak-icon">🔗</div>
+
+    <p class="tebak-label">GAME 06</p>
+
+    <h1>Pasangkan <span>Kata</span></h1>
+
+    <p>
+        Hubungkan setiap kata Bahasa Banjar dengan arti Bahasa Indonesia yang tepat.
+    </p>
+
+</section>
+
+<main class="tebak-kata-main">
+
+    <section id="loadingGame" class="game-loading">
+
+        <div class="loading-icon">⏳</div>
+
+        <h2>Menyiapkan permainan...</h2>
+
+        <p>
+            Sedang mengambil kosakata dari Kamus LANTING KATA.
+        </p>
+
+    </section>
+
+    <section id="gameArea" class="game-area" style="display:none;">
+
+        <div class="game-status">
+
+            <div class="game-question-number">
+                <span>RONDE</span>
+                <strong id="nomorSoal">1 / 5</strong>
+            </div>
+
+            <div class="game-score">
+                <span>⭐</span>
+                <strong id="skorSaatIni">0 poin</strong>
+            </div>
+
+        </div>
+
+        <div class="game-progress">
+
+            <div class="game-progress-track">
+                <div id="progressFill" class="game-progress-fill"></div>
+            </div>
+
+        </div>
+
+        <div class="question-card matching-card">
+
+            <div class="question-card-top">
+                <span class="question-badge">PASANGKAN KATA!</span>
+            </div>
+
+            <div class="pasangkan-instruction">
+
+                <div class="pasangkan-instruction-icon">🔗</div>
+
+                <h3>Tarik garis ke pasangan yang tepat!</h3>
+
+                <p>
+                    Hubungkan 4 kata Bahasa Banjar di atas dengan 4 arti Bahasa Indonesia di bawah.
+                </p>
+
+            </div>
+
+            <div class="matching-board" id="matchingBoard">
+
+                <div class="matching-section-title">
+
+                    ✦ BAHASA BANJAR ✦
+
+                    <small>Tarik dari titik ● pada setiap kata</small>
+
+                </div>
+
+                <div id="barisBanjar" class="matching-row top-row"></div>
+
+                <div class="matching-middle-note">
+                    🔗 Hubungkan pasangan yang tepat
+                </div>
+
+                <div class="matching-row bottom-row" id="barisIndonesia"></div>
+
+                <svg id="matchingSvg" class="matching-svg" aria-hidden="true"></svg>
+
+            </div>
+
+            <div class="matching-help">
+                💡 Tarik garis dari titik pada kata Banjar menuju titik pada arti yang sesuai.
+            </div>
+
+        </div>
+
+        <div id="feedback" class="game-feedback" style="display:none;">
+
+            <div id="feedbackIcon" class="feedback-icon">✓</div>
+
+            <div class="feedback-content">
+
+                <strong id="feedbackTitle">Benar!</strong>
+
+                <p id="feedbackText">Jawaban kamu benar.</p>
+
+            </div>
+
+        </div>
+
+        <button
+            id="tombolLanjut"
+            class="next-question"
+            style="display:none;"
+            type="button"
+        >
+            Ronde Berikutnya <span>→</span>
+        </button>
+
+    </section>
+
+    <section id="hasilGame" class="hasil-game" style="display:none;">
+
+        <div class="hasil-decoration">✦</div>
+
+        <div class="hasil-icon">🏆</div>
+
+        <p class="hasil-label">PERMAINAN SELESAI</p>
+
+        <h2>Luar Biasa!</h2>
+
+        <p class="hasil-description">
+            Kamu telah menyelesaikan 5 ronde Pasangkan Kata.
+        </p>
+
+        <div class="hasil-score">
+
+            <span>SKOR KAMU</span>
+
+            <strong id="skorAkhir">0</strong>
+
+            <small>POIN</small>
+
+        </div>
+
+        <div class="hasil-info">
+
+            <div>
+                <strong id="jumlahBenar">0</strong>
+                <span>pasangan benar</span>
+            </div>
+
+            <div class="hasil-divider"></div>
+
+            <div>
+                <strong id="jumlahPasangan">20</strong>
+                <span>jumlah pasangan</span>
+            </div>
+
+        </div>
+
+        <div class="simpan-skor-box">
+
+            <label for="namaPemain">Masukkan Nama Kamu</label>
+
+            <input
+                type="text"
+                id="namaPemain"
+                placeholder="Nama kamu"
+                maxlength="30"
+                autocomplete="off"
+            >
+
+            <button
+                id="simpanSkor"
+                class="play-again"
+                type="button"
+            >
+                🏆 Simpan Skor
+            </button>
+
+            <p id="statusSimpanSkor" style="display:none;"></p>
+
+        </div>
+
+        <div class="hasil-buttons">
+
+            <button
+                id="mainLagi"
+                class="play-again"
+                type="button"
+            >
+                🔄 Main Lagi
+            </button>
+
+            <a href="games.html" class="back-games">
+                🎮 Kembali ke Games
+            </a>
+
+        </div>
+
+    </section>
+
+</main>
+
+<footer class="game-footer">
+
+    <div class="game-footer-logo">
+
+        <div>
+            <img
+                src="assets/logo-lanting-kata.png"
+                alt="Logo LANTING KATA"
+            >
+        </div>
+
+        <strong>
+            LANTING <span>KATA</span>
+        </strong>
+
+    </div>
+
+    <p>
+        Mengenal Bahasa Banjar, melestarikan kata, dan bermain sambil belajar.
+    </p>
+
+    <small>
+        © 2026 LANTING KATA
+    </small>
+
+</footer>
+
+<script>
+
+const WEB_APP_URL =
+    "https://script.google.com/macros/s/AKfycbx9NSf3eh2Q5Jr4PYggXFbAw4a6_PgsslxUSZui8yyWu1zzcuUjSecky6YQtEcFoj75/exec";
+
+const GAME_ID = "6";
+
+const JUMLAH_RONDE = 5;
+
+const PASANGAN_PER_RONDE = 4;
+
+const TOTAL_PASANGAN =
+    JUMLAH_RONDE * PASANGAN_PER_RONDE;
+
+const POIN_PER_JAWABAN = 10;
+
+let semuaKata = [];
+
+let soal = [];
+
+let nomorSekarang = 0;
+
+let skor = 0;
+
+let jumlahBenar = 0;
+
+let skorSudahDisimpan = false;
+
+let pasanganSelesai = 0;
+
+let sedangMenarik = false;
+
+let sourceAktif = null;
+
+let sourcePoint = {
+    x: 0,
+    y: 0
+};
+
+let pointerAktif = null;
+
+const loadingGame =
+    document.getElementById("loadingGame");
+
+const gameArea =
+    document.getElementById("gameArea");
+
+const hasilGame =
+    document.getElementById("hasilGame");
+
+const barisBanjar =
+    document.getElementById("barisBanjar");
+
+const barisIndonesia =
+    document.getElementById("barisIndonesia");
+
+const matchingBoard =
+    document.getElementById("matchingBoard");
+
+const matchingSvg =
+    document.getElementById("matchingSvg");
+
+const nomorSoal =
+    document.getElementById("nomorSoal");
+
+const skorSaatIni =
+    document.getElementById("skorSaatIni");
+
+const progressFill =
+    document.getElementById("progressFill");
+
+const feedback =
+    document.getElementById("feedback");
+
+const feedbackIcon =
+    document.getElementById("feedbackIcon");
+
+const feedbackTitle =
+    document.getElementById("feedbackTitle");
+
+const feedbackText =
+    document.getElementById("feedbackText");
+
+const tombolLanjut =
+    document.getElementById("tombolLanjut");
+
+const mainLagi =
+    document.getElementById("mainLagi");
+
+const namaPemain =
+    document.getElementById("namaPemain");
+
+const simpanSkorButton =
+    document.getElementById("simpanSkor");
+
+const statusSimpanSkor =
+    document.getElementById("statusSimpanSkor");
+
+
+function acakArray(array) {
+
+    return [...array].sort(
+        () => Math.random() - 0.5
+    );
+
+}
+
+
+function escapeHTML(text) {
+
+    const div =
+        document.createElement("div");
+
+    div.textContent = text ?? "";
+
+    return div.innerHTML;
+
+}
+
+
+async function ambilDataKamus() {
+
+    try {
+
+        loadingGame.style.display = "block";
+
+        gameArea.style.display = "none";
+
+        hasilGame.style.display = "none";
+
+        const response = await fetch(
+            WEB_APP_URL +
+            "?action=kamus&t=" +
+            Date.now()
+        );
+
+        if (!response.ok) {
+
+            throw new Error(
+                "Server kamus tidak dapat diakses."
+            );
+
+        }
+
+        const data =
+            await response.json();
+
+        if (!Array.isArray(data)) {
+
+            throw new Error(
+                "Format data kamus tidak sesuai."
+            );
+
+        }
+
+        /* Hilangkan pasangan yang benar-benar sama
+           agar pilihan lebih beragam. */
+
+        const unik = new Map();
+
+        data
+            .filter(
+                item =>
+                    item &&
+                    item.banjar &&
+                    item.indonesia
+            )
+            .forEach(item => {
+
+                const key =
+                    `${String(item.banjar)
+                        .trim()
+                        .toLowerCase()}||${String(item.indonesia)
+                        .trim()
+                        .toLowerCase()}`;
+
+                if (!unik.has(key)) {
+
+                    unik.set(key, item);
+
+                }
+
+            });
+
+        semuaKata =
+            [...unik.values()];
+
+        if (
+            semuaKata.length <
+            PASANGAN_PER_RONDE
+        ) {
+
+            throw new Error(
+                "Data kamus belum memiliki minimal 4 kosakata untuk bermain."
+            );
+
+        }
+
+        mulaiPermainan();
+
+    } catch (error) {
+
+        console.error(
+            "ERROR GAME 06:",
+            error
+        );
+
+        loadingGame.innerHTML = `
+
+            <div class="loading-icon">⚠️</div>
+
+            <h2>
+                Permainan belum dapat dimuat
+            </h2>
+
+            <p>
+                ${escapeHTML(error.message)}
+            </p>
+
+            <button
+                onclick="location.reload()"
+                class="play-again"
+                type="button"
+            >
+                🔄 Coba Lagi
+            </button>
+
+        `;
+
+    }
+
+}
+
+
+function buatSoal() {
+
+    const acak =
+        acakArray(semuaKata);
+
+    const kumpulan = [];
+
+    /*
+       Jika kosakata cukup banyak,
+       sebisa mungkin gunakan kata berbeda
+       di setiap ronde.
+       Jika belum cukup, kata boleh muncul
+       kembali pada ronde lain.
+    */
+
+    for (
+        let ronde = 0;
+        ronde < JUMLAH_RONDE;
+        ronde++
+    ) {
+
+        let kandidat = [];
+
+        if (
+            acak.length >=
+            TOTAL_PASANGAN
+        ) {
+
+            kandidat =
+                acak.slice(
+                    ronde * PASANGAN_PER_RONDE,
+                    (ronde + 1) *
+                    PASANGAN_PER_RONDE
+                );
+
+        } else {
+
+            const mulai =
+                (ronde *
+                    PASANGAN_PER_RONDE) %
+                acak.length;
+
+            for (
+                let i = 0;
+                i < PASANGAN_PER_RONDE;
+                i++
+            ) {
+
+                kandidat.push(
+                    acak[
+                        (mulai + i) %
+                        acak.length
+                    ]
+                );
+
+            }
+
+        }
+
+        const pasangan =
+            kandidat.map(item => ({
+
+                banjar:
+                    String(item.banjar)
+                        .trim(),
+
+                indonesia:
+                    String(item.indonesia)
+                        .trim()
+
+            }));
+
+        kumpulan.push({
+
+            pasangan: pasangan,
+
+            banjar:
+                acakArray(pasangan),
+
+            indonesia:
+                acakArray(pasangan)
+
+        });
+
+    }
+
+    soal = kumpulan;
+
+}
+
+
+function mulaiPermainan() {
+
+    nomorSekarang = 0;
+
+    skor = 0;
+
+    jumlahBenar = 0;
+
+    pasanganSelesai = 0;
+
+    skorSudahDisimpan = false;
+
+    sedangMenarik = false;
+
+    sourceAktif = null;
+
+    pointerAktif = null;
+
+    namaPemain.value = "";
+
+    statusSimpanSkor.style.display =
+        "none";
+
+    statusSimpanSkor.textContent = "";
+
+    simpanSkorButton.disabled =
+        false;
+
+    simpanSkorButton.textContent =
+        "🏆 Simpan Skor";
+
+    buatSoal();
+
+    loadingGame.style.display =
+        "none";
+
+    hasilGame.style.display =
+        "none";
+
+    gameArea.style.display =
+        "block";
+
+    tampilkanSoal();
+
+}
+
+
+function tampilkanSoal() {
+
+    const ronde =
+        soal[nomorSekarang];
+
+    sedangMenarik = false;
+
+    sourceAktif = null;
+
+    pointerAktif = null;
+
+    nomorSoal.textContent =
+        `${nomorSekarang + 1} / ${JUMLAH_RONDE}`;
+
+    skorSaatIni.textContent =
+        `${skor} poin`;
+
+    progressFill.style.width =
+        `${((nomorSekarang + 1) /
+            JUMLAH_RONDE) * 100}%`;
+
+    feedback.style.display =
+        "none";
+
+    tombolLanjut.style.display =
+        "none";
+
+    barisBanjar.innerHTML =
+        "";
+
+    barisIndonesia.innerHTML =
+        "";
+
+    matchingSvg.innerHTML =
+        "";
+
+    ronde.banjar.forEach(
+        (item, index) => {
+
+            const kartu =
+                document.createElement("div");
+
+            kartu.className =
+                "matching-card-item source-card";
+
+            kartu.dataset.id =
+                buatIdPasangan(item);
+
+            kartu.innerHTML = `
+
+                <span class="matching-card-letter">
+                    ${String.fromCharCode(65 + index)}
+                </span>
+
+                <span class="matching-card-text">
+                    ${escapeHTML(item.banjar)}
+                </span>
+
+                <span
+                    class="matching-dot source-dot"
+                    aria-label="Tarik garis dari ${escapeHTML(item.banjar)}"
+                ></span>
+
+            `;
+
+            barisBanjar.appendChild(
+                kartu
+            );
+
+        }
+    );
+
+    ronde.indonesia.forEach(
+        (item, index) => {
+
+            const kartu =
+                document.createElement("div");
+
+            kartu.className =
+                "matching-card-item target-card";
+
+            kartu.dataset.id =
+                buatIdPasangan(item);
+
+            kartu.innerHTML = `
+
+                <span class="matching-card-letter">
+                    ${String.fromCharCode(65 + index)}
+                </span>
+
+                <span class="matching-card-text">
+                    ${escapeHTML(item.indonesia)}
+                </span>
+
+                <span class="matching-dot target-dot"></span>
+
+            `;
+
+            barisIndonesia.appendChild(
+                kartu
+            );
+
+        }
+    );
+
+    document
+        .querySelectorAll(".source-dot")
+        .forEach(dot => {
+
+            dot.addEventListener(
+                "pointerdown",
+                mulaiTarik
+            );
+
+        });
+
+    requestAnimationFrame(
+        () =>
+            requestAnimationFrame(
+                updateAllLines
+            )
+    );
+
+}
+
+
+function buatIdPasangan(item) {
+
+    return `${String(item.banjar)
+        .trim()
+        .toLowerCase()}||${String(item.indonesia)
+        .trim()
+        .toLowerCase()}`;
+
+}
+
+
+function getBoardPoint(element) {
+
+    const boardRect =
+        matchingBoard.getBoundingClientRect();
+
+    const rect =
+        element.getBoundingClientRect();
+
+    return {
+
+        x:
+            rect.left +
+            rect.width / 2 -
+            boardRect.left,
+
+        y:
+            rect.top +
+            rect.height / 2 -
+            boardRect.top
+
+    };
+
+}
+
+
+function getPointerPoint(event) {
+
+    const rect =
+        matchingBoard.getBoundingClientRect();
+
+    return {
+
+        x:
+            event.clientX -
+            rect.left,
+
+        y:
+            event.clientY -
+            rect.top
+
+    };
+
+}
+
+
+function mulaiTarik(event) {
+
+    if (sedangMenarik) return;
+
+    event.preventDefault();
+
+    event.stopPropagation();
+
+    const dot =
+        event.currentTarget;
+
+    const sourceCard =
+        dot.closest(".source-card");
+
+    if (
+        !sourceCard ||
+        sourceCard.classList.contains("connected")
+    ) {
+
+        return;
+
+    }
+
+    sedangMenarik = true;
+
+    sourceAktif =
+        sourceCard;
+
+    pointerAktif =
+        event.pointerId;
+
+    sourcePoint =
+        getBoardPoint(dot);
+
+    dot.classList.add("active");
+
+    matchingBoard.classList.add(
+        "drawing"
+    );
+
+    const line =
+        document.createElementNS(
+            "http://www.w3.org/2000/svg",
+            "line"
+        );
+
+    line.id =
+        "activeDragLine";
+
+    line.setAttribute(
+        "x1",
+        sourcePoint.x
+    );
+
+    line.setAttribute(
+        "y1",
+        sourcePoint.y
+    );
+
+    line.setAttribute(
+        "x2",
+        sourcePoint.x
+    );
+
+    line.setAttribute(
+        "y2",
+        sourcePoint.y
+    );
+
+    matchingSvg.appendChild(
+        line
+    );
+
+    gerakkanGaris(event);
+
+}
+
+
+function gerakkanGaris(event) {
+
+    if (
+        !sedangMenarik ||
+        event.pointerId !== pointerAktif
+    ) {
+
+        return;
+
+    }
+
+    event.preventDefault();
+
+    const line =
+        document.getElementById(
+            "activeDragLine"
+        );
+
+    if (!line) return;
+
+    const point =
+        getPointerPoint(event);
+
+    line.setAttribute(
+        "x1",
+        sourcePoint.x
+    );
+
+    line.setAttribute(
+        "y1",
+        sourcePoint.y
+    );
+
+    line.setAttribute(
+        "x2",
+        point.x
+    );
+
+    line.setAttribute(
+        "y2",
+        point.y
+    );
+
+    document
+        .querySelectorAll(
+            ".target-card.hover-target"
+        )
+        .forEach(el =>
+            el.classList.remove(
+                "hover-target"
+            )
+        );
+
+    const element =
+        document.elementFromPoint(
+            event.clientX,
+            event.clientY
+        );
+
+    const target =
+        element ?
+        element.closest(".target-card") :
+        null;
+
+    if (
+        target &&
+        !target.classList.contains("connected")
+    ) {
+
+        target.classList.add(
+            "hover-target"
+        );
+
+    }
+
+}
+
+
+function selesaiTarik(event) {
+
+    if (
+        !sedangMenarik ||
+        event.pointerId !== pointerAktif
+    ) {
+
+        return;
+
+    }
+
+    event.preventDefault();
+
+    const element =
+        document.elementFromPoint(
+            event.clientX,
+            event.clientY
+        );
+
+    const target =
+        element ?
+        element.closest(".target-card") :
+        null;
+
+    if (
+        target &&
+        !target.classList.contains("connected")
+    ) {
+
+        periksaPasangan(target);
+
+    } else {
+
+        resetTarikan();
+
+    }
+
+}
+
+
+function resetTarikan() {
+
+    const activeLine =
+        document.getElementById(
+            "activeDragLine"
+        );
+
+    if (activeLine) {
+
+        activeLine.remove();
+
+    }
+
+    if (sourceAktif) {
+
+        const dot =
+            sourceAktif.querySelector(
+                ".source-dot"
+            );
+
+        if (dot) {
+
+            dot.classList.remove(
+                "active"
+            );
+
+        }
+
+    }
+
+    document
+        .querySelectorAll(
+            ".target-card.hover-target"
+        )
+        .forEach(el =>
+            el.classList.remove(
+                "hover-target"
+            )
+        );
+
+    sedangMenarik = false;
+
+    sourceAktif = null;
+
+    pointerAktif = null;
+
+    matchingBoard.classList.remove(
+        "drawing"
+    );
+
+}
+
+
+function periksaPasangan(target) {
+
+    if (!sourceAktif) {
+
+        resetTarikan();
+
+        return;
+
+    }
+
+    const sourceId =
+        sourceAktif.dataset.id;
+
+    const targetId =
+        target.dataset.id;
+
+    const benar =
+        sourceId === targetId;
+
+    const activeLine =
+        document.getElementById(
+            "activeDragLine"
+        );
+
+    target.classList.remove(
+        "hover-target"
+    );
+
+    if (benar) {
+
+        const sourceDot =
+            sourceAktif.querySelector(
+                ".source-dot"
+            );
+
+        const targetDot =
+            target.querySelector(
+                ".target-dot"
+            );
+
+        const sourcePointNow =
+            getBoardPoint(
+                sourceDot
+            );
+
+        const targetPointNow =
+            getBoardPoint(
+                targetDot
+            );
+
+        if (activeLine) {
+
+            activeLine.id = "";
+
+            activeLine.setAttribute(
+                "x1",
+                sourcePointNow.x
+            );
+
+            activeLine.setAttribute(
+                "y1",
+                sourcePointNow.y
+            );
+
+            activeLine.setAttribute(
+                "x2",
+                targetPointNow.x
+            );
+
+            activeLine.setAttribute(
+                "y2",
+                targetPointNow.y
+            );
+
+            activeLine.classList.add(
+                "correct-line"
+            );
+
+        } else {
+
+            buatGarisBenar(
+                sourceDot,
+                targetDot
+            );
+
+        }
+
+        sourceAktif.classList.add(
+            "connected"
+        );
+
+        target.classList.add(
+            "connected"
+        );
+
+        sourceDot.classList.remove(
+            "active"
+        );
+
+        sourceDot.classList.add(
+            "connected"
+        );
+
+        jumlahBenar++;
+
+        pasanganSelesai++;
+
+        /*
+           Poin baru diberikan setelah seluruh
+           4 pasangan pada ronde ini selesai.
+        */
+
+        const rondeSelesai =
+            pasanganSelesai ===
+            (
+                (nomorSekarang + 1) *
+                PASANGAN_PER_RONDE
+            );
+
+        feedbackIcon.textContent =
+            "✓";
+
+        feedbackTitle.textContent =
+            rondeSelesai
+                ? "Semua pasangan benar! 🎉"
+                : "Pasangan terhubung! ✓";
+
+        feedbackText.textContent =
+            rondeSelesai
+                ? `Hebat! 4 pasangan berhasil dihubungkan. +${PASANGAN_PER_RONDE * POIN_PER_JAWABAN} poin.`
+                : `${pasanganSelesai - (nomorSekarang * PASANGAN_PER_RONDE)} dari ${PASANGAN_PER_RONDE} pasangan sudah terhubung.`;
+
+        feedback.style.display =
+            "flex";
+
+        if (rondeSelesai) {
+
+            skor +=
+                PASANGAN_PER_RONDE *
+                POIN_PER_JAWABAN;
+
+            skorSaatIni.textContent =
+                `${skor} poin`;
+
+            tombolLanjut.style.display =
+                "flex";
+
+        }
+
+        sedangMenarik = false;
+
+        sourceAktif = null;
+
+        pointerAktif = null;
+
+        matchingBoard.classList.remove(
+            "drawing"
+        );
+
+    } else {
+
+        if (activeLine) {
+
+            activeLine.remove();
+
+        }
+
+        target.classList.add(
+            "wrong"
+        );
+
+        feedbackIcon.textContent =
+            "✕";
+
+        feedbackTitle.textContent =
+            "Belum tepat";
+
+        feedbackText.textContent =
+            "Garis mengenai pasangan yang salah. Coba tarik lagi ke jawaban yang tepat!";
+
+        feedback.style.display =
+            "flex";
+
+        const wrongTarget =
+            target;
+
+        const wrongSource =
+            sourceAktif;
+
+        sedangMenarik = false;
+
+        sourceAktif = null;
+
+        pointerAktif = null;
+
+        matchingBoard.classList.remove(
+            "drawing"
+        );
+
+        if (wrongSource) {
+
+            const dot =
+                wrongSource.querySelector(
+                    ".source-dot"
+                );
+
+            if (dot) {
+
+                dot.classList.remove(
+                    "active"
+                );
+
+            }
+
+        }
+
+        setTimeout(() => {
+
+            wrongTarget.classList.remove(
+                "wrong"
+            );
+
+        }, 500);
+
+    }
+
+}
+
+
+function buatGarisBenar(
+    sourceDot,
+    targetDot
+) {
+
+    const sourcePointNow =
+        getBoardPoint(sourceDot);
+
+    const targetPointNow =
+        getBoardPoint(targetDot);
+
+    const line =
+        document.createElementNS(
+            "http://www.w3.org/2000/svg",
+            "line"
+        );
+
+    line.setAttribute(
+        "x1",
+        sourcePointNow.x
+    );
+
+    line.setAttribute(
+        "y1",
+        sourcePointNow.y
+    );
+
+    line.setAttribute(
+        "x2",
+        targetPointNow.x
+    );
+
+    line.setAttribute(
+        "y2",
+        targetPointNow.y
+    );
+
+    line.classList.add(
+        "correct-line"
+    );
+
+    matchingSvg.appendChild(
+        line
+    );
+
+}
+
+
+function updateAllLines() {
+
+    /*
+       Garis yang sudah benar dibuat ulang
+       berdasarkan kartu yang terhubung.
+    */
+
+    const garisBenar =
+        [
+            ...matchingSvg.querySelectorAll(
+                "line:not(#activeDragLine)"
+            )
+        ];
+
+    const sources =
+        [
+            ...document.querySelectorAll(
+                ".source-card.connected"
+            )
+        ];
+
+    sources.forEach(
+        (source, index) => {
+
+            const targetId =
+                source.dataset.id;
+
+            const target =
+                document.querySelector(
+                    `.target-card.connected[data-id="${CSS.escape(targetId)}"]`
+                );
+
+            const line =
+                garisBenar[index];
+
+            if (!target || !line) return;
+
+            const sourceDot =
+                source.querySelector(
+                    ".source-dot"
+                );
+
+            const targetDot =
+                target.querySelector(
+                    ".target-dot"
+                );
+
+            const p1 =
+                getBoardPoint(sourceDot);
+
+            const p2 =
+                getBoardPoint(targetDot);
+
+            line.setAttribute(
+                "x1",
+                p1.x
+            );
+
+            line.setAttribute(
+                "y1",
+                p1.y
+            );
+
+            line.setAttribute(
+                "x2",
+                p2.x
+            );
+
+            line.setAttribute(
+                "y2",
+                p2.y
+            );
+
+        }
+    );
+
+}
+
+
+document.addEventListener(
+    "pointermove",
+    gerakkanGaris,
+    {
+        passive: false
+    }
+);
+
+document.addEventListener(
+    "pointerup",
+    selesaiTarik,
+    {
+        passive: false
+    }
+);
+
+document.addEventListener(
+    "pointercancel",
+    resetTarikan
+);
+
+
+window.addEventListener(
+    "resize",
+    () => {
+
+        if (!sedangMenarik) {
+
+            updateAllLines();
+
+        }
+
+    }
+);
+
+
+// Ronde berikutnya.
+
+tombolLanjut.addEventListener(
+    "click",
+    () => {
+
+        nomorSekarang++;
+
+        if (
+            nomorSekarang >=
+            JUMLAH_RONDE
+        ) {
+
+            tampilkanHasil();
+
+        } else {
+
+            tampilkanSoal();
+
+            window.scrollTo({
+                top: 0,
+                behavior: "smooth"
+            });
+
+        }
+
+    }
+);
+
+
+function tampilkanHasil() {
+
+    gameArea.style.display =
+        "none";
+
+    hasilGame.style.display =
+        "block";
+
+    document.getElementById(
+        "skorAkhir"
+    ).textContent = skor;
+
+    document.getElementById(
+        "jumlahBenar"
+    ).textContent =
+        jumlahBenar;
+
+    document.getElementById(
+        "jumlahPasangan"
+    ).textContent =
+        TOTAL_PASANGAN;
+
+    namaPemain.value = "";
+
+    statusSimpanSkor.style.display =
+        "none";
+
+    statusSimpanSkor.textContent =
+        "";
+
+    simpanSkorButton.disabled =
+        false;
+
+    simpanSkorButton.textContent =
+        "🏆 Simpan Skor";
+
+    skorSudahDisimpan =
+        false;
+
+}
+
+
+async function kirimSkorKeLeaderboard() {
+
+    const nama =
+        namaPemain.value.trim();
+
+    if (!nama) {
+
+        statusSimpanSkor.textContent =
+            "⚠️ Silakan masukkan nama terlebih dahulu.";
+
+        statusSimpanSkor.style.display =
+            "block";
+
+        namaPemain.focus();
+
+        return;
+
+    }
+
+    if (skorSudahDisimpan) return;
+
+    simpanSkorButton.disabled =
+        true;
+
+    simpanSkorButton.textContent =
+        "⏳ Menyimpan...";
+
+    statusSimpanSkor.style.display =
+        "block";
+
+    statusSimpanSkor.textContent =
+        "Sedang menyimpan skor...";
+
+    try {
+
+        const url =
+            WEB_APP_URL +
+            "?action=simpanSkor" +
+            "&nama=" +
+            encodeURIComponent(nama) +
+            "&skor=" +
+            encodeURIComponent(skor) +
+            "&game=" +
+            encodeURIComponent(GAME_ID) +
+            "&t=" +
+            Date.now();
+
+        const response =
+            await fetch(url);
+
+        if (!response.ok) {
+
+            throw new Error(
+                "Server tidak dapat diakses."
+            );
+
+        }
+
+        const data =
+            await response.json();
+
+        if (!data.success) {
+
+            throw new Error(
+                data.message ||
+                "Skor gagal disimpan."
+            );
+
+        }
+
+        skorSudahDisimpan =
+            true;
+
+        localStorage.setItem(
+            "lantingKataNamaPemain",
+            nama
+        );
+
+        statusSimpanSkor.textContent =
+            `✅ Skor Game 06 berhasil disimpan! Total poin kamu: ${data.totalPoin}`;
+
+        simpanSkorButton.textContent =
+            "✅ Skor Tersimpan";
+
+    } catch (error) {
+
+        console.error(
+            "ERROR SIMPAN SKOR:",
+            error
+        );
+
+        statusSimpanSkor.textContent =
+            "❌ Skor gagal disimpan. Silakan coba lagi.";
+
+        simpanSkorButton.disabled =
+            false;
+
+        simpanSkorButton.textContent =
+            "🏆 Simpan Skor";
+
+    }
+
+}
+
+
+simpanSkorButton.addEventListener(
+    "click",
+    kirimSkorKeLeaderboard
+);
+
+
+mainLagi.addEventListener(
+    "click",
+    mulaiPermainan
+);
+
+
+ambilDataKamus();
+
+</script>
+
+</body>
+</html>

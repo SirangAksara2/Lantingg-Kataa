@@ -1,0 +1,1588 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nanang & Galuh | LANTING KATA</title>
+    <link rel="stylesheet" href="css/style.css">
+
+    <style>
+        /* =========================================================
+           LANTING KATA — NANANG & GALUH
+           Desain halaman: hijau + aksen sasirangan + krem
+        ========================================================= */
+
+        body.nanang-galuh-page {
+            margin: 0;
+            background: #fffdf7;
+            color: var(--text);
+        }
+
+        /* ================= HEADER ================= */
+
+        body.nanang-galuh-page .ng-header {
+            position: relative;
+            z-index: 20;
+            width: 100%;
+            min-height: 84px;
+            padding: 8px 7%;
+            box-sizing: border-box;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 24px;
+            background: var(--green-dark);
+            overflow: hidden;
+            box-shadow: 0 3px 16px rgba(33,72,61,.14);
+        }
+
+        body.nanang-galuh-page .ng-header::before {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background-image: url("assets/sasirangan-hijau.jpg");
+            background-size: 420px auto;
+            background-repeat: repeat;
+            background-position: center;
+            opacity: .09;
+            pointer-events: none;
+        }
+
+        body.nanang-galuh-page .ng-back {
+            position: relative;
+            z-index: 2;
+            flex: 0 0 auto;
+            display: inline-flex;
+            align-items: center;
+            color: #fff !important;
+            text-decoration: none;
+            font-size: 14px;
+            font-weight: 700;
+            white-space: nowrap;
+            transition: color .2s ease, transform .2s ease;
+        }
+
+        body.nanang-galuh-page .ng-back:hover {
+            color: var(--gold) !important;
+            transform: translateX(-2px);
+        }
+
+        body.nanang-galuh-page .ng-brand {
+            position: relative;
+            z-index: 2;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            color: #fff;
+        }
+
+        body.nanang-galuh-page .ng-brand-logo {
+            width: 58px;
+            height: 58px;
+            padding: 3px;
+            box-sizing: border-box;
+            border-radius: 50%;
+            background: #fff;
+            border: 3px solid var(--gold);
+            box-shadow: 0 3px 10px rgba(0,0,0,.2);
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        body.nanang-galuh-page .ng-brand-logo img {
+            width: 100%;
+            height: 100%;
+            display: block;
+            object-fit: cover;
+            border-radius: 50%;
+        }
+
+        body.nanang-galuh-page .ng-brand-name {
+            color: #fff !important;
+            font-size: 20px;
+            font-weight: 900;
+            letter-spacing: 1.4px;
+            line-height: 1;
+        }
+
+        body.nanang-galuh-page .ng-brand-name span {
+            color: var(--gold) !important;
+        }
+
+        /* ================= HERO ================= */
+
+        body.nanang-galuh-page .ng-hero {
+            position: relative;
+            overflow: hidden;
+            padding: 58px 20px 56px;
+            text-align: center;
+            background: linear-gradient(135deg, #fff8e8 0%, #fff 55%, #eef6f1 100%);
+            border-bottom: 1px solid rgba(53,104,89,.10);
+        }
+
+        body.nanang-galuh-page .ng-hero::before {
+            content: "";
+            position: absolute;
+            width: 270px;
+            height: 270px;
+            top: -155px;
+            right: -70px;
+            border-radius: 50%;
+            background: rgba(214,168,79,.10);
+        }
+
+        body.nanang-galuh-page .ng-hero::after {
+            content: "";
+            position: absolute;
+            width: 230px;
+            height: 230px;
+            bottom: -150px;
+            left: -75px;
+            border-radius: 50%;
+            background: rgba(53,104,89,.07);
+        }
+
+        body.nanang-galuh-page .ng-hero > * {
+            position: relative;
+            z-index: 2;
+        }
+
+        body.nanang-galuh-page .ng-hero-icon {
+            width: 70px;
+            height: 70px;
+            margin: 0 auto 16px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: rgba(53,104,89,.09);
+            border: 1px solid rgba(53,104,89,.12);
+            font-size: 32px;
+            box-shadow: 0 6px 18px rgba(33,72,61,.08);
+        }
+
+        body.nanang-galuh-page .ng-label {
+            margin: 0 0 10px;
+            color: var(--green);
+            font-size: 12px;
+            font-weight: 900;
+            letter-spacing: 2px;
+        }
+
+        body.nanang-galuh-page .ng-hero h1 {
+            margin: 0;
+            color: var(--green-dark);
+            font-size: clamp(36px, 5vw, 56px);
+            line-height: 1.12;
+            font-weight: 900;
+        }
+
+        body.nanang-galuh-page .ng-hero h1 span {
+            color: var(--gold);
+        }
+
+        body.nanang-galuh-page .ng-hero > p:last-child {
+            max-width: 700px;
+            margin: 17px auto 0;
+            color: #66756f;
+            font-size: 15px;
+            line-height: 1.8;
+        }
+
+        /* ================= MAIN ================= */
+
+        body.nanang-galuh-page .ng-main {
+            width: 86%;
+            max-width: 1180px;
+            margin: 0 auto;
+            padding: 64px 0 78px;
+            box-sizing: border-box;
+        }
+
+        body.nanang-galuh-page .ng-section-heading {
+            text-align: center;
+            margin-bottom: 34px;
+        }
+
+        body.nanang-galuh-page .ng-section-heading p {
+            margin: 0 0 8px;
+            color: var(--green);
+            font-size: 12px;
+            font-weight: 900;
+            letter-spacing: 1.8px;
+        }
+
+        body.nanang-galuh-page .ng-section-heading h2 {
+            margin: 0;
+            color: var(--green-dark);
+            font-size: clamp(27px, 3.5vw, 38px);
+            line-height: 1.25;
+        }
+
+        body.nanang-galuh-page .ng-section-heading h2 span {
+            color: var(--gold);
+        }
+
+        body.nanang-galuh-page .ng-line {
+            width: 62px;
+            height: 4px;
+            margin: 16px auto 0;
+            border-radius: 99px;
+            background: linear-gradient(90deg, var(--green), var(--gold));
+        }
+
+        /* ================= VIDEO LIST ================= */
+
+        body.nanang-galuh-page .video-list {
+            display: grid;
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+            gap: 26px;
+            align-items: stretch;
+        }
+
+        body.nanang-galuh-page .video-card {
+            min-width: 0;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            background: #fff;
+            border: 1px solid rgba(53,104,89,.11);
+            border-radius: 22px;
+            box-shadow: 0 9px 28px rgba(33,72,61,.08);
+            transition: transform .22s ease, box-shadow .22s ease;
+        }
+
+        body.nanang-galuh-page .video-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 34px rgba(33,72,61,.13);
+        }
+
+        body.nanang-galuh-page .video-player {
+            position: relative;
+            width: 100%;
+            aspect-ratio: 16 / 9;
+            overflow: hidden;
+            background: var(--green-dark);
+        }
+
+        body.nanang-galuh-page .video-player iframe,
+        body.nanang-galuh-page .video-player video {
+            width: 100%;
+            height: 100%;
+            display: block;
+            border: 0;
+            object-fit: cover;
+        }
+
+        body.nanang-galuh-page .video-cover-placeholder {
+            width: 100%;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 48px;
+            background: linear-gradient(135deg, var(--green-dark), var(--green));
+        }
+
+        body.nanang-galuh-page .video-card-content {
+            flex: 1;
+            padding: 22px 21px 24px;
+            display: flex;
+            flex-direction: column;
+        }
+
+        body.nanang-galuh-page .video-category {
+            align-self: flex-start;
+            display: inline-flex;
+            align-items: center;
+            padding: 6px 10px;
+            margin-bottom: 12px;
+            border-radius: 999px;
+            background: #eef6f1;
+            color: var(--green-dark);
+            font-size: 10px;
+            font-weight: 900;
+            letter-spacing: .4px;
+        }
+
+        body.nanang-galuh-page .video-card-content h3 {
+            margin: 0 0 10px;
+            color: var(--green-dark);
+            font-size: 19px;
+            line-height: 1.4;
+            overflow-wrap: anywhere;
+        }
+
+        body.nanang-galuh-page .video-author {
+            margin: 0 0 12px;
+            color: #65736e;
+            font-size: 12px;
+            line-height: 1.6;
+        }
+
+        body.nanang-galuh-page .video-author strong {
+            color: var(--green);
+        }
+
+        body.nanang-galuh-page .video-synopsis {
+            margin: 0;
+            color: #65736e;
+            font-size: 13px;
+            line-height: 1.75;
+        }
+
+        /* ================= PAGINATION ================= */
+
+        body.nanang-galuh-page .pagination-video {
+            margin: 32px auto 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+
+        body.nanang-galuh-page .pagination-btn {
+            min-width: 40px;
+            min-height: 38px;
+            padding: 7px 12px;
+            border: 1px solid rgba(53,104,89,.18);
+            border-radius: 10px;
+            background: #fff;
+            color: var(--green-dark);
+            font: inherit;
+            font-size: 12px;
+            font-weight: 800;
+            cursor: pointer;
+            transition: all .2s ease;
+        }
+
+        body.nanang-galuh-page .pagination-btn:hover:not(:disabled),
+        body.nanang-galuh-page .pagination-btn.active {
+            background: var(--green-dark);
+            border-color: var(--green-dark);
+            color: #fff;
+        }
+
+        body.nanang-galuh-page .pagination-btn:disabled {
+            opacity: .4;
+            cursor: not-allowed;
+        }
+
+        /* ================= EMPTY / ERROR ================= */
+
+        body.nanang-galuh-page .video-empty {
+            grid-column: 1 / -1;
+            padding: 48px 20px;
+            text-align: center;
+            background: #fff;
+            border: 1px dashed rgba(53,104,89,.25);
+            border-radius: 22px;
+        }
+
+        body.nanang-galuh-page .video-empty-icon {
+            font-size: 46px;
+            margin-bottom: 8px;
+        }
+
+        body.nanang-galuh-page .video-empty p {
+            margin: 0;
+            color: #66756f;
+            line-height: 1.7;
+        }
+
+        /* ================= FORM SECTION ================= */
+
+        body.nanang-galuh-page .tambah-video {
+            position: relative;
+            overflow: hidden;
+            margin-top: 78px;
+            padding: 42px;
+            border-radius: 28px;
+            background: linear-gradient(135deg, #f0f7f2 0%, #fff8e8 100%);
+            border: 1px solid rgba(53,104,89,.10);
+            box-shadow: 0 10px 30px rgba(33,72,61,.06);
+        }
+
+        body.nanang-galuh-page .tambah-video::after {
+            content: "";
+            position: absolute;
+            width: 220px;
+            height: 220px;
+            right: -100px;
+            bottom: -110px;
+            border-radius: 50%;
+            background: rgba(214,168,79,.09);
+            pointer-events: none;
+        }
+
+        body.nanang-galuh-page .tambah-video-heading {
+            position: relative;
+            z-index: 2;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin-bottom: 12px;
+        }
+
+        body.nanang-galuh-page .tambah-video-icon {
+            flex: 0 0 auto;
+            width: 56px;
+            height: 56px;
+            border-radius: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: var(--green-dark);
+            color: #fff;
+            font-size: 26px;
+            box-shadow: 0 6px 15px rgba(33,72,61,.14);
+        }
+
+        body.nanang-galuh-page .tambah-video-heading p {
+            margin: 0 0 4px;
+            color: var(--green);
+            font-size: 10px;
+            font-weight: 900;
+            letter-spacing: 1.8px;
+        }
+
+        body.nanang-galuh-page .tambah-video-heading h2 {
+            margin: 0;
+            color: var(--green-dark);
+            font-size: 27px;
+            line-height: 1.25;
+        }
+
+        body.nanang-galuh-page .tambah-video-heading h2 span {
+            color: var(--gold);
+        }
+
+        body.nanang-galuh-page .tambah-video-description {
+            position: relative;
+            z-index: 2;
+            max-width: 720px;
+            margin: 0 0 28px 71px;
+            color: #66756f;
+            font-size: 13px;
+            line-height: 1.75;
+        }
+
+        body.nanang-galuh-page .form-video {
+            position: relative;
+            z-index: 2;
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 19px 20px;
+        }
+
+        body.nanang-galuh-page .form-group {
+            min-width: 0;
+            display: flex;
+            flex-direction: column;
+        }
+
+        body.nanang-galuh-page .form-group.full-width {
+            grid-column: 1 / -1;
+        }
+
+        body.nanang-galuh-page .form-group label {
+            margin-bottom: 7px;
+            color: var(--green-dark);
+            font-size: 12px;
+            font-weight: 800;
+        }
+
+        body.nanang-galuh-page .form-group input,
+        body.nanang-galuh-page .form-group select,
+        body.nanang-galuh-page .form-group textarea {
+            width: 100%;
+            box-sizing: border-box;
+            border: 1px solid rgba(53,104,89,.18);
+            border-radius: 12px;
+            background: #fff;
+            color: var(--text);
+            font: inherit;
+            font-size: 13px;
+            outline: none;
+            transition: border-color .2s ease, box-shadow .2s ease;
+        }
+
+        body.nanang-galuh-page .form-group input,
+        body.nanang-galuh-page .form-group select {
+            min-height: 46px;
+            padding: 10px 13px;
+        }
+
+        body.nanang-galuh-page .form-group textarea {
+            min-height: 125px;
+            padding: 12px 13px;
+            resize: vertical;
+            line-height: 1.65;
+        }
+
+        body.nanang-galuh-page .form-group input:focus,
+        body.nanang-galuh-page .form-group select:focus,
+        body.nanang-galuh-page .form-group textarea:focus {
+            border-color: var(--green-light);
+            box-shadow: 0 0 0 4px rgba(111,159,135,.12);
+        }
+
+        body.nanang-galuh-page .form-group small {
+            margin-top: 6px;
+            color: #7a8782;
+            font-size: 10px;
+            line-height: 1.5;
+        }
+
+        body.nanang-galuh-page .simpan-video {
+            grid-column: 1 / -1;
+            justify-self: center;
+            min-width: 190px;
+            min-height: 46px;
+            margin-top: 5px;
+            padding: 10px 22px;
+            border: 0;
+            border-radius: 12px;
+            background: var(--green-dark);
+            color: #fff;
+            font: inherit;
+            font-size: 13px;
+            font-weight: 900;
+            cursor: pointer;
+            box-shadow: 0 7px 16px rgba(33,72,61,.16);
+            transition: transform .2s ease, background .2s ease, box-shadow .2s ease;
+        }
+
+        body.nanang-galuh-page .simpan-video:hover:not(:disabled) {
+            background: var(--green);
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px rgba(33,72,61,.20);
+        }
+
+        body.nanang-galuh-page .simpan-video:disabled {
+            opacity: .65;
+            cursor: wait;
+        }
+
+        /* =========================================================
+           FOOTER STANDAR LANTING KATA
+        ========================================================= */
+
+        body.nanang-galuh-page .ng-footer {
+            position: relative !important;
+            width: 100% !important;
+            min-width: 100% !important;
+            margin: 0 !important;
+            padding: 38px 7% 28px !important;
+            box-sizing: border-box !important;
+
+            display: flex !important;
+            flex-direction: column !important;
+            align-items: center !important;
+            justify-content: center !important;
+            gap: 8px !important;
+
+            text-align: center !important;
+            background: linear-gradient(
+                135deg,
+                #21483d 0%,
+                #356859 55%,
+                #21483d 100%
+            ) !important;
+            color: #fff !important;
+
+            border-top: 3px solid #d6a84f !important;
+            overflow: hidden !important;
+        }
+
+        body.nanang-galuh-page .ng-footer::before {
+            content: "";
+            position: absolute;
+            inset: 0;
+
+            background-image: url("assets/sasirangan-hijau.jpg");
+            background-size: 420px auto;
+            background-repeat: repeat;
+            background-position: center;
+
+            opacity: .09;
+            pointer-events: none;
+        }
+
+        body.nanang-galuh-page .ng-footer::after {
+            content: "";
+            position: absolute;
+            width: 420px;
+            height: 420px;
+            right: -180px;
+            bottom: -280px;
+            border-radius: 50%;
+            background: rgba(214,168,79,.10);
+            pointer-events: none;
+        }
+
+        body.nanang-galuh-page .ng-footer > * {
+            position: relative;
+            z-index: 2;
+        }
+
+        body.nanang-galuh-page .ng-footer-logo {
+            position: relative !important;
+            width: 100% !important;
+            margin: 0 auto 5px !important;
+
+            display: flex !important;
+            align-items: center !important;
+            justify-content: center !important;
+            gap: 12px !important;
+
+            color: #fff !important;
+        }
+
+        body.nanang-galuh-page .ng-footer-logo > div {
+            width: 44px !important;
+            height: 44px !important;
+            flex: 0 0 44px !important;
+            padding: 0 !important;
+
+            display: flex !important;
+            align-items: center !important;
+            justify-content: center !important;
+
+            box-sizing: border-box !important;
+            border-radius: 50% !important;
+
+            background: #fff !important;
+            border: 2px solid #d6a84f !important;
+
+            overflow: hidden !important;
+            box-shadow: 0 4px 12px rgba(0,0,0,.18) !important;
+        }
+
+        body.nanang-galuh-page .ng-footer-logo > div img {
+            width: 100% !important;
+            height: 100% !important;
+
+            object-fit: cover !important;
+            border-radius: 50% !important;
+            display: block !important;
+        }
+
+        body.nanang-galuh-page .ng-footer-logo > strong {
+            color: #fff !important;
+            font-size: 20px !important;
+            font-weight: 900 !important;
+            letter-spacing: 1.2px !important;
+        }
+
+        body.nanang-galuh-page .ng-footer-logo > strong span {
+            color: #d6a84f !important;
+        }
+
+        body.nanang-galuh-page .ng-footer > p {
+            display: block !important;
+            width: 100% !important;
+            max-width: 500px !important;
+            margin: 0 auto !important;
+
+            color: rgba(255,255,255,.86) !important;
+            font-size: 13px !important;
+            font-weight: 600 !important;
+            line-height: 1.6 !important;
+            letter-spacing: .35px !important;
+            text-align: center !important;
+        }
+
+        body.nanang-galuh-page .ng-footer .ng-copyright {
+            display: block !important;
+            width: auto !important;
+            max-width: none !important;
+            margin: 0 auto !important;
+
+            color: rgba(255,255,255,.68) !important;
+            font-size: 11px !important;
+            font-weight: 600 !important;
+            line-height: 1.6 !important;
+            text-align: center !important;
+        }
+
+        /* ================= RESPONSIVE ================= */
+
+        @media (max-width: 950px) {
+            body.nanang-galuh-page .video-list {
+                grid-template-columns: repeat(2, minmax(0, 1fr));
+            }
+
+            body.nanang-galuh-page .ng-main {
+                width: 90%;
+            }
+        }
+
+        @media (max-width: 700px) {
+            body.nanang-galuh-page .ng-header {
+                min-height: 76px;
+                padding: 8px 5%;
+                gap: 12px;
+            }
+
+            body.nanang-galuh-page .ng-back {
+                font-size: 11px;
+            }
+
+            body.nanang-galuh-page .ng-brand {
+                gap: 8px;
+            }
+
+            body.nanang-galuh-page .ng-brand-logo {
+                width: 48px;
+                height: 48px;
+                border-width: 2px;
+            }
+
+            body.nanang-galuh-page .ng-brand-name {
+                font-size: 15px;
+                letter-spacing: 1px;
+            }
+
+            body.nanang-galuh-page .ng-hero {
+                padding: 45px 18px 44px;
+            }
+
+            body.nanang-galuh-page .ng-main {
+                width: 90%;
+                padding: 48px 0 58px;
+            }
+
+            body.nanang-galuh-page .tambah-video {
+                padding: 30px 22px;
+                border-radius: 22px;
+            }
+
+            body.nanang-galuh-page .tambah-video-description {
+                margin-left: 0;
+            }
+
+            body.nanang-galuh-page .form-video {
+                grid-template-columns: 1fr;
+            }
+
+            body.nanang-galuh-page .form-group.full-width {
+                grid-column: auto;
+            }
+
+            body.nanang-galuh-page .simpan-video {
+                grid-column: auto;
+                width: 100%;
+            }
+        }
+
+        @media (max-width: 560px) {
+            body.nanang-galuh-page .ng-header {
+                align-items: center;
+            }
+
+            body.nanang-galuh-page .ng-back {
+                white-space: normal;
+                line-height: 1.3;
+            }
+
+            body.nanang-galuh-page .video-list {
+                grid-template-columns: 1fr;
+            }
+
+            body.nanang-galuh-page .video-card-content {
+                padding: 20px;
+            }
+
+            body.nanang-galuh-page .tambah-video-heading h2 {
+                font-size: 23px;
+            }
+
+            body.nanang-galuh-page .tambah-video-icon {
+                width: 50px;
+                height: 50px;
+                font-size: 23px;
+            }
+
+            body.nanang-galuh-page .ng-footer {
+                padding: 32px 18px 25px !important;
+            }
+
+            body.nanang-galuh-page .ng-footer-logo {
+                gap: 9px !important;
+            }
+
+            body.nanang-galuh-page .ng-footer-logo > div {
+                width: 38px !important;
+                height: 38px !important;
+                flex-basis: 38px !important;
+            }
+
+            body.nanang-galuh-page .ng-footer-logo > strong {
+                font-size: 17px !important;
+            }
+        }
+    </style>
+</head>
+
+<body class="nanang-galuh-page">
+
+<header class="ng-header">
+    <a href="dashboard.html" class="ng-back">← Kembali ke Dashboard</a>
+
+    <div class="ng-brand">
+        <div class="ng-brand-logo">
+            <img src="assets/logo-lanting-kata.png" alt="Logo LANTING KATA">
+        </div>
+
+        <div class="ng-brand-name">
+            LANTING <span>KATA</span>
+        </div>
+    </div>
+</header>
+
+<section class="ng-hero">
+    <div class="ng-hero-icon">🎭</div>
+
+    <p class="ng-label">RUANG BAKISAH &amp; BAPANDUNG</p>
+
+    <h1>Nanang &amp; <span>Galuh</span></h1>
+
+    <p>
+        Saksikan penampilan siswa dalam bakisah Bahasa Banjar dan bapandung.
+        Dengarkan cerita, ekspresi, dan kekayaan Bahasa Banjar melalui karya mereka.
+    </p>
+</section>
+
+<main class="ng-main">
+
+    <section class="rak-video">
+
+        <div class="ng-section-heading">
+            <p>🎬 RAK VIDEO</p>
+
+            <h2>Bakisah &amp; <span>Bapandung</span></h2>
+
+            <div class="ng-line"></div>
+        </div>
+
+        <div id="videoPengunjung" class="video-list"></div>
+
+        <div id="paginationVideo" class="pagination-video"></div>
+
+    </section>
+
+    <section class="tambah-video">
+
+        <div class="tambah-video-heading">
+
+            <div class="tambah-video-icon">🎥</div>
+
+            <div>
+                <p>RUANG BERBAGI</p>
+
+                <h2>Bagikan <span>Penampilanmu</span></h2>
+            </div>
+
+        </div>
+
+        <p class="tambah-video-description">
+            Punya video bakisah Bahasa Banjar atau bapandung?
+            Bagikan penampilanmu agar dapat disaksikan oleh teman-teman lainnya.
+        </p>
+
+        <form class="form-video" id="formVideo">
+
+            <div class="form-group">
+                <label for="judulVideo">Judul Video</label>
+
+                <input
+                    type="text"
+                    id="judulVideo"
+                    name="judulVideo"
+                    placeholder="Contoh: Bakisah di Sungai"
+                    required
+                >
+            </div>
+
+            <div class="form-group">
+                <label for="namaSiswa">Nama Siswa</label>
+
+                <input
+                    type="text"
+                    id="namaSiswa"
+                    name="namaSiswa"
+                    placeholder="Tuliskan nama siswa"
+                    required
+                >
+            </div>
+
+            <div class="form-group">
+                <label for="kategoriVideo">Kategori</label>
+
+                <select id="kategoriVideo" name="kategoriVideo" required>
+                    <option value="">Pilih kategori</option>
+                    <option value="Bakisah Bahasa Banjar">
+                        🗣️ Bakisah Bahasa Banjar
+                    </option>
+                    <option value="Bapandung">
+                        🎭 Bapandung
+                    </option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="linkSampul">Link Gambar Sampul (URL)</label>
+
+                <input
+                    type="url"
+                    id="linkSampul"
+                    name="linkSampul"
+                    placeholder="https://..."
+                >
+
+                <small>
+                    Masukkan link gambar sampul video jika ada.
+                </small>
+            </div>
+
+            <div class="form-group full-width">
+                <label for="linkVideo">Link Video Pendek (URL)</label>
+
+                <input
+                    type="url"
+                    id="linkVideo"
+                    name="linkVideo"
+                    placeholder="https://drive.google.com/..."
+                    required
+                >
+
+                <small>
+                    Masukkan link video yang dapat ditonton oleh pengunjung.
+                </small>
+            </div>
+
+            <div class="form-group full-width">
+                <label for="sinopsisVideo">Sinopsis Cerita</label>
+
+                <textarea
+                    id="sinopsisVideo"
+                    name="sinopsisVideo"
+                    placeholder="Tuliskan gambaran singkat tentang isi video..."
+                    required
+                ></textarea>
+            </div>
+
+            <button type="submit" class="simpan-video">
+                <span>💾</span> Simpan Video
+            </button>
+
+        </form>
+    </section>
+
+</main>
+
+<footer class="ng-footer">
+
+    <div class="ng-footer-logo">
+
+        <div>
+            <img
+                src="assets/logo-lanting-kata.png"
+                alt="Logo LANTING KATA"
+            >
+        </div>
+
+        <strong>
+            LANTING <span>KATA</span>
+        </strong>
+
+    </div>
+
+    <p>
+        Mengenal Bahasa Banjar, melestarikan kata, dan berbagi karya.
+    </p>
+
+    <p class="ng-copyright">
+        © 2026 LANTING KATA — Ruang Bakisah &amp; Bapandung
+    </p>
+
+</footer>
+
+<script>
+/* ======================================================
+   LANTING KATA - NANANG & GALUH
+   JAVASCRIPT DATABASE VIDEO
+====================================================== */
+
+const WEB_APP_NANANG_GALUH =
+    "https://script.google.com/macros/s/AKfycbw7ClKGPGiZ9Of-gB8wX-Dp9Dl5qm1Qz-w5Ek6ygRWfYulKl-y0vwy9fIOX1NQw6AjB7w/exec";
+
+let semuaVideo = [];
+
+let halamanVideoSekarang = 1;
+
+const VIDEO_PER_HALAMAN = 3;
+
+
+/* ================= MENGAMBIL VIDEO ================= */
+
+async function tampilkanVideo() {
+
+    const wadah =
+        document.getElementById("videoPengunjung");
+
+    try {
+
+        const response =
+            await fetch(WEB_APP_NANANG_GALUH);
+
+        const data =
+            await response.json();
+
+        semuaVideo =
+            Array.isArray(data) ? data : [];
+
+        wadah.innerHTML = "";
+
+        if (semuaVideo.length === 0) {
+
+            wadah.innerHTML = `
+                <div class="video-empty">
+                    <div class="video-empty-icon">🎥</div>
+                    <p>Belum ada video yang ditampilkan.</p>
+                </div>
+            `;
+
+            document.getElementById(
+                "paginationVideo"
+            ).innerHTML = "";
+
+            return;
+        }
+
+        semuaVideo.forEach(function(item) {
+
+            const kartu =
+                document.createElement("article");
+
+            kartu.className = "video-card";
+
+            kartu.innerHTML = `
+                <div class="video-player">
+                    ${buatPemutarVideo(item.video, item.sampul)}
+                </div>
+
+                <div class="video-card-content">
+
+                    <span class="video-category">
+                        ${
+                            item.kategori === "Bapandung"
+                                ? "🎭 Bapandung"
+                                : "🗣️ Bakisah Bahasa Banjar"
+                        }
+                    </span>
+
+                    <h3>
+                        ${item.judul || "Tanpa Judul"}
+                    </h3>
+
+                    <p class="video-author">
+                        👤 Nama Siswa:
+                        <strong>
+                            ${item.siswa || "Anonim"}
+                        </strong>
+                    </p>
+
+                    <p class="video-synopsis">
+                        ${item.sinopsis || ""}
+                    </p>
+
+                </div>
+            `;
+
+            wadah.appendChild(kartu);
+
+        });
+
+        halamanVideoSekarang = 1;
+
+        siapkanPaginationVideo();
+
+    } catch (error) {
+
+        console.error(
+            "Gagal mengambil video:",
+            error
+        );
+
+        wadah.innerHTML = `
+            <div class="video-empty">
+                <div class="video-empty-icon">⚠️</div>
+                <p>
+                    Video belum dapat dimuat.
+                    Silakan coba lagi nanti.
+                </p>
+            </div>
+        `;
+
+        document.getElementById(
+            "paginationVideo"
+        ).innerHTML = "";
+    }
+}
+
+
+/* ================= PEMUTAR VIDEO ================= */
+
+function buatPemutarVideo(linkVideo, linkSampul) {
+
+    if (!linkVideo) {
+
+        return `
+            <div class="video-cover-placeholder">
+                🎥
+            </div>
+        `;
+    }
+
+    if (linkVideo.includes("drive.google.com")) {
+
+        const fileId =
+            ambilGoogleDriveID(linkVideo);
+
+        if (fileId) {
+
+            return `
+                <iframe
+                    src="https://drive.google.com/file/d/${fileId}/preview"
+                    allow="autoplay; fullscreen"
+                    allowfullscreen>
+                </iframe>
+            `;
+        }
+    }
+
+    if (/\.(mp4|webm|ogg)(\?.*)?$/i.test(linkVideo)) {
+
+        return `
+            <video
+                controls
+                preload="metadata"
+                ${linkSampul ? `poster="${linkSampul}"` : ""}
+            >
+                <source src="${linkVideo}">
+                Browser kamu tidak mendukung pemutar video.
+            </video>
+        `;
+    }
+
+    return `
+        <div style="
+            height:100%;
+            display:flex;
+            align-items:center;
+            justify-content:center;
+            padding:20px;
+            box-sizing:border-box;
+            text-align:center;
+        ">
+
+            <a
+                href="${linkVideo}"
+                target="_blank"
+                rel="noopener noreferrer"
+                style="
+                    color:white;
+                    text-decoration:none;
+                    font-weight:700;
+                "
+            >
+                ▶️ Buka Video
+            </a>
+
+        </div>
+    `;
+}
+
+
+/* ================= GOOGLE DRIVE ID ================= */
+
+function ambilGoogleDriveID(link) {
+
+    let cocok =
+        link.match(/\/file\/d\/([a-zA-Z0-9_-]+)/);
+
+    if (cocok) {
+        return cocok[1];
+    }
+
+    cocok =
+        link.match(/[?&]id=([a-zA-Z0-9_-]+)/);
+
+    if (cocok) {
+        return cocok[1];
+    }
+
+    return null;
+}
+
+
+/* ================= PAGINATION ================= */
+
+function siapkanPaginationVideo() {
+
+    const semuaKartu =
+        document.querySelectorAll(
+            "#videoPengunjung .video-card"
+        );
+
+    const jumlahVideo =
+        semuaKartu.length;
+
+    const jumlahHalaman =
+        Math.ceil(
+            jumlahVideo / VIDEO_PER_HALAMAN
+        );
+
+    if (jumlahHalaman <= 1) {
+
+        semuaKartu.forEach(function(kartu) {
+            kartu.style.display = "";
+        });
+
+        document.getElementById(
+            "paginationVideo"
+        ).innerHTML = "";
+
+        return;
+    }
+
+    tampilkanHalamanVideo(
+        halamanVideoSekarang,
+        semuaKartu,
+        jumlahHalaman
+    );
+}
+
+
+function tampilkanHalamanVideo(
+    nomorHalaman,
+    semuaKartu,
+    jumlahHalaman
+) {
+
+    halamanVideoSekarang =
+        nomorHalaman;
+
+    const mulai =
+        (nomorHalaman - 1) *
+        VIDEO_PER_HALAMAN;
+
+    const selesai =
+        mulai + VIDEO_PER_HALAMAN;
+
+    semuaKartu.forEach(function(kartu, index) {
+
+        kartu.style.display =
+            index >= mulai &&
+            index < selesai
+                ? ""
+                : "none";
+
+    });
+
+    buatTombolPaginationVideo(
+        jumlahHalaman
+    );
+}
+
+
+function buatTombolPaginationVideo(
+    jumlahHalaman
+) {
+
+    const pagination =
+        document.getElementById(
+            "paginationVideo"
+        );
+
+    pagination.innerHTML = "";
+
+    const sebelumnya =
+        document.createElement("button");
+
+    sebelumnya.type = "button";
+    sebelumnya.className =
+        "pagination-btn";
+
+    sebelumnya.textContent =
+        "← Sebelumnya";
+
+    sebelumnya.disabled =
+        halamanVideoSekarang === 1;
+
+    sebelumnya.onclick =
+        function() {
+
+            if (halamanVideoSekarang > 1) {
+
+                const semuaKartu =
+                    document.querySelectorAll(
+                        "#videoPengunjung .video-card"
+                    );
+
+                tampilkanHalamanVideo(
+                    halamanVideoSekarang - 1,
+                    semuaKartu,
+                    jumlahHalaman
+                );
+
+                scrollKeVideo();
+            }
+        };
+
+    pagination.appendChild(
+        sebelumnya
+    );
+
+    for (
+        let i = 1;
+        i <= jumlahHalaman;
+        i++
+    ) {
+
+        const nomor =
+            document.createElement("button");
+
+        nomor.type = "button";
+
+        nomor.className =
+            "pagination-btn";
+
+        nomor.textContent = i;
+
+        if (i === halamanVideoSekarang) {
+
+            nomor.classList.add(
+                "active"
+            );
+        }
+
+        nomor.onclick =
+            function() {
+
+                const semuaKartu =
+                    document.querySelectorAll(
+                        "#videoPengunjung .video-card"
+                    );
+
+                tampilkanHalamanVideo(
+                    i,
+                    semuaKartu,
+                    jumlahHalaman
+                );
+
+                scrollKeVideo();
+            };
+
+        pagination.appendChild(
+            nomor
+        );
+    }
+
+    const berikutnya =
+        document.createElement("button");
+
+    berikutnya.type = "button";
+
+    berikutnya.className =
+        "pagination-btn";
+
+    berikutnya.textContent =
+        "Berikutnya →";
+
+    berikutnya.disabled =
+        halamanVideoSekarang ===
+        jumlahHalaman;
+
+    berikutnya.onclick =
+        function() {
+
+            if (
+                halamanVideoSekarang <
+                jumlahHalaman
+            ) {
+
+                const semuaKartu =
+                    document.querySelectorAll(
+                        "#videoPengunjung .video-card"
+                    );
+
+                tampilkanHalamanVideo(
+                    halamanVideoSekarang + 1,
+                    semuaKartu,
+                    jumlahHalaman
+                );
+
+                scrollKeVideo();
+            }
+        };
+
+    pagination.appendChild(
+        berikutnya
+    );
+}
+
+
+function scrollKeVideo() {
+
+    const rak =
+        document.querySelector(
+            ".rak-video"
+        );
+
+    if (!rak) return;
+
+    rak.scrollIntoView({
+        behavior: "smooth",
+        block: "start"
+    });
+}
+
+
+/* ================= FORM KIRIM VIDEO ================= */
+
+const formVideo =
+    document.getElementById(
+        "formVideo"
+    );
+
+formVideo.addEventListener(
+    "submit",
+    async function(event) {
+
+        event.preventDefault();
+
+        const tombol =
+            formVideo.querySelector(
+                ".simpan-video"
+            );
+
+        const judul =
+            document.getElementById(
+                "judulVideo"
+            ).value.trim();
+
+        const siswa =
+            document.getElementById(
+                "namaSiswa"
+            ).value.trim();
+
+        const kategori =
+            document.getElementById(
+                "kategoriVideo"
+            ).value;
+
+        const sampul =
+            document.getElementById(
+                "linkSampul"
+            ).value.trim();
+
+        const video =
+            document.getElementById(
+                "linkVideo"
+            ).value.trim();
+
+        const sinopsis =
+            document.getElementById(
+                "sinopsisVideo"
+            ).value.trim();
+
+        if (
+            !judul ||
+            !siswa ||
+            !kategori ||
+            !video ||
+            !sinopsis
+        ) {
+
+            alert(
+                "Mohon lengkapi semua data yang wajib diisi."
+            );
+
+            return;
+        }
+
+        tombol.disabled = true;
+
+        tombol.innerHTML =
+            "⏳ Mengirim...";
+
+        const data = {
+
+            judul: judul,
+            siswa: siswa,
+            kategori: kategori,
+            sinopsis: sinopsis,
+            video: video,
+            sampul: sampul
+
+        };
+
+        try {
+
+            await fetch(
+                WEB_APP_NANANG_GALUH,
+                {
+                    method: "POST",
+                    mode: "no-cors",
+                    headers: {
+                        "Content-Type":
+                            "text/plain;charset=utf-8"
+                    },
+                    body:
+                        JSON.stringify(data)
+                }
+            );
+
+            alert(
+                "🎉 Video berhasil dikirim!\n\n" +
+                "Video kamu akan diperiksa terlebih dahulu " +
+                "oleh admin sebelum ditampilkan di Nanang & Galuh."
+            );
+
+            formVideo.reset();
+
+        } catch (error) {
+
+            console.error(
+                "Gagal mengirim video:",
+                error
+            );
+
+            alert(
+                "❌ Video gagal dikirim.\n\n" +
+                "Silakan coba lagi."
+            );
+        }
+
+        tombol.disabled = false;
+
+        tombol.innerHTML =
+            "<span>💾</span> Simpan Video";
+    }
+);
+
+
+/* ================= JALANKAN ================= */
+
+tampilkanVideo();
+
+</script>
+
+</body>
+</html>

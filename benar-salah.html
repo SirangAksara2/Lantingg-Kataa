@@ -1,0 +1,1349 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Benar atau Salah | LANTING KATA</title>
+<link rel="stylesheet" href="css/style.css">
+
+<style>
+/* =========================================================
+   GAME 05 — BENAR ATAU SALAH
+   Desain mengikuti Game 03 & 04
+========================================================= */
+
+.tebak-kata-page {
+    margin: 0;
+    background: #f8fbf8;
+    color: var(--text);
+}
+
+/* HEADER */
+.tebak-kata-page .game-play-header {
+    position: relative;
+    z-index: 20;
+    width: 100%;
+    min-height: 82px;
+    padding: 8px 7%;
+    box-sizing: border-box;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: var(--green-dark);
+    overflow: hidden;
+    box-shadow: 0 3px 15px rgba(33,72,61,.14);
+}
+
+.tebak-kata-page .game-play-header::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background-image: url("assets/sasirangan-hijau.jpg");
+    background-size: 420px auto;
+    background-repeat: repeat;
+    background-position: center;
+    opacity: .09;
+    pointer-events: none;
+}
+
+.tebak-kata-page .game-back {
+    position: relative;
+    z-index: 2;
+    color: #fff !important;
+    text-decoration: none;
+    font-weight: 700;
+    white-space: nowrap;
+}
+
+.tebak-kata-page .game-back:hover {
+    color: var(--gold) !important;
+}
+
+.tebak-kata-page .game-play-brand {
+    position: relative;
+    z-index: 2;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.tebak-kata-page .game-play-logo {
+    width: 62px;
+    height: 62px;
+    padding: 3px;
+    box-sizing: border-box;
+    border-radius: 50%;
+    background: #fff;
+    border: 3px solid var(--gold);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    box-shadow: 0 3px 10px rgba(0,0,0,.20);
+}
+
+.tebak-kata-page .game-play-logo img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 50%;
+    display: block;
+}
+
+.tebak-kata-page .game-play-brand-text {
+    display: flex;
+    flex-direction: column;
+    gap: 3px;
+}
+
+.tebak-kata-page .game-play-brand-text strong {
+    color: #fff !important;
+    font-size: 19px;
+    line-height: 1;
+    letter-spacing: 1.2px;
+}
+
+.tebak-kata-page .game-play-brand-text small {
+    color: rgba(255,255,255,.72) !important;
+    font-size: 10px;
+    letter-spacing: 1.5px;
+}
+
+/* HERO — sengaja terang agar tidak menyatu dengan header */
+.tebak-kata-page .tebak-hero {
+    position: relative;
+    overflow: hidden;
+    padding: 58px 20px 55px;
+    text-align: center;
+    background: linear-gradient(135deg,#fff8e8 0%,#fff 55%,#eef6f1 100%);
+    color: var(--green-dark);
+    border-bottom: 1px solid rgba(53,104,89,.12);
+}
+
+.tebak-kata-page .tebak-hero::before {
+    content: "";
+    position: absolute;
+    width: 260px;
+    height: 260px;
+    top: -150px;
+    right: -80px;
+    border-radius: 50%;
+    background: rgba(214,168,79,.10);
+    pointer-events: none;
+}
+
+.tebak-kata-page .tebak-hero::after {
+    content: "";
+    position: absolute;
+    width: 220px;
+    height: 220px;
+    bottom: -140px;
+    left: -70px;
+    border-radius: 50%;
+    background: rgba(53,104,89,.06);
+    pointer-events: none;
+}
+
+.tebak-kata-page .tebak-hero-decoration {
+    position: relative;
+    z-index: 1;
+    color: var(--gold);
+    font-size: 22px;
+    margin-bottom: 8px;
+}
+
+.tebak-kata-page .tebak-icon {
+    position: relative;
+    z-index: 1;
+    width: 64px;
+    height: 64px;
+    margin: 0 auto 14px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(53,104,89,.08);
+    font-size: 30px;
+}
+
+.tebak-kata-page .tebak-label {
+    position: relative;
+    z-index: 1;
+    margin: 0 0 8px;
+    color: var(--gold);
+    font-size: 11px;
+    font-weight: 900;
+    letter-spacing: 2px;
+}
+
+.tebak-kata-page .tebak-hero h1 {
+    position: relative;
+    z-index: 1;
+    margin: 0 0 12px;
+    color: var(--green-dark) !important;
+    font-size: clamp(30px,5vw,46px);
+    line-height: 1.15;
+}
+
+.tebak-kata-page .tebak-hero h1 span {
+    color: var(--green) !important;
+}
+
+.tebak-kata-page .tebak-hero > p:last-child {
+    position: relative;
+    z-index: 1;
+    max-width: 650px;
+    margin: auto;
+    color: #66756f !important;
+    font-size: 15px;
+    line-height: 1.7;
+}
+
+/* MAIN */
+.tebak-kata-page .tebak-kata-main {
+    width: 88%;
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 44px 0 70px;
+}
+
+.tebak-kata-page .game-status {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 15px;
+    margin-bottom: 12px;
+}
+
+.tebak-kata-page .game-question-number,
+.tebak-kata-page .game-score {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.tebak-kata-page .game-question-number span {
+    color: #789088;
+    font-size: 11px;
+    font-weight: 800;
+    letter-spacing: 1px;
+}
+
+.tebak-kata-page .game-question-number strong,
+.tebak-kata-page .game-score strong {
+    color: var(--green-dark);
+    font-size: 14px;
+}
+
+.tebak-kata-page .game-progress {
+    margin-bottom: 22px;
+}
+
+.tebak-kata-page .game-progress-track {
+    height: 9px;
+    overflow: hidden;
+    border-radius: 999px;
+    background: #e5eee9;
+}
+
+.tebak-kata-page .game-progress-fill {
+    height: 100%;
+    width: 10%;
+    border-radius: inherit;
+    background: linear-gradient(90deg,var(--green),var(--gold));
+    transition: width .3s ease;
+}
+
+/* QUESTION CARD */
+.tebak-kata-page .question-card {
+    padding: 30px;
+    background: #fff;
+    border: 1px solid rgba(53,104,89,.10);
+    border-radius: 26px;
+    box-shadow: 0 10px 30px rgba(33,72,61,.08);
+}
+
+.tebak-kata-page .question-card-top {
+    text-align: center;
+    margin-bottom: 24px;
+}
+
+.tebak-kata-page .question-badge {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 7px 14px;
+    border-radius: 999px;
+    background: rgba(214,168,79,.14);
+    color: #8b6825;
+    font-size: 10px;
+    font-weight: 900;
+    letter-spacing: 1.4px;
+}
+
+/* INSTRUCTION */
+.tebak-kata-page .benar-salah-instruction {
+    max-width: 650px;
+    margin: 0 auto 25px;
+    padding: 18px 20px;
+    text-align: center;
+    border-radius: 18px;
+    background: linear-gradient(135deg,#f3f8f4,#fff8e8);
+    border: 1px solid rgba(53,104,89,.09);
+}
+
+.tebak-kata-page .benar-salah-icon {
+    width: 46px;
+    height: 46px;
+    margin: 0 auto 10px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(214,168,79,.18);
+    font-size: 23px;
+}
+
+.tebak-kata-page .benar-salah-instruction h3 {
+    margin: 0 0 6px;
+    color: var(--green-dark);
+    font-size: 18px;
+}
+
+.tebak-kata-page .benar-salah-instruction p {
+    margin: 0;
+    color: #6b7a74;
+    font-size: 13px;
+    line-height: 1.6;
+}
+
+/* PAIR */
+.tebak-kata-page .pasangan-kata-card {
+    display: grid;
+    grid-template-columns: 1fr 60px 1fr;
+    align-items: center;
+    gap: 14px;
+    margin: 25px 0;
+}
+
+.tebak-kata-page .pasangan-item {
+    min-height: 125px;
+    padding: 22px 18px;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    background: #fff;
+    border: 2px solid rgba(53,104,89,.12);
+    border-radius: 20px;
+    box-shadow: 0 5px 18px rgba(33,72,61,.06);
+}
+
+.tebak-kata-page .pasangan-item:first-child {
+    border-color: rgba(53,104,89,.25);
+    background: #f4f9f6;
+}
+
+.tebak-kata-page .pasangan-item:last-child {
+    border-color: rgba(214,168,79,.30);
+    background: #fffaf0;
+}
+
+.tebak-kata-page .pasangan-label {
+    margin-bottom: 9px;
+    color: #82918b;
+    font-size: 9px;
+    font-weight: 900;
+    letter-spacing: 1.3px;
+}
+
+.tebak-kata-page .pasangan-item strong {
+    color: var(--green-dark);
+    font-size: clamp(20px,3vw,28px);
+    line-height: 1.3;
+    overflow-wrap: anywhere;
+}
+
+.tebak-kata-page .pasangan-arrow {
+    width: 46px;
+    height: 46px;
+    margin: auto;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--gold);
+    color: var(--green-dark);
+    font-size: 24px;
+    font-weight: 900;
+}
+
+/* OPTIONS */
+.tebak-kata-page .benar-salah-options {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 15px;
+    margin-top: 25px;
+}
+
+.tebak-kata-page .benar-salah-button {
+    min-height: 82px;
+    padding: 15px 18px;
+    border-radius: 18px;
+    border: 2px solid transparent;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 13px;
+    cursor: pointer;
+    transition: transform .2s ease, box-shadow .2s ease, background .2s ease;
+}
+
+.tebak-kata-page .benar-salah-button:hover:not(:disabled) {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 18px rgba(33,72,61,.10);
+}
+
+.tebak-kata-page .benar-salah-button:disabled {
+    cursor: default;
+    opacity: .9;
+}
+
+.tebak-kata-page .benar-button {
+    background: #edf7f0;
+    border-color: rgba(53,104,89,.22);
+    color: var(--green-dark);
+}
+
+.tebak-kata-page .salah-button {
+    background: #fff4ee;
+    border-color: rgba(160,91,61,.18);
+    color: #7d4934;
+}
+
+.tebak-kata-page .benar-salah-button-icon {
+    width: 43px;
+    height: 43px;
+    flex: 0 0 43px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #fff;
+    font-size: 23px;
+    font-weight: 900;
+}
+
+.tebak-kata-page .benar-button .benar-salah-button-icon {
+    color: var(--green);
+}
+
+.tebak-kata-page .salah-button .benar-salah-button-icon {
+    color: #a45e43;
+}
+
+.tebak-kata-page .benar-salah-button span:last-child {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    text-align: left;
+}
+
+.tebak-kata-page .benar-salah-button strong {
+    font-size: 15px;
+    letter-spacing: .8px;
+}
+
+.tebak-kata-page .benar-salah-button small {
+    margin-top: 3px;
+    font-size: 11px;
+    opacity: .72;
+}
+
+.tebak-kata-page .benar-salah-button.correct {
+    background: #dcefe2 !important;
+    border-color: var(--green) !important;
+    box-shadow: 0 0 0 3px rgba(53,104,89,.10);
+}
+
+.tebak-kata-page .benar-salah-button.wrong {
+    background: #f7dfd7 !important;
+    border-color: #a45e43 !important;
+}
+
+/* FEEDBACK */
+.tebak-kata-page .game-feedback {
+    margin-top: 18px;
+    padding: 17px 20px;
+    border-radius: 18px;
+    background: #fff;
+    border: 1px solid rgba(53,104,89,.12);
+    box-shadow: 0 6px 20px rgba(33,72,61,.06);
+    align-items: center;
+    gap: 13px;
+}
+
+.tebak-kata-page .feedback-icon {
+    width: 42px;
+    height: 42px;
+    flex: 0 0 42px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #edf7f0;
+    color: var(--green-dark);
+    font-weight: 900;
+}
+
+.tebak-kata-page .feedback-content strong {
+    color: var(--green-dark);
+    font-size: 15px;
+}
+
+.tebak-kata-page .feedback-content p {
+    margin: 4px 0 0;
+    color: #6b7a74;
+    font-size: 13px;
+    line-height: 1.5;
+}
+
+.tebak-kata-page .next-question {
+    width: 100%;
+    margin-top: 15px;
+    padding: 14px 18px;
+    border: 0;
+    border-radius: 15px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    background: var(--green-dark);
+    color: #fff;
+    font-weight: 800;
+    cursor: pointer;
+}
+
+/* RESULT */
+.tebak-kata-page .hasil-game {
+    position: relative;
+    overflow: hidden;
+    padding: 42px 30px;
+    text-align: center;
+    background: #fff;
+    border-radius: 28px;
+    border: 1px solid rgba(53,104,89,.10);
+    box-shadow: 0 10px 30px rgba(33,72,61,.08);
+}
+
+.tebak-kata-page .hasil-decoration {
+    color: var(--gold);
+    font-size: 24px;
+}
+
+.tebak-kata-page .hasil-icon {
+    font-size: 48px;
+    margin: 8px 0;
+}
+
+.tebak-kata-page .hasil-label {
+    margin: 0;
+    color: var(--gold);
+    font-size: 10px;
+    font-weight: 900;
+    letter-spacing: 1.8px;
+}
+
+.tebak-kata-page .hasil-game h2 {
+    margin: 8px 0;
+    color: var(--green-dark);
+    font-size: 32px;
+}
+
+.tebak-kata-page .hasil-description {
+    margin: 0 auto 22px;
+    color: #6b7a74;
+    line-height: 1.6;
+}
+
+.tebak-kata-page .hasil-score {
+    width: 180px;
+    margin: 0 auto 22px;
+    padding: 18px;
+    border-radius: 20px;
+    background: linear-gradient(135deg,#f3f8f4,#fff8e8);
+}
+
+.tebak-kata-page .hasil-score span,
+.tebak-kata-page .hasil-score small {
+    display: block;
+    color: #74847d;
+    font-size: 10px;
+    font-weight: 800;
+    letter-spacing: 1px;
+}
+
+.tebak-kata-page .hasil-score strong {
+    display: block;
+    margin: 2px 0;
+    color: var(--green-dark);
+    font-size: 44px;
+}
+
+.tebak-kata-page .hasil-info {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 28px;
+    margin-bottom: 25px;
+}
+
+.tebak-kata-page .hasil-info > div:not(.hasil-divider) {
+    display: flex;
+    flex-direction: column;
+    gap: 3px;
+}
+
+.tebak-kata-page .hasil-info strong {
+    color: var(--green-dark);
+    font-size: 23px;
+}
+
+.tebak-kata-page .hasil-info span {
+    color: #77867f;
+    font-size: 11px;
+}
+
+.tebak-kata-page .hasil-divider {
+    width: 1px;
+    height: 42px;
+    background: #dce6e1;
+}
+
+.tebak-kata-page .simpan-skor-box {
+    max-width: 430px;
+    margin: 0 auto 22px;
+    padding: 20px;
+    border-radius: 18px;
+    background: #f7faf8;
+}
+
+.tebak-kata-page .simpan-skor-box label {
+    display: block;
+    margin-bottom: 8px;
+    color: var(--green-dark);
+    font-weight: 800;
+    font-size: 13px;
+}
+
+.tebak-kata-page .simpan-skor-box input {
+    width: 100%;
+    box-sizing: border-box;
+    padding: 12px 14px;
+    border: 1px solid #cfded7;
+    border-radius: 12px;
+    outline: none;
+    margin-bottom: 10px;
+    font: inherit;
+}
+
+.tebak-kata-page .simpan-skor-box input:focus {
+    border-color: var(--green);
+    box-shadow: 0 0 0 3px rgba(53,104,89,.08);
+}
+
+.tebak-kata-page .play-again {
+    border: 0;
+    border-radius: 12px;
+    padding: 12px 18px;
+    background: var(--green-dark);
+    color: #fff;
+    font-weight: 800;
+    cursor: pointer;
+}
+
+.tebak-kata-page .hasil-buttons {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+}
+
+.tebak-kata-page .back-games {
+    padding: 11px 17px;
+    border-radius: 12px;
+    border: 1px solid rgba(53,104,89,.18);
+    color: var(--green-dark);
+    text-decoration: none;
+    font-weight: 800;
+}
+
+/* FOOTER */
+.tebak-kata-page .game-footer {
+    width: 100% !important;
+    min-width: 100% !important;
+    box-sizing: border-box;
+    position: relative;
+    overflow: hidden;
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    justify-content: center !important;
+    text-align: center !important;
+    padding: 35px 20px !important;
+    margin: 0 !important;
+    background: var(--green-dark);
+}
+
+.tebak-kata-page .game-footer::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background-image: url("assets/sasirangan-hijau.jpg");
+    background-size: 420px auto;
+    background-repeat: repeat;
+    opacity: .08;
+    pointer-events: none;
+}
+
+.tebak-kata-page .game-footer-logo {
+    position: relative;
+    z-index: 1;
+    width: 100% !important;
+    display: flex !important;
+    flex-direction: row !important;
+    align-items: center !important;
+    justify-content: center !important;
+    gap: 10px;
+    text-align: center !important;
+    margin: 0 auto 10px !important;
+}
+
+.tebak-kata-page .game-footer-emblem {
+    width: 46px;
+    height: 46px;
+    padding: 2px;
+    box-sizing: border-box;
+    border-radius: 50%;
+    background: #fff;
+    border: 2px solid var(--gold);
+    overflow: hidden;
+}
+
+.tebak-kata-page .game-footer-emblem img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 50%;
+}
+
+.tebak-kata-page .game-footer-logo strong {
+    color: #fff !important;
+    letter-spacing: 1px;
+}
+
+.tebak-kata-page .game-footer-logo strong span {
+    color: var(--gold) !important;
+}
+
+.tebak-kata-page .game-footer p,
+.tebak-kata-page .game-footer small {
+    position: relative;
+    z-index: 1;
+    display: block !important;
+    width: 100% !important;
+    max-width: 430px;
+    margin: 8px auto !important;
+    padding: 0 !important;
+    text-align: center !important;
+    color: rgba(255,255,255,.78) !important;
+    line-height: 1.6;
+}
+
+.tebak-kata-page .game-footer small {
+    color: rgba(255,255,255,.55) !important;
+    font-size: 10px;
+}
+
+/* RESPONSIVE */
+@media (max-width: 700px) {
+    .tebak-kata-page .game-play-header {
+        padding: 9px 5%;
+    }
+
+    .tebak-kata-page .game-play-brand-text {
+        display: none;
+    }
+
+    .tebak-kata-page .game-play-logo {
+        width: 55px;
+        height: 55px;
+    }
+
+    .tebak-kata-page .game-back {
+        font-size: 12px;
+    }
+
+    .tebak-kata-page .tebak-hero {
+        padding: 48px 18px 45px;
+    }
+
+    .tebak-kata-page .question-card {
+        padding: 22px 16px;
+    }
+
+    .tebak-kata-page .pasangan-kata-card {
+        grid-template-columns: 1fr;
+        gap: 9px;
+    }
+
+    .tebak-kata-page .pasangan-arrow {
+        transform: rotate(90deg);
+    }
+
+    .tebak-kata-page .benar-salah-options {
+        grid-template-columns: 1fr;
+    }
+
+    .tebak-kata-page .game-status {
+        font-size: 12px;
+    }
+}
+
+@media (max-width: 480px) {
+    .tebak-kata-page .tebak-kata-main {
+        width: 92%;
+        padding-top: 32px;
+    }
+
+    .tebak-kata-page .hasil-game {
+        padding: 32px 18px;
+    }
+
+    .tebak-kata-page .hasil-info {
+        gap: 18px;
+    }
+}
+</style>
+</head>
+
+<body class="tebak-kata-page">
+
+<header class="game-play-header">
+    <a href="games.html" class="game-back">← Kembali ke Games</a>
+
+    <div class="game-play-brand">
+        <div class="game-play-logo">
+            <img src="assets/logo-lanting-kata.png" alt="Logo LANTING KATA">
+        </div>
+
+        <div class="game-play-brand-text">
+            <strong>LANTING KATA</strong>
+            <small>RUANG PERMAINAN</small>
+        </div>
+    </div>
+</header>
+
+<section class="tebak-hero">
+    <div class="tebak-hero-decoration">✦</div>
+    <div class="tebak-icon">⚖️</div>
+    <p class="tebak-label">GAME 05</p>
+
+    <h1>Benar <span>atau Salah?</span></h1>
+
+    <p>
+        Perhatikan kata dan artinya,
+        lalu tentukan apakah pasangan tersebut benar.
+    </p>
+</section>
+
+<main class="tebak-kata-main">
+
+    <section id="loadingGame" class="game-loading">
+        <div class="loading-icon">⏳</div>
+        <h2>Menyiapkan permainan...</h2>
+        <p>Sedang mengambil kosakata dari Kamus LANTING KATA.</p>
+    </section>
+
+    <section id="gameArea" class="game-area" style="display:none;">
+
+        <div class="game-status">
+            <div class="game-question-number">
+                <span>SOAL</span>
+                <strong id="nomorSoal">1 / 10</strong>
+            </div>
+
+            <div class="game-score">
+                <span>⭐</span>
+                <strong id="skorSaatIni">0 poin</strong>
+            </div>
+        </div>
+
+        <div class="game-progress">
+            <div class="game-progress-track">
+                <div id="progressFill" class="game-progress-fill"></div>
+            </div>
+        </div>
+
+        <div class="question-card">
+
+            <div class="question-card-top">
+                <span class="question-badge">BENAR ATAU SALAH?</span>
+            </div>
+
+            <div class="benar-salah-instruction">
+                <div class="benar-salah-icon">⚖️</div>
+                <h3>Apakah pasangan ini benar?</h3>
+                <p>Perhatikan kata Bahasa Banjar dan artinya dengan teliti.</p>
+            </div>
+
+            <div class="pasangan-kata-card">
+
+                <div class="pasangan-item">
+                    <span class="pasangan-label">BAHASA BANJAR</span>
+                    <strong id="kataBanjar">-</strong>
+                </div>
+
+                <div class="pasangan-arrow">↕</div>
+
+                <div class="pasangan-item">
+                    <span class="pasangan-label">BAHASA INDONESIA</span>
+                    <strong id="artiIndonesia">-</strong>
+                </div>
+
+            </div>
+
+            <div class="benar-salah-options">
+
+                <button id="tombolBenar" class="benar-salah-button benar-button" type="button">
+                    <span class="benar-salah-button-icon">✓</span>
+                    <span>
+                        <strong>BENAR</strong>
+                        <small>Pasangan ini tepat</small>
+                    </span>
+                </button>
+
+                <button id="tombolSalah" class="benar-salah-button salah-button" type="button">
+                    <span class="benar-salah-button-icon">✕</span>
+                    <span>
+                        <strong>SALAH</strong>
+                        <small>Pasangan ini tidak tepat</small>
+                    </span>
+                </button>
+
+            </div>
+        </div>
+
+        <div id="feedback" class="game-feedback" style="display:none;">
+            <div id="feedbackIcon" class="feedback-icon">✓</div>
+            <div class="feedback-content">
+                <strong id="feedbackTitle">Benar!</strong>
+                <p id="feedbackText">Jawaban kamu benar.</p>
+            </div>
+        </div>
+
+        <button id="tombolLanjut" class="next-question" style="display:none;" type="button">
+            Soal Berikutnya <span>→</span>
+        </button>
+
+    </section>
+
+    <section id="hasilGame" class="hasil-game" style="display:none;">
+
+        <div class="hasil-decoration">✦</div>
+        <div class="hasil-icon">🏆</div>
+
+        <p class="hasil-label">PERMAINAN SELESAI</p>
+        <h2>Hebat!</h2>
+
+        <p class="hasil-description">
+            Kamu telah menyelesaikan 10 soal Benar atau Salah.
+        </p>
+
+        <div class="hasil-score">
+            <span>SKOR KAMU</span>
+            <strong id="skorAkhir">0</strong>
+            <small>POIN</small>
+        </div>
+
+        <div class="hasil-info">
+            <div>
+                <strong id="jumlahBenar">0</strong>
+                <span>jawaban benar</span>
+            </div>
+
+            <div class="hasil-divider"></div>
+
+            <div>
+                <strong>10</strong>
+                <span>jumlah soal</span>
+            </div>
+        </div>
+
+        <div class="simpan-skor-box">
+            <label for="namaPemain">Masukkan Nama Kamu</label>
+
+            <input
+                type="text"
+                id="namaPemain"
+                placeholder="Nama kamu"
+                maxlength="30"
+                autocomplete="off"
+            >
+
+            <button id="simpanSkor" class="play-again" type="button">
+                🏆 Simpan Skor
+            </button>
+
+            <p id="statusSimpanSkor" style="display:none;"></p>
+        </div>
+
+        <div class="hasil-buttons">
+            <button id="mainLagi" class="play-again" type="button">
+                🔄 Main Lagi
+            </button>
+
+            <a href="games.html" class="back-games">
+                🎮 Kembali ke Games
+            </a>
+        </div>
+
+    </section>
+
+</main>
+
+<footer class="game-footer">
+
+    <div class="game-footer-logo">
+        <div class="game-footer-emblem">
+            <img src="assets/logo-lanting-kata.png" alt="Logo LANTING KATA">
+        </div>
+
+        <strong>LANTING <span>KATA</span></strong>
+    </div>
+
+    <p>
+        Mengenal Bahasa Banjar, melestarikan kata,
+        dan bermain sambil belajar.
+    </p>
+
+    <small>© 2026 LANTING KATA</small>
+</footer>
+
+<script>
+const WEB_APP_URL =
+"https://script.google.com/macros/s/AKfycbx9NSf3eh2Q5Jr4PYggXFbAw4a6_PgsslxUSZui8yyWu1zzcuUjSecky6YQtEcFoj75/exec";
+
+const GAME_ID = "5";
+const JUMLAH_SOAL = 10;
+const POIN_PER_JAWABAN = 10;
+
+let semuaKata = [];
+let soal = [];
+let nomorSekarang = 0;
+let skor = 0;
+let jumlahBenar = 0;
+let skorSudahDisimpan = false;
+
+const loadingGame = document.getElementById("loadingGame");
+const gameArea = document.getElementById("gameArea");
+const hasilGame = document.getElementById("hasilGame");
+const kataBanjar = document.getElementById("kataBanjar");
+const artiIndonesia = document.getElementById("artiIndonesia");
+const tombolBenar = document.getElementById("tombolBenar");
+const tombolSalah = document.getElementById("tombolSalah");
+const nomorSoal = document.getElementById("nomorSoal");
+const skorSaatIni = document.getElementById("skorSaatIni");
+const progressFill = document.getElementById("progressFill");
+const feedback = document.getElementById("feedback");
+const feedbackIcon = document.getElementById("feedbackIcon");
+const feedbackTitle = document.getElementById("feedbackTitle");
+const feedbackText = document.getElementById("feedbackText");
+const tombolLanjut = document.getElementById("tombolLanjut");
+const mainLagi = document.getElementById("mainLagi");
+const namaPemain = document.getElementById("namaPemain");
+const simpanSkorButton = document.getElementById("simpanSkor");
+const statusSimpanSkor = document.getElementById("statusSimpanSkor");
+
+function acakArray(array) {
+    return [...array].sort(() => Math.random() - 0.5);
+}
+
+async function ambilDataKamus() {
+    try {
+        loadingGame.style.display = "block";
+        gameArea.style.display = "none";
+        hasilGame.style.display = "none";
+
+        const response = await fetch(
+            WEB_APP_URL + "?action=kamus&t=" + Date.now()
+        );
+
+        if (!response.ok) {
+            throw new Error("Server kamus tidak dapat diakses.");
+        }
+
+        const data = await response.json();
+
+        if (!Array.isArray(data)) {
+            throw new Error("Format data kamus tidak sesuai.");
+        }
+
+        semuaKata = data.filter(item => item.banjar && item.indonesia);
+
+        if (semuaKata.length < JUMLAH_SOAL) {
+            throw new Error(
+                "Data kamus belum memiliki minimal 10 kosakata."
+            );
+        }
+
+        mulaiPermainan();
+
+    } catch (error) {
+        console.error("ERROR GAME 05:", error);
+
+        loadingGame.innerHTML = `
+            <div class="loading-icon">⚠️</div>
+            <h2>Permainan belum dapat dimuat</h2>
+            <p>${error.message}</p>
+            <button onclick="location.reload()" class="play-again" type="button">
+                🔄 Coba Lagi
+            </button>
+        `;
+    }
+}
+
+function buatSoal() {
+    soal = acakArray(semuaKata)
+        .slice(0, JUMLAH_SOAL)
+        .map(item => {
+            const benar = Math.random() < 0.5;
+            let artiTampil;
+
+            if (benar) {
+                artiTampil = item.indonesia;
+            } else {
+                const pilihanSalah = acakArray(
+                    semuaKata.filter(
+                        pilihan =>
+                            pilihan.banjar !== item.banjar &&
+                            pilihan.indonesia !== item.indonesia
+                    )
+                );
+
+                artiTampil =
+                    pilihanSalah.length > 0
+                        ? pilihanSalah[0].indonesia
+                        : item.indonesia;
+            }
+
+            return {
+                banjar: item.banjar,
+                artiBenar: item.indonesia,
+                artiTampil: artiTampil,
+                jawabanBenar: artiTampil === item.indonesia
+            };
+        });
+}
+
+function mulaiPermainan() {
+    nomorSekarang = 0;
+    skor = 0;
+    jumlahBenar = 0;
+    skorSudahDisimpan = false;
+
+    namaPemain.value = "";
+    statusSimpanSkor.style.display = "none";
+    statusSimpanSkor.textContent = "";
+
+    simpanSkorButton.disabled = false;
+    simpanSkorButton.textContent = "🏆 Simpan Skor";
+
+    buatSoal();
+
+    loadingGame.style.display = "none";
+    hasilGame.style.display = "none";
+    gameArea.style.display = "block";
+
+    tampilkanSoal();
+}
+
+function tampilkanSoal() {
+    const pertanyaan = soal[nomorSekarang];
+
+    kataBanjar.textContent = pertanyaan.banjar;
+    artiIndonesia.textContent = pertanyaan.artiTampil;
+
+    nomorSoal.textContent =
+        `${nomorSekarang + 1} / ${JUMLAH_SOAL}`;
+
+    skorSaatIni.textContent = `${skor} poin`;
+
+    progressFill.style.width =
+        `${((nomorSekarang + 1) / JUMLAH_SOAL) * 100}%`;
+
+    feedback.style.display = "none";
+    tombolLanjut.style.display = "none";
+
+    tombolBenar.disabled = false;
+    tombolSalah.disabled = false;
+
+    tombolBenar.classList.remove("selected", "correct", "wrong");
+    tombolSalah.classList.remove("selected", "correct", "wrong");
+}
+
+function periksaJawaban(jawabanPemain) {
+    const pertanyaan = soal[nomorSekarang];
+
+    tombolBenar.disabled = true;
+    tombolSalah.disabled = true;
+
+    const benar = jawabanPemain === pertanyaan.jawabanBenar;
+
+    if (benar) {
+        skor += POIN_PER_JAWABAN;
+        jumlahBenar++;
+
+        feedbackIcon.textContent = "✓";
+        feedbackTitle.textContent = "Benar! 🎉";
+        feedbackText.textContent =
+            `Hebat! Jawaban kamu tepat. Kamu mendapatkan +${POIN_PER_JAWABAN} poin.`;
+    } else {
+        feedbackIcon.textContent = "✗";
+        feedbackTitle.textContent = "Belum tepat";
+
+        const statusBenar =
+            pertanyaan.jawabanBenar ? "BENAR" : "SALAH";
+
+        feedbackText.textContent =
+            `Jawaban yang benar adalah ${statusBenar}.`;
+    }
+
+    const tombolDipilih =
+        jawabanPemain === true ? tombolBenar : tombolSalah;
+
+    tombolDipilih.classList.add(benar ? "correct" : "wrong");
+
+    if (pertanyaan.jawabanBenar) {
+        tombolBenar.classList.add("correct");
+    } else {
+        tombolSalah.classList.add("correct");
+    }
+
+    feedback.style.display = "flex";
+    tombolLanjut.style.display = "flex";
+    skorSaatIni.textContent = `${skor} poin`;
+}
+
+tombolBenar.addEventListener("click", () => periksaJawaban(true));
+tombolSalah.addEventListener("click", () => periksaJawaban(false));
+
+tombolLanjut.addEventListener("click", () => {
+    nomorSekarang++;
+
+    if (nomorSekarang >= JUMLAH_SOAL) {
+        tampilkanHasil();
+    } else {
+        tampilkanSoal();
+    }
+});
+
+function tampilkanHasil() {
+    gameArea.style.display = "none";
+    hasilGame.style.display = "block";
+
+    document.getElementById("skorAkhir").textContent = skor;
+    document.getElementById("jumlahBenar").textContent = jumlahBenar;
+
+    namaPemain.value = "";
+    statusSimpanSkor.style.display = "none";
+    statusSimpanSkor.textContent = "";
+
+    simpanSkorButton.disabled = false;
+    simpanSkorButton.textContent = "🏆 Simpan Skor";
+    skorSudahDisimpan = false;
+}
+
+async function kirimSkorKeLeaderboard() {
+    const nama = namaPemain.value.trim();
+
+    if (!nama) {
+        statusSimpanSkor.textContent =
+            "⚠️ Silakan masukkan nama terlebih dahulu.";
+        statusSimpanSkor.style.display = "block";
+        namaPemain.focus();
+        return;
+    }
+
+    if (skorSudahDisimpan) return;
+
+    simpanSkorButton.disabled = true;
+    simpanSkorButton.textContent = "⏳ Menyimpan...";
+
+    statusSimpanSkor.style.display = "block";
+    statusSimpanSkor.textContent = "Sedang menyimpan skor...";
+
+    try {
+        const url =
+            WEB_APP_URL +
+            "?action=simpanSkor" +
+            "&nama=" + encodeURIComponent(nama) +
+            "&skor=" + encodeURIComponent(skor) +
+            "&game=" + encodeURIComponent(GAME_ID) +
+            "&t=" + Date.now();
+
+        const response = await fetch(url);
+
+        if (!response.ok) {
+            throw new Error("Server tidak dapat diakses.");
+        }
+
+        const data = await response.json();
+
+        if (!data.success) {
+            throw new Error(
+                data.message || "Skor gagal disimpan."
+            );
+        }
+
+        skorSudahDisimpan = true;
+
+        localStorage.setItem(
+            "lantingKataNamaPemain",
+            nama
+        );
+
+        statusSimpanSkor.textContent =
+            `✅ Skor Game 05 berhasil disimpan! Total poin kamu: ${data.totalPoin}`;
+
+        simpanSkorButton.textContent = "✅ Skor Tersimpan";
+
+    } catch (error) {
+        console.error("ERROR SIMPAN SKOR:", error);
+
+        statusSimpanSkor.textContent =
+            "❌ Skor gagal disimpan. Silakan coba lagi.";
+
+        simpanSkorButton.disabled = false;
+        simpanSkorButton.textContent = "🏆 Simpan Skor";
+    }
+}
+
+simpanSkorButton.addEventListener(
+    "click",
+    kirimSkorKeLeaderboard
+);
+
+mainLagi.addEventListener(
+    "click",
+    mulaiPermainan
+);
+
+ambilDataKamus();
+</script>
+
+</body>
+</html>

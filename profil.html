@@ -1,0 +1,1902 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>Profil Pengembang | LANTING KATA</title>
+
+    <link rel="stylesheet"
+          href="css/style.css">
+
+    <style>
+
+        /* =====================================================
+           PROFIL PENGEMBANG — FINAL
+           ===================================================== */
+
+        .profile-page {
+            --green-dark: #21483d;
+            --green: #356859;
+            --green-light: #6f9d8d;
+            --gold: #d6a84f;
+            --cream: #fff8e8;
+            --white: #ffffff;
+            --text-dark: #24342e;
+            --text-muted: #66756f;
+        }
+
+
+        /* =====================================================
+           NAVBAR
+           ===================================================== */
+
+        .profile-page .dashboard-navbar {
+            position: relative;
+            width: 100%;
+            min-height: 88px;
+
+            display: flex;
+            align-items: center;
+
+            padding: 10px 7%;
+
+            box-sizing: border-box;
+
+            background: var(--green-dark);
+
+            overflow: hidden;
+
+            z-index: 20;
+        }
+
+
+        .profile-page .dashboard-navbar::before {
+            content: "";
+
+            position: absolute;
+            inset: 0;
+
+            background-image:
+                url("assets/sasirangan-hijau.jpg");
+
+            background-size: 420px auto;
+            background-repeat: repeat;
+            background-position: center;
+
+            opacity: .10;
+
+            pointer-events: none;
+        }
+
+
+        .profile-page .dashboard-navbar > * {
+            position: relative;
+            z-index: 2;
+        }
+
+
+        /* =====================================================
+           BACK BUTTON
+           ===================================================== */
+
+        .profile-page .back-button {
+            color: var(--white);
+
+            text-decoration: none;
+
+            font-size: 14px;
+            font-weight: 700;
+
+            transition:
+                color .25s ease,
+                transform .25s ease;
+        }
+
+
+        .profile-page .back-button:hover {
+            color: var(--gold);
+
+            transform: translateX(-3px);
+        }
+
+
+        /* =====================================================
+           LOGO
+           ===================================================== */
+
+        .profile-page .dashboard-logo {
+            margin-left: auto;
+
+            display: flex;
+            align-items: center;
+
+            gap: 12px;
+        }
+
+
+        .profile-page .dashboard-logo-circle {
+            width: 58px;
+            height: 58px;
+
+            border-radius: 50%;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            overflow: hidden;
+
+            background: var(--white);
+
+            border: 2px solid var(--gold);
+
+            box-shadow:
+                0 4px 12px rgba(0,0,0,.18);
+
+            font-size: 0;
+        }
+
+
+        .profile-page .dashboard-logo-circle::before {
+            content: "";
+
+            width: 100%;
+            height: 100%;
+
+            display: block;
+
+            background-image:
+                url("assets/logo-lanting-kata.png");
+
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+        }
+
+
+        .profile-page .dashboard-logo-text {
+            display: flex;
+            flex-direction: column;
+
+            color: var(--white);
+
+            font-size: 18px;
+            font-weight: 900;
+
+            line-height: 1.05;
+
+            letter-spacing: 1px;
+        }
+
+
+        .profile-page .dashboard-logo-text span {
+            color: var(--gold);
+        }
+
+
+        /* =====================================================
+           MAIN
+           ===================================================== */
+
+        .profile-page .profile-main {
+            width: 100%;
+            margin: 0;
+            padding: 0;
+
+            box-sizing: border-box;
+
+            background:
+                linear-gradient(
+                    180deg,
+                    #fffdf7 0%,
+                    #ffffff 45%,
+                    #f5faf7 100%
+                );
+        }
+
+
+        /* =====================================================
+           HERO
+           ===================================================== */
+
+        .profile-page .profile-hero {
+            position: relative;
+
+            padding: 75px 7% 70px;
+
+            text-align: center;
+
+            overflow: hidden;
+
+            background:
+                linear-gradient(
+                    135deg,
+                    #fff8e8 0%,
+                    #ffffff 55%,
+                    #eef6f1 100%
+                );
+
+            border-bottom:
+                1px solid rgba(53,104,89,.10);
+        }
+
+
+        .profile-page .profile-hero::before {
+            content: "";
+
+            position: absolute;
+
+            width: 280px;
+            height: 280px;
+
+            top: -170px;
+            right: -90px;
+
+            border-radius: 50%;
+
+            background:
+                rgba(214,168,79,.10);
+        }
+
+
+        .profile-page .profile-hero::after {
+            content: "";
+
+            position: absolute;
+
+            width: 240px;
+            height: 240px;
+
+            bottom: -150px;
+            left: -80px;
+
+            border-radius: 50%;
+
+            background:
+                rgba(53,104,89,.07);
+        }
+
+
+        .profile-page .profile-hero > * {
+            position: relative;
+            z-index: 2;
+        }
+
+
+        .profile-page .profile-label {
+            margin: 0 0 12px;
+
+            color: var(--green);
+
+            font-size: 13px;
+            font-weight: 900;
+
+            letter-spacing: 2px;
+        }
+
+
+        .profile-page .profile-hero h1 {
+            margin: 0 auto 18px;
+
+            color: var(--green-dark);
+
+            font-size:
+                clamp(34px, 5vw, 56px);
+
+            line-height: 1.1;
+
+            font-weight: 900;
+        }
+
+
+        .profile-page .profile-hero h1 span {
+            color: var(--gold);
+        }
+
+
+        .profile-page .profile-hero > p:last-child {
+            max-width: 760px;
+
+            margin: 0 auto;
+
+            color: var(--text-muted);
+
+            font-size: 16px;
+            line-height: 1.8;
+        }
+
+
+        /* =====================================================
+           INSTITUTION
+           ===================================================== */
+
+        .profile-page .institution-section {
+            padding: 45px 7% 20px;
+        }
+
+
+        .profile-page .institution-card {
+            width: 100%;
+            max-width: 1000px;
+
+            margin: 0 auto;
+
+            display: flex;
+            align-items: center;
+
+            gap: 25px;
+
+            padding: 30px 35px;
+
+            box-sizing: border-box;
+
+            background: var(--white);
+
+            border-radius: 24px;
+
+            border:
+                1px solid rgba(53,104,89,.10);
+
+            box-shadow:
+                0 10px 30px rgba(33,72,61,.07);
+        }
+
+
+        .profile-page .institution-icon {
+            width: 70px;
+            height: 70px;
+
+            flex: 0 0 70px;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            border-radius: 20px;
+
+            background:
+                rgba(53,104,89,.09);
+
+            font-size: 32px;
+        }
+
+
+        .profile-page .institution-card h2 {
+            margin: 0 0 10px;
+
+            color: var(--green-dark);
+
+            font-size: 24px;
+            font-weight: 900;
+        }
+
+
+        .profile-page .institution-card p {
+            margin: 4px 0;
+
+            color: var(--text-muted);
+
+            font-size: 14px;
+            line-height: 1.5;
+        }
+
+
+        /* =====================================================
+           SECTION TITLE
+           ===================================================== */
+
+        .profile-page .section-title {
+            text-align: center;
+
+            margin-bottom: 42px;
+        }
+
+
+        .profile-page .section-title > p:first-child {
+            margin: 0 0 10px;
+
+            color: var(--green);
+
+            font-size: 12px;
+            font-weight: 900;
+
+            letter-spacing: 2px;
+        }
+
+
+        .profile-page .section-title h2 {
+            margin: 0;
+
+            color: var(--green-dark);
+
+            font-size:
+                clamp(27px, 4vw, 38px);
+
+            line-height: 1.2;
+
+            font-weight: 900;
+        }
+
+
+        .profile-page .section-description {
+            max-width: 700px;
+
+            margin: 15px auto 0;
+
+            color: var(--text-muted);
+
+            font-size: 15px;
+            line-height: 1.7;
+        }
+
+
+        /* =====================================================
+           TEAM SECTION
+           ===================================================== */
+
+        .profile-page .team-section {
+            padding: 75px 7% 80px;
+        }
+
+
+        /*
+           SEMUA 11 ANGGOTA DALAM SATU GRID
+           Desktop = 4 + 4 + 3
+        */
+
+        .profile-page .team-grid {
+            width: 100%;
+            max-width: 1200px;
+
+            margin: 0 auto;
+
+            display: grid;
+
+            grid-template-columns:
+                repeat(4, minmax(0, 1fr));
+
+            gap: 25px;
+
+            align-items: stretch;
+        }
+
+
+        /* =====================================================
+           TEAM CARD
+           ===================================================== */
+
+        .profile-page .team-card {
+            position: relative;
+
+            min-width: 0;
+
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+
+            padding: 22px 18px 25px;
+
+            box-sizing: border-box;
+
+            background: var(--white);
+
+            border-radius: 22px;
+
+            border:
+                1px solid rgba(53,104,89,.10);
+
+            box-shadow:
+                0 8px 25px rgba(33,72,61,.07);
+
+            text-align: center;
+
+            transition:
+                transform .25s ease,
+                box-shadow .25s ease;
+        }
+
+
+        .profile-page .team-card::before {
+            content: "";
+
+            position: absolute;
+
+            top: 0;
+            left: 18px;
+            right: 18px;
+
+            height: 3px;
+
+            border-radius:
+                0 0 8px 8px;
+
+            background:
+                linear-gradient(
+                    90deg,
+                    var(--green),
+                    var(--gold),
+                    var(--green)
+                );
+        }
+
+
+        .profile-page .team-card:hover {
+            transform: translateY(-6px);
+
+            box-shadow:
+                0 15px 35px rgba(33,72,61,.13);
+        }
+
+
+        /* =====================================================
+           PHOTO
+           ===================================================== */
+
+        .profile-page .photo-placeholder {
+            width: 145px;
+            height: 145px;
+
+            margin: 8px auto 18px;
+
+            flex: 0 0 145px;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            overflow: hidden;
+
+            border-radius: 50%;
+
+            background:
+                linear-gradient(
+                    145deg,
+                    #eef6f1,
+                    #fff8e8
+                );
+
+            border:
+                4px solid var(--white);
+
+            box-shadow:
+                0 0 0 2px rgba(214,168,79,.65),
+                0 8px 20px rgba(33,72,61,.12);
+        }
+
+
+        .profile-page .photo-placeholder img {
+            width: 100%;
+            height: 100%;
+
+            display: block;
+
+            object-fit: cover;
+            object-position: center;
+        }
+
+
+        /* =====================================================
+           NAMA
+           ===================================================== */
+
+        .profile-page .team-card h3 {
+            width: 100%;
+
+            margin: 0 0 9px;
+
+            color: var(--green-dark);
+
+            font-size: 17px;
+            line-height: 1.35;
+
+            font-weight: 900;
+        }
+
+
+        /* =====================================================
+           ROLE
+           ===================================================== */
+
+        .profile-page .role-badge {
+            display: inline-flex;
+
+            align-items: center;
+            justify-content: center;
+
+            min-height: 25px;
+
+            margin: 0;
+
+            padding: 5px 10px;
+
+            box-sizing: border-box;
+
+            border-radius: 999px;
+
+            background:
+                rgba(53,104,89,.10);
+
+            border:
+                1px solid rgba(53,104,89,.16);
+
+            color: var(--green);
+
+            font-size: 9px;
+            font-weight: 900;
+
+            line-height: 1.2;
+
+            letter-spacing: .4px;
+
+            text-align: center;
+        }
+
+
+        /* KOORDINATOR */
+
+        .profile-page .team-card:first-child .role-badge {
+            background:
+                rgba(214,168,79,.15);
+
+            border-color:
+                rgba(214,168,79,.35);
+
+            color:
+                #8b681d;
+        }
+
+
+        /* =====================================================
+           DOSEN
+           ===================================================== */
+
+        .profile-page .lecturer-section {
+            padding: 70px 7% 80px;
+
+            background:
+                linear-gradient(
+                    180deg,
+                    #f5faf7 0%,
+                    #ffffff 100%
+                );
+        }
+
+
+        .profile-page .lecturer-card {
+            width: 100%;
+            max-width: 850px;
+
+            margin: 0 auto;
+
+            display: flex;
+            align-items: center;
+
+            gap: 30px;
+
+            padding: 30px;
+
+            box-sizing: border-box;
+
+            background: var(--white);
+
+            border-radius: 24px;
+
+            border:
+                1px solid rgba(53,104,89,.10);
+
+            box-shadow:
+                0 10px 30px rgba(33,72,61,.07);
+        }
+
+
+        .profile-page .lecturer-photo {
+            width: 120px;
+            height: 120px;
+
+            flex: 0 0 120px;
+
+            margin: 0;
+        }
+
+
+        .profile-page .lecturer-photo span {
+            color: var(--text-muted);
+
+            font-size: 12px;
+            font-weight: 700;
+        }
+
+
+        .profile-page .lecturer-card h3 {
+            margin: 0 0 8px;
+
+            color: var(--green-dark);
+
+            font-size: 20px;
+            font-weight: 900;
+        }
+
+
+        .profile-page .lecturer-card p {
+            margin: 5px 0;
+
+            color: var(--text-muted);
+
+            font-size: 14px;
+        }
+
+
+        .profile-page .lecturer-card .lecturer-role {
+            display: inline-block;
+
+            margin-top: 10px;
+
+            padding: 6px 12px;
+
+            border-radius: 999px;
+
+            background:
+                rgba(214,168,79,.15);
+
+            color:
+                #8b681d;
+
+            font-size: 11px;
+            font-weight: 800;
+        }
+
+
+        /* =====================================================
+           SEKOLAH MITRA
+           ===================================================== */
+
+        .profile-page .partner-section {
+            padding: 75px 7% 90px;
+
+            background: var(--white);
+        }
+
+
+        .profile-page .partner-grid {
+            width: 100%;
+            max-width: 1050px;
+
+            margin: 0 auto;
+
+            display: grid;
+
+            grid-template-columns:
+                repeat(2, minmax(0, 1fr));
+
+            gap: 28px;
+        }
+
+
+        .profile-page .partner-card {
+            overflow: hidden;
+
+            background: var(--white);
+
+            border-radius: 24px;
+
+            border:
+                1px solid rgba(53,104,89,.10);
+
+            box-shadow:
+                0 8px 25px rgba(33,72,61,.07);
+
+            transition:
+                transform .25s ease,
+                box-shadow .25s ease;
+        }
+
+
+        .profile-page .partner-card:hover {
+            transform: translateY(-5px);
+
+            box-shadow:
+                0 14px 32px rgba(33,72,61,.12);
+        }
+
+
+        .profile-page .school-photo-placeholder {
+            width: 100%;
+            height: 220px;
+
+            overflow: hidden;
+
+            background:
+                linear-gradient(
+                    135deg,
+                    #eef6f1,
+                    #fff8e8
+                );
+        }
+
+
+        .profile-page .school-photo-placeholder img {
+            width: 100%;
+            height: 100%;
+
+            display: block;
+
+            object-fit: cover;
+            object-position: center;
+        }
+
+
+        .profile-page .partner-content {
+            padding: 24px;
+        }
+
+
+        .profile-page .partner-content h3 {
+            margin: 0 0 9px;
+
+            color: var(--green-dark);
+
+            font-size: 20px;
+            font-weight: 900;
+        }
+
+
+        .profile-page .partner-content p {
+            margin: 0 0 13px;
+
+            color: var(--text-muted);
+
+            font-size: 14px;
+            line-height: 1.6;
+        }
+
+
+        .profile-page .partner-content .location {
+            color: var(--green);
+
+            font-size: 13px;
+            font-weight: 700;
+        }
+
+
+        /* =====================================================
+           FOOTER — FULL WIDTH
+           ===================================================== */
+
+        .profile-page .dashboard-footer {
+            position: relative;
+
+            width: 100%;
+            min-width: 100%;
+
+            margin: 0;
+
+            padding: 38px 7% 28px;
+
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+
+            gap: 8px;
+
+            box-sizing: border-box;
+
+            text-align: center;
+
+            background:
+                linear-gradient(
+                    135deg,
+                    #21483d 0%,
+                    #356859 55%,
+                    #21483d 100%
+                );
+
+            color: var(--white);
+
+            border-top:
+                3px solid var(--gold);
+
+            overflow: hidden;
+        }
+
+
+        .profile-page .dashboard-footer::before {
+            content: "";
+
+            position: absolute;
+            inset: 0;
+
+            background-image:
+                url("assets/sasirangan-hijau.jpg");
+
+            background-size: 420px auto;
+            background-repeat: repeat;
+            background-position: center;
+
+            opacity: .09;
+
+            pointer-events: none;
+        }
+
+
+        .profile-page .dashboard-footer::after {
+            content: "";
+
+            position: absolute;
+
+            width: 420px;
+            height: 420px;
+
+            right: -180px;
+            bottom: -280px;
+
+            border-radius: 50%;
+
+            background:
+                rgba(214,168,79,.10);
+
+            pointer-events: none;
+        }
+
+
+        .profile-page .dashboard-footer > * {
+            position: relative;
+
+            z-index: 2;
+        }
+
+
+        .profile-page .dashboard-footer span:first-child {
+            position: relative;
+
+            width: 100%;
+
+            margin: 0 auto 5px;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            gap: 12px;
+
+            color: var(--white);
+
+            font-size: 20px;
+            font-weight: 900;
+
+            letter-spacing: 1.2px;
+
+            text-align: center;
+        }
+
+
+        .profile-page .dashboard-footer span:first-child::before {
+            content: "";
+
+            width: 44px;
+            height: 44px;
+
+            flex: 0 0 44px;
+
+            display: block;
+
+            background-image:
+                url("assets/logo-lanting-kata.png");
+
+            background-size: cover;
+            background-position: center;
+
+            border-radius: 50%;
+
+            border:
+                2px solid var(--gold);
+
+            background-color: var(--white);
+
+            box-shadow:
+                0 4px 12px rgba(0,0,.18);
+        }
+
+
+        .profile-page .dashboard-footer span:nth-child(2) {
+            display: block;
+
+            width: 100%;
+            max-width: 500px;
+
+            margin: 0 auto;
+
+            color:
+                rgba(255,255,255,.86);
+
+            font-size: 13px;
+            font-weight: 600;
+
+            line-height: 1.6;
+
+            letter-spacing: .35px;
+
+            text-align: center;
+        }
+
+
+        /* =====================================================
+           RESPONSIVE — TABLET
+           ===================================================== */
+
+        @media (max-width: 1050px) {
+
+            .profile-page .team-grid {
+                grid-template-columns:
+                    repeat(3, minmax(0, 1fr));
+
+                gap: 22px;
+            }
+
+
+            .profile-page .photo-placeholder {
+                width: 135px;
+                height: 135px;
+
+                flex-basis: 135px;
+            }
+
+        }
+
+
+        /* =====================================================
+           RESPONSIVE — SMALL TABLET
+           ===================================================== */
+
+        @media (max-width: 760px) {
+
+            .profile-page .dashboard-navbar {
+                padding: 10px 25px;
+            }
+
+
+            .profile-page .dashboard-logo-text {
+                display: none;
+            }
+
+
+            .profile-page .back-button {
+                font-size: 13px;
+            }
+
+
+            .profile-page .profile-hero {
+                padding:
+                    60px 25px
+                    55px;
+            }
+
+
+            .profile-page .institution-section,
+            .profile-page .team-section,
+            .profile-page .lecturer-section,
+            .profile-page .partner-section {
+                padding-left: 25px;
+                padding-right: 25px;
+            }
+
+
+            .profile-page .institution-card {
+                padding: 25px;
+
+                gap: 18px;
+            }
+
+
+            .profile-page .team-grid {
+                grid-template-columns:
+                    repeat(2, minmax(0, 1fr));
+
+                gap: 20px;
+            }
+
+
+            .profile-page .partner-grid {
+                grid-template-columns: 1fr;
+            }
+
+        }
+
+
+        /* =====================================================
+           RESPONSIVE — MOBILE
+           ===================================================== */
+
+        @media (max-width: 520px) {
+
+            .profile-page .dashboard-navbar {
+                min-height: 76px;
+
+                padding:
+                    9px 18px;
+            }
+
+
+            .profile-page .dashboard-logo-circle {
+                width: 50px;
+                height: 50px;
+            }
+
+
+            .profile-page .profile-hero {
+                padding:
+                    50px 20px
+                    48px;
+            }
+
+
+            .profile-page .profile-hero > p:last-child {
+                font-size: 14px;
+            }
+
+
+            .profile-page .institution-section,
+            .profile-page .team-section,
+            .profile-page .lecturer-section,
+            .profile-page .partner-section {
+                padding-left: 18px;
+                padding-right: 18px;
+            }
+
+
+            .profile-page .institution-card {
+                flex-direction: column;
+
+                text-align: center;
+
+                padding: 25px 20px;
+            }
+
+
+            .profile-page .team-grid {
+                grid-template-columns: 1fr;
+
+                gap: 20px;
+
+                max-width: 380px;
+            }
+
+
+            .profile-page .team-card {
+                padding:
+                    24px 20px 27px;
+            }
+
+
+            .profile-page .photo-placeholder {
+                width: 150px;
+                height: 150px;
+
+                flex-basis: 150px;
+            }
+
+
+            .profile-page .team-card h3 {
+                font-size: 18px;
+            }
+
+
+            .profile-page .lecturer-card {
+                flex-direction: column;
+
+                text-align: center;
+
+                padding: 28px 20px;
+            }
+
+
+            .profile-page .lecturer-photo {
+                width: 125px;
+                height: 125px;
+
+                flex-basis: 125px;
+            }
+
+
+            .profile-page .school-photo-placeholder {
+                height: 200px;
+            }
+
+
+            .profile-page .dashboard-footer {
+                padding:
+                    32px 18px 25px;
+            }
+
+
+            .profile-page .dashboard-footer span:first-child {
+                font-size: 17px;
+
+                gap: 9px;
+            }
+
+
+            .profile-page .dashboard-footer span:first-child::before {
+                width: 38px;
+                height: 38px;
+
+                flex-basis: 38px;
+            }
+
+        }
+
+    </style>
+
+</head>
+
+
+<body class="profile-page">
+
+
+    <!-- =====================================================
+         NAVBAR
+         ===================================================== -->
+
+    <header class="dashboard-navbar">
+
+        <a href="dashboard.html"
+           class="back-button">
+
+            ← Kembali ke Dashboard
+
+        </a>
+
+
+        <div class="dashboard-logo">
+
+            <div class="dashboard-logo-circle">
+                LK
+            </div>
+
+
+            <div class="dashboard-logo-text">
+
+                LANTING
+
+                <span>KATA</span>
+
+            </div>
+
+        </div>
+
+    </header>
+
+
+
+    <!-- =====================================================
+         MAIN
+         ===================================================== -->
+
+    <main class="profile-main">
+
+
+        <!-- =================================================
+             HEADER PROFIL
+             ================================================= -->
+
+        <section class="profile-hero">
+
+            <p class="profile-label">
+                PROFIL PENGEMBANG
+            </p>
+
+
+            <h1>
+                Di Balik <span>LANTING KATA</span>
+            </h1>
+
+
+            <p>
+                LANTING KATA dikembangkan sebagai bagian dari
+                proyek kepemimpinan mahasiswa PPG Prajabatan
+                untuk menghadirkan media pembelajaran Bahasa
+                Banjar yang interaktif, menyenangkan, dan
+                berbasis budaya lokal.
+            </p>
+
+        </section>
+
+
+
+        <!-- =================================================
+             INFORMASI PENGEMBANG
+             ================================================= -->
+
+        <section class="institution-section">
+
+            <div class="institution-card">
+
+                <div class="institution-icon">
+                    🎓
+                </div>
+
+
+                <div>
+
+                    <h2>
+                        Tim Pengembang
+                    </h2>
+
+
+                    <p>
+                        Program Studi Pendidikan Guru Sekolah Dasar
+                    </p>
+
+
+                    <p>
+                        PPG Prajabatan
+                    </p>
+
+
+                    <p>
+                        Universitas Lambung Mangkurat
+                        Banjarmasin
+                    </p>
+
+
+                    <p>
+                        Tahun Pengembangan:
+                        <strong>2026</strong>
+                    </p>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- =================================================
+             MAHASISWA PENGEMBANG
+             ================================================= -->
+
+        <section class="team-section">
+
+            <div class="section-title">
+
+                <p>
+                    MAHASISWA PENGEMBANG
+                </p>
+
+
+                <h2>
+                    Tim di Balik LANTING KATA
+                </h2>
+
+            </div>
+
+
+            <!--
+                SATU GRID UNTUK SEMUA 11 ANGGOTA
+            -->
+
+            <div class="team-grid">
+
+
+                <!-- =================================================
+                     1. NADRATUN
+                     ================================================= -->
+
+                <div class="team-card">
+
+                    <div class="photo-placeholder">
+
+                        <img
+                            src="assets/images/pengembang/Nadratun-Najah.jpg"
+                            alt="Foto Nadratun Najah"
+                        >
+
+                    </div>
+
+
+                    <h3>
+                        Nadratun Najah, S.Pd.
+                    </h3>
+
+
+                    <span class="role-badge">
+                        Koordinator Tim Pengembang
+                    </span>
+
+                </div>
+
+
+
+                <!-- =================================================
+                     2. SRI
+                     ================================================= -->
+
+                <div class="team-card">
+
+                    <div class="photo-placeholder">
+
+                        <img
+                            src="assets/images/pengembang/Sri-Indriyati-Nur-Khalisa.jpg"
+                            alt="Foto Sri Indriyati Nur Khalisa"
+                        >
+
+                    </div>
+
+
+                    <h3>
+                        Sri Indriyati Nur Khalisa, S.Pd.
+                    </h3>
+
+
+                    <span class="role-badge">
+                        Tim Pengembang Kamus
+                    </span>
+
+                </div>
+
+
+
+                <!-- =================================================
+                     3. ULFA
+                     ================================================= -->
+
+                <div class="team-card">
+
+                    <div class="photo-placeholder">
+
+                        <img
+                            src="assets/images/pengembang/Ulfa-Mu'tiazzahra.jpg"
+                            alt="Foto Ulfa Mu'tiazzahra"
+                        >
+
+                    </div>
+
+
+                    <h3>
+                        Ulfa Mu'tiazzahra, S.Pd.
+                    </h3>
+
+
+                    <span class="role-badge">
+                        Tim Pengembang Kamus
+                    </span>
+
+                </div>
+
+
+
+                <!-- =================================================
+                     4. MEUTIA
+                     ================================================= -->
+
+                <div class="team-card">
+
+                    <div class="photo-placeholder">
+
+                        <img
+                            src="assets/images/pengembang/Meutia-Elwy-Amallia-Noor.jpg"
+                            alt="Foto Meutia Elwy Amallia Noor"
+                        >
+
+                    </div>
+
+
+                    <h3>
+                        Meutia Elwy Amallia Noor, S.Pd.
+                    </h3>
+
+
+                    <span class="role-badge">
+                        Tim Pengembang Kamus
+                    </span>
+
+                </div>
+
+
+
+                <!-- =================================================
+                     5. MAWAHESA
+                     ================================================= -->
+
+                <div class="team-card">
+
+                    <div class="photo-placeholder">
+
+                        <img
+                            src="assets/images/pengembang/Mawahesa-Eklima.jpg"
+                            alt="Foto Mawahesa Eklima"
+                        >
+
+                    </div>
+
+
+                    <h3>
+                        Mawahesa Eklima, S.Pd.
+                    </h3>
+
+
+                    <span class="role-badge">
+                        Tim Pengembang Kamus
+                    </span>
+
+                </div>
+
+
+
+                <!-- =================================================
+                     6. SELLA
+                     ================================================= -->
+
+                <div class="team-card">
+
+                    <div class="photo-placeholder">
+
+                        <img
+                            src="assets/images/pengembang/Sella-Maulida.jpg"
+                            alt="Foto Sella Maulida"
+                        >
+
+                    </div>
+
+
+                    <h3>
+                        Sella Maulida, S.Pd.
+                    </h3>
+
+
+                    <span class="role-badge">
+                        Tim Pengembang Kamus
+                    </span>
+
+                </div>
+
+
+
+                <!-- =================================================
+                     7. SITI
+                     ================================================= -->
+
+                <div class="team-card">
+
+                    <div class="photo-placeholder">
+
+                        <img
+                            src="assets/images/pengembang/Siti-Nadella-Rabiatul-Azwa.jpg"
+                            alt="Foto Siti Nadella Rabiatul Azwa"
+                        >
+
+                    </div>
+
+
+                    <h3>
+                        Siti Nadella Rabiatul Azwa, S.Pd.
+                    </h3>
+
+
+                    <span class="role-badge">
+                        Tim Pengembang Games
+                    </span>
+
+                </div>
+
+
+
+                <!-- =================================================
+                     8. ELSA
+                     ================================================= -->
+
+                <div class="team-card">
+
+                    <div class="photo-placeholder">
+
+                        <img
+                            src="assets/images/pengembang/Elsa-Maulida.jpg"
+                            alt="Foto Elsa Maulida"
+                        >
+
+                    </div>
+
+
+                    <h3>
+                        Elsa Maulida, S.Pd.
+                    </h3>
+
+
+                    <span class="role-badge">
+                        Tim Pengembang Games
+                    </span>
+
+                </div>
+
+
+
+                <!-- =================================================
+                     9. GHAIDA
+                     ================================================= -->
+
+                <div class="team-card">
+
+                    <div class="photo-placeholder">
+
+                        <img
+                            src="assets/images/pengembang/Ghaida-Fatimah.jpg"
+                            alt="Foto Ghaida Fatimah"
+                        >
+
+                    </div>
+
+
+                    <h3>
+                        Ghaida Fatimah, S.Pd.
+                    </h3>
+
+
+                    <span class="role-badge">
+                        Tim Pengembang Games
+                    </span>
+
+                </div>
+
+
+
+                <!-- =================================================
+                     10. MUHAMMAD ADIATTONI
+                     ================================================= -->
+
+                <div class="team-card">
+
+                    <div class="photo-placeholder">
+
+                        <img
+                            src="assets/images/pengembang/Muhammad-Adiattoni.jpg"
+                            alt="Foto Muhammad Adiattoni"
+                        >
+
+                    </div>
+
+
+                    <h3>
+                        Muhammad Adiattoni, S.Pd.
+                    </h3>
+
+
+                    <span class="role-badge">
+                        Tim Pengembang Games
+                    </span>
+
+                </div>
+
+
+
+                <!-- =================================================
+                     11. MUHAMMAD DIKI
+                     ================================================= -->
+
+                <div class="team-card">
+
+                    <div class="photo-placeholder">
+
+                        <img
+                            src="assets/images/pengembang/Muhammad-Diki-Saputra.jpg"
+                            alt="Foto Muhammad Diki Saputra"
+                        >
+
+                    </div>
+
+
+                    <h3>
+                        Muhammad Diki Saputra, S.Pd.
+                    </h3>
+
+
+                    <span class="role-badge">
+                        Tim Pengembang Games
+                    </span>
+
+                </div>
+
+
+            </div>
+
+        </section>
+
+
+
+        <!-- =================================================
+             DOSEN
+             ================================================= -->
+
+        <section class="lecturer-section">
+
+            <div class="section-title">
+
+                <p>
+                    DOSEN PENGAMPU
+                </p>
+
+
+                <h2>
+                    Pendamping Pengembangan
+                </h2>
+
+            </div>
+
+
+            <div class="lecturer-card">
+
+
+                <div class="photo-placeholder lecturer-photo">
+
+                    <img
+                        src="assets/images/dosen/Foto-Dosen.png"
+                        alt="Foto Tika Puspita Widya Rini, M.Pd."
+                    >
+
+                </div>
+
+
+
+                <div>
+
+                    <h3>
+                        Tika Puspita Widya Rini, M.Pd.
+                    </h3>
+
+
+                    <p class="lecturer-role">
+                        Dosen Pengampu
+                    </p>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- =================================================
+             SEKOLAH MITRA
+             ================================================= -->
+
+        <section class="partner-section">
+
+            <div class="section-title">
+
+                <p>
+                    MITRA IMPLEMENTASI
+                </p>
+
+
+                <h2>
+                    Sekolah Mitra LANTING KATA
+                </h2>
+
+
+                <p class="section-description">
+
+                    LANTING KATA diimplementasikan bersama
+                    sekolah mitra sebagai bagian dari proses
+                    pengembangan dan pengenalan media
+                    pembelajaran Bahasa Banjar.
+
+                </p>
+
+            </div>
+
+
+            <div class="partner-grid">
+
+
+                <!-- SEKOLAH 1 -->
+
+                <div class="partner-card">
+
+                    <div class="school-photo-placeholder">
+
+                        <img
+                            src="assets/images/sekolah/SDN-Karang-Mekar-1.jpg"
+                            alt="SDN-SN Karang Mekar 1"
+                        >
+
+                    </div>
+
+
+                    <div class="partner-content">
+
+                        <h3>
+                            SDN-SN Karang Mekar 1
+                        </h3>
+
+
+                        <p>
+                            Sekolah mitra implementasi
+                            LANTING KATA.
+                        </p>
+
+
+                        <div class="location">
+                            📍 Banjarmasin,
+                            Kalimantan Selatan
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+
+                <!-- SEKOLAH 2 -->
+
+                <div class="partner-card">
+
+                    <div class="school-photo-placeholder">
+
+                        <img
+                            src="assets/images/sekolah/SDN-Sungai-Andai-3.jpg"
+                            alt="SDN Sungai Andai 3"
+                        >
+
+                    </div>
+
+
+                    <div class="partner-content">
+
+                        <h3>
+                            SDN Sungai Andai 3
+                        </h3>
+
+
+                        <p>
+                            Sekolah mitra implementasi
+                            LANTING KATA.
+                        </p>
+
+
+                        <div class="location">
+                            📍 Banjarmasin,
+                            Kalimantan Selatan
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+            </div>
+
+        </section>
+
+
+    </main>
+
+
+
+    <!-- =====================================================
+         FOOTER
+         FULL WIDTH — DI LUAR MAIN
+         ===================================================== -->
+
+    <footer class="dashboard-footer">
+
+        <span>
+            © 2026 LANTING KATA
+        </span>
+
+
+        <span>
+            Belajar • Mengenal • Melestarikan
+        </span>
+
+    </footer>
+
+
+</body>
+
+</html>

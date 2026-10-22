@@ -1,0 +1,2607 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>FAQ & Ulasan | LANTING KATA</title>
+
+    <link
+        rel="stylesheet"
+        href="css/style.css"
+    >
+
+    <style>
+
+        /* =================================================
+           HALAMAN FAQ
+        ================================================= */
+
+        .faq-page {
+            background:
+                linear-gradient(
+                    135deg,
+                    #f8faf7 0%,
+                    #fffdf7 50%,
+                    #f2f7f3 100%
+                );
+            min-height: 100vh;
+        }
+
+
+        /* =================================================
+           NAVBAR
+        ================================================= */
+
+        .faq-page .faq-navbar {
+            position: relative;
+            width: 100%;
+            min-height: 76px;
+            padding: 12px 6%;
+            box-sizing: border-box;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 18px;
+
+            background:
+                linear-gradient(
+                    135deg,
+                    #21483d 0%,
+                    #356859 55%,
+                    #21483d 100%
+                );
+
+            border-bottom: 3px solid var(--gold);
+
+            box-shadow:
+                0 5px 18px rgba(33,72,61,0.14);
+
+            overflow: hidden;
+            z-index: 10;
+        }
+
+
+        .faq-page .faq-navbar::before {
+            content: "";
+            position: absolute;
+            inset: 0;
+
+            background-image:
+                url("assets/sasirangan-hijau.jpg");
+
+            background-size: 360px auto;
+            background-repeat: repeat;
+
+            opacity: 0.055;
+            pointer-events: none;
+        }
+
+
+        /* =================================================
+           LOGO
+        ================================================= */
+
+        .faq-page .faq-logo {
+            position: relative;
+            z-index: 2;
+
+            display: flex;
+            align-items: center;
+            gap: 11px;
+
+            text-decoration: none;
+        }
+
+
+        .faq-page .faq-logo-emblem {
+            width: 48px;
+            height: 48px;
+            flex: 0 0 48px;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            background: var(--white);
+
+            border: 2px solid var(--gold);
+            border-radius: 50%;
+
+            overflow: hidden;
+
+            box-shadow:
+                0 4px 12px rgba(0,0,0,0.16);
+        }
+
+
+        .faq-page .faq-logo-emblem img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+
+        .faq-page .faq-logo-text {
+            display: flex;
+            flex-direction: column;
+            line-height: 1;
+        }
+
+
+        .faq-page .faq-logo-text .logo-main {
+            color: var(--white);
+            font-size: 17px;
+            font-weight: 900;
+            letter-spacing: 1px;
+        }
+
+
+        .faq-page .faq-logo-text .logo-accent {
+            margin-top: 4px;
+            color: var(--gold);
+            font-size: 13px;
+            font-weight: 900;
+            letter-spacing: 2px;
+        }
+
+
+        /* =================================================
+           PANAH KEMBALI HEADER
+        ================================================= */
+
+        .faq-page .faq-back-top {
+            position: relative;
+            z-index: 2;
+
+            display: inline-flex;
+            align-items: center;
+            gap: 7px;
+
+            padding: 10px 15px;
+
+            background:
+                rgba(255,255,255,0.11);
+
+            color: var(--white);
+
+            border:
+                1px solid rgba(255,255,255,0.22);
+
+            border-radius: 11px;
+
+            text-decoration: none;
+
+            font-size: 12.5px;
+            font-weight: 800;
+
+            transition:
+                transform 0.2s ease,
+                background 0.2s ease,
+                color 0.2s ease,
+                border-color 0.2s ease;
+        }
+
+
+        .faq-page .faq-back-top:hover {
+            transform: translateX(-3px);
+
+            background: var(--gold);
+            color: var(--green-dark);
+            border-color: var(--gold);
+        }
+
+
+        /* =================================================
+           HEADER HALAMAN
+        ================================================= */
+
+        .faq-page .page-header {
+            position: relative;
+            overflow: hidden;
+
+            padding: 50px 7% 46px;
+
+            text-align: center;
+
+            background:
+                linear-gradient(
+                    135deg,
+                    #21483d 0%,
+                    #356859 55%,
+                    #21483d 100%
+                );
+
+            color: var(--white);
+
+            border-bottom: 3px solid var(--gold);
+        }
+
+
+        .faq-page .page-header::before {
+            content: "";
+            position: absolute;
+            inset: 0;
+
+            background-image:
+                url("assets/sasirangan-hijau.jpg");
+
+            background-size: 360px auto;
+            background-repeat: repeat;
+
+            opacity: 0.08;
+            pointer-events: none;
+        }
+
+
+        .faq-page .page-header::after {
+            content: "";
+
+            position: absolute;
+
+            width: 250px;
+            height: 250px;
+
+            right: -110px;
+            bottom: -160px;
+
+            border-radius: 50%;
+
+            background:
+                rgba(214,168,79,0.10);
+
+            pointer-events: none;
+        }
+
+
+        .faq-page .page-header > * {
+            position: relative;
+            z-index: 2;
+        }
+
+
+        .faq-page .header-icon {
+            width: 65px;
+            height: 65px;
+
+            margin: 0 auto 17px;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            font-size: 30px;
+
+            background:
+                rgba(255,255,255,0.12);
+
+            border:
+                1px solid rgba(255,255,255,0.22);
+
+            border-radius: 19px;
+
+            box-shadow:
+                0 7px 18px rgba(0,0,0,0.12);
+        }
+
+
+        .faq-page .page-header h1 {
+            margin: 0 0 9px;
+
+            font-size: 30px;
+            font-weight: 900;
+            letter-spacing: 0.3px;
+        }
+
+
+        .faq-page .page-header p {
+            max-width: 650px;
+
+            margin: 0 auto;
+
+            color:
+                rgba(255,255,255,0.88);
+
+            font-size: 14px;
+            line-height: 1.7;
+        }
+
+
+        /* =================================================
+           MAIN
+        ================================================= */
+
+        .faq-page .faq-main {
+            width: 100%;
+            max-width: 1050px;
+
+            margin: 0 auto;
+
+            padding: 48px 7% 65px;
+
+            box-sizing: border-box;
+        }
+
+
+        /* =================================================
+           JUDUL SECTION
+        ================================================= */
+
+        .faq-page .section-heading {
+            margin: 0 0 25px;
+        }
+
+
+        .faq-page .section-heading p {
+            margin: 0 0 5px;
+
+            color: var(--green);
+
+            font-size: 12px;
+            font-weight: 850;
+            letter-spacing: 1.2px;
+        }
+
+
+        .faq-page .section-heading h2 {
+            margin: 0;
+
+            color: var(--green-dark);
+
+            font-size: 24px;
+            font-weight: 900;
+        }
+
+
+        /* =================================================
+           FAQ
+        ================================================= */
+
+        .faq-list {
+            display: flex;
+            flex-direction: column;
+            gap: 13px;
+
+            margin-bottom: 58px;
+        }
+
+
+        .faq-item {
+            position: relative;
+            overflow: hidden;
+
+            background:
+                rgba(255,255,255,0.96);
+
+            border:
+                1px solid rgba(53,104,89,0.11);
+
+            border-radius: 17px;
+
+            box-shadow:
+                0 6px 18px rgba(33,72,61,0.055);
+
+            transition:
+                border-color 0.25s ease,
+                box-shadow 0.25s ease,
+                transform 0.25s ease;
+        }
+
+
+        .faq-item:hover {
+            border-color:
+                rgba(214,168,79,0.38);
+
+            transform:
+                translateY(-1px);
+        }
+
+
+        .faq-item.active {
+            border-color:
+                rgba(53,104,89,0.22);
+
+            box-shadow:
+                0 10px 25px rgba(33,72,61,0.09);
+        }
+
+
+        /* =================================================
+           PERTANYAAN
+        ================================================= */
+
+        .faq-question {
+            width: 100%;
+
+            padding: 18px 20px;
+
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+
+            gap: 15px;
+
+            border: none;
+
+            background:
+                linear-gradient(
+                    135deg,
+                    #ffffff 0%,
+                    #f7faf7 100%
+                );
+
+            color: var(--green-dark);
+
+            font-family: inherit;
+
+            font-size: 15px;
+            font-weight: 800;
+            line-height: 1.5;
+
+            text-align: left;
+
+            cursor: pointer;
+
+            transition:
+                background 0.25s ease;
+        }
+
+
+        .faq-question span:first-child {
+            flex: 1;
+        }
+
+
+        .faq-item.active .faq-question {
+            background:
+                linear-gradient(
+                    135deg,
+                    rgba(111,159,135,0.14),
+                    rgba(214,168,79,0.09)
+                );
+        }
+
+
+        /* =================================================
+           PANAH FAQ
+        ================================================= */
+
+        .faq-arrow {
+            width: 31px;
+            height: 31px;
+
+            flex: 0 0 31px;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            background:
+                rgba(111,159,135,0.13);
+
+            color: var(--green-dark);
+
+            border-radius: 50%;
+
+            font-size: 17px;
+
+            transition:
+                transform 0.25s ease,
+                background 0.25s ease,
+                color 0.25s ease;
+        }
+
+
+        .faq-item.active .faq-arrow {
+            transform: rotate(180deg);
+
+            background:
+                rgba(214,168,79,0.22);
+
+            color: var(--green-dark);
+        }
+
+
+        /* =================================================
+           JAWABAN FAQ
+        ================================================= */
+
+        .faq-answer {
+            display: none;
+
+            position: relative;
+
+            margin: 0 17px 17px;
+
+            padding: 18px 19px 18px 45px;
+
+            color: #53655d;
+
+            background:
+                linear-gradient(
+                    135deg,
+                    #f1f7f3 0%,
+                    #fffdf7 100%
+                );
+
+            border:
+                1px solid rgba(111,159,135,0.16);
+
+            border-left:
+                4px solid var(--gold);
+
+            border-radius: 13px;
+
+            font-size: 13.5px;
+            line-height: 1.75;
+
+            box-shadow:
+                inset 0 1px 0 rgba(255,255,255,0.95),
+                0 4px 12px rgba(33,72,61,0.035);
+        }
+
+
+        .faq-answer::before {
+            content: "💡";
+
+            position: absolute;
+
+            left: 13px;
+            top: 16px;
+
+            font-size: 15px;
+        }
+
+
+        .faq-item.active .faq-answer {
+            display: block;
+
+            animation:
+                faqAnswerIn 0.22s ease;
+        }
+
+
+        @keyframes faqAnswerIn {
+
+            from {
+                opacity: 0;
+                transform: translateY(-4px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+
+        }
+
+
+        .faq-answer strong {
+            color: var(--green-dark);
+            font-weight: 850;
+        }
+
+
+        /* =================================================
+           FEEDBACK GRID
+        ================================================= */
+
+        .feedback-grid {
+            display: grid;
+
+            grid-template-columns:
+                repeat(2, minmax(0, 1fr));
+
+            gap: 22px;
+        }
+
+
+        .feedback-card {
+            position: relative;
+            overflow: hidden;
+
+            padding: 28px 26px;
+
+            background:
+                linear-gradient(
+                    145deg,
+                    #ffffff 0%,
+                    #fffdf7 60%,
+                    #f3f8f4 100%
+                );
+
+            border:
+                1px solid rgba(53,104,89,0.10);
+
+            border-radius: 21px;
+
+            box-shadow:
+                0 8px 24px rgba(33,72,61,0.065);
+        }
+
+
+        .feedback-card::after {
+            content: "";
+
+            position: absolute;
+
+            width: 145px;
+            height: 145px;
+
+            right: -60px;
+            bottom: -65px;
+
+            background-image:
+                url("assets/sasirangan-hijau.jpg");
+
+            background-size: 210px auto;
+
+            opacity: 0.045;
+
+            border-radius: 50%;
+
+            pointer-events: none;
+        }
+
+
+        .feedback-card > * {
+            position: relative;
+            z-index: 2;
+        }
+
+
+        .feedback-icon {
+            width: 55px;
+            height: 55px;
+
+            margin-bottom: 17px;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            background:
+                linear-gradient(
+                    145deg,
+                    rgba(111,159,135,0.17),
+                    rgba(214,168,79,0.14)
+                );
+
+            border:
+                1px solid rgba(53,104,89,0.11);
+
+            border-radius: 16px;
+
+            font-size: 25px;
+        }
+
+
+        .feedback-card h3 {
+            margin: 0 0 7px;
+
+            color: var(--green-dark);
+
+            font-size: 18px;
+            font-weight: 900;
+        }
+
+
+        .feedback-card .card-description {
+            margin: 0 0 20px;
+
+            color: #68766f;
+
+            font-size: 13px;
+            line-height: 1.65;
+        }
+
+
+        /* =================================================
+           FORM
+        ================================================= */
+
+        .feedback-form {
+            display: flex;
+            flex-direction: column;
+            gap: 13px;
+        }
+
+
+        .feedback-form label {
+            color: var(--green-dark);
+
+            font-size: 12.5px;
+            font-weight: 800;
+        }
+
+
+        .feedback-form input,
+        .feedback-form textarea,
+        .feedback-form select {
+            width: 100%;
+
+            box-sizing: border-box;
+
+            padding: 12px 14px;
+
+            border:
+                1px solid rgba(53,104,89,0.15);
+
+            border-radius: 12px;
+
+            background: #ffffff;
+
+            color: #44564f;
+
+            font-family: inherit;
+
+            font-size: 13px;
+
+            outline: none;
+
+            transition:
+                border-color 0.2s ease,
+                box-shadow 0.2s ease;
+        }
+
+
+        .feedback-form input:focus,
+        .feedback-form textarea:focus,
+        .feedback-form select:focus {
+            border-color:
+                rgba(53,104,89,0.45);
+
+            box-shadow:
+                0 0 0 3px rgba(111,159,135,0.10);
+        }
+
+
+        .feedback-form textarea {
+            min-height: 115px;
+            resize: vertical;
+        }
+
+
+        .feedback-button {
+            margin-top: 4px;
+
+            padding: 12px 20px;
+
+            border: none;
+
+            border-radius: 12px;
+
+            background: var(--green-dark);
+
+            color: var(--white);
+
+            font-family: inherit;
+
+            font-size: 13px;
+            font-weight: 800;
+
+            cursor: pointer;
+
+            transition:
+                transform 0.2s ease,
+                background 0.2s ease,
+                box-shadow 0.2s ease;
+        }
+
+
+        .feedback-button:hover {
+            transform: translateY(-2px);
+
+            background: var(--gold);
+
+            color: var(--green-dark);
+
+            box-shadow:
+                0 5px 13px rgba(214,168,79,0.23);
+        }
+
+
+        .feedback-button:disabled {
+            opacity: 0.65;
+            cursor: wait;
+            transform: none;
+        }
+
+
+        /* =================================================
+           RATING
+        ================================================= */
+
+        .rating-title {
+            margin: 0 0 7px;
+
+            color: var(--green-dark);
+
+            font-size: 12.5px;
+            font-weight: 800;
+        }
+
+
+        .rating {
+            display: flex;
+
+            flex-direction: row-reverse;
+
+            justify-content: flex-end;
+
+            gap: 5px;
+
+            margin-bottom: 3px;
+        }
+
+
+        .rating input {
+            display: none;
+        }
+
+
+        .rating label {
+            width: auto;
+
+            padding: 0;
+
+            color: #d5d8d4;
+
+            font-size: 27px;
+            line-height: 1;
+
+            cursor: pointer;
+
+            transition:
+                color 0.15s ease,
+                transform 0.15s ease;
+        }
+
+
+        .rating label:hover {
+            transform: scale(1.1);
+        }
+
+
+        .rating label:hover,
+        .rating label:hover ~ label,
+        .rating input:checked ~ label {
+            color: var(--gold);
+        }
+
+
+        /* =================================================
+           REVIEW PENGGUNA
+        ================================================= */
+
+        .review-section {
+            margin-top: 58px;
+        }
+
+
+        .review-list {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+
+        .review-card {
+            position: relative;
+
+            padding: 20px 22px;
+
+            background:
+                linear-gradient(
+                    135deg,
+                    #ffffff 0%,
+                    #fffdf7 60%,
+                    #f3f8f4 100%
+                );
+
+            border:
+                1px solid rgba(53,104,89,0.11);
+
+            border-radius: 17px;
+
+            box-shadow:
+                0 6px 18px rgba(33,72,61,0.06);
+
+            animation:
+                reviewAppear 0.25s ease;
+        }
+
+
+        @keyframes reviewAppear {
+
+            from {
+                opacity: 0;
+                transform: translateY(5px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+
+        }
+
+
+        .review-card-header {
+            display: flex;
+
+            align-items: center;
+
+            justify-content: space-between;
+
+            gap: 15px;
+
+            margin-bottom: 8px;
+        }
+
+
+        .review-name {
+            color: var(--green-dark);
+
+            font-size: 14px;
+            font-weight: 900;
+        }
+
+
+        .review-stars {
+            color: var(--gold);
+
+            font-size: 16px;
+
+            letter-spacing: 1px;
+
+            white-space: nowrap;
+        }
+
+
+        .review-text {
+            margin: 0;
+
+            color: #5f6d66;
+
+            font-size: 13px;
+
+            line-height: 1.7;
+        }
+
+
+        .review-date {
+            margin-top: 9px;
+
+            color: #8a958f;
+
+            font-size: 10.5px;
+        }
+
+
+        .review-empty {
+            padding: 30px 20px;
+
+            text-align: center;
+
+            background:
+                rgba(255,255,255,0.75);
+
+            border:
+                1px dashed rgba(53,104,89,0.20);
+
+            border-radius: 17px;
+
+            color: #718078;
+
+            font-size: 13px;
+
+            line-height: 1.7;
+        }
+
+
+        .review-empty-icon {
+            margin-bottom: 8px;
+
+            font-size: 27px;
+        }
+
+
+        /* =================================================
+           KEMBALI DASHBOARD
+        ================================================= */
+
+        .back-dashboard {
+            display: flex;
+
+            justify-content: center;
+
+            margin-top: 45px;
+        }
+
+
+        .back-dashboard a {
+            display: inline-flex;
+
+            align-items: center;
+
+            gap: 8px;
+
+            padding: 11px 20px;
+
+            background: var(--green-dark);
+
+            color: var(--white);
+
+            border-radius: 12px;
+
+            text-decoration: none;
+
+            font-size: 13px;
+            font-weight: 800;
+
+            box-shadow:
+                0 5px 13px rgba(33,72,61,0.12);
+
+            transition:
+                transform 0.2s ease,
+                background 0.2s ease;
+        }
+
+
+        .back-dashboard a:hover {
+            transform: translateY(-2px);
+
+            background: var(--gold);
+
+            color: var(--green-dark);
+        }
+
+
+        /* =================================================
+           FOOTER
+        ================================================= */
+
+        .faq-page .page-footer {
+            position: relative;
+
+            width: 100%;
+
+            margin: 0;
+
+            padding: 38px 7% 28px;
+
+            display: flex;
+
+            flex-direction: column;
+
+            align-items: center;
+
+            justify-content: center;
+
+            gap: 8px;
+
+            box-sizing: border-box;
+
+            text-align: center;
+
+            background:
+                linear-gradient(
+                    135deg,
+                    #21483d 0%,
+                    #356859 55%,
+                    #21483d 100%
+                );
+
+            color: var(--white);
+
+            border-top: 3px solid var(--gold);
+
+            overflow: hidden;
+        }
+
+
+        .faq-page .page-footer::before {
+            content: "";
+
+            position: absolute;
+
+            inset: 0;
+
+            background-image:
+                url("assets/sasirangan-hijau.jpg");
+
+            background-size: 420px auto;
+
+            background-repeat: repeat;
+
+            background-position: center;
+
+            opacity: 0.09;
+
+            pointer-events: none;
+        }
+
+
+        .faq-page .page-footer::after {
+            content: "";
+
+            position: absolute;
+
+            width: 420px;
+            height: 420px;
+
+            right: -180px;
+            bottom: -280px;
+
+            border-radius: 50%;
+
+            background:
+                rgba(214,168,79,0.10);
+
+            pointer-events: none;
+        }
+
+
+        .faq-page .page-footer > * {
+            position: relative;
+            z-index: 2;
+        }
+
+
+        .faq-page .footer-brand {
+            display: flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+            gap: 12px;
+
+            margin-bottom: 4px;
+        }
+
+
+        .faq-page .brand-logo {
+            width: 44px;
+            height: 44px;
+
+            flex: 0 0 44px;
+
+            display: flex;
+
+            align-items: center;
+            justify-content: center;
+
+            background: var(--white);
+
+            border: 2px solid var(--gold);
+
+            border-radius: 50%;
+
+            overflow: hidden;
+
+            box-shadow:
+                0 4px 12px rgba(0,0,0,0.18);
+        }
+
+
+        .faq-page .brand-logo img {
+            width: 100%;
+            height: 100%;
+
+            object-fit: cover;
+        }
+
+
+        .faq-page .brand-name {
+            color: var(--white);
+
+            font-size: 20px;
+
+            font-weight: 900;
+
+            letter-spacing: 1.2px;
+        }
+
+
+        .faq-page .brand-name span {
+            color: var(--gold);
+        }
+
+
+        .faq-page .page-footer p {
+            width: 100%;
+
+            max-width: 500px;
+
+            margin: 0 auto;
+
+            color:
+                rgba(255,255,255,0.86);
+
+            font-size: 13px;
+
+            font-weight: 600;
+
+            line-height: 1.6;
+
+            letter-spacing: 0.35px;
+
+            text-align: center;
+        }
+
+
+        .faq-page .page-footer p.copyright {
+            margin-top: 4px;
+
+            max-width: 700px;
+
+            color:
+                rgba(255,255,255,0.68);
+
+            font-size: 11.5px;
+
+            font-weight: 500;
+
+            line-height: 1.6;
+        }
+
+
+        /* =================================================
+           RESPONSIVE
+        ================================================= */
+
+        @media (max-width: 800px) {
+
+            .faq-page .faq-navbar {
+                padding: 11px 5%;
+            }
+
+
+            .feedback-grid {
+                grid-template-columns: 1fr;
+            }
+
+
+            .faq-page .faq-main {
+                padding: 40px 6% 55px;
+            }
+
+        }
+
+
+        @media (max-width: 600px) {
+
+            .faq-page .faq-navbar {
+                min-height: 68px;
+            }
+
+
+            .faq-page .faq-logo-emblem {
+                width: 42px;
+                height: 42px;
+
+                flex-basis: 42px;
+            }
+
+
+            .faq-page .faq-logo-text .logo-main {
+                font-size: 15px;
+            }
+
+
+            .faq-page .faq-logo-text .logo-accent {
+                font-size: 11px;
+            }
+
+
+            .faq-page .faq-back-top {
+                padding: 9px 12px;
+
+                font-size: 11.5px;
+            }
+
+
+            .faq-page .page-header {
+                padding: 38px 5% 34px;
+            }
+
+
+            .faq-page .header-icon {
+                width: 58px;
+                height: 58px;
+
+                font-size: 27px;
+            }
+
+
+            .faq-page .page-header h1 {
+                font-size: 23px;
+            }
+
+
+            .faq-page .page-header p {
+                font-size: 13px;
+            }
+
+
+            .faq-page .faq-main {
+                padding: 34px 5% 48px;
+            }
+
+
+            .faq-page .section-heading h2 {
+                font-size: 21px;
+            }
+
+
+            .faq-question {
+                padding: 17px;
+
+                font-size: 14px;
+            }
+
+
+            .faq-answer {
+                margin: 0 13px 13px;
+
+                padding:
+                    15px 15px 15px 42px;
+
+                font-size: 13px;
+            }
+
+
+            .faq-answer::before {
+                left: 11px;
+                top: 14px;
+            }
+
+
+            .feedback-card {
+                padding: 24px 21px;
+            }
+
+
+            .review-card-header {
+                align-items: flex-start;
+                flex-direction: column;
+                gap: 5px;
+            }
+
+
+            .faq-page .page-footer {
+                padding: 32px 5% 24px;
+            }
+
+
+            .faq-page .brand-name {
+                font-size: 17px;
+            }
+
+
+            .faq-page .brand-logo {
+                width: 39px;
+                height: 39px;
+
+                flex-basis: 39px;
+            }
+
+
+            .faq-page .page-footer p {
+                font-size: 12px;
+            }
+
+
+            .faq-page .page-footer p.copyright {
+                font-size: 10.5px;
+            }
+
+        }
+
+
+        @media (max-width: 420px) {
+
+            .faq-page .faq-logo-text {
+                display: none;
+            }
+
+
+            .faq-page .faq-back-top {
+                padding: 8px 10px;
+            }
+
+
+            .faq-page .page-header h1 {
+                font-size: 21px;
+            }
+
+
+            .faq-page .section-heading h2 {
+                font-size: 20px;
+            }
+
+
+            .feedback-card h3 {
+                font-size: 17px;
+            }
+
+        }
+
+    </style>
+
+</head>
+
+
+<body class="faq-page">
+
+
+    <!-- =================================================
+         NAVBAR
+    ================================================= -->
+
+    <header class="faq-navbar">
+
+        <a
+            href="dashboard.html"
+            class="faq-logo"
+            aria-label="Kembali ke Dashboard"
+        >
+
+            <div class="faq-logo-emblem">
+
+                <img
+                    src="assets/logo-lanting-kata.png"
+                    alt="Logo LANTING KATA"
+                >
+
+            </div>
+
+
+            <div class="faq-logo-text">
+
+                <span class="logo-main">
+                    LANTING
+                </span>
+
+                <span class="logo-accent">
+                    KATA
+                </span>
+
+            </div>
+
+        </a>
+
+
+        <a
+            href="dashboard.html"
+            class="faq-back-top"
+        >
+            ← Dashboard
+        </a>
+
+    </header>
+
+
+
+    <!-- =================================================
+         HEADER HALAMAN
+    ================================================= -->
+
+    <header class="page-header">
+
+        <div class="header-icon">
+            💬
+        </div>
+
+
+        <h1>
+            FAQ &amp; Ulasan
+        </h1>
+
+
+        <p>
+            Temukan jawaban atas pertanyaanmu,
+            sampaikan pendapat, dan bagikan
+            pengalamanmu bersama LANTING KATA.
+        </p>
+
+    </header>
+
+
+
+    <!-- =================================================
+         MAIN
+    ================================================= -->
+
+    <main class="faq-main">
+
+
+        <!-- =================================================
+             FAQ
+        ================================================= -->
+
+        <section>
+
+            <div class="section-heading">
+
+                <p>
+                    PERTANYAAN YANG SERING DITANYAKAN
+                </p>
+
+                <h2>
+                    Ada yang ingin kamu ketahui?
+                </h2>
+
+            </div>
+
+
+            <div class="faq-list">
+
+
+                <!-- FAQ 1 -->
+
+                <div class="faq-item">
+
+                    <button
+                        type="button"
+                        class="faq-question"
+                        onclick="toggleFAQ(this)"
+                    >
+
+                        <span>
+                            Apa itu LANTING KATA?
+                        </span>
+
+                        <span class="faq-arrow">
+                            ↓
+                        </span>
+
+                    </button>
+
+
+                    <div class="faq-answer">
+
+                        LANTING KATA adalah media pembelajaran
+                        digital yang membantu peserta didik
+                        mengenal dan belajar Bahasa Banjar
+                        dengan cara yang mudah, menyenangkan,
+                        dan interaktif.
+
+                    </div>
+
+                </div>
+
+
+
+                <!-- FAQ 2 -->
+
+                <div class="faq-item">
+
+                    <button
+                        type="button"
+                        class="faq-question"
+                        onclick="toggleFAQ(this)"
+                    >
+
+                        <span>
+                            Bagaimana cara mencari arti kata?
+                        </span>
+
+                        <span class="faq-arrow">
+                            ↓
+                        </span>
+
+                    </button>
+
+
+                    <div class="faq-answer">
+
+                        Kamu dapat memilih menu
+                        <strong>Cari Arti Kata</strong>
+                        pada dashboard, kemudian ketik
+                        kosakata Bahasa Banjar atau Bahasa
+                        Indonesia yang ingin kamu cari.
+
+                    </div>
+
+                </div>
+
+
+
+                <!-- FAQ 3 -->
+
+                <div class="faq-item">
+
+                    <button
+                        type="button"
+                        class="faq-question"
+                        onclick="toggleFAQ(this)"
+                    >
+
+                        <span>
+                            Apakah semua kosakata Bahasa Banjar sudah tersedia?
+                        </span>
+
+                        <span class="faq-arrow">
+                            ↓
+                        </span>
+
+                    </button>
+
+
+                    <div class="faq-answer">
+
+                        Belum tentu. LANTING KATA terus
+                        dikembangkan dan kosakatanya dapat
+                        bertambah dari waktu ke waktu.
+                        Kamu juga dapat membantu dengan
+                        mengusulkan kosakata baru melalui
+                        menu <strong>Tambah Kosakata</strong>.
+
+                    </div>
+
+                </div>
+
+
+
+                <!-- FAQ 4 -->
+
+                <div class="faq-item">
+
+                    <button
+                        type="button"
+                        class="faq-question"
+                        onclick="toggleFAQ(this)"
+                    >
+
+                        <span>
+                            Apakah saya bisa mengusulkan kosakata atau cerita?
+                        </span>
+
+                        <span class="faq-arrow">
+                            ↓
+                        </span>
+
+                    </button>
+
+
+                    <div class="faq-answer">
+
+                        Tentu saja! Kamu dapat berkontribusi
+                        dengan mengirimkan kosakata melalui
+                        menu <strong>Tambah Kosakata</strong>,
+                        serta mengirimkan cerita atau video
+                        Bahasa Banjar melalui fitur yang
+                        tersedia.
+
+                    </div>
+
+                </div>
+
+
+
+                <!-- FAQ 5 -->
+
+                <div class="faq-item">
+
+                    <button
+                        type="button"
+                        class="faq-question"
+                        onclick="toggleFAQ(this)"
+                    >
+
+                        <span>
+                            Apakah LANTING KATA hanya bisa digunakan di sekolah?
+                        </span>
+
+                        <span class="faq-arrow">
+                            ↓
+                        </span>
+
+                    </button>
+
+
+                    <div class="faq-answer">
+
+                        Tidak. LANTING KATA dapat digunakan
+                        sebagai media belajar Bahasa Banjar
+                        di sekolah maupun di rumah bersama
+                        teman dan keluarga.
+
+                    </div>
+
+                </div>
+
+
+
+                <!-- FAQ 6 -->
+
+                <div class="faq-item">
+
+                    <button
+                        type="button"
+                        class="faq-question"
+                        onclick="toggleFAQ(this)"
+                    >
+
+                        <span>
+                            Apa saja yang bisa dilakukan di LANTING KATA?
+                        </span>
+
+                        <span class="faq-arrow">
+                            ↓
+                        </span>
+
+                    </button>
+
+
+                    <div class="faq-answer">
+
+                        Kamu dapat mencari arti kata,
+                        menjelajahi kamus, membaca cerita,
+                        menonton video Bahasa Banjar,
+                        bermain games, menambahkan kosakata,
+                        dan mengenal sekolah mitra LANTING KATA.
+
+                    </div>
+
+                </div>
+
+
+            </div>
+
+        </section>
+
+
+
+        <!-- =================================================
+             KRITIK & SARAN + REVIEW
+        ================================================= -->
+
+        <section>
+
+            <div class="section-heading">
+
+                <p>
+                    SUARAMU BERARTI
+                </p>
+
+                <h2>
+                    Bagikan pengalamanmu
+                </h2>
+
+            </div>
+
+
+            <div class="feedback-grid">
+
+
+                <!-- =================================================
+                     KRITIK & SARAN
+                ================================================= -->
+
+                <div class="feedback-card">
+
+                    <div class="feedback-icon">
+                        💡
+                    </div>
+
+
+                    <h3>
+                        Kritik &amp; Saran
+                    </h3>
+
+
+                    <p class="card-description">
+
+                        Punya ide, masukan, atau menemukan
+                        sesuatu yang perlu diperbaiki?
+                        Ceritakan kepada kami.
+
+                    </p>
+
+
+                    <form
+                        class="feedback-form"
+                        onsubmit="kirimSaran(event)"
+                    >
+
+                        <div>
+
+                            <label for="namaSaran">
+                                Nama
+                            </label>
+
+                            <input
+                                type="text"
+                                id="namaSaran"
+                                placeholder="Masukkan namamu"
+                                required
+                            >
+
+                        </div>
+
+
+                        <div>
+
+                            <label for="saran">
+                                Kritik &amp; Saran
+                            </label>
+
+                            <textarea
+                                id="saran"
+                                placeholder="Tuliskan kritik atau saranmu..."
+                                required
+                            ></textarea>
+
+                        </div>
+
+
+                        <button
+                            type="submit"
+                            class="feedback-button"
+                        >
+                            Kirim Saran →
+                        </button>
+
+                    </form>
+
+                </div>
+
+
+
+                <!-- =================================================
+                     REVIEW PENGGUNA
+                ================================================= -->
+
+                <div class="feedback-card">
+
+                    <div class="feedback-icon">
+                        ⭐
+                    </div>
+
+
+                    <h3>
+                        Review Pengguna
+                    </h3>
+
+
+                    <p class="card-description">
+
+                        Bagaimana pengalamanmu belajar
+                        menggunakan LANTING KATA?
+                        Berikan penilaian dan ceritakan
+                        pengalamanmu.
+
+                    </p>
+
+
+                    <form
+                        class="feedback-form"
+                        onsubmit="kirimReview(event)"
+                    >
+
+                        <div>
+
+                            <label for="namaReview">
+                                Nama
+                            </label>
+
+                            <input
+                                type="text"
+                                id="namaReview"
+                                placeholder="Masukkan namamu"
+                                required
+                            >
+
+                        </div>
+
+
+                        <div>
+
+                            <p class="rating-title">
+                                Berikan penilaian
+                            </p>
+
+
+                            <div class="rating">
+
+                                <input
+                                    type="radio"
+                                    id="star5"
+                                    name="rating"
+                                    value="5"
+                                    required
+                                >
+
+                                <label
+                                    for="star5"
+                                    title="Sangat bagus"
+                                >
+                                    ★
+                                </label>
+
+
+                                <input
+                                    type="radio"
+                                    id="star4"
+                                    name="rating"
+                                    value="4"
+                                >
+
+                                <label
+                                    for="star4"
+                                    title="Bagus"
+                                >
+                                    ★
+                                </label>
+
+
+                                <input
+                                    type="radio"
+                                    id="star3"
+                                    name="rating"
+                                    value="3"
+                                >
+
+                                <label
+                                    for="star3"
+                                    title="Cukup"
+                                >
+                                    ★
+                                </label>
+
+
+                                <input
+                                    type="radio"
+                                    id="star2"
+                                    name="rating"
+                                    value="2"
+                                >
+
+                                <label
+                                    for="star2"
+                                    title="Kurang"
+                                >
+                                    ★
+                                </label>
+
+
+                                <input
+                                    type="radio"
+                                    id="star1"
+                                    name="rating"
+                                    value="1"
+                                >
+
+                                <label
+                                    for="star1"
+                                    title="Sangat kurang"
+                                >
+                                    ★
+                                </label>
+
+                            </div>
+
+                        </div>
+
+
+                        <div>
+
+                            <label for="review">
+                                Ceritakan pengalamanmu
+                            </label>
+
+                            <textarea
+                                id="review"
+                                placeholder="Apa yang kamu sukai dari LANTING KATA?"
+                                required
+                            ></textarea>
+
+                        </div>
+
+
+                        <button
+                            type="submit"
+                            class="feedback-button"
+                        >
+                            Kirim Review →
+                        </button>
+
+                    </form>
+
+                </div>
+
+
+            </div>
+
+        </section>
+
+
+
+        <!-- =================================================
+             REVIEW YANG MASUK
+        ================================================= -->
+
+        <section class="review-section">
+
+            <div class="section-heading">
+
+                <p>
+                    PENGALAMAN PENGGUNA
+                </p>
+
+                <h2>
+                    Kata mereka tentang LANTING KATA
+                </h2>
+
+            </div>
+
+
+            <div
+                id="reviewList"
+                class="review-list"
+            >
+
+                <div class="review-empty">
+
+                    <div class="review-empty-icon">
+                        💚
+                    </div>
+
+                    <strong>
+                        Belum ada review pengguna.
+                    </strong>
+
+                    <br>
+
+                    Jadilah salah satu pengguna pertama
+                    yang membagikan pengalaman belajar
+                    bersama LANTING KATA.
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- =================================================
+             KEMBALI DASHBOARD
+        ================================================= -->
+
+        <div class="back-dashboard">
+
+            <a href="dashboard.html">
+                ← Kembali ke Dashboard
+            </a>
+
+        </div>
+
+
+    </main>
+
+
+
+    <!-- =========================================================
+         FOOTER
+    ========================================================= -->
+
+    <footer class="page-footer">
+
+        <div class="footer-brand">
+
+            <div class="brand-logo">
+
+                <img
+                    src="assets/logo-lanting-kata.png"
+                    alt="Logo LANTING KATA"
+                >
+
+            </div>
+
+
+            <div class="brand-name">
+
+                LANTING <span>KATA</span>
+
+            </div>
+
+        </div>
+
+
+        <p>
+
+            Belajar Bahasa Banjar menjadi lebih mudah,
+            menyenangkan, dan interaktif.
+
+        </p>
+
+
+        <p class="copyright">
+
+            © 2026 LANTING KATA.
+            Dikembangkan untuk Proyek Kepemimpinan
+            PPG Prajabatan PGSD Universitas Lambung Mangkurat.
+
+        </p>
+
+    </footer>
+
+
+
+    <!-- =================================================
+         JAVASCRIPT
+    ================================================= -->
+
+    <script>
+
+
+        /* =================================================
+           URL GOOGLE APPS SCRIPT
+        ================================================= */
+
+        const FAQ_API_URL =
+            "https://script.google.com/macros/s/AKfycbw1-0_H6bY9gKaqzjChXcCTf-AjMm3LUGl-Z5OKsKBT78YotQt85nV9gYnBXTC9en9OIA/exec";
+
+
+        /* =================================================
+           FAQ ACCORDION
+        ================================================= */
+
+        function toggleFAQ(button) {
+
+            const item =
+                button.parentElement;
+
+            const semuaItem =
+                document.querySelectorAll(".faq-item");
+
+
+            semuaItem.forEach(function(otherItem) {
+
+                if (otherItem !== item) {
+
+                    otherItem.classList.remove("active");
+
+                }
+
+            });
+
+
+            item.classList.toggle("active");
+
+        }
+
+
+
+        /* =================================================
+           KRITIK & SARAN
+        ================================================= */
+
+        async function kirimSaran(event) {
+
+            event.preventDefault();
+
+
+            const form =
+                event.target;
+
+
+            const nama =
+                document
+                    .getElementById("namaSaran")
+                    .value
+                    .trim();
+
+
+            const saran =
+                document
+                    .getElementById("saran")
+                    .value
+                    .trim();
+
+
+            if (!nama || !saran) {
+
+                alert(
+                    "Silakan lengkapi data terlebih dahulu."
+                );
+
+                return;
+
+            }
+
+
+            const button =
+                form.querySelector(".feedback-button");
+
+
+            const teksAwal =
+                button.textContent;
+
+
+            button.disabled = true;
+
+            button.textContent =
+                "Mengirim...";
+
+
+            try {
+
+                const data =
+                    new URLSearchParams();
+
+
+                data.append(
+                    "action",
+                    "kritik"
+                );
+
+
+                data.append(
+                    "nama",
+                    nama
+                );
+
+
+                data.append(
+                    "isi",
+                    saran
+                );
+
+
+                await fetch(
+                    FAQ_API_URL,
+                    {
+                        method: "POST",
+                        body: data
+                    }
+                );
+
+
+                alert(
+                    "Terima kasih, " +
+                    nama +
+                    "! Kritik dan saranmu berhasil dikirim. 💚"
+                );
+
+
+                form.reset();
+
+
+            } catch (error) {
+
+                console.error(error);
+
+
+                alert(
+                    "Maaf, kritik dan saran belum berhasil dikirim. Silakan coba lagi."
+                );
+
+            } finally {
+
+                button.disabled = false;
+
+                button.textContent =
+                    teksAwal;
+
+            }
+
+        }
+
+
+
+        /* =================================================
+           REVIEW PENGGUNA
+        ================================================= */
+
+        async function kirimReview(event) {
+
+            event.preventDefault();
+
+
+            const form =
+                event.target;
+
+
+            const nama =
+                document
+                    .getElementById("namaReview")
+                    .value
+                    .trim();
+
+
+            const review =
+                document
+                    .getElementById("review")
+                    .value
+                    .trim();
+
+
+            const rating =
+                document.querySelector(
+                    'input[name="rating"]:checked'
+                );
+
+
+            if (!nama || !review || !rating) {
+
+                alert(
+                    "Silakan lengkapi review terlebih dahulu."
+                );
+
+                return;
+
+            }
+
+
+            const button =
+                form.querySelector(".feedback-button");
+
+
+            const teksAwal =
+                button.textContent;
+
+
+            button.disabled = true;
+
+            button.textContent =
+                "Mengirim...";
+
+
+            try {
+
+                const data =
+                    new URLSearchParams();
+
+
+                data.append(
+                    "action",
+                    "review"
+                );
+
+
+                data.append(
+                    "nama",
+                    nama
+                );
+
+
+                data.append(
+                    "rating",
+                    rating.value
+                );
+
+
+                data.append(
+                    "review",
+                    review
+                );
+
+
+                await fetch(
+                    FAQ_API_URL,
+                    {
+                        method: "POST",
+                        body: data
+                    }
+                );
+
+
+                alert(
+                    "Terima kasih, " +
+                    nama +
+                    "! Review kamu berhasil dikirim. ⭐"
+                );
+
+
+                form.reset();
+
+
+            } catch (error) {
+
+                console.error(error);
+
+
+                alert(
+                    "Maaf, review belum berhasil dikirim. Silakan coba lagi."
+                );
+
+            } finally {
+
+                button.disabled = false;
+
+                button.textContent =
+                    teksAwal;
+
+            }
+
+        }
+
+
+
+        /* =================================================
+           MEMUAT REVIEW
+        ================================================= */
+
+        async function muatReview() {
+
+            const reviewList =
+                document.getElementById("reviewList");
+
+
+            try {
+
+                const response =
+                    await fetch(
+                        FAQ_API_URL +
+                        "?action=getReviews"
+                    );
+
+
+                const data =
+                    await response.json();
+
+
+                if (
+                    data.status !== "success" ||
+                    !data.reviews ||
+                    data.reviews.length === 0
+                ) {
+
+                    return;
+
+                }
+
+
+                reviewList.innerHTML = "";
+
+
+                data.reviews.forEach(function(item) {
+
+                    const card =
+                        document.createElement("div");
+
+                    card.className =
+                        "review-card";
+
+
+                    const header =
+                        document.createElement("div");
+
+                    header.className =
+                        "review-card-header";
+
+
+                    const nama =
+                        document.createElement("div");
+
+                    nama.className =
+                        "review-name";
+
+                    nama.textContent =
+                        item.nama;
+
+
+                    const stars =
+                        document.createElement("div");
+
+                    stars.className =
+                        "review-stars";
+
+
+                    const jumlahBintang =
+                        Math.min(
+                            5,
+                            Math.max(
+                                0,
+                                Number(item.rating) || 0
+                            )
+                        );
+
+
+                    stars.textContent =
+                        "★".repeat(jumlahBintang) +
+                        "☆".repeat(5 - jumlahBintang);
+
+
+                    header.appendChild(nama);
+
+                    header.appendChild(stars);
+
+
+                    const isi =
+                        document.createElement("p");
+
+                    isi.className =
+                        "review-text";
+
+                    isi.textContent =
+                        item.review;
+
+
+                    card.appendChild(header);
+
+                    card.appendChild(isi);
+
+
+                    if (item.timestamp) {
+
+                        const tanggal =
+                            document.createElement("div");
+
+                        tanggal.className =
+                            "review-date";
+
+
+                        const date =
+                            new Date(item.timestamp);
+
+
+                        if (!isNaN(date.getTime())) {
+
+                            tanggal.textContent =
+                                date.toLocaleDateString(
+                                    "id-ID",
+                                    {
+                                        day: "numeric",
+                                        month: "long",
+                                        year: "numeric"
+                                    }
+                                );
+
+                            card.appendChild(tanggal);
+
+                        }
+
+                    }
+
+
+                    reviewList.appendChild(card);
+
+                });
+
+
+            } catch (error) {
+
+                console.error(
+                    "Gagal memuat review:",
+                    error
+                );
+
+            }
+
+        }
+
+
+
+        /* =================================================
+           JALANKAN SAAT HALAMAN DIBUKA
+        ================================================= */
+
+        document.addEventListener(
+            "DOMContentLoaded",
+            function() {
+
+                muatReview();
+
+            }
+        );
+
+
+    </script>
+
+
+</body>
+
+</html>

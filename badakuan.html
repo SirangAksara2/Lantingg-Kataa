@@ -1,0 +1,955 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>Badakuan | LANTING KATA</title>
+
+    <link
+        rel="stylesheet"
+        href="css/badakuan.css"
+    >
+
+</head>
+
+
+<body class="badakuan-page">
+
+
+    <!-- =====================================================
+         HEADER
+    ====================================================== -->
+
+    <header class="badakuan-header">
+
+        <a
+            href="games.html"
+            class="badakuan-back"
+        >
+            ← Kembali ke Games
+        </a>
+
+
+        <div class="badakuan-brand">
+
+            <div class="badakuan-brand-logo">
+
+                <img
+                    src="assets/logo-lanting-kata.png"
+                    alt="Logo LANTING KATA"
+                >
+
+            </div>
+
+            <div class="badakuan-brand-name">
+
+                LANTING
+                <span>KATA</span>
+
+            </div>
+
+        </div>
+
+    </header>
+
+
+
+    <!-- =====================================================
+         MAIN
+    ====================================================== -->
+
+    <main class="badakuan-main">
+
+
+        <!-- =================================================
+             HALAMAN PEMILIHAN
+        ================================================== -->
+
+        <section
+            class="game-setup"
+            id="gameSetup"
+        >
+
+
+            <!-- INTRO -->
+
+            <div class="badakuan-intro">
+
+                <div class="badakuan-icon">
+                    🪵
+                </div>
+
+                <p class="badakuan-label">
+                    PERMAINAN TRADISIONAL BANJAR
+                </p>
+
+                <h1>
+                    Yuk, Main
+                    <span>Badakuan!</span>
+                </h1>
+
+                <p class="badakuan-description">
+
+                    Kenali dan mainkan kembali permainan
+                    tradisional Banjar dalam versi digital
+                    bersama LANTING KATA.
+
+                </p>
+
+            </div>
+
+
+
+            <!-- =================================================
+                 LANGKAH 1
+            ================================================== -->
+
+            <section
+                class="selection-section"
+                id="jenisSection"
+            >
+
+                <div class="step-heading">
+
+                    <span class="step-number">
+                        1
+                    </span>
+
+                    <div>
+
+                        <p>
+                            LANGKAH PERTAMA
+                        </p>
+
+                        <h2>
+                            Pilih Jenis Permainan
+                        </h2>
+
+                    </div>
+
+                </div>
+
+
+                <div class="option-grid">
+
+
+                    <!-- BADAKUAN BIASA -->
+
+                    <button
+                        type="button"
+                        class="option-card"
+                        data-jenis="biasa"
+                    >
+
+                        <div class="option-icon">
+                            🪵
+                        </div>
+
+                        <div class="option-content">
+
+                            <h3>
+                                Badakuan Biasa
+                            </h3>
+
+                            <p>
+
+                                Mainkan Badakuan dengan
+                                aturan permainan tradisional
+                                tanpa tantangan kosakata.
+
+                            </p>
+
+                        </div>
+
+                        <span class="option-check">
+                            ✓
+                        </span>
+
+                    </button>
+
+
+
+                    <!-- BADAKUAN + BAHASA BANJAR -->
+
+                    <button
+                        type="button"
+                        class="option-card"
+                        data-jenis="banjar"
+                    >
+
+                        <div class="option-icon">
+                            🌿
+                        </div>
+
+                        <div class="option-content">
+
+                            <h3>
+                                Badakuan + Tantangan
+                                Kosakata Bahasa Banjar
+                            </h3>
+
+                            <p>
+
+                                Bermain Badakuan sambil
+                                menjawab tantangan
+                                kosakata Bahasa Banjar.
+
+                            </p>
+
+                        </div>
+
+                        <span class="option-check">
+                            ✓
+                        </span>
+
+                    </button>
+
+
+                </div>
+
+            </section>
+
+
+
+            <!-- =================================================
+                 LANGKAH 2
+            ================================================== -->
+
+            <section
+                class="selection-section hidden"
+                id="modeSection"
+            >
+
+                <div class="step-heading">
+
+                    <span class="step-number">
+                        2
+                    </span>
+
+                    <div>
+
+                        <p>
+                            LANGKAH KEDUA
+                        </p>
+
+                        <h2>
+                            Pilih Lawanmu
+                        </h2>
+
+                    </div>
+
+                </div>
+
+
+                <div class="option-grid">
+
+
+                    <!-- VS BOT -->
+
+                    <button
+                        type="button"
+                        class="option-card"
+                        data-mode="bot"
+                    >
+
+                        <div class="option-icon">
+                            🤖
+                        </div>
+
+                        <div class="option-content">
+
+                            <h3>
+                                1 Pemain — vs Bot
+                            </h3>
+
+                            <p>
+
+                                Bermain melawan lawan
+                                komputer dalam permainan
+                                Badakuan.
+
+                            </p>
+
+                        </div>
+
+                        <span class="option-check">
+                            ✓
+                        </span>
+
+                    </button>
+
+
+
+                    <!-- VS TEMAN -->
+
+                    <button
+                        type="button"
+                        class="option-card"
+                        data-mode="teman"
+                    >
+
+                        <div class="option-icon">
+                            👥
+                        </div>
+
+                        <div class="option-content">
+
+                            <h3>
+                                2 Pemain — vs Teman
+                            </h3>
+
+                            <p>
+
+                                Bermain bergantian bersama
+                                teman pada perangkat yang sama.
+
+                            </p>
+
+                        </div>
+
+                        <span class="option-check">
+                            ✓
+                        </span>
+
+                    </button>
+
+
+                </div>
+
+            </section>
+
+
+
+            <!-- =================================================
+                 KONFIRMASI
+            ================================================== -->
+
+            <section
+                class="confirmation-section hidden"
+                id="confirmationSection"
+            >
+
+                <div class="confirmation-icon">
+                    🎮
+                </div>
+
+
+                <div class="confirmation-content">
+
+                    <p class="confirmation-label">
+                        PERMAINAN DIPILIH
+                    </p>
+
+                    <h2 id="confirmationTitle">
+                        Badakuan
+                    </h2>
+
+                    <p id="confirmationDescription">
+                        Silakan pilih jenis permainan
+                        dan mode pemain.
+                    </p>
+
+
+                    <div class="selection-summary">
+
+
+                        <div class="summary-item">
+
+                            <span>
+                                Jenis
+                            </span>
+
+                            <strong id="summaryJenis">
+                                -
+                            </strong>
+
+                        </div>
+
+
+                        <div class="summary-item">
+
+                            <span>
+                                Mode
+                            </span>
+
+                            <strong id="summaryMode">
+                                -
+                            </strong>
+
+                        </div>
+
+
+                    </div>
+
+
+                    <button
+                        type="button"
+                        class="start-button"
+                        id="startButton"
+                    >
+
+                        <span>
+                            Mulai Permainan
+                        </span>
+
+                        <span class="start-arrow">
+                            →
+                        </span>
+
+                    </button>
+
+                </div>
+
+            </section>
+
+        </section>
+
+
+
+        <!-- =====================================================
+             PAPAN BADAKUAN
+             TAHAP 2
+        ====================================================== -->
+
+        <section
+            class="badakuan-board-section hidden"
+            id="boardSection"
+        >
+
+
+            <!-- INFORMASI GILIRAN -->
+
+            <div class="board-top-info">
+
+                <div class="board-title">
+
+                    <p>
+                        PERMAINAN BADAKUAN
+                    </p>
+
+                    <h2>
+                        Ayo Kumpulkan Biji!
+                    </h2>
+
+                </div>
+
+
+                <div class="turn-indicator">
+
+                    <span class="turn-dot"></span>
+
+                    <span id="turnText">
+                        Giliran Pemain 1
+                    </span>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- SKOR -->
+
+            <div class="score-area">
+
+
+                <!-- PEMAIN 2 -->
+
+                <div class="player-score player-two-score">
+
+                    <span class="player-label">
+                        PEMAIN 2
+                    </span>
+
+                    <strong id="scorePlayer2">
+                        0
+                    </strong>
+
+                    <small>
+                        biji di lumbung
+                    </small>
+
+                </div>
+
+
+                <div class="versus">
+                    VS
+                </div>
+
+
+                <!-- PEMAIN 1 -->
+
+                <div class="player-score player-one-score">
+
+                    <span class="player-label">
+                        PEMAIN 1
+                    </span>
+
+                    <strong id="scorePlayer1">
+                        0
+                    </strong>
+
+                    <small>
+                        biji di lumbung
+                    </small>
+
+                </div>
+
+
+            </div>
+
+
+
+            <!-- =================================================
+                 PAPAN PERMAINAN
+            ================================================== -->
+
+            <div class="badakuan-board-wrapper">
+
+
+                <!-- LUMBUNG PEMAIN 2 -->
+
+                <div
+                    class="lumbung lumbung-two"
+                    id="lumbung2"
+                >
+
+                    <span class="lumbung-label">
+                        LUMBUNG
+                    </span>
+
+                    <div
+                        class="lumbung-seeds"
+                        id="lumbungSeeds2"
+                    >
+                        0
+                    </div>
+
+                    <span class="lumbung-player">
+                        PEMAIN 2
+                    </span>
+
+                </div>
+
+
+
+                <!-- PAPAN -->
+
+                <div class="badakuan-board">
+
+
+                    <!-- SISI PEMAIN 2 -->
+
+                    <div
+                        class="board-row opponent-row"
+                        id="rowPlayer2"
+                    >
+
+                        <div
+                            class="pit"
+                            data-player="2"
+                            data-index="0"
+                        >
+
+                            <span class="pit-number">
+                                7
+                            </span>
+
+                            <div class="seed-container">
+                            </div>
+
+                        </div>
+
+
+                        <div
+                            class="pit"
+                            data-player="2"
+                            data-index="1"
+                        >
+
+                            <span class="pit-number">
+                                6
+                            </span>
+
+                            <div class="seed-container">
+                            </div>
+
+                        </div>
+
+
+                        <div
+                            class="pit"
+                            data-player="2"
+                            data-index="2"
+                        >
+
+                            <span class="pit-number">
+                                5
+                            </span>
+
+                            <div class="seed-container">
+                            </div>
+
+                        </div>
+
+
+                        <div
+                            class="pit"
+                            data-player="2"
+                            data-index="3"
+                        >
+
+                            <span class="pit-number">
+                                4
+                            </span>
+
+                            <div class="seed-container">
+                            </div>
+
+                        </div>
+
+
+                        <div
+                            class="pit"
+                            data-player="2"
+                            data-index="4"
+                        >
+
+                            <span class="pit-number">
+                                3
+                            </span>
+
+                            <div class="seed-container">
+                            </div>
+
+                        </div>
+
+
+                        <div
+                            class="pit"
+                            data-player="2"
+                            data-index="5"
+                        >
+
+                            <span class="pit-number">
+                                2
+                            </span>
+
+                            <div class="seed-container">
+                            </div>
+
+                        </div>
+
+
+                        <div
+                            class="pit"
+                            data-player="2"
+                            data-index="6"
+                        >
+
+                            <span class="pit-number">
+                                1
+                            </span>
+
+                            <div class="seed-container">
+                            </div>
+
+                        </div>
+
+                    </div>
+
+
+
+                    <!-- BAGIAN TENGAH PAPAN -->
+
+                    <div class="board-middle">
+
+                        <div class="board-decoration">
+
+                            <span>🪵</span>
+
+                            <strong>
+                                BADAKUAN
+                            </strong>
+
+                            <small>
+                                Permainan Tradisional Banjar
+                            </small>
+
+                        </div>
+
+                    </div>
+
+
+
+                    <!-- SISI PEMAIN 1 -->
+
+                    <div
+                        class="board-row own-row"
+                        id="rowPlayer1"
+                    >
+
+                        <div
+                            class="pit"
+                            data-player="1"
+                            data-index="0"
+                        >
+
+                            <span class="pit-number">
+                                1
+                            </span>
+
+                            <div class="seed-container">
+                            </div>
+
+                        </div>
+
+
+                        <div
+                            class="pit"
+                            data-player="1"
+                            data-index="1"
+                        >
+
+                            <span class="pit-number">
+                                2
+                            </span>
+
+                            <div class="seed-container">
+                            </div>
+
+                        </div>
+
+
+                        <div
+                            class="pit"
+                            data-player="1"
+                            data-index="2"
+                        >
+
+                            <span class="pit-number">
+                                3
+                            </span>
+
+                            <div class="seed-container">
+                            </div>
+
+                        </div>
+
+
+                        <div
+                            class="pit"
+                            data-player="1"
+                            data-index="3"
+                        >
+
+                            <span class="pit-number">
+                                4
+                            </span>
+
+                            <div class="seed-container">
+                            </div>
+
+                        </div>
+
+
+                        <div
+                            class="pit"
+                            data-player="1"
+                            data-index="4"
+                        >
+
+                            <span class="pit-number">
+                                5
+                            </span>
+
+                            <div class="seed-container">
+                            </div>
+
+                        </div>
+
+
+                        <div
+                            class="pit"
+                            data-player="1"
+                            data-index="5"
+                        >
+
+                            <span class="pit-number">
+                                6
+                            </span>
+
+                            <div class="seed-container">
+                            </div>
+
+                        </div>
+
+
+                        <div
+                            class="pit"
+                            data-player="1"
+                            data-index="6"
+                        >
+
+                            <span class="pit-number">
+                                7
+                            </span>
+
+                            <div class="seed-container">
+                            </div>
+
+                        </div>
+
+                    </div>
+
+
+                </div>
+
+
+
+                <!-- LUMBUNG PEMAIN 1 -->
+
+                <div
+                    class="lumbung lumbung-one"
+                    id="lumbung1"
+                >
+
+                    <span class="lumbung-label">
+                        LUMBUNG
+                    </span>
+
+                    <div
+                        class="lumbung-seeds"
+                        id="lumbungSeeds1"
+                    >
+                        0
+                    </div>
+
+                    <span class="lumbung-player">
+                        PEMAIN 1
+                    </span>
+
+                </div>
+
+
+            </div>
+
+
+
+            <!-- PETUNJUK -->
+
+            <div class="board-instruction">
+
+                <span>
+                    🌿
+                </span>
+
+                <p id="boardInstructionText">
+
+                    Papan Badakuan siap dimainkan.
+                    Pada tahap berikutnya, pilih lubang
+                    untuk mulai menaburkan biji.
+
+                </p>
+
+            </div>
+
+
+        </section>
+
+
+
+        <!-- =================================================
+             INFO
+        ================================================== -->
+
+        <section
+            class="badakuan-info"
+            id="badakuanInfo"
+        >
+
+            <div class="info-icon">
+                🌿
+            </div>
+
+            <div>
+
+                <p class="info-label">
+                    TENTANG BADAKUAN
+                </p>
+
+                <h2>
+                    Permainan Tradisional Banjar
+                </h2>
+
+                <p>
+
+                    Badakuan dimainkan menggunakan papan
+                    dengan lubang-lubang kecil sebagai tempat
+                    biji dan dua lubang besar sebagai lumbung.
+                    Kumpulkan biji sebanyak-banyaknya di
+                    lumbungmu untuk memenangkan permainan.
+
+                </p>
+
+            </div>
+
+        </section>
+
+
+    </main>
+
+
+
+    <!-- =====================================================
+         FOOTER
+    ====================================================== -->
+
+    <footer class="badakuan-footer">
+
+        <div class="badakuan-footer-logo">
+
+            <div>
+
+                <img
+                    src="assets/logo-lanting-kata.png"
+                    alt="Logo LANTING KATA"
+                >
+
+            </div>
+
+            <strong>
+
+                LANTING
+                <span>KATA</span>
+
+            </strong>
+
+        </div>
+
+
+        <p>
+            Belajar Bahasa Banjar sambil bermain.
+        </p>
+
+
+        <p class="badakuan-copyright">
+            © 2026 LANTING KATA — Ruang Belajar dan Bermain
+        </p>
+
+    </footer>
+
+
+
+    <script src="js/badakuan.js"></script>
+
+</body>
+
+</html>

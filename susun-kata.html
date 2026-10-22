@@ -1,0 +1,2105 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>Susun Kata | LANTING KATA</title>
+
+    <link rel="stylesheet" href="css/style.css">
+
+</head>
+
+
+<body class="tebak-kata-page">
+
+
+<!-- =====================================================
+     HEADER
+===================================================== -->
+
+<header class="game-play-header">
+
+    <a href="games.html" class="game-back">
+        ← Kembali ke Games
+    </a>
+
+    <div class="game-play-brand">
+
+        <div class="game-play-logo">
+            <img src="assets/logo-lanting-kata.png" alt="Logo LANTING KATA">
+        </div>
+
+        <div class="game-play-brand-text">
+
+            <strong>
+                LANTING KATA
+            </strong>
+
+            <small>
+                RUANG PERMAINAN
+            </small>
+
+        </div>
+
+    </div>
+
+</header>
+
+
+
+<!-- =====================================================
+     HERO GAME
+===================================================== -->
+
+<section class="tebak-hero">
+
+    <div class="tebak-hero-decoration">
+        ✦
+    </div>
+
+    <div class="tebak-icon">
+        🧩
+    </div>
+
+    <p class="tebak-label">
+        GAME 04
+    </p>
+
+    <h1>
+        Susun <span>Kata</span>
+    </h1>
+
+    <p>
+        Susun kata-kata yang diacak
+        menjadi kalimat Bahasa Banjar yang benar.
+    </p>
+
+</section>
+
+
+
+<!-- =====================================================
+     MAIN GAME
+===================================================== -->
+
+<main class="tebak-kata-main">
+
+
+    <!-- =================================================
+         LOADING
+    ================================================== -->
+
+    <section
+        id="loadingGame"
+        class="game-loading"
+    >
+
+        <div class="loading-icon">
+            ⏳
+        </div>
+
+        <h2>
+            Menyiapkan permainan...
+        </h2>
+
+        <p>
+            Sedang mengambil contoh kalimat
+            dari Kamus LANTING KATA.
+        </p>
+
+    </section>
+
+
+
+    <!-- =================================================
+         AREA PERMAINAN
+    ================================================== -->
+
+    <section
+        id="gameArea"
+        class="game-area"
+        style="display:none;"
+    >
+
+
+        <!-- STATUS GAME -->
+
+        <div class="game-status">
+
+            <div class="game-question-number">
+
+                <span>
+                    SOAL
+                </span>
+
+                <strong id="nomorSoal">
+                    1 / 10
+                </strong>
+
+            </div>
+
+
+            <div class="game-score">
+
+                <span>
+                    ⭐
+                </span>
+
+                <strong id="skorSaatIni">
+                    0 poin
+                </strong>
+
+            </div>
+
+        </div>
+
+
+
+        <!-- PROGRESS -->
+
+        <div class="game-progress">
+
+            <div class="game-progress-track">
+
+                <div
+                    id="progressFill"
+                    class="game-progress-fill"
+                ></div>
+
+            </div>
+
+        </div>
+
+
+
+        <!-- =================================================
+             KARTU SOAL
+        ================================================== -->
+
+        <div class="question-card">
+
+            <div class="question-card-top">
+
+                <span class="question-badge">
+                    SUSUN KATA!
+                </span>
+
+            </div>
+
+
+            <div class="susun-instruction">
+
+                <div class="susun-instruction-icon">
+                    🧩
+                </div>
+
+                <h3>
+                    Susun kata menjadi kalimat yang benar
+                </h3>
+
+                <p>
+                    Klik kata sesuai urutan kalimat
+                    Bahasa Banjar yang tepat.
+                </p>
+
+            </div>
+
+
+
+            <!-- =================================================
+                 AREA KALIMAT
+            ================================================== -->
+
+            <div class="susun-section">
+
+                <div class="susun-section-title">
+                    ✨ Kalimat Kamu
+                </div>
+
+                <div
+                    id="areaSusunan"
+                    class="area-susunan"
+                >
+
+                    <span class="susun-placeholder">
+                        Klik kata-kata di bawah untuk menyusun kalimat.
+                    </span>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- =================================================
+                 KATA ACAK
+            ================================================== -->
+
+            <div class="susun-section">
+
+                <div class="susun-section-title">
+                    🔤 Kata-Kata Acak
+                </div>
+
+                <div
+                    id="kataAcak"
+                    class="kata-acak"
+                ></div>
+
+            </div>
+
+
+
+            <!-- =================================================
+                 TOMBOL
+            ================================================== -->
+
+            <div class="susun-actions">
+
+                <button
+                    id="hapusSusunan"
+                    class="susun-secondary-button"
+                    type="button"
+                >
+                    ↩️ Hapus Terakhir
+                </button>
+
+                <button
+                    id="resetSusunan"
+                    class="susun-secondary-button"
+                    type="button"
+                >
+                    🔄 Ulangi
+                </button>
+
+                <button
+                    id="periksaJawaban"
+                    class="susun-primary-button"
+                    type="button"
+                >
+                    ✓ Periksa Jawaban
+                </button>
+
+            </div>
+
+
+        </div>
+
+
+
+        <!-- =================================================
+             FEEDBACK
+        ================================================== -->
+
+        <div
+            id="feedback"
+            class="game-feedback"
+            style="display:none;"
+        >
+
+            <div
+                id="feedbackIcon"
+                class="feedback-icon"
+            >
+                ✓
+            </div>
+
+
+            <div class="feedback-content">
+
+                <strong id="feedbackTitle">
+                    Benar!
+                </strong>
+
+                <p id="feedbackText">
+                    Jawaban kamu benar.
+                </p>
+
+            </div>
+
+        </div>
+
+
+
+        <!-- =================================================
+             TOMBOL LANJUT
+        ================================================== -->
+
+        <button
+            id="tombolLanjut"
+            class="next-question"
+            style="display:none;"
+            type="button"
+        >
+
+            Soal Berikutnya
+
+            <span>
+                →
+            </span>
+
+        </button>
+
+
+    </section>
+
+
+
+    <!-- =================================================
+         HASIL AKHIR
+    ================================================== -->
+
+    <section
+        id="hasilGame"
+        class="hasil-game"
+        style="display:none;"
+    >
+
+        <div class="hasil-decoration">
+            ✦
+        </div>
+
+        <div class="hasil-icon">
+            🏆
+        </div>
+
+        <p class="hasil-label">
+            PERMAINAN SELESAI
+        </p>
+
+        <h2>
+            Hebat!
+        </h2>
+
+        <p class="hasil-description">
+            Kamu telah menyelesaikan
+            10 soal Susun Kata.
+        </p>
+
+
+
+        <!-- SKOR -->
+
+        <div class="hasil-score">
+
+            <span>
+                SKOR KAMU
+            </span>
+
+            <strong id="skorAkhir">
+                0
+            </strong>
+
+            <small>
+                POIN
+            </small>
+
+        </div>
+
+
+
+        <!-- INFORMASI HASIL -->
+
+        <div class="hasil-info">
+
+            <div>
+
+                <strong id="jumlahBenar">
+                    0
+                </strong>
+
+                <span>
+                    jawaban benar
+                </span>
+
+            </div>
+
+            <div class="hasil-divider"></div>
+
+            <div>
+
+                <strong>
+                    10
+                </strong>
+
+                <span>
+                    jumlah soal
+                </span>
+
+            </div>
+
+        </div>
+
+
+
+        <!-- =================================================
+             SIMPAN SKOR
+        ================================================== -->
+
+        <div class="simpan-skor-box">
+
+            <label for="namaPemain">
+                Masukkan Nama Kamu
+            </label>
+
+            <input
+                type="text"
+                id="namaPemain"
+                placeholder="Nama kamu"
+                maxlength="30"
+                autocomplete="off"
+            >
+
+
+            <button
+                id="simpanSkor"
+                class="play-again"
+                type="button"
+            >
+
+                🏆 Simpan Skor
+
+            </button>
+
+
+            <p
+                id="statusSimpanSkor"
+                style="display:none;"
+            ></p>
+
+        </div>
+
+
+
+        <!-- =================================================
+             TOMBOL HASIL
+        ================================================== -->
+
+        <div class="hasil-buttons">
+
+            <button
+                id="mainLagi"
+                class="play-again"
+                type="button"
+            >
+
+                🔄 Main Lagi
+
+            </button>
+
+
+            <a
+                href="games.html"
+                class="back-games"
+            >
+
+                🎮 Kembali ke Games
+
+            </a>
+
+        </div>
+
+
+    </section>
+
+
+</main>
+
+
+
+<!-- =====================================================
+     FOOTER
+===================================================== -->
+
+<footer class="game-footer">
+
+    <div class="game-footer-logo">
+
+        <div class="game-footer-emblem">
+            <img src="assets/logo-lanting-kata.png" alt="Logo LANTING KATA">
+        </div>
+
+        <strong>
+            LANTING <span>KATA</span>
+        </strong>
+
+    </div>
+
+
+    <p>
+        Mengenal Bahasa Banjar, melestarikan kata,
+        dan bermain sambil belajar.
+    </p>
+
+
+    <small>
+        © 2026 LANTING KATA
+    </small>
+
+</footer>
+
+
+
+<!-- =====================================================
+     JAVASCRIPT GAME 04
+===================================================== -->
+
+<script>
+
+
+// ======================================================
+// WEB APP LANTING KATA
+// ======================================================
+
+const WEB_APP_URL =
+"https://script.google.com/macros/s/AKfycbx9NSf3eh2Q5Jr4PYggXFbAw4a6_PgsslxUSZui8yyWu1zzcuUjSecky6YQtEcFoj75/exec";
+
+
+// ======================================================
+// IDENTITAS GAME
+// ======================================================
+
+// Game 04 = Susun Kata
+const GAME_ID = "4";
+
+
+// ======================================================
+// PENGATURAN GAME
+// ======================================================
+
+const JUMLAH_SOAL = 10;
+
+const POIN_PER_JAWABAN = 10;
+
+
+// ======================================================
+// VARIABEL
+// ======================================================
+
+let semuaKalimat = [];
+
+let soal = [];
+
+let nomorSekarang = 0;
+
+let skor = 0;
+
+let jumlahBenar = 0;
+
+let susunanPemain = [];
+
+let skorSudahDisimpan = false;
+
+
+// ======================================================
+// ELEMENT HTML
+// ======================================================
+
+const loadingGame =
+    document.getElementById("loadingGame");
+
+const gameArea =
+    document.getElementById("gameArea");
+
+const hasilGame =
+    document.getElementById("hasilGame");
+
+const areaSusunan =
+    document.getElementById("areaSusunan");
+
+const kataAcak =
+    document.getElementById("kataAcak");
+
+const hapusSusunan =
+    document.getElementById("hapusSusunan");
+
+const resetSusunan =
+    document.getElementById("resetSusunan");
+
+const periksaJawabanButton =
+    document.getElementById("periksaJawaban");
+
+const nomorSoal =
+    document.getElementById("nomorSoal");
+
+const skorSaatIni =
+    document.getElementById("skorSaatIni");
+
+const progressFill =
+    document.getElementById("progressFill");
+
+const feedback =
+    document.getElementById("feedback");
+
+const feedbackIcon =
+    document.getElementById("feedbackIcon");
+
+const feedbackTitle =
+    document.getElementById("feedbackTitle");
+
+const feedbackText =
+    document.getElementById("feedbackText");
+
+const tombolLanjut =
+    document.getElementById("tombolLanjut");
+
+const mainLagi =
+    document.getElementById("mainLagi");
+
+const namaPemain =
+    document.getElementById("namaPemain");
+
+const simpanSkorButton =
+    document.getElementById("simpanSkor");
+
+const statusSimpanSkor =
+    document.getElementById("statusSimpanSkor");
+
+
+// ======================================================
+// ACAK ARRAY
+// ======================================================
+
+function acakArray(array) {
+
+    return [...array].sort(
+        () => Math.random() - 0.5
+    );
+
+}
+
+
+// ======================================================
+// MEMBERSIHKAN KALIMAT
+// ======================================================
+
+function bersihkanKalimat(kalimat) {
+
+    return kalimat
+        .trim()
+        .replace(/\s+/g, " ");
+
+}
+
+
+// ======================================================
+// MEMECAH KALIMAT MENJADI KATA
+// ======================================================
+
+function pecahKalimat(kalimat) {
+
+    return kalimat
+        .trim()
+        .split(/\s+/)
+        .filter(kata => kata.length > 0);
+
+}
+
+
+// ======================================================
+// MENGAMBIL DATA KAMUS
+// ======================================================
+
+async function ambilDataKamus() {
+
+    try {
+
+        loadingGame.style.display =
+            "block";
+
+        gameArea.style.display =
+            "none";
+
+        hasilGame.style.display =
+            "none";
+
+
+        const response =
+            await fetch(
+                WEB_APP_URL +
+                "?action=kamus&t=" +
+                Date.now()
+            );
+
+
+        if (!response.ok) {
+
+            throw new Error(
+                "Server kamus tidak dapat diakses."
+            );
+
+        }
+
+
+        const data =
+            await response.json();
+
+
+        console.log(
+            "Data kamus diterima:",
+            data
+        );
+
+
+        if (!Array.isArray(data)) {
+
+            throw new Error(
+                "Format data kamus tidak sesuai."
+            );
+
+        }
+
+
+        // ==================================================
+        // HANYA DATA YANG MEMILIKI CONTOH KALIMAT
+        // ==================================================
+
+        semuaKalimat =
+            data
+                .filter(
+                    item =>
+                        item.banjar &&
+                        item.contoh
+                )
+                .map(item => ({
+
+                    banjar:
+                        item.banjar,
+
+                    indonesia:
+                        item.indonesia,
+
+                    kategori:
+                        item.kategori,
+
+                    contoh:
+                        bersihkanKalimat(
+                            item.contoh
+                        )
+
+                }))
+                .filter(
+                    item =>
+                        pecahKalimat(
+                            item.contoh
+                        ).length >= 3
+                );
+
+
+        console.log(
+            "Jumlah contoh kalimat:",
+            semuaKalimat.length
+        );
+
+
+        if (
+            semuaKalimat.length <
+            JUMLAH_SOAL
+        ) {
+
+            throw new Error(
+                "Data kamus belum memiliki minimal 10 contoh kalimat yang dapat digunakan."
+            );
+
+        }
+
+
+        mulaiPermainan();
+
+
+    } catch (error) {
+
+        console.error(
+            "ERROR GAME 04:",
+            error
+        );
+
+
+        loadingGame.innerHTML = `
+
+            <div class="loading-icon">
+                ⚠️
+            </div>
+
+            <h2>
+                Permainan belum dapat dimuat
+            </h2>
+
+            <p>
+                ${error.message}
+            </p>
+
+            <button
+                onclick="location.reload()"
+                class="play-again"
+                type="button"
+            >
+
+                🔄 Coba Lagi
+
+            </button>
+
+        `;
+
+    }
+
+}
+
+
+// ======================================================
+// MEMBUAT SOAL
+// ======================================================
+
+function buatSoal() {
+
+    const dataAcak =
+        acakArray(
+            semuaKalimat
+        );
+
+
+    soal =
+        dataAcak
+            .slice(
+                0,
+                JUMLAH_SOAL
+            )
+            .map(item => {
+
+                const kataAsli =
+                    pecahKalimat(
+                        item.contoh
+                    );
+
+
+                return {
+
+                    banjar:
+                        item.banjar,
+
+                    indonesia:
+                        item.indonesia,
+
+                    kategori:
+                        item.kategori,
+
+                    kalimat:
+                        item.contoh,
+
+                    kataAsli:
+                        kataAsli,
+
+                    kataAcak:
+                        acakArray(
+                            kataAsli
+                        )
+
+                };
+
+            });
+
+}
+
+
+// ======================================================
+// MULAI PERMAINAN
+// ======================================================
+
+function mulaiPermainan() {
+
+    nomorSekarang = 0;
+
+    skor = 0;
+
+    jumlahBenar = 0;
+
+    susunanPemain = [];
+
+    skorSudahDisimpan = false;
+
+
+    namaPemain.value = "";
+
+    statusSimpanSkor.style.display =
+        "none";
+
+    statusSimpanSkor.textContent =
+        "";
+
+
+    simpanSkorButton.disabled =
+        false;
+
+    simpanSkorButton.textContent =
+        "🏆 Simpan Skor";
+
+
+    buatSoal();
+
+
+    loadingGame.style.display =
+        "none";
+
+    hasilGame.style.display =
+        "none";
+
+    gameArea.style.display =
+        "block";
+
+
+    tampilkanSoal();
+
+}
+
+
+// ======================================================
+// MENAMPILKAN SOAL
+// ======================================================
+
+function tampilkanSoal() {
+
+    const pertanyaan =
+        soal[nomorSekarang];
+
+
+    susunanPemain = [];
+
+
+    nomorSoal.textContent =
+        `${nomorSekarang + 1} / ${JUMLAH_SOAL}`;
+
+
+    skorSaatIni.textContent =
+        `${skor} poin`;
+
+
+    progressFill.style.width =
+        `${((nomorSekarang + 1) / JUMLAH_SOAL) * 100}%`;
+
+
+    feedback.style.display =
+        "none";
+
+
+    tombolLanjut.style.display =
+        "none";
+
+
+    periksaJawabanButton.style.display =
+        "inline-flex";
+
+
+    hapusSusunan.disabled =
+        false;
+
+    resetSusunan.disabled =
+        false;
+
+
+    renderSusunan();
+
+    renderKataAcak();
+
+}
+
+
+// ======================================================
+// MENAMPILKAN AREA SUSUNAN
+// ======================================================
+
+function renderSusunan() {
+
+    areaSusunan.innerHTML = "";
+
+
+    if (
+        susunanPemain.length === 0
+    ) {
+
+        const placeholder =
+            document.createElement(
+                "span"
+            );
+
+        placeholder.className =
+            "susun-placeholder";
+
+        placeholder.textContent =
+            "Klik kata-kata di bawah untuk menyusun kalimat.";
+
+        areaSusunan.appendChild(
+            placeholder
+        );
+
+        return;
+
+    }
+
+
+    susunanPemain.forEach(
+        (kata, index) => {
+
+            const chip =
+                document.createElement(
+                    "button"
+                );
+
+            chip.type =
+                "button";
+
+            chip.className =
+                "kata-chip";
+
+            chip.textContent =
+                kata;
+
+            chip.title =
+                "Klik untuk menghapus kata ini";
+
+
+            chip.addEventListener(
+                "click",
+                function() {
+
+                    susunanPemain.splice(
+                        index,
+                        1
+                    );
+
+                    renderSusunan();
+
+                    renderKataAcak();
+
+                }
+            );
+
+
+            areaSusunan.appendChild(
+                chip
+            );
+
+        }
+    );
+
+}
+
+
+// ======================================================
+// MENAMPILKAN KATA ACAK
+// ======================================================
+
+function renderKataAcak() {
+
+    const pertanyaan =
+        soal[nomorSekarang];
+
+
+    kataAcak.innerHTML =
+        "";
+
+
+    pertanyaan.kataAcak.forEach(
+        (kata, index) => {
+
+            const sudahDipilih =
+                susunanPemain.some(
+                    (kataDipilih, posisi) =>
+                        kataDipilih === kata &&
+                        posisi <
+                        susunanPemain.filter(
+                            k =>
+                                k === kata
+                        ).length
+                );
+
+
+            const jumlahSudahDipakai =
+                susunanPemain.filter(
+                    k =>
+                        k === kata
+                ).length;
+
+
+            const jumlahKemunculanSebelum =
+                pertanyaan.kataAcak
+                    .slice(
+                        0,
+                        index
+                    )
+                    .filter(
+                        k =>
+                            k === kata
+                    )
+                    .length;
+
+
+            const kataTerpakai =
+                jumlahKemunculanSebelum <
+                jumlahSudahDipakai;
+
+
+            const tombol =
+                document.createElement(
+                    "button"
+                );
+
+
+            tombol.type =
+                "button";
+
+            tombol.className =
+                "kata-acak-button";
+
+            tombol.textContent =
+                kata;
+
+
+            if (kataTerpakai) {
+
+                tombol.disabled =
+                    true;
+
+                tombol.classList.add(
+                    "used"
+                );
+
+            }
+
+
+            tombol.addEventListener(
+                "click",
+                function() {
+
+                    if (
+                        tombol.disabled
+                    ) {
+
+                        return;
+
+                    }
+
+
+                    susunanPemain.push(
+                        kata
+                    );
+
+
+                    renderSusunan();
+
+                    renderKataAcak();
+
+                }
+            );
+
+
+            kataAcak.appendChild(
+                tombol
+            );
+
+        }
+    );
+
+}
+
+
+// ======================================================
+// HAPUS KATA TERAKHIR
+// ======================================================
+
+hapusSusunan.addEventListener(
+    "click",
+    function() {
+
+        if (
+            susunanPemain.length === 0
+        ) {
+
+            return;
+
+        }
+
+
+        susunanPemain.pop();
+
+        renderSusunan();
+
+        renderKataAcak();
+
+    }
+);
+
+
+// ======================================================
+// RESET SUSUNAN
+// ======================================================
+
+resetSusunan.addEventListener(
+    "click",
+    function() {
+
+        susunanPemain = [];
+
+        renderSusunan();
+
+        renderKataAcak();
+
+    }
+);
+
+
+// ======================================================
+// MEMBUAT VERSI NORMAL UNTUK PERBANDINGAN
+// ======================================================
+
+function normalisasiKalimat(kalimat) {
+
+    return kalimat
+        .trim()
+        .replace(/\s+/g, " ")
+        .toLowerCase();
+
+}
+
+
+// ======================================================
+// MEMERIKSA JAWABAN
+// ======================================================
+
+function periksaJawaban() {
+
+    const pertanyaan =
+        soal[nomorSekarang];
+
+
+    if (
+        susunanPemain.length === 0
+    ) {
+
+        feedbackIcon.textContent =
+            "⚠️";
+
+        feedbackTitle.textContent =
+            "Susun dulu ya!";
+
+        feedbackText.textContent =
+            "Pilih kata-kata di bawah untuk membentuk kalimat.";
+
+        feedback.style.display =
+            "flex";
+
+        return;
+
+    }
+
+
+    if (
+        susunanPemain.length !==
+        pertanyaan.kataAsli.length
+    ) {
+
+        feedbackIcon.textContent =
+            "⚠️";
+
+        feedbackTitle.textContent =
+            "Belum lengkap";
+
+        feedbackText.textContent =
+            "Gunakan semua kata untuk membentuk kalimat.";
+
+        feedback.style.display =
+            "flex";
+
+        return;
+
+    }
+
+
+    const jawabanPemain =
+        susunanPemain.join(" ");
+
+
+    const benar =
+        normalisasiKalimat(
+            jawabanPemain
+        ) ===
+        normalisasiKalimat(
+            pertanyaan.kalimat
+        );
+
+
+    periksaJawabanButton.style.display =
+        "none";
+
+
+    hapusSusunan.disabled =
+        true;
+
+    resetSusunan.disabled =
+        true;
+
+
+    if (benar) {
+
+        skor +=
+            POIN_PER_JAWABAN;
+
+        jumlahBenar++;
+
+
+        feedbackIcon.textContent =
+            "✓";
+
+        feedbackTitle.textContent =
+            "Benar! 🎉";
+
+        feedbackText.textContent =
+            `Hebat! Susunan kalimat kamu tepat. Kamu mendapatkan +${POIN_PER_JAWABAN} poin.`;
+
+
+    } else {
+
+        feedbackIcon.textContent =
+            "✗";
+
+        feedbackTitle.textContent =
+            "Belum tepat";
+
+        feedbackText.textContent =
+            `Susunan yang benar adalah "${pertanyaan.kalimat}".`;
+
+    }
+
+
+    feedback.style.display =
+        "flex";
+
+
+    tombolLanjut.style.display =
+        "flex";
+
+
+    skorSaatIni.textContent =
+        `${skor} poin`;
+
+}
+
+
+// ======================================================
+// TOMBOL PERIKSA
+// ======================================================
+
+periksaJawabanButton.addEventListener(
+    "click",
+    periksaJawaban
+);
+
+
+// ======================================================
+// SOAL BERIKUTNYA
+// ======================================================
+
+tombolLanjut.addEventListener(
+    "click",
+    function() {
+
+        nomorSekarang++;
+
+
+        if (
+            nomorSekarang >=
+            JUMLAH_SOAL
+        ) {
+
+            tampilkanHasil();
+
+        } else {
+
+            tampilkanSoal();
+
+        }
+
+    }
+);
+
+
+// ======================================================
+// HASIL AKHIR
+// ======================================================
+
+function tampilkanHasil() {
+
+    gameArea.style.display =
+        "none";
+
+
+    hasilGame.style.display =
+        "block";
+
+
+    document.getElementById(
+        "skorAkhir"
+    ).textContent =
+        skor;
+
+
+    document.getElementById(
+        "jumlahBenar"
+    ).textContent =
+        jumlahBenar;
+
+
+    namaPemain.value = "";
+
+
+    statusSimpanSkor.style.display =
+        "none";
+
+    statusSimpanSkor.textContent =
+        "";
+
+
+    simpanSkorButton.disabled =
+        false;
+
+    simpanSkorButton.textContent =
+        "🏆 Simpan Skor";
+
+
+    skorSudahDisimpan =
+        false;
+
+}
+
+
+// ======================================================
+// SIMPAN SKOR KE LEADERBOARD
+// ======================================================
+
+async function kirimSkorKeLeaderboard() {
+
+    const nama =
+        namaPemain.value.trim();
+
+
+    // ==================================================
+    // VALIDASI NAMA
+    // ==================================================
+
+    if (!nama) {
+
+        statusSimpanSkor.textContent =
+            "⚠️ Silakan masukkan nama terlebih dahulu.";
+
+        statusSimpanSkor.style.display =
+            "block";
+
+        namaPemain.focus();
+
+        return;
+
+    }
+
+
+    // ==================================================
+    // CEGAH SIMPAN DUA KALI
+    // ==================================================
+
+    if (skorSudahDisimpan) {
+
+        return;
+
+    }
+
+
+    simpanSkorButton.disabled =
+        true;
+
+    simpanSkorButton.textContent =
+        "⏳ Menyimpan...";
+
+
+    statusSimpanSkor.style.display =
+        "block";
+
+    statusSimpanSkor.textContent =
+        "Sedang menyimpan skor...";
+
+
+    try {
+
+        const url =
+            WEB_APP_URL +
+            "?action=simpanSkor" +
+            "&nama=" +
+            encodeURIComponent(nama) +
+            "&skor=" +
+            encodeURIComponent(skor) +
+            "&game=" +
+            encodeURIComponent(GAME_ID) +
+            "&t=" +
+            Date.now();
+
+
+        console.log(
+            "Mengirim skor Game 04:",
+            {
+                nama:
+                    nama,
+
+                skor:
+                    skor,
+
+                game:
+                    GAME_ID
+            }
+        );
+
+
+        const response =
+            await fetch(
+                url
+            );
+
+
+        if (!response.ok) {
+
+            throw new Error(
+                "Server tidak dapat diakses."
+            );
+
+        }
+
+
+        const data =
+            await response.json();
+
+
+        console.log(
+            "Respon simpan skor:",
+            data
+        );
+
+
+        if (!data.success) {
+
+            throw new Error(
+                data.message ||
+                "Skor gagal disimpan."
+            );
+
+        }
+
+
+        // ==================================================
+        // BERHASIL
+        // ==================================================
+
+        skorSudahDisimpan =
+            true;
+
+
+        localStorage.setItem(
+            "lantingKataNamaPemain",
+            nama
+        );
+
+
+        statusSimpanSkor.textContent =
+            `✅ Skor Game 04 berhasil disimpan! Total poin kamu: ${data.totalPoin}`;
+
+
+        simpanSkorButton.textContent =
+            "✅ Skor Tersimpan";
+
+
+    } catch (error) {
+
+        console.error(
+            "ERROR SIMPAN SKOR:",
+            error
+        );
+
+
+        statusSimpanSkor.textContent =
+            "❌ Skor gagal disimpan. Silakan coba lagi.";
+
+
+        simpanSkorButton.disabled =
+            false;
+
+
+        simpanSkorButton.textContent =
+            "🏆 Simpan Skor";
+
+    }
+
+}
+
+
+// ======================================================
+// TOMBOL SIMPAN SKOR
+// ======================================================
+
+simpanSkorButton.addEventListener(
+    "click",
+    kirimSkorKeLeaderboard
+);
+
+
+// ======================================================
+// MAIN LAGI
+// ======================================================
+
+mainLagi.addEventListener(
+    "click",
+    function() {
+
+        mulaiPermainan();
+
+    }
+);
+
+
+// ======================================================
+// JALANKAN GAME
+// ======================================================
+
+ambilDataKamus();
+
+
+</script>
+
+
+
+
+<!-- =====================================================
+     DESIGN LANTING KATA — GAME 04
+===================================================== -->
+
+<style>
+
+/* ---------- HEADER ---------- */
+.tebak-kata-page .game-play-header {
+    position: relative !important;
+    overflow: hidden !important;
+    background: var(--green-dark) !important;
+    box-shadow: 0 3px 15px rgba(33,72,61,.14) !important;
+}
+
+.tebak-kata-page .game-play-header::before {
+    content: "" !important;
+    position: absolute !important;
+    inset: 0 !important;
+    background-image: url("assets/sasirangan-hijau.jpg") !important;
+    background-size: 420px auto !important;
+    background-repeat: repeat !important;
+    background-position: center !important;
+    opacity: .09 !important;
+    pointer-events: none !important;
+}
+
+.tebak-kata-page .game-play-header > * {
+    position: relative !important;
+    z-index: 2 !important;
+}
+
+.tebak-kata-page .game-play-logo {
+    width: 62px !important;
+    height: 62px !important;
+    padding: 3px !important;
+    border-radius: 50% !important;
+    background: var(--white) !important;
+    border: 3px solid var(--gold) !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    overflow: hidden !important;
+    box-shadow: 0 3px 10px rgba(0,0,0,.20) !important;
+}
+
+.tebak-kata-page .game-play-logo img {
+    width: 100% !important;
+    height: 100% !important;
+    object-fit: cover !important;
+    border-radius: 50% !important;
+    display: block !important;
+}
+
+/* ---------- HERO ---------- */
+.tebak-kata-page .tebak-hero {
+    position: relative !important;
+    overflow: hidden !important;
+    background:
+        radial-gradient(circle at 18% 25%, rgba(214,168,79,.14), transparent 28%),
+        radial-gradient(circle at 82% 78%, rgba(255,255,255,.08), transparent 30%),
+        linear-gradient(135deg, var(--green-dark) 0%, var(--green) 62%, #4f806b 100%) !important;
+    box-shadow: inset 0 -2px 0 rgba(214,168,79,.30) !important;
+}
+
+.tebak-kata-page .tebak-hero::before {
+    content: "" !important;
+    position: absolute !important;
+    width: 180px !important;
+    height: 180px !important;
+    border: 1px solid rgba(214,168,79,.18) !important;
+    border-radius: 50% !important;
+    right: -65px !important;
+    top: -75px !important;
+    pointer-events: none !important;
+}
+
+.tebak-kata-page .tebak-hero::after {
+    content: "" !important;
+    position: absolute !important;
+    width: 110px !important;
+    height: 110px !important;
+    border: 1px solid rgba(255,255,255,.10) !important;
+    border-radius: 50% !important;
+    left: -45px !important;
+    bottom: -50px !important;
+    pointer-events: none !important;
+}
+
+/* ---------- MAIN ---------- */
+.tebak-kata-page .tebak-kata-main {
+    background: linear-gradient(to bottom, #fffdf8, #f8f5ed) !important;
+}
+
+.tebak-kata-page .question-card {
+    border: 1px solid rgba(53,104,89,.10) !important;
+    box-shadow: 0 12px 32px rgba(33,72,61,.08) !important;
+}
+
+/* ---------- SUSUN KATA ---------- */
+.tebak-kata-page .area-susunan {
+    min-height: 92px !important;
+    border: 2px dashed rgba(53,104,89,.30) !important;
+    background: #fbfaf5 !important;
+    border-radius: 16px !important;
+    padding: 16px !important;
+}
+
+.tebak-kata-page .kata-chip,
+.tebak-kata-page .kata-acak-button {
+    border-radius: 12px !important;
+    font-weight: 800 !important;
+    transition: transform .18s ease, box-shadow .18s ease, background .18s ease !important;
+}
+
+.tebak-kata-page .kata-chip {
+    background: var(--green-dark) !important;
+    color: var(--white) !important;
+    border: 2px solid var(--green-dark) !important;
+    box-shadow: 0 4px 10px rgba(33,72,61,.13) !important;
+}
+
+.tebak-kata-page .kata-chip:hover {
+    transform: translateY(-2px) !important;
+    box-shadow: 0 6px 14px rgba(33,72,61,.18) !important;
+}
+
+.tebak-kata-page .kata-acak-button {
+    background: var(--white) !important;
+    color: var(--green-dark) !important;
+    border: 2px solid rgba(53,104,89,.22) !important;
+    box-shadow: 0 4px 10px rgba(33,72,61,.06) !important;
+}
+
+.tebak-kata-page .kata-acak-button:hover:not(:disabled) {
+    transform: translateY(-2px) !important;
+    border-color: var(--gold) !important;
+    box-shadow: 0 7px 15px rgba(214,168,79,.16) !important;
+}
+
+.tebak-kata-page .kata-acak-button.used,
+.tebak-kata-page .kata-acak-button:disabled {
+    opacity: .45 !important;
+    cursor: not-allowed !important;
+}
+
+/* ---------- BUTTONS ---------- */
+.tebak-kata-page .susun-primary-button,
+.tebak-kata-page .next-question,
+.tebak-kata-page .play-again {
+    background: var(--green-dark) !important;
+    border-color: var(--green-dark) !important;
+}
+
+.tebak-kata-page .susun-primary-button:hover,
+.tebak-kata-page .next-question:hover,
+.tebak-kata-page .play-again:hover {
+    background: var(--green) !important;
+}
+
+.tebak-kata-page .susun-secondary-button {
+    background: var(--white) !important;
+    color: var(--green-dark) !important;
+    border: 1px solid rgba(53,104,89,.25) !important;
+}
+
+.tebak-kata-page .susun-secondary-button:hover:not(:disabled) {
+    border-color: var(--gold) !important;
+    color: var(--green-dark) !important;
+}
+
+/* ---------- FOOTER ---------- */
+.tebak-kata-page .game-footer {
+    position: relative !important;
+    overflow: hidden !important;
+    width: 100% !important;
+    min-width: 100% !important;
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    justify-content: center !important;
+    text-align: center !important;
+    margin: 0 !important;
+    padding: 35px 20px !important;
+    background: var(--green-dark) !important;
+}
+
+.tebak-kata-page .game-footer::before {
+    content: "" !important;
+    position: absolute !important;
+    inset: 0 !important;
+    background-image: url("assets/sasirangan-hijau.jpg") !important;
+    background-size: 420px auto !important;
+    background-repeat: repeat !important;
+    background-position: center !important;
+    opacity: .08 !important;
+    pointer-events: none !important;
+}
+
+.tebak-kata-page .game-footer > * {
+    position: relative !important;
+    z-index: 2 !important;
+}
+
+.tebak-kata-page .game-footer-logo {
+    width: 100% !important;
+    display: flex !important;
+    flex-direction: row !important;
+    align-items: center !important;
+    justify-content: center !important;
+    text-align: center !important;
+    margin: 0 auto 10px !important;
+    gap: 10px !important;
+}
+
+.tebak-kata-page .game-footer-emblem {
+    width: 46px !important;
+    height: 46px !important;
+    padding: 2px !important;
+    border-radius: 50% !important;
+    background: var(--white) !important;
+    border: 2px solid var(--gold) !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    overflow: hidden !important;
+    flex-shrink: 0 !important;
+}
+
+.tebak-kata-page .game-footer-emblem img {
+    width: 100% !important;
+    height: 100% !important;
+    object-fit: cover !important;
+    border-radius: 50% !important;
+}
+
+.tebak-kata-page .game-footer p {
+    display: block !important;
+    width: 100% !important;
+    max-width: 430px !important;
+    margin: 13px auto !important;
+    padding: 0 !important;
+    text-align: center !important;
+}
+
+.tebak-kata-page .game-footer small {
+    display: block !important;
+    width: 100% !important;
+    margin: 5px auto 0 !important;
+    padding: 0 !important;
+    text-align: center !important;
+}
+
+/* ---------- RESPONSIVE ---------- */
+@media (max-width: 700px) {
+    .tebak-kata-page .game-play-logo {
+        width: 56px !important;
+        height: 56px !important;
+    }
+}
+
+@media (max-width: 480px) {
+    .tebak-kata-page .game-play-logo {
+        width: 50px !important;
+        height: 50px !important;
+        border-width: 2px !important;
+    }
+
+    .tebak-kata-page .game-footer {
+        padding: 30px 16px !important;
+    }
+}
+
+</style>
+
+
+<style id="fix-susun-kata-visual">
+/* =========================================================
+   FINAL VISUAL FIX — GAME 04 SUSUN KATA
+   Header hijau, hero terang, sehingga tidak menyatu.
+========================================================= */
+
+/* HEADER */
+.tebak-kata-page .game-play-header {
+    background: var(--green-dark) !important;
+}
+
+.tebak-kata-page .game-back,
+.tebak-kata-page .game-back:visited,
+.tebak-kata-page .game-play-brand-text,
+.tebak-kata-page .game-play-brand-text strong,
+.tebak-kata-page .game-play-brand-text small {
+    color: var(--white) !important;
+}
+
+.tebak-kata-page .game-back:hover {
+    color: var(--gold) !important;
+}
+
+.tebak-kata-page .game-play-brand-text strong {
+    color: var(--white) !important;
+}
+
+.tebak-kata-page .game-play-brand-text small {
+    color: rgba(255,255,255,.72) !important;
+}
+
+/* HERO — dibuat terang agar terpisah jelas dari header */
+.tebak-kata-page .tebak-hero {
+    position: relative !important;
+    overflow: hidden !important;
+    padding: 58px 20px 55px !important;
+    text-align: center !important;
+    background:
+        linear-gradient(
+            135deg,
+            #fff8e8 0%,
+            #ffffff 55%,
+            #eef6f1 100%
+        ) !important;
+    color: var(--green-dark) !important;
+    border-bottom: 1px solid rgba(53,104,89,.12) !important;
+    box-shadow: none !important;
+}
+
+.tebak-kata-page .tebak-hero > * {
+    position: relative !important;
+    z-index: 2 !important;
+}
+
+.tebak-kata-page .tebak-hero::before {
+    content: "" !important;
+    position: absolute !important;
+    width: 260px !important;
+    height: 260px !important;
+    top: -150px !important;
+    right: -80px !important;
+    border-radius: 50% !important;
+    background: rgba(214,168,79,.10) !important;
+    pointer-events: none !important;
+}
+
+.tebak-kata-page .tebak-hero::after {
+    content: "" !important;
+    position: absolute !important;
+    width: 220px !important;
+    height: 220px !important;
+    bottom: -140px !important;
+    left: -70px !important;
+    border-radius: 50% !important;
+    background: rgba(53,104,89,.06) !important;
+    pointer-events: none !important;
+}
+
+.tebak-kata-page .tebak-hero-decoration {
+    color: var(--gold) !important;
+}
+
+.tebak-kata-page .tebak-icon {
+    background: rgba(53,104,89,.08) !important;
+    color: var(--green-dark) !important;
+    border-color: rgba(53,104,89,.12) !important;
+}
+
+.tebak-kata-page .tebak-label {
+    color: var(--gold) !important;
+}
+
+.tebak-kata-page .tebak-hero h1 {
+    color: var(--green-dark) !important;
+}
+
+.tebak-kata-page .tebak-hero h1 span {
+    color: var(--green) !important;
+}
+
+.tebak-kata-page .tebak-hero > p:last-child {
+    color: #66756f !important;
+}
+
+/* Tombol utama tetap hijau, tetapi sekarang berada di area putih */
+.tebak-kata-page .susun-primary-button,
+.tebak-kata-page .next-question,
+.tebak-kata-page .play-again {
+    background: var(--green-dark) !important;
+    color: var(--white) !important;
+    border-color: var(--green-dark) !important;
+}
+
+.tebak-kata-page .susun-primary-button:hover,
+.tebak-kata-page .next-question:hover,
+.tebak-kata-page .play-again:hover {
+    background: var(--green) !important;
+    color: var(--white) !important;
+}
+
+/* Footer */
+.tebak-kata-page .game-footer {
+    background: var(--green-dark) !important;
+}
+
+.tebak-kata-page .game-footer-logo strong {
+    color: var(--white) !important;
+}
+
+.tebak-kata-page .game-footer-logo strong span {
+    color: var(--gold) !important;
+}
+
+@media (max-width: 700px) {
+    .tebak-kata-page .tebak-hero {
+        padding: 48px 18px 45px !important;
+    }
+
+    .tebak-kata-page .game-back {
+        color: var(--white) !important;
+    }
+}
+
+@media (max-width: 480px) {
+    .tebak-kata-page .tebak-hero {
+        padding: 42px 16px 40px !important;
+    }
+}
+</style>
+
+</body>

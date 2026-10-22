@@ -1,0 +1,618 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Panduan | LANTING KATA</title>
+
+    <link rel="stylesheet" href="css/style.css">
+
+    <style>
+
+        /* =====================================================
+           FOOTER PANDUAN — FULL WIDTH
+           ===================================================== */
+
+        .guide-page .dashboard-footer {
+            position: relative;
+
+            width: 100%;
+            min-width: 100%;
+
+            margin: 0;
+
+            padding: 38px 7% 28px;
+
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+
+            gap: 8px;
+
+            box-sizing: border-box;
+
+            text-align: center;
+
+            background:
+                linear-gradient(
+                    135deg,
+                    #21483d 0%,
+                    #356859 55%,
+                    #21483d 100%
+                );
+
+            color: #ffffff;
+
+            border-top:
+                3px solid #d6a84f;
+
+            overflow: hidden;
+        }
+
+
+        .guide-page .dashboard-footer::before {
+            content: "";
+
+            position: absolute;
+            inset: 0;
+
+            background-image:
+                url("assets/sasirangan-hijau.jpg");
+
+            background-size: 420px auto;
+            background-repeat: repeat;
+            background-position: center;
+
+            opacity: .09;
+
+            pointer-events: none;
+        }
+
+
+        .guide-page .dashboard-footer::after {
+            content: "";
+
+            position: absolute;
+
+            width: 420px;
+            height: 420px;
+
+            right: -180px;
+            bottom: -280px;
+
+            border-radius: 50%;
+
+            background:
+                rgba(214,168,79,.10);
+
+            pointer-events: none;
+        }
+
+
+        .guide-page .dashboard-footer > * {
+            position: relative;
+            z-index: 2;
+        }
+
+
+        .guide-page .dashboard-footer span:first-child {
+            position: relative;
+
+            width: 100%;
+
+            margin: 0 auto 5px;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            gap: 12px;
+
+            color: #ffffff;
+
+            font-size: 20px;
+            font-weight: 900;
+
+            letter-spacing: 1.2px;
+
+            text-align: center;
+        }
+
+
+        .guide-page .dashboard-footer span:first-child::before {
+            content: "";
+
+            width: 44px;
+            height: 44px;
+
+            flex: 0 0 44px;
+
+            display: block;
+
+            background-image:
+                url("assets/logo-lanting-kata.png");
+
+            background-size: cover;
+            background-position: center;
+
+            border-radius: 50%;
+
+            border:
+                2px solid #d6a84f;
+
+            background-color: #ffffff;
+
+            box-shadow:
+                0 4px 12px rgba(0,0,0,.18);
+        }
+
+
+        .guide-page .dashboard-footer span:nth-child(2) {
+            display: block;
+
+            width: 100%;
+            max-width: 500px;
+
+            margin: 0 auto;
+
+            color:
+                rgba(255,255,255,.86);
+
+            font-size: 13px;
+            font-weight: 600;
+
+            line-height: 1.6;
+
+            letter-spacing: .35px;
+
+            text-align: center;
+        }
+
+
+        /* =====================================================
+           MOBILE FOOTER
+           ===================================================== */
+
+        @media (max-width: 520px) {
+
+            .guide-page .dashboard-footer {
+                padding:
+                    32px 18px 25px;
+            }
+
+
+            .guide-page .dashboard-footer span:first-child {
+                font-size: 17px;
+
+                gap: 9px;
+            }
+
+
+            .guide-page .dashboard-footer span:first-child::before {
+                width: 38px;
+                height: 38px;
+
+                flex-basis: 38px;
+            }
+
+        }
+
+    </style>
+
+</head>
+
+<body class="guide-page">
+
+    <!-- =========================
+         NAVBAR
+    ========================== -->
+
+    <header class="dashboard-navbar">
+
+        <a href="dashboard.html"
+           class="back-button">
+            ← Kembali ke Dashboard
+        </a>
+
+        <div class="dashboard-logo">
+
+            <div class="dashboard-logo-emblem">
+                <img
+                    src="assets/logo-lanting-kata.png"
+                    alt="Logo LANTING KATA"
+                >
+            </div>
+
+            <div class="dashboard-logo-text">
+                <span class="logo-main">LANTING</span>
+                <span class="logo-accent">KATA</span>
+            </div>
+
+        </div>
+
+    </header>
+
+
+    <!-- =========================
+         MAIN
+    ========================== -->
+
+    <main class="guide-main">
+
+        <!-- =========================
+             HERO
+        ========================== -->
+
+        <section class="guide-hero">
+
+            <div class="guide-illustration">
+                🏮
+            </div>
+
+            <p class="guide-label">
+                PANDUAN LANTING KATA
+            </p>
+
+            <h1>
+                Yuk, Jelajahi
+                <span>LANTING KATA!</span>
+            </h1>
+
+            <p>
+                Kenali berbagai fitur LANTING KATA
+                dan temukan cara belajar Bahasa Banjar
+                yang mudah, menyenangkan, dan interaktif.
+            </p>
+
+        </section>
+
+
+        <!-- =========================
+             PERJALANAN
+        ========================== -->
+
+        <section class="guide-journey">
+
+            <div class="section-title">
+
+                <p>
+                    LANGKAH PERJALANAN
+                </p>
+
+                <h2>
+                    Mulai dari sini, yuk!
+                </h2>
+
+            </div>
+
+
+            <div class="journey-list">
+
+                <!-- 01 -->
+
+                <div class="journey-item">
+
+                    <div class="journey-number">
+                        01
+                    </div>
+
+                    <div class="journey-icon">
+                        👋
+                    </div>
+
+                    <div class="journey-content">
+
+                        <h3>
+                            Masuk ke LANTING KATA
+                        </h3>
+
+                        <p>
+                            Masukkan nama lengkap dan email
+                            pada halaman masuk sebelum mulai
+                            menjelajahi LANTING KATA.
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <!-- 02 -->
+
+                <div class="journey-item">
+
+                    <div class="journey-number">
+                        02
+                    </div>
+
+                    <div class="journey-icon">
+                        🏠
+                    </div>
+
+                    <div class="journey-content">
+
+                        <h3>
+                            Jelajahi Dashboard
+                        </h3>
+
+                        <p>
+                            Setelah masuk, kamu akan menemukan
+                            berbagai menu utama yang dapat dipilih
+                            sesuai kebutuhan belajar.
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <!-- 03 -->
+
+                <div class="journey-item">
+
+                    <div class="journey-number">
+                        03
+                    </div>
+
+                    <div class="journey-icon">
+                        🔎
+                    </div>
+
+                    <div class="journey-content">
+
+                        <h3>
+                            Cari Arti Kata
+                        </h3>
+
+                        <p>
+                            Ketik kata atau kalimat Bahasa Banjar
+                            maupun Bahasa Indonesia untuk menemukan
+                            arti, contoh kalimat, gambar, dan suara.
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <!-- 04 -->
+
+                <div class="journey-item">
+
+                    <div class="journey-number">
+                        04
+                    </div>
+
+                    <div class="journey-icon">
+                        📚
+                    </div>
+
+                    <div class="journey-content">
+
+                        <h3>
+                            Jelajahi Kamus
+                        </h3>
+
+                        <p>
+                            Temukan berbagai kosakata Bahasa Banjar
+                            berdasarkan kategori seperti benda,
+                            makanan, hewan, tumbuhan, pekerjaan,
+                            dan kategori lainnya.
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <!-- 05 -->
+
+                <div class="journey-item">
+
+                    <div class="journey-number">
+                        05
+                    </div>
+
+                    <div class="journey-icon">
+                        📖
+                    </div>
+
+                    <div class="journey-content">
+
+                        <h3>
+                            Baca Cerita Pendek
+                        </h3>
+
+                        <p>
+                            Nikmati cerita pendek berbahasa Banjar
+                            lengkap dengan terjemahan Bahasa Indonesia
+                            dan ilustrasi yang menarik.
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <!-- 06 -->
+
+                <div class="journey-item">
+
+                    <div class="journey-number">
+                        06
+                    </div>
+
+                    <div class="journey-icon">
+                        🎮
+                    </div>
+
+                    <div class="journey-content">
+
+                        <h3>
+                            Belajar Sambil Bermain
+                        </h3>
+
+                        <p>
+                            Uji kemampuan Bahasa Banjar melalui
+                            permainan tebak kata, tebak gambar,
+                            dengar dan jawab, susun kata,
+                            benar atau salah, dan pasangkan kata.
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <!-- 07 -->
+
+                <div class="journey-item">
+
+                    <div class="journey-number">
+                        07
+                    </div>
+
+                    <div class="journey-icon">
+                        💬
+                    </div>
+
+                    <div class="journey-content">
+
+                        <h3>
+                            FAQ & Ulasan
+                        </h3>
+
+                        <p>
+                            Temukan jawaban atas pertanyaan umum dan bagikan 
+                            pengalaman, pendapat, serta kesanmu setelah menggunakan 
+                            LANTING KATA untuk belajar Bahasa Banjar.
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <!-- 08 -->
+
+                <div class="journey-item">
+
+                    <div class="journey-number">
+                        08
+                    </div>
+
+                    <div class="journey-icon">
+                        ➕
+                    </div>
+
+                    <div class="journey-content">
+
+                        <h3>
+                            Ikut Berkontribusi
+                        </h3>
+
+                        <p>
+                            Kamu juga dapat membantu memperkaya
+                            LANTING KATA dengan mengirimkan
+                            kosakata atau kalimat Bahasa Banjar.
+                        </p>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =========================
+             TIPS
+        ========================== -->
+
+        <section class="guide-tips">
+
+            <div class="tips-card">
+
+                <div class="tips-icon">
+                    💡
+                </div>
+
+                <div>
+
+                    <p class="tips-label">
+                        TIPS BELAJAR
+                    </p>
+
+                    <h2>
+                        Belajar sedikit demi sedikit,
+                        lama-lama jadi mahir!
+                    </h2>
+
+                    <p>
+                        Coba gunakan LANTING KATA secara
+                        rutin. Mulailah dengan mencari beberapa
+                        kosakata baru, membaca cerita, kemudian
+                        uji kemampuanmu melalui games.
+                    </p>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =========================
+             CTA
+        ========================== -->
+
+        <section class="guide-cta">
+
+            <h2>
+                Siap menjelajahi
+                LANTING KATA?
+            </h2>
+
+            <p>
+                Yuk, kembali ke dashboard dan pilih
+                fitur yang ingin kamu gunakan.
+            </p>
+
+            <a href="dashboard.html"
+               class="guide-cta-button">
+
+                Mulai Menjelajah
+                <span>→</span>
+
+            </a>
+
+        </section>
+
+    </main>
+
+
+    <!-- =========================
+         FOOTER
+         FULL WIDTH
+    ========================== -->
+
+    <footer class="dashboard-footer">
+
+        <span>
+            © 2026 LANTING KATA
+        </span>
+
+        <span>
+            Belajar • Mengenal • Melestarikan
+        </span>
+
+    </footer>
+
+
+</body>
+
+</html>

@@ -1,0 +1,1656 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>Cari Kosakata | LANTING KATA</title>
+
+    <link
+        rel="stylesheet"
+        href="css/style.css"
+    >
+
+    <style>
+
+        /* =========================================================
+           CARI KOSAKATA — LANTING KATA
+           ========================================================= */
+
+        * {
+            box-sizing: border-box;
+        }
+
+
+        body.cari-page {
+
+            margin: 0;
+
+            min-height: 100vh;
+
+            font-family: Arial, sans-serif;
+
+            background: var(--cream);
+
+            color: var(--text);
+        }
+
+
+        /* =========================================================
+           HEADER
+           ========================================================= */
+
+        body.cari-page .cari-header {
+
+            position: relative;
+
+            width: 100%;
+
+            min-height: 88px;
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: space-between;
+
+            padding: 10px 7%;
+
+            background-color: var(--green-dark);
+
+            overflow: hidden;
+
+            box-shadow:
+                0 3px 15px rgba(33, 72, 61, 0.15);
+
+            z-index: 20;
+        }
+
+
+        body.cari-page .cari-header::before {
+
+            content: "";
+
+            position: absolute;
+
+            inset: 0;
+
+            background-image:
+                url("assets/sasirangan-hijau.jpg");
+
+            background-size: 420px auto;
+
+            background-repeat: repeat;
+
+            background-position: center;
+
+            opacity: 0.09;
+
+            pointer-events: none;
+        }
+
+
+        /* =========================================================
+           LOGO
+           ========================================================= */
+
+        body.cari-page .cari-brand {
+
+            position: relative;
+
+            z-index: 2;
+
+            display: flex;
+
+            align-items: center;
+
+            gap: 12px;
+        }
+
+
+        body.cari-page .cari-logo-emblem {
+
+            width: 64px;
+
+            height: 64px;
+
+            padding: 3px;
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+            background: var(--white);
+
+            border:
+                3px solid var(--gold);
+
+            border-radius: 50%;
+
+            overflow: hidden;
+
+            box-shadow:
+                0 3px 10px rgba(0, 0, 0, 0.20);
+
+            transition:
+                transform 0.25s ease,
+                box-shadow 0.25s ease;
+        }
+
+
+        body.cari-page .cari-logo-emblem img {
+
+            width: 100%;
+
+            height: 100%;
+
+            display: block;
+
+            object-fit: cover;
+
+            border-radius: 50%;
+        }
+
+
+        body.cari-page .cari-logo-emblem:hover {
+
+            transform: translateY(-2px);
+
+            box-shadow:
+                0 6px 15px rgba(0, 0, 0, 0.24);
+        }
+
+
+        body.cari-page .cari-brand-text {
+
+            display: flex;
+
+            align-items: center;
+
+            font-size: 20px;
+
+            font-weight: 900;
+
+            letter-spacing: 1.5px;
+
+            line-height: 1;
+        }
+
+
+        body.cari-page .cari-brand-text .brand-main {
+
+            color: var(--white);
+        }
+
+
+        body.cari-page .cari-brand-text .brand-accent {
+
+            color: var(--gold);
+
+            margin-left: 4px;
+        }
+
+
+        /* =========================================================
+           BACK BUTTON
+           ========================================================= */
+
+        body.cari-page .cari-back {
+
+            position: relative;
+
+            z-index: 2;
+
+            display: inline-flex;
+
+            align-items: center;
+
+            padding: 10px 16px;
+
+            border:
+                1px solid rgba(255, 255, 255, 0.28);
+
+            border-radius: 999px;
+
+            color: var(--white);
+
+            text-decoration: none;
+
+            font-size: 13px;
+
+            font-weight: 700;
+
+            background:
+                rgba(255, 255, 255, 0.08);
+
+            transition:
+                background 0.25s ease,
+                transform 0.25s ease,
+                border-color 0.25s ease;
+        }
+
+
+        body.cari-page .cari-back:hover {
+
+            background:
+                rgba(255, 255, 255, 0.16);
+
+            border-color:
+                rgba(255, 255, 255, 0.5);
+
+            transform:
+                translateX(-2px);
+        }
+
+
+        /* =========================================================
+           MAIN
+           ========================================================= */
+
+        body.cari-page .cari-main {
+
+            width: 86%;
+
+            max-width: 1050px;
+
+            margin: 0 auto;
+
+            padding: 70px 0 90px;
+        }
+
+
+        /* =========================================================
+           HERO / JUDUL
+           ========================================================= */
+
+        body.cari-page .cari-intro {
+
+            text-align: center;
+
+            margin-bottom: 35px;
+        }
+
+
+        body.cari-page .cari-label {
+
+            display: inline-block;
+
+            margin-bottom: 12px;
+
+            color: var(--green);
+
+            font-size: 12px;
+
+            font-weight: 900;
+
+            letter-spacing: 3px;
+        }
+
+
+        body.cari-page .cari-intro h1 {
+
+            margin: 0 0 14px;
+
+            color: var(--green-dark);
+
+            font-size:
+                clamp(32px, 5vw, 52px);
+
+            font-weight: 900;
+
+            line-height: 1.1;
+        }
+
+
+        body.cari-page .cari-intro h1 span {
+
+            color: var(--gold);
+        }
+
+
+        body.cari-page .cari-intro p {
+
+            max-width: 650px;
+
+            margin: 0 auto;
+
+            color: #65756f;
+
+            font-size: 15px;
+
+            line-height: 1.8;
+        }
+
+
+        /* =========================================================
+           SEARCH CARD
+           ========================================================= */
+
+        body.cari-page .search-box {
+
+            position: relative;
+
+            width: 100%;
+
+            padding: 35px;
+
+            background: var(--white);
+
+            border:
+                1px solid rgba(53, 104, 89, 0.10);
+
+            border-radius: 26px;
+
+            box-shadow:
+                0 12px 35px rgba(33, 72, 61, 0.08);
+
+            overflow: hidden;
+        }
+
+
+        body.cari-page .search-box::before {
+
+            content: "";
+
+            position: absolute;
+
+            top: 0;
+
+            left: 0;
+
+            right: 0;
+
+            height: 6px;
+
+            background:
+                linear-gradient(
+                    90deg,
+                    var(--green-dark),
+                    var(--gold),
+                    var(--green-light)
+                );
+        }
+
+
+        body.cari-page .search-box::after {
+
+            content: "";
+
+            position: absolute;
+
+            right: -80px;
+
+            bottom: -100px;
+
+            width: 230px;
+
+            height: 230px;
+
+            background-image:
+                url("assets/sasirangan-hijau.jpg");
+
+            background-size: 300px auto;
+
+            background-repeat: repeat;
+
+            border-radius: 50%;
+
+            opacity: 0.045;
+
+            pointer-events: none;
+        }
+
+
+        body.cari-page .search-box h2 {
+
+            position: relative;
+
+            z-index: 2;
+
+            margin: 0 0 22px;
+
+            text-align: center;
+
+            color: var(--green-dark);
+
+            font-size: 23px;
+
+            font-weight: 800;
+        }
+
+
+        /* =========================================================
+           SEARCH AREA
+           ========================================================= */
+
+        body.cari-page .search-area {
+
+            position: relative;
+
+            z-index: 3;
+
+            display: flex;
+
+            align-items: stretch;
+
+            gap: 12px;
+
+            width: 100%;
+        }
+
+
+        body.cari-page .search-area input {
+
+            flex: 1 1 auto;
+
+            min-width: 0;
+
+            width: 100%;
+
+            height: 54px;
+
+            padding: 0 18px;
+
+            border:
+                2px solid #d9e4df;
+
+            border-radius: 14px;
+
+            outline: none;
+
+            background: #fbfdfc;
+
+            color: var(--text);
+
+            font-family: inherit;
+
+            font-size: 15px;
+
+            transition:
+                border-color 0.25s ease,
+                box-shadow 0.25s ease,
+                background 0.25s ease;
+        }
+
+
+        body.cari-page .search-area input::placeholder {
+
+            color: #91a09b;
+        }
+
+
+        body.cari-page .search-area input:focus {
+
+            border-color: var(--green);
+
+            background: var(--white);
+
+            box-shadow:
+                0 0 0 4px rgba(53, 104, 89, 0.10);
+        }
+
+
+        body.cari-page .search-area button {
+
+            flex: 0 0 auto;
+
+            min-width: 110px;
+
+            height: 54px;
+
+            padding: 0 24px;
+
+            border: none;
+
+            border-radius: 14px;
+
+            background: var(--green-dark);
+
+            color: var(--white);
+
+            font-family: inherit;
+
+            font-size: 15px;
+
+            font-weight: 800;
+
+            cursor: pointer;
+
+            box-shadow:
+                0 5px 14px rgba(33, 72, 61, 0.18);
+
+            transition:
+                background 0.25s ease,
+                transform 0.25s ease,
+                box-shadow 0.25s ease;
+        }
+
+
+        body.cari-page .search-area button:hover {
+
+            background: var(--green);
+
+            transform:
+                translateY(-2px);
+
+            box-shadow:
+                0 8px 18px rgba(33, 72, 61, 0.22);
+        }
+
+
+        body.cari-page .search-area button:active {
+
+            transform:
+                translateY(0);
+        }
+
+
+        /* =========================================================
+           HASIL PENCARIAN
+           ========================================================= */
+
+        body.cari-page #hasil {
+
+            position: relative;
+
+            z-index: 2;
+
+            margin-top: 28px;
+        }
+
+
+        body.cari-page .pesan {
+
+            padding: 28px 20px;
+
+            text-align: center;
+
+            color: #788984;
+
+            font-size: 14px;
+
+            line-height: 1.7;
+
+            background: #f7faf8;
+
+            border:
+                1px dashed #cbdad4;
+
+            border-radius: 16px;
+        }
+
+
+        /* =========================================================
+           KARTU HASIL
+           ========================================================= */
+
+        body.cari-page .hasil-card {
+
+            position: relative;
+
+            margin-bottom: 18px;
+
+            padding: 25px 28px;
+
+            background: #f7fbf9;
+
+            border:
+                1px solid rgba(53, 104, 89, 0.10);
+
+            border-left:
+                5px solid var(--green);
+
+            border-radius: 18px;
+
+            box-shadow:
+                0 7px 20px rgba(33, 72, 61, 0.06);
+
+            overflow: hidden;
+
+            transition:
+                transform 0.25s ease,
+                box-shadow 0.25s ease;
+        }
+
+
+        body.cari-page .hasil-card:hover {
+
+            transform:
+                translateY(-3px);
+
+            box-shadow:
+                0 12px 26px rgba(33, 72, 61, 0.10);
+        }
+
+
+        body.cari-page .hasil-card h3 {
+
+            margin: 0 0 12px;
+
+            color: var(--green-dark);
+
+            font-size: 22px;
+
+            font-weight: 900;
+
+            line-height: 1.3;
+        }
+
+
+        body.cari-page .hasil-card p {
+
+            margin: 7px 0;
+
+            color: #596c66;
+
+            font-size: 14px;
+
+            line-height: 1.7;
+        }
+
+
+        /* =========================================================
+           GAMBAR KATA
+           ========================================================= */
+
+        body.cari-page .gambar-kata {
+
+            display: block;
+
+            width: 180px;
+
+            height: 140px;
+
+            object-fit: cover;
+
+            margin: 18px auto;
+
+            border:
+                3px solid var(--white);
+
+            border-radius: 16px;
+
+            box-shadow:
+                0 6px 18px rgba(33, 72, 61, 0.12);
+        }
+
+
+        /* =========================================================
+           AUDIO
+           ========================================================= */
+
+        body.cari-page .audio-kata {
+
+            display: flex;
+
+            justify-content: center;
+
+            width: 100%;
+
+            margin: 18px 0;
+        }
+
+
+        body.cari-page .audio-kata audio {
+
+            width: 100%;
+
+            max-width: 400px;
+        }
+
+
+        body.cari-page .audio-drive {
+
+            display: block;
+
+            width: 100%;
+
+            max-width: 400px;
+
+            margin: 15px auto;
+
+            border: none;
+
+            border-radius: 10px;
+        }
+
+
+        /* =========================================================
+           RIWAYAT PENCARIAN
+           ========================================================= */
+
+        body.cari-page .riwayat-pencarian {
+
+            position: relative;
+
+            z-index: 3;
+
+            margin-top: 30px;
+
+            padding: 25px 0 5px;
+
+            border-top:
+                1px solid #dfe9e4;
+        }
+
+
+        body.cari-page .riwayat-header {
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: space-between;
+
+            gap: 15px;
+
+            margin-bottom: 15px;
+        }
+
+
+        body.cari-page .riwayat-header h3 {
+
+            margin: 0;
+
+            color: var(--green-dark);
+
+            font-size: 18px;
+
+            font-weight: 800;
+        }
+
+
+        body.cari-page .riwayat-header button {
+
+            border: none;
+
+            background: transparent;
+
+            color: #8b6b32;
+
+            font-family: inherit;
+
+            font-size: 12px;
+
+            font-weight: 700;
+
+            cursor: pointer;
+
+            padding: 6px 8px;
+
+            border-radius: 8px;
+
+            transition:
+                background 0.25s ease,
+                color 0.25s ease;
+        }
+
+
+        body.cari-page .riwayat-header button:hover {
+
+            background:
+                rgba(214, 168, 79, 0.10);
+
+            color: var(--green-dark);
+        }
+
+
+        body.cari-page .riwayat-list {
+
+            display: flex;
+
+            flex-wrap: wrap;
+
+            gap: 9px;
+        }
+
+
+        body.cari-page .riwayat-item {
+
+            display: inline-flex;
+
+            align-items: center;
+
+            gap: 6px;
+
+            padding: 9px 13px;
+
+            border:
+                1px solid #dce7e2;
+
+            border-radius: 999px;
+
+            background: #f7faf8;
+
+            color: var(--green-dark);
+
+            font-family: inherit;
+
+            font-size: 13px;
+
+            font-weight: 700;
+
+            cursor: pointer;
+
+            transition:
+                background 0.25s ease,
+                border-color 0.25s ease,
+                transform 0.25s ease;
+        }
+
+
+        body.cari-page .riwayat-item:hover {
+
+            background: #eef6f2;
+
+            border-color: var(--green);
+
+            transform:
+                translateY(-2px);
+        }
+
+
+        body.cari-page .riwayat-kosong {
+
+            color: #899792;
+
+            font-size: 13px;
+
+            line-height: 1.6;
+
+            padding: 4px 0;
+        }
+
+
+        /* =========================================================
+           KEMBALI
+           ========================================================= */
+
+        body.cari-page .kembali {
+
+            display: flex;
+
+            width: fit-content;
+
+            margin: 28px auto 0;
+
+            padding: 10px 18px;
+
+            color: var(--green);
+
+            font-size: 14px;
+
+            font-weight: 800;
+
+            text-decoration: none;
+
+            border-radius: 999px;
+
+            transition:
+                background 0.25s ease,
+                color 0.25s ease,
+                transform 0.25s ease;
+        }
+
+
+        body.cari-page .kembali:hover {
+
+            background:
+                rgba(53, 104, 89, 0.08);
+
+            color: var(--green-dark);
+
+            transform:
+                translateX(-3px);
+        }
+
+
+        /* =========================================================
+           RESPONSIVE TABLET
+           ========================================================= */
+
+        @media (max-width: 800px) {
+
+            body.cari-page .cari-header {
+
+                padding: 10px 5%;
+            }
+
+
+            body.cari-page .cari-main {
+
+                width: 90%;
+
+                padding-top: 55px;
+            }
+
+
+            body.cari-page .search-box {
+
+                padding: 28px 24px;
+            }
+
+
+            body.cari-page .cari-logo-emblem {
+
+                width: 58px;
+
+                height: 58px;
+
+                border-width: 2px;
+            }
+
+
+            body.cari-page .cari-brand-text {
+
+                font-size: 18px;
+            }
+        }
+
+
+        /* =========================================================
+           RESPONSIVE HP
+           ========================================================= */
+
+        @media (max-width: 600px) {
+
+            body.cari-page .cari-header {
+
+                min-height: 78px;
+
+                padding: 9px 5%;
+            }
+
+
+            body.cari-page .cari-logo-emblem {
+
+                width: 52px;
+
+                height: 52px;
+            }
+
+
+            body.cari-page .cari-brand-text {
+
+                display: none;
+            }
+
+
+            body.cari-page .cari-back {
+
+                padding: 8px 12px;
+
+                font-size: 12px;
+            }
+
+
+            body.cari-page .cari-main {
+
+                width: 92%;
+
+                padding: 45px 0 60px;
+            }
+
+
+            body.cari-page .cari-intro {
+
+                margin-bottom: 28px;
+            }
+
+
+            body.cari-page .cari-intro h1 {
+
+                font-size: 34px;
+            }
+
+
+            body.cari-page .cari-intro p {
+
+                font-size: 13px;
+            }
+
+
+            body.cari-page .search-box {
+
+                padding: 28px 18px;
+
+                border-radius: 21px;
+            }
+
+
+            body.cari-page .search-box h2 {
+
+                font-size: 20px;
+            }
+
+
+            body.cari-page .search-area {
+
+                flex-direction: column;
+
+                gap: 10px;
+            }
+
+
+            body.cari-page .search-area input,
+
+            body.cari-page .search-area button {
+
+                width: 100%;
+            }
+
+
+            body.cari-page .search-area button {
+
+                min-height: 52px;
+            }
+
+
+            body.cari-page .hasil-card {
+
+                padding: 22px 20px;
+            }
+
+
+            body.cari-page .hasil-card h3 {
+
+                font-size: 20px;
+            }
+
+
+            body.cari-page .riwayat-header {
+
+                align-items: flex-start;
+
+                flex-direction: column;
+
+                gap: 7px;
+            }
+
+
+            body.cari-page .riwayat-header h3 {
+
+                font-size: 16px;
+            }
+
+
+            body.cari-page .riwayat-header button {
+
+                padding-left: 0;
+            }
+
+
+            body.cari-page .riwayat-item {
+
+                font-size: 12px;
+
+                padding: 8px 11px;
+            }
+        }
+
+
+        /* =========================================================
+           HP KECIL
+           ========================================================= */
+
+        @media (max-width: 400px) {
+
+            body.cari-page .cari-header {
+
+                padding: 9px 4%;
+            }
+
+
+            body.cari-page .cari-back {
+
+                font-size: 11px;
+
+                padding: 8px 10px;
+            }
+
+
+            body.cari-page .cari-main {
+
+                width: 94%;
+            }
+
+
+            body.cari-page .cari-intro h1 {
+
+                font-size: 30px;
+            }
+
+
+            body.cari-page .search-box {
+
+                padding: 24px 15px;
+            }
+        }
+
+
+        /* =========================================================
+           FOOTER — FULL WIDTH
+           ========================================================= */
+
+        body.cari-page .page-footer {
+
+            position: relative;
+
+            width: 100%;
+
+            min-width: 100%;
+
+            margin: 0;
+
+            padding: 38px 7% 28px;
+
+            display: flex;
+
+            flex-direction: column;
+
+            align-items: center;
+
+            justify-content: center;
+
+            gap: 8px;
+
+            box-sizing: border-box;
+
+            text-align: center;
+
+            background:
+                linear-gradient(
+                    135deg,
+                    #21483d 0%,
+                    #356859 55%,
+                    #21483d 100%
+                );
+
+            color: #ffffff;
+
+            border-top:
+                3px solid #d6a84f;
+
+            overflow: hidden;
+        }
+
+
+        body.cari-page .page-footer::before {
+
+            content: "";
+
+            position: absolute;
+
+            inset: 0;
+
+            background-image:
+                url("assets/sasirangan-hijau.jpg");
+
+            background-size: 420px auto;
+
+            background-repeat: repeat;
+
+            background-position: center;
+
+            opacity: .09;
+
+            pointer-events: none;
+        }
+
+
+        body.cari-page .page-footer::after {
+
+            content: "";
+
+            position: absolute;
+
+            width: 420px;
+
+            height: 420px;
+
+            right: -180px;
+
+            bottom: -280px;
+
+            border-radius: 50%;
+
+            background:
+                rgba(214,168,79,.10);
+
+            pointer-events: none;
+        }
+
+
+        body.cari-page .page-footer > * {
+
+            position: relative;
+
+            z-index: 2;
+        }
+
+
+        body.cari-page .page-footer .footer-brand {
+
+            width: 100%;
+
+            margin: 0 auto 5px;
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+            gap: 12px;
+
+            text-align: center;
+        }
+
+
+        body.cari-page .page-footer .footer-brand .brand-logo {
+
+            width: 44px;
+
+            height: 44px;
+
+            flex: 0 0 44px;
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+            overflow: hidden;
+
+            border-radius: 50%;
+
+            border:
+                2px solid #d6a84f;
+
+            background: #ffffff;
+
+            box-shadow:
+                0 4px 12px rgba(0,0,0,.18);
+        }
+
+
+        body.cari-page .page-footer .footer-brand .brand-logo img {
+
+            width: 100%;
+
+            height: 100%;
+
+            display: block;
+
+            object-fit: cover;
+
+            object-position: center;
+        }
+
+
+        body.cari-page .page-footer .footer-brand .brand-name {
+
+            color: #ffffff;
+
+            font-size: 20px;
+
+            font-weight: 900;
+
+            line-height: 1.1;
+
+            letter-spacing: 1.2px;
+
+            text-align: center;
+        }
+
+
+        body.cari-page .page-footer .footer-brand .brand-name span {
+
+            color: #d6a84f;
+        }
+
+
+        body.cari-page .page-footer > p:not(.copyright) {
+
+            display: block;
+
+            width: 100%;
+
+            max-width: 500px;
+
+            margin: 0 auto;
+
+            color:
+                rgba(255,255,255,.86);
+
+            font-size: 13px;
+
+            font-weight: 600;
+
+            line-height: 1.6;
+
+            letter-spacing: .35px;
+
+            text-align: center;
+        }
+
+
+        body.cari-page .page-footer .copyright {
+
+            display: block;
+
+            width: 100%;
+
+            max-width: 700px;
+
+            margin: 5px auto 0;
+
+            color:
+                rgba(255,255,255,.70);
+
+            font-size: 11px;
+
+            font-weight: 500;
+
+            line-height: 1.6;
+
+            text-align: center;
+        }
+
+
+        @media (max-width: 520px) {
+
+            body.cari-page .page-footer {
+
+                padding:
+                    32px 18px 25px;
+            }
+
+
+            body.cari-page .page-footer .footer-brand {
+
+                gap: 9px;
+            }
+
+
+            body.cari-page .page-footer .footer-brand .brand-logo {
+
+                width: 38px;
+
+                height: 38px;
+
+                flex-basis: 38px;
+            }
+
+
+            body.cari-page .page-footer .footer-brand .brand-name {
+
+                font-size: 17px;
+            }
+
+
+            body.cari-page .page-footer > p:not(.copyright) {
+
+                font-size: 12px;
+            }
+
+
+            body.cari-page .page-footer .copyright {
+
+                font-size: 10px;
+            }
+        }
+
+    </style>
+
+</head>
+
+
+<body class="cari-page">
+
+
+    <!-- =========================================================
+         HEADER
+         ========================================================= -->
+
+    <header class="cari-header">
+
+        <div class="cari-brand">
+
+            <div class="cari-logo-emblem">
+
+                <img
+                    src="assets/logo-lanting-kata.png"
+                    alt="Logo LANTING KATA"
+                >
+
+            </div>
+
+
+            <div class="cari-brand-text">
+
+                <span class="brand-main">
+                    LANTING
+                </span>
+
+                <span class="brand-accent">
+                    KATA
+                </span>
+
+            </div>
+
+        </div>
+
+
+        <a
+            href="dashboard.html"
+            class="cari-back"
+        >
+            ← Kembali ke Dashboard
+        </a>
+
+    </header>
+
+
+
+    <!-- =========================================================
+         MAIN
+         ========================================================= -->
+
+    <main class="cari-main">
+
+
+        <!-- INTRO -->
+
+        <section class="cari-intro">
+
+            <div class="cari-label">
+                KAMUS DIGITAL BAHASA BANJAR
+            </div>
+
+
+            <h1>
+                Cari <span>Arti Kata</span>
+            </h1>
+
+
+            <p>
+                Temukan arti kosakata Bahasa Banjar dengan mudah.
+                Ketik kata yang ingin kamu cari pada kolom pencarian di bawah ini.
+            </p>
+
+        </section>
+
+
+
+        <!-- =====================================================
+             SEARCH
+             ===================================================== -->
+
+        <section class="search-box">
+
+            <h2>
+                🔎 Cari Kosakata
+            </h2>
+
+
+            <div class="search-area">
+
+                <input
+                    type="text"
+                    id="inputPencarian"
+                    placeholder="Ketik kosakata Banjar..."
+                    aria-label="Cari kosakata Bahasa Banjar"
+                    autocomplete="off"
+                    onkeydown="tekanEnter(event)"
+                >
+
+
+                <button
+                    type="button"
+                    onclick="cariKata()"
+                >
+                    Cari
+                </button>
+
+            </div>
+
+
+
+            <!-- =================================================
+                 HASIL PENCARIAN
+                 ================================================= -->
+
+            <div id="hasil">
+
+                <div class="pesan">
+                    Ketik kata yang ingin dicari.
+                </div>
+
+            </div>
+
+
+
+            <!-- =================================================
+                 RIWAYAT PENCARIAN
+                 ================================================= -->
+
+            <section
+                class="riwayat-pencarian"
+                id="riwayatPencarian"
+            >
+
+                <div class="riwayat-header">
+
+                    <h3>
+                        🕘 Riwayat Pencarian
+                    </h3>
+
+
+                    <button
+                        type="button"
+                        id="hapusRiwayat"
+                        onclick="hapusSemuaRiwayat()"
+                    >
+                        Hapus riwayat
+                    </button>
+
+                </div>
+
+
+                <div
+                    class="riwayat-list"
+                    id="daftarRiwayat"
+                >
+
+                    <!--
+                        Riwayat pencarian akan
+                        muncul otomatis melalui cari.js.
+                    -->
+
+                </div>
+
+            </section>
+
+        </section>
+
+
+
+        <!-- =====================================================
+             KEMBALI
+             ===================================================== -->
+
+        <a
+            href="dashboard.html"
+            class="kembali"
+        >
+            ← Kembali ke Dashboard
+        </a>
+
+    </main>
+
+
+
+    <!-- =========================================================
+         FOOTER
+         ========================================================= -->
+
+    <footer class="page-footer">
+
+        <div class="footer-brand">
+
+            <div class="brand-logo">
+
+                <img
+                    src="assets/logo-lanting-kata.png"
+                    alt="Logo LANTING KATA"
+                >
+
+            </div>
+
+
+            <div class="brand-name">
+
+                LANTING <span>KATA</span>
+
+            </div>
+
+        </div>
+
+
+        <p>
+            Belajar Bahasa Banjar menjadi lebih mudah,
+            menyenangkan, dan interaktif.
+        </p>
+
+
+        <p class="copyright">
+
+            © 2026 LANTING KATA.
+            Dikembangkan untuk Proyek Kepemimpinan
+            PPG Prajabatan PGSD Universitas Lambung Mangkurat.
+
+        </p>
+
+    </footer>
+
+
+
+    <!-- =========================================================
+         JAVASCRIPT PENCARIAN
+         ========================================================= -->
+
+    <script src="cari.js"></script>
+
+</body>
+
+</html>

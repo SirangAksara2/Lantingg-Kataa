@@ -1,0 +1,2577 @@
+/* =========================================================
+   BADAKUAN
+   CSS KHUSUS HALAMAN BADAKUAN
+========================================================= */
+
+
+/* =========================================================
+   DASAR
+========================================================= */
+
+.badakuan-page {
+
+    margin: 0;
+
+    background:
+        #fffdf7;
+
+    color:
+        #40534b;
+
+    font-family:
+        Arial,
+        Helvetica,
+        sans-serif;
+
+}
+
+
+.badakuan-page * {
+
+    box-sizing:
+        border-box;
+
+}
+
+
+.badakuan-page button,
+.badakuan-page a {
+
+    font-family:
+        inherit;
+
+}
+
+
+/* =========================================================
+   HEADER
+========================================================= */
+
+.badakuan-page .badakuan-header {
+
+    position: relative;
+
+    width: 100%;
+
+    min-height: 88px;
+
+    padding:
+        10px 7%;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+    background:
+        #21483d;
+
+    overflow: hidden;
+
+    box-shadow:
+        0 4px 18px rgba(33,72,61,0.15);
+
+}
+
+
+.badakuan-page .badakuan-header::before {
+
+    content: "";
+
+    position: absolute;
+
+    inset: 0;
+
+    background-image:
+        url("../assets/sasirangan-hijau.jpg");
+
+    background-size:
+        420px auto;
+
+    background-repeat:
+        repeat;
+
+    opacity:
+        0.09;
+
+    pointer-events:
+        none;
+
+}
+
+
+.badakuan-page .badakuan-back {
+
+    position: relative;
+
+    z-index: 2;
+
+    display: inline-flex;
+
+    align-items: center;
+
+    padding:
+        10px 16px;
+
+    border:
+        1px solid rgba(255,255,255,0.22);
+
+    border-radius:
+        999px;
+
+    background:
+        rgba(255,255,255,0.08);
+
+    color:
+        rgba(255,255,255,0.94);
+
+    text-decoration:
+        none;
+
+    font-size:
+        13px;
+
+    font-weight:
+        700;
+
+    transition:
+        background .25s ease,
+        transform .25s ease;
+
+}
+
+
+.badakuan-page .badakuan-back:hover {
+
+    background:
+        rgba(255,255,255,0.16);
+
+    transform:
+        translateX(-3px);
+
+}
+
+
+/* =========================================================
+   BRAND
+========================================================= */
+
+.badakuan-page .badakuan-brand {
+
+    position: relative;
+
+    z-index: 2;
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 11px;
+
+}
+
+
+.badakuan-page .badakuan-brand-logo {
+
+    width: 62px;
+
+    height: 62px;
+
+    padding: 3px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    overflow: hidden;
+
+    border-radius: 50%;
+
+    background:
+        #ffffff;
+
+    border:
+        3px solid #d6a84f;
+
+    box-shadow:
+        0 3px 10px rgba(0,0,0,0.20);
+
+}
+
+
+.badakuan-page .badakuan-brand-logo img {
+
+    width: 100%;
+
+    height: 100%;
+
+    display: block;
+
+    object-fit: cover;
+
+    border-radius: 50%;
+
+}
+
+
+.badakuan-page .badakuan-brand-name {
+
+    color:
+        #ffffff;
+
+    font-size:
+        20px;
+
+    font-weight:
+        900;
+
+    letter-spacing:
+        1.5px;
+
+}
+
+
+.badakuan-page .badakuan-brand-name span {
+
+    color:
+        #d6a84f;
+
+    margin-left:
+        4px;
+
+}
+
+
+/* =========================================================
+   MAIN
+========================================================= */
+
+.badakuan-page .badakuan-main {
+
+    width:
+        88%;
+
+    max-width:
+        1180px;
+
+    margin:
+        0 auto;
+
+    padding:
+        60px 0 75px;
+
+}
+
+
+/* =========================================================
+   INTRO
+========================================================= */
+
+.badakuan-page .badakuan-intro {
+
+    text-align:
+        center;
+
+    margin-bottom:
+        48px;
+
+}
+
+
+.badakuan-page .badakuan-icon {
+
+    width:
+        84px;
+
+    height:
+        84px;
+
+    margin:
+        0 auto 19px;
+
+    display:
+        flex;
+
+    align-items:
+        center;
+
+    justify-content:
+        center;
+
+    border-radius:
+        25px;
+
+    background:
+        #21483d;
+
+    border:
+        4px solid #d6a84f;
+
+    box-shadow:
+        0 10px 25px rgba(33,72,61,0.18);
+
+    font-size:
+        38px;
+
+}
+
+
+.badakuan-page .badakuan-label {
+
+    margin:
+        0 0 10px;
+
+    color:
+        #356859;
+
+    font-size:
+        11px;
+
+    font-weight:
+        900;
+
+    letter-spacing:
+        2.3px;
+
+}
+
+
+.badakuan-page .badakuan-intro h1 {
+
+    margin:
+        0 0 15px;
+
+    color:
+        #21483d;
+
+    font-size:
+        clamp(34px, 5vw, 54px);
+
+    line-height:
+        1.15;
+
+    font-weight:
+        900;
+
+}
+
+
+.badakuan-page .badakuan-intro h1 span {
+
+    color:
+        #d6a84f;
+
+}
+
+
+.badakuan-page .badakuan-description {
+
+    max-width:
+        680px;
+
+    margin:
+        0 auto;
+
+    color:
+        #64746e;
+
+    font-size:
+        15px;
+
+    line-height:
+        1.8;
+
+}
+
+
+/* =========================================================
+   HIDDEN
+========================================================= */
+
+.badakuan-page .hidden {
+
+    display:
+        none !important;
+
+}
+
+
+/* =========================================================
+   SELECTION
+========================================================= */
+
+.badakuan-page .selection-section {
+
+    padding:
+        38px;
+
+    margin-bottom:
+        28px;
+
+    background:
+        #ffffff;
+
+    border:
+        1px solid rgba(53,104,89,0.10);
+
+    border-radius:
+        25px;
+
+    box-shadow:
+        0 8px 25px rgba(33,72,61,0.07);
+
+}
+
+
+.badakuan-page .step-heading {
+
+    display:
+        flex;
+
+    align-items:
+        center;
+
+    gap:
+        15px;
+
+    margin-bottom:
+        28px;
+
+}
+
+
+.badakuan-page .step-number {
+
+    width:
+        48px;
+
+    height:
+        48px;
+
+    flex-shrink:
+        0;
+
+    display:
+        flex;
+
+    align-items:
+        center;
+
+    justify-content:
+        center;
+
+    border-radius:
+        15px;
+
+    background:
+        #21483d;
+
+    color:
+        #ffffff;
+
+    font-size:
+        18px;
+
+    font-weight:
+        900;
+
+}
+
+
+.badakuan-page .step-heading p {
+
+    margin:
+        0 0 4px;
+
+    color:
+        #d6a84f;
+
+    font-size:
+        10px;
+
+    font-weight:
+        900;
+
+    letter-spacing:
+        1.8px;
+
+}
+
+
+.badakuan-page .step-heading h2 {
+
+    margin:
+        0;
+
+    color:
+        #21483d;
+
+    font-size:
+        25px;
+
+    font-weight:
+        900;
+
+}
+
+
+.badakuan-page .option-grid {
+
+    display:
+        grid;
+
+    grid-template-columns:
+        repeat(2, minmax(0, 1fr));
+
+    gap:
+        18px;
+
+}
+
+
+.badakuan-page .option-card {
+
+    position:
+        relative;
+
+    width:
+        100%;
+
+    min-height:
+        150px;
+
+    padding:
+        23px;
+
+    display:
+        flex;
+
+    align-items:
+        flex-start;
+
+    gap:
+        18px;
+
+    text-align:
+        left;
+
+    cursor:
+        pointer;
+
+    background:
+        #f9fcfa;
+
+    border:
+        2px solid rgba(53,104,89,0.10);
+
+    border-radius:
+        20px;
+
+    color:
+        inherit;
+
+    transition:
+        transform .22s ease,
+        border-color .22s ease,
+        background .22s ease,
+        box-shadow .22s ease;
+
+}
+
+
+.badakuan-page .option-card:hover {
+
+    transform:
+        translateY(-4px);
+
+    border-color:
+        rgba(53,104,89,0.25);
+
+    box-shadow:
+        0 9px 22px rgba(33,72,61,0.09);
+
+}
+
+
+.badakuan-page .option-card.selected {
+
+    background:
+        #f2f8f4;
+
+    border-color:
+        #d6a84f;
+
+    box-shadow:
+        0 9px 22px rgba(214,168,79,0.13);
+
+}
+
+
+.badakuan-page .option-icon {
+
+    width:
+        58px;
+
+    height:
+        58px;
+
+    flex-shrink:
+        0;
+
+    display:
+        flex;
+
+    align-items:
+        center;
+
+    justify-content:
+        center;
+
+    border-radius:
+        17px;
+
+    background:
+        linear-gradient(
+            145deg,
+            #edf7f1,
+            #e1f1eb
+        );
+
+    border:
+        1px solid rgba(53,104,89,0.10);
+
+    font-size:
+        27px;
+
+}
+
+
+.badakuan-page .option-content {
+
+    min-width:
+        0;
+
+    padding-right:
+        20px;
+
+}
+
+
+.badakuan-page .option-content h3 {
+
+    margin:
+        2px 0 8px;
+
+    color:
+        #21483d;
+
+    font-size:
+        17px;
+
+    font-weight:
+        900;
+
+    line-height:
+        1.35;
+
+}
+
+
+.badakuan-page .option-content p {
+
+    margin:
+        0;
+
+    color:
+        #687770;
+
+    font-size:
+        12.5px;
+
+    line-height:
+        1.65;
+
+}
+
+
+.badakuan-page .option-check {
+
+    position:
+        absolute;
+
+    top:
+        17px;
+
+    right:
+        17px;
+
+    width:
+        25px;
+
+    height:
+        25px;
+
+    display:
+        flex;
+
+    align-items:
+        center;
+
+    justify-content:
+        center;
+
+    border-radius:
+        50%;
+
+    background:
+        #e9efeb;
+
+    color:
+        transparent;
+
+    font-size:
+        13px;
+
+    font-weight:
+        900;
+
+}
+
+
+.badakuan-page .option-card.selected .option-check {
+
+    background:
+        #d6a84f;
+
+    color:
+        #ffffff;
+
+}
+
+
+/* =========================================================
+   CONFIRMATION
+========================================================= */
+
+.badakuan-page .confirmation-section {
+
+    display:
+        flex;
+
+    align-items:
+        center;
+
+    gap:
+        28px;
+
+    margin-bottom:
+        20px;
+
+    padding:
+        35px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #f4faf7,
+            #fffaf0
+        );
+
+    border:
+        1px solid rgba(53,104,89,0.12);
+
+    border-radius:
+        25px;
+
+    box-shadow:
+        0 8px 25px rgba(33,72,61,0.06);
+
+}
+
+
+.badakuan-page .confirmation-icon {
+
+    width:
+        75px;
+
+    height:
+        75px;
+
+    flex-shrink:
+        0;
+
+    display:
+        flex;
+
+    align-items:
+        center;
+
+    justify-content:
+        center;
+
+    border-radius:
+        22px;
+
+    background:
+        #21483d;
+
+    border:
+        3px solid #d6a84f;
+
+    font-size:
+        32px;
+
+}
+
+
+.badakuan-page .confirmation-content {
+
+    flex:
+        1;
+
+    min-width:
+        0;
+
+}
+
+
+.badakuan-page .confirmation-label {
+
+    margin:
+        0 0 5px;
+
+    color:
+        #d6a84f;
+
+    font-size:
+        10px;
+
+    font-weight:
+        900;
+
+    letter-spacing:
+        1.7px;
+
+}
+
+
+.badakuan-page .confirmation-content h2 {
+
+    margin:
+        0 0 7px;
+
+    color:
+        #21483d;
+
+    font-size:
+        25px;
+
+    font-weight:
+        900;
+
+}
+
+
+.badakuan-page .confirmation-content > p:not(.confirmation-label) {
+
+    margin:
+        0 0 20px;
+
+    color:
+        #687770;
+
+    font-size:
+        13px;
+
+    line-height:
+        1.6;
+
+}
+
+
+.badakuan-page .selection-summary {
+
+    display:
+        flex;
+
+    flex-wrap:
+        wrap;
+
+    gap:
+        10px;
+
+    margin-bottom:
+        20px;
+
+}
+
+
+.badakuan-page .summary-item {
+
+    padding:
+        9px 13px;
+
+    border-radius:
+        12px;
+
+    background:
+        #ffffff;
+
+    border:
+        1px solid rgba(53,104,89,0.10);
+
+}
+
+
+.badakuan-page .summary-item span {
+
+    display:
+        block;
+
+    margin-bottom:
+        3px;
+
+    color:
+        #8a9892;
+
+    font-size:
+        9px;
+
+    font-weight:
+        800;
+
+    text-transform:
+        uppercase;
+
+    letter-spacing:
+        .8px;
+
+}
+
+
+.badakuan-page .summary-item strong {
+
+    color:
+        #356859;
+
+    font-size:
+        12px;
+
+    font-weight:
+        900;
+
+}
+
+
+/* =========================================================
+   START BUTTON
+========================================================= */
+
+.badakuan-page .start-button {
+
+    width:
+        100%;
+
+    max-width:
+        350px;
+
+    padding:
+        14px 20px;
+
+    display:
+        flex;
+
+    align-items:
+        center;
+
+    justify-content:
+        center;
+
+    gap:
+        10px;
+
+    border:
+        none;
+
+    border-radius:
+        14px;
+
+    background:
+        #21483d;
+
+    color:
+        #ffffff;
+
+    font-size:
+        14px;
+
+    font-weight:
+        900;
+
+    cursor:
+        pointer;
+
+    box-shadow:
+        0 7px 17px rgba(33,72,61,0.15);
+
+    transition:
+        background .22s ease,
+        transform .22s ease;
+
+}
+
+
+.badakuan-page .start-button:hover {
+
+    background:
+        #356859;
+
+    transform:
+        translateY(-2px);
+
+}
+
+
+/* =========================================================
+   PAPAN BADAKUAN
+========================================================= */
+
+.badakuan-page .badakuan-board-section {
+
+    margin-top:
+        30px;
+
+    padding:
+        35px;
+
+    background:
+        #ffffff;
+
+    border:
+        1px solid rgba(53,104,89,0.12);
+
+    border-radius:
+        28px;
+
+    box-shadow:
+        0 10px 30px rgba(33,72,61,0.08);
+
+}
+
+
+.badakuan-page .board-top-info {
+
+    display:
+        flex;
+
+    align-items:
+        center;
+
+    justify-content:
+        space-between;
+
+    gap:
+        20px;
+
+    margin-bottom:
+        25px;
+
+}
+
+
+.badakuan-page .board-title p {
+
+    margin:
+        0 0 5px;
+
+    color:
+        #d6a84f;
+
+    font-size:
+        10px;
+
+    font-weight:
+        900;
+
+    letter-spacing:
+        1.8px;
+
+}
+
+
+.badakuan-page .board-title h2 {
+
+    margin:
+        0;
+
+    color:
+        #21483d;
+
+    font-size:
+        25px;
+
+    font-weight:
+        900;
+
+}
+
+
+.badakuan-page .turn-indicator {
+
+    display:
+        flex;
+
+    align-items:
+        center;
+
+    gap:
+        9px;
+
+    padding:
+        10px 15px;
+
+    border-radius:
+        999px;
+
+    background:
+        #f0f7f3;
+
+    border:
+        1px solid rgba(53,104,89,0.10);
+
+    color:
+        #356859;
+
+    font-size:
+        12px;
+
+    font-weight:
+        800;
+
+}
+
+
+.badakuan-page .turn-dot {
+
+    width:
+        9px;
+
+    height:
+        9px;
+
+    border-radius:
+        50%;
+
+    background:
+        #d6a84f;
+
+}
+
+
+/* =========================================================
+   SCORE
+========================================================= */
+
+.badakuan-page .score-area {
+
+    display:
+        flex;
+
+    align-items:
+        center;
+
+    justify-content:
+        center;
+
+    gap:
+        22px;
+
+    margin-bottom:
+        30px;
+
+}
+
+
+.badakuan-page .player-score {
+
+    min-width:
+        155px;
+
+    padding:
+        15px 20px;
+
+    text-align:
+        center;
+
+    border-radius:
+        17px;
+
+    background:
+        #f6faf7;
+
+    border:
+        1px solid rgba(53,104,89,0.10);
+
+}
+
+
+.badakuan-page .player-label {
+
+    display:
+        block;
+
+    margin-bottom:
+        3px;
+
+    color:
+        #356859;
+
+    font-size:
+        10px;
+
+    font-weight:
+        900;
+
+    letter-spacing:
+        1px;
+
+}
+
+
+.badakuan-page .player-score strong {
+
+    display:
+        block;
+
+    color:
+        #21483d;
+
+    font-size:
+        28px;
+
+    font-weight:
+        900;
+
+}
+
+
+.badakuan-page .player-score small {
+
+    display:
+        block;
+
+    margin-top:
+        2px;
+
+    color:
+        #8a9892;
+
+    font-size:
+        10px;
+
+}
+
+
+.badakuan-page .versus {
+
+    width:
+        34px;
+
+    height:
+        34px;
+
+    display:
+        flex;
+
+    align-items:
+        center;
+
+    justify-content:
+        center;
+
+    border-radius:
+        50%;
+
+    background:
+        #d6a84f;
+
+    color:
+        #ffffff;
+
+    font-size:
+        10px;
+
+    font-weight:
+        900;
+
+}
+
+
+/* =========================================================
+   BOARD WRAPPER
+========================================================= */
+
+.badakuan-page .badakuan-board-wrapper {
+
+    display:
+        grid;
+
+    grid-template-columns:
+        95px minmax(0, 1fr) 95px;
+
+    gap:
+        15px;
+
+    align-items:
+        stretch;
+
+    padding:
+        18px;
+
+    border-radius:
+        24px;
+
+    background:
+        linear-gradient(
+            145deg,
+            #356859,
+            #21483d
+        );
+
+    border:
+        5px solid #d6a84f;
+
+    box-shadow:
+        inset 0 0 0 2px rgba(255,255,255,0.08),
+        0 12px 30px rgba(33,72,61,0.18);
+
+}
+
+
+/* =========================================================
+   LUMBUNG
+========================================================= */
+
+.badakuan-page .lumbung {
+
+    min-height:
+        235px;
+
+    align-self:
+        center;
+
+    display:
+        flex;
+
+    flex-direction:
+        column;
+
+    align-items:
+        center;
+
+    justify-content:
+        center;
+
+    padding:
+        12px;
+
+    border-radius:
+        30px;
+
+    background:
+        linear-gradient(
+            145deg,
+            #f4e4b9,
+            #d6a84f
+        );
+
+    border:
+        3px solid #b8892f;
+
+    box-shadow:
+        inset 0 3px 8px rgba(255,255,255,0.30),
+        inset 0 -6px 10px rgba(112,76,20,0.16),
+        0 5px 12px rgba(0,0,0,0.16);
+
+}
+
+
+.badakuan-page .lumbung-label {
+
+    color:
+        #624819;
+
+    font-size:
+        9px;
+
+    font-weight:
+        900;
+
+    letter-spacing:
+        1px;
+
+}
+
+
+.badakuan-page .lumbung-seeds {
+
+    width:
+        58px;
+
+    height:
+        58px;
+
+    margin:
+        8px 0;
+
+    display:
+        flex;
+
+    align-items:
+        center;
+
+    justify-content:
+        center;
+
+    border-radius:
+        50%;
+
+    background:
+        rgba(255,255,255,0.70);
+
+    color:
+        #21483d;
+
+    font-size:
+        23px;
+
+    font-weight:
+        900;
+
+    box-shadow:
+        inset 0 2px 7px rgba(0,0,0,0.10);
+
+}
+
+
+.badakuan-page .lumbung-player {
+
+    color:
+        #624819;
+
+    font-size:
+        8px;
+
+    font-weight:
+        900;
+
+    letter-spacing:
+        .7px;
+
+}
+
+
+/* =========================================================
+   PAPAN
+========================================================= */
+
+.badakuan-page .badakuan-board {
+
+    min-width:
+        0;
+
+    padding:
+        18px;
+
+    border-radius:
+        18px;
+
+    background:
+        linear-gradient(
+            145deg,
+            #8b633d,
+            #704a2b
+        );
+
+    border:
+        3px solid #c18c4c;
+
+    box-shadow:
+        inset 0 4px 12px rgba(255,255,255,0.08),
+        inset 0 -5px 12px rgba(0,0,0,0.15);
+
+}
+
+
+/* =========================================================
+   BARIS LUBANG
+========================================================= */
+
+.badakuan-page .board-row {
+
+    display:
+        grid;
+
+    grid-template-columns:
+        repeat(7, minmax(0, 1fr));
+
+    gap:
+        10px;
+
+}
+
+
+.badakuan-page .opponent-row {
+
+    margin-bottom:
+        15px;
+
+}
+
+
+.badakuan-page .own-row {
+
+    margin-top:
+        15px;
+
+}
+
+
+/* =========================================================
+   LUBANG
+========================================================= */
+
+.badakuan-page .pit {
+
+    position:
+        relative;
+
+    min-width:
+        0;
+
+    aspect-ratio:
+        1 / 1;
+
+    display:
+        flex;
+
+    align-items:
+        center;
+
+    justify-content:
+        center;
+
+    border-radius:
+        50%;
+
+    background:
+        radial-gradient(
+            circle at 38% 32%,
+            #a87849 0%,
+            #704522 55%,
+            #4e3019 100%
+        );
+
+    border:
+        3px solid #4b2e19;
+
+    box-shadow:
+        inset 0 5px 10px rgba(0,0,0,0.28),
+        0 3px 5px rgba(0,0,0,0.16);
+
+}
+
+
+.badakuan-page .pit-number {
+
+    position:
+        absolute;
+
+    right:
+        7px;
+
+    bottom:
+        5px;
+
+    width:
+        20px;
+
+    height:
+        20px;
+
+    display:
+        flex;
+
+    align-items:
+        center;
+
+    justify-content:
+        center;
+
+    border-radius:
+        50%;
+
+    background:
+        rgba(255,255,255,0.75);
+
+    color:
+        #5b3c22;
+
+    font-size:
+        9px;
+
+    font-weight:
+        900;
+
+}
+
+
+/* =========================================================
+   BIJI
+========================================================= */
+
+.badakuan-page .seed-container {
+
+    width:
+        72%;
+
+    height:
+        72%;
+
+    position:
+        relative;
+
+    display:
+        flex;
+
+    align-items:
+        center;
+
+    justify-content:
+        center;
+
+    flex-wrap:
+        wrap;
+
+    align-content:
+        center;
+
+    gap:
+        2px;
+
+    overflow:
+        hidden;
+
+}
+
+
+.badakuan-page .seed {
+
+    width:
+        12px;
+
+    height:
+        12px;
+
+    flex:
+        0 0 12px;
+
+    border-radius:
+        50%;
+
+    background:
+        radial-gradient(
+            circle at 32% 27%,
+            #fff1b8 0%,
+            #d6a84f 42%,
+            #9d7023 100%
+        );
+
+    border:
+        1px solid #815a1b;
+
+    box-shadow:
+        1px 2px 3px rgba(0,0,0,0.22);
+
+}
+
+
+/* =========================================================
+   BAGIAN TENGAH
+========================================================= */
+
+.badakuan-page .board-middle {
+
+    min-height:
+        30px;
+
+    margin:
+        3px 0;
+
+    display:
+        flex;
+
+    align-items:
+        center;
+
+    justify-content:
+        center;
+
+}
+
+
+.badakuan-page .board-decoration {
+
+    display:
+        flex;
+
+    flex-direction:
+        column;
+
+    align-items:
+        center;
+
+    justify-content:
+        center;
+
+    gap:
+        2px;
+
+    color:
+        rgba(255,239,194,0.82);
+
+    text-align:
+        center;
+
+}
+
+
+.badakuan-page .board-decoration span {
+
+    font-size:
+        19px;
+
+}
+
+
+.badakuan-page .board-decoration strong {
+
+    font-size:
+        12px;
+
+    letter-spacing:
+        1.8px;
+
+}
+
+
+.badakuan-page .board-decoration small {
+
+    font-size:
+        8px;
+
+    opacity:
+        .75;
+
+}
+
+
+/* =========================================================
+   INSTRUCTION
+========================================================= */
+
+.badakuan-page .board-instruction {
+
+    display:
+        flex;
+
+    align-items:
+        center;
+
+    gap:
+        10px;
+
+    margin-top:
+        20px;
+
+    padding:
+        13px 17px;
+
+    border-radius:
+        14px;
+
+    background:
+        #f3f8f4;
+
+    border:
+        1px solid rgba(53,104,89,0.10);
+
+}
+
+
+.badakuan-page .board-instruction span {
+
+    font-size:
+        19px;
+
+}
+
+
+.badakuan-page .board-instruction p {
+
+    margin:
+        0;
+
+    color:
+        #64746e;
+
+    font-size:
+        12px;
+
+    line-height:
+        1.6;
+
+}
+
+
+/* =========================================================
+   INFO
+========================================================= */
+
+.badakuan-page .badakuan-info {
+
+    display:
+        flex;
+
+    align-items:
+        flex-start;
+
+    gap:
+        18px;
+
+    margin-top:
+        45px;
+
+    padding:
+        28px;
+
+    background:
+        #ffffff;
+
+    border:
+        1px solid rgba(53,104,89,0.10);
+
+    border-radius:
+        22px;
+
+    box-shadow:
+        0 7px 20px rgba(33,72,61,0.05);
+
+}
+
+
+.badakuan-page .info-icon {
+
+    width:
+        48px;
+
+    height:
+        48px;
+
+    flex-shrink:
+        0;
+
+    display:
+        flex;
+
+    align-items:
+        center;
+
+    justify-content:
+        center;
+
+    border-radius:
+        15px;
+
+    background:
+        #f4f8f4;
+
+    font-size:
+        24px;
+
+}
+
+
+.badakuan-page .info-label {
+
+    margin:
+        0 0 5px;
+
+    color:
+        #d6a84f;
+
+    font-size:
+        10px;
+
+    font-weight:
+        900;
+
+    letter-spacing:
+        1.5px;
+
+}
+
+
+.badakuan-page .badakuan-info h2 {
+
+    margin:
+        0 0 8px;
+
+    color:
+        #21483d;
+
+    font-size:
+        20px;
+
+    font-weight:
+        900;
+
+}
+
+
+.badakuan-page .badakuan-info p:last-child {
+
+    margin:
+        0;
+
+    color:
+        #687770;
+
+    font-size:
+        13px;
+
+    line-height:
+        1.7;
+
+}
+
+
+/* =========================================================
+   FOOTER
+========================================================= */
+
+.badakuan-page .badakuan-footer {
+
+    position:
+        relative;
+
+    width:
+        100%;
+
+    padding:
+        38px 7% 28px;
+
+    display:
+        flex;
+
+    flex-direction:
+        column;
+
+    align-items:
+        center;
+
+    justify-content:
+        center;
+
+    gap:
+        8px;
+
+    text-align:
+        center;
+
+    background:
+        linear-gradient(
+            135deg,
+            #21483d 0%,
+            #356859 55%,
+            #21483d 100%
+        );
+
+    color:
+        #ffffff;
+
+    border-top:
+        3px solid #d6a84f;
+
+    overflow:
+        hidden;
+
+}
+
+
+.badakuan-page .badakuan-footer::before {
+
+    content:
+        "";
+
+    position:
+        absolute;
+
+    inset:
+        0;
+
+    background-image:
+        url("../assets/sasirangan-hijau.jpg");
+
+    background-size:
+        420px auto;
+
+    background-repeat:
+        repeat;
+
+    opacity:
+        .09;
+
+    pointer-events:
+        none;
+
+}
+
+
+.badakuan-page .badakuan-footer > * {
+
+    position:
+        relative;
+
+    z-index:
+        2;
+
+}
+
+
+.badakuan-page .badakuan-footer-logo {
+
+    display:
+        flex;
+
+    align-items:
+        center;
+
+    justify-content:
+        center;
+
+    gap:
+        12px;
+
+    margin-bottom:
+        5px;
+
+}
+
+
+.badakuan-page .badakuan-footer-logo > div {
+
+    width:
+        44px;
+
+    height:
+        44px;
+
+    flex:
+        0 0 44px;
+
+    display:
+        flex;
+
+    align-items:
+        center;
+
+    justify-content:
+        center;
+
+    overflow:
+        hidden;
+
+    border-radius:
+        50%;
+
+    border:
+        2px solid #d6a84f;
+
+    background:
+        #ffffff;
+
+}
+
+
+.badakuan-page .badakuan-footer-logo img {
+
+    width:
+        100%;
+
+    height:
+        100%;
+
+    object-fit:
+        cover;
+
+    display:
+        block;
+
+}
+
+
+.badakuan-page .badakuan-footer-logo strong {
+
+    color:
+        #ffffff;
+
+    font-size:
+        20px;
+
+    font-weight:
+        900;
+
+    letter-spacing:
+        1.2px;
+
+}
+
+
+.badakuan-page .badakuan-footer-logo strong span {
+
+    color:
+        #d6a84f;
+
+}
+
+
+.badakuan-page .badakuan-footer > p:not(.badakuan-copyright) {
+
+    margin:
+        0;
+
+    color:
+        rgba(255,255,255,.86);
+
+    font-size:
+        13px;
+
+    font-weight:
+        600;
+
+}
+
+
+.badakuan-page .badakuan-footer .badakuan-copyright {
+
+    margin:
+        4px 0 0;
+
+    color:
+        rgba(255,255,255,.64);
+
+    font-size:
+        11px;
+
+}
+
+
+/* =========================================================
+   TABLET
+========================================================= */
+
+@media (max-width: 900px) {
+
+    .badakuan-page .badakuan-main {
+
+        width:
+            92%;
+
+    }
+
+
+    .badakuan-page .badakuan-board-wrapper {
+
+        grid-template-columns:
+            75px minmax(0, 1fr) 75px;
+
+        gap:
+            10px;
+
+        padding:
+            12px;
+
+    }
+
+
+    .badakuan-page .badakuan-board {
+
+        padding:
+            12px;
+
+    }
+
+
+    .badakuan-page .board-row {
+
+        gap:
+            7px;
+
+    }
+
+
+    .badakuan-page .pit {
+
+        border-width:
+            2px;
+
+    }
+
+
+    .badakuan-page .seed {
+
+        width:
+            9px;
+
+        height:
+            9px;
+
+        flex-basis:
+            9px;
+
+    }
+
+}
+
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media (max-width: 650px) {
+
+    .badakuan-page .badakuan-header {
+
+        flex-direction:
+            column;
+
+        gap:
+            12px;
+
+        align-items:
+            stretch;
+
+        padding:
+            14px 5%;
+
+    }
+
+
+    .badakuan-page .badakuan-brand {
+
+        order:
+            -1;
+
+        justify-content:
+            center;
+
+    }
+
+
+    .badakuan-page .badakuan-main {
+
+        width:
+            94%;
+
+        padding:
+            42px 0 55px;
+
+    }
+
+
+    .badakuan-page .badakuan-icon {
+
+        width:
+            70px;
+
+        height:
+            70px;
+
+        font-size:
+            31px;
+
+    }
+
+
+    .badakuan-page .badakuan-intro h1 {
+
+        font-size:
+            32px;
+
+    }
+
+
+    .badakuan-page .badakuan-description {
+
+        font-size:
+            13px;
+
+    }
+
+
+    .badakuan-page .selection-section {
+
+        padding:
+            24px 18px;
+
+        border-radius:
+            21px;
+
+    }
+
+
+    .badakuan-page .option-grid {
+
+        grid-template-columns:
+            1fr;
+
+    }
+
+
+    .badakuan-page .confirmation-section {
+
+        flex-direction:
+            column;
+
+        align-items:
+            stretch;
+
+        padding:
+            25px 20px;
+
+    }
+
+
+    .badakuan-page .confirmation-icon {
+
+        width:
+            60px;
+
+        height:
+            60px;
+
+        font-size:
+            27px;
+
+    }
+
+
+    .badakuan-page .badakuan-board-section {
+
+        padding:
+            20px 12px;
+
+        border-radius:
+            22px;
+
+    }
+
+
+    .badakuan-page .board-top-info {
+
+        flex-direction:
+            column;
+
+        align-items:
+            flex-start;
+
+    }
+
+
+    .badakuan-page .board-title h2 {
+
+        font-size:
+            21px;
+
+    }
+
+
+    .badakuan-page .score-area {
+
+        gap:
+            8px;
+
+    }
+
+
+    .badakuan-page .player-score {
+
+        min-width:
+            0;
+
+        flex:
+            1;
+
+        padding:
+            11px 8px;
+
+    }
+
+
+    .badakuan-page .player-score strong {
+
+        font-size:
+            23px;
+
+    }
+
+
+    .badakuan-page .versus {
+
+        width:
+            29px;
+
+        height:
+            29px;
+
+        flex-shrink:
+            0;
+
+    }
+
+
+    .badakuan-page .badakuan-board-wrapper {
+
+        grid-template-columns:
+            1fr;
+
+        gap:
+            10px;
+
+        padding:
+            10px;
+
+    }
+
+
+    .badakuan-page .lumbung {
+
+        min-height:
+            85px;
+
+    }
+
+
+    .badakuan-page .lumbung-two {
+
+        order:
+            0;
+
+    }
+
+
+    .badakuan-page .badakuan-board {
+
+        order:
+            1;
+
+        padding:
+            10px;
+
+    }
+
+
+    .badakuan-page .lumbung-one {
+
+        order:
+            2;
+
+    }
+
+
+    .badakuan-page .board-row {
+
+        gap:
+            5px;
+
+    }
+
+
+    .badakuan-page .opponent-row {
+
+        margin-bottom:
+            10px;
+
+    }
+
+
+    .badakuan-page .own-row {
+
+        margin-top:
+            10px;
+
+    }
+
+
+    .badakuan-page .pit-number {
+
+        width:
+            16px;
+
+        height:
+            16px;
+
+        right:
+            3px;
+
+        bottom:
+            3px;
+
+        font-size:
+            7px;
+
+    }
+
+
+    .badakuan-page .seed {
+
+        width:
+            7px;
+
+        height:
+            7px;
+
+        flex-basis:
+            7px;
+
+    }
+
+
+    .badakuan-page .board-decoration strong {
+
+        font-size:
+            10px;
+
+    }
+
+
+    .badakuan-page .board-decoration small {
+
+        font-size:
+            7px;
+
+    }
+
+
+    .badakuan-page .badakuan-info {
+
+        padding:
+            22px 18px;
+
+    }
+
+}

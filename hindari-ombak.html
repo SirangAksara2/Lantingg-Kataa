@@ -1,0 +1,562 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Hindari Ombak | LANTING KATA</title>
+
+  <link rel="stylesheet" href="css/hindari-ombak.css">
+</head>
+
+<body class="hindari-page">
+
+  <!-- =====================================================
+       HEADER
+       ===================================================== -->
+
+  <header class="hindari-header">
+
+    <a href="games.html" class="back-button">
+      ← Kembali ke Games
+    </a>
+
+    <div class="brand">
+
+      <div class="brand-logo">
+        <img
+          src="assets/logo-lanting-kata.png"
+          alt="Logo LANTING KATA"
+        >
+      </div>
+
+      <span class="brand-name">
+        LANTING KATA
+      </span>
+
+    </div>
+
+    <div class="header-title">
+
+      <span class="eyebrow">
+        PETUALANGAN KOSAKATA
+      </span>
+
+      <h1>
+        Hindari Ombak
+      </h1>
+
+      <p>
+        Ketik Bahasa Banjar dengan benar
+        dan bantu karaktermu mencapai tempat yang aman!
+      </p>
+
+    </div>
+
+  </header>
+
+
+  <!-- =====================================================
+       MAIN
+       ===================================================== -->
+
+  <main>
+
+
+    <!-- ===================================================
+         START SECTION
+         =================================================== -->
+
+    <section
+      id="startSection"
+      class="panel start-panel"
+    >
+
+      <div class="start-icon">
+        🌊
+      </div>
+
+      <h2>
+        Siap Menghindari Ombak?
+      </h2>
+
+      <p>
+        Kamu akan mendapatkan kata Bahasa Indonesia
+        secara acak dari Kamus LANTING KATA.
+        Ketik Bahasa Banjarnya untuk membantu
+        karaktermu naik menuju tempat yang aman!
+      </p>
+
+
+      <!-- GAME INFO -->
+
+      <div class="game-info">
+
+        <div class="info-item">
+
+          <span class="info-icon">
+            📖
+          </span>
+
+          <div>
+
+            <strong>
+              Soal dari Kamus
+            </strong>
+
+            <span>
+              Kosakata dipilih secara acak
+            </span>
+
+          </div>
+
+        </div>
+
+
+        <div class="info-item">
+
+          <span class="info-icon">
+            ✏️
+          </span>
+
+          <div>
+
+            <strong>
+              Tantanganmu
+            </strong>
+
+            <span>
+              Ketik Bahasa Banjar
+            </span>
+
+          </div>
+
+        </div>
+
+      </div>
+
+
+      <!-- GAME RULE -->
+
+      <div class="rules">
+
+        <div class="rule-item">
+
+          <span>
+            ❤️
+          </span>
+
+          <p>
+            Kamu memiliki <strong>3 nyawa</strong>.
+          </p>
+
+        </div>
+
+
+        <div class="rule-item">
+
+          <span>
+            🧱
+          </span>
+
+          <p>
+            Jawaban benar membuat karakter
+            naik sesuai jumlah huruf jawabannya.
+          </p>
+
+        </div>
+
+
+        <div class="rule-item">
+
+          <span>
+            🌊
+          </span>
+
+          <p>
+            Jangan sampai ombak menyusul!
+          </p>
+
+        </div>
+
+      </div>
+
+
+      <button
+        id="startButton"
+        class="primary-button"
+        type="button"
+      >
+        🌊 Mulai Bermain
+      </button>
+
+
+      <p
+        id="loadingText"
+        class="loading-text"
+      >
+        Memuat kosakata dari Kamus LANTING KATA...
+      </p>
+
+    </section>
+
+
+
+    <!-- ===================================================
+         GAME SECTION
+         =================================================== -->
+
+    <section
+      id="gameSection"
+      class="game-section hidden"
+    >
+
+
+      <!-- ===============================================
+           TOP GAME BAR
+           =============================================== -->
+
+      <div class="game-topbar">
+
+
+        <!-- SCORE -->
+
+        <div class="game-stat">
+
+          <span>
+            ⭐ SKOR
+          </span>
+
+          <strong id="score">
+            0
+          </strong>
+
+        </div>
+
+
+        <!-- LIVES -->
+
+        <div class="lives-box">
+
+          <span>
+            ❤️ NYAWA
+          </span>
+
+          <strong id="lives">
+            ❤️ ❤️ ❤️
+          </strong>
+
+        </div>
+
+
+        <!-- LEVEL -->
+
+        <div class="game-stat">
+
+          <span>
+            🧱 TINGKAT
+          </span>
+
+          <strong id="level">
+            0
+          </strong>
+
+        </div>
+
+      </div>
+
+
+
+      <!-- ===============================================
+           GAME WORLD
+           =============================================== -->
+
+      <div
+        id="gameWorld"
+        class="game-world"
+      >
+
+
+        <!-- SKY -->
+
+        <div class="sky">
+
+          <div class="sun">
+            ☀️
+          </div>
+
+          <div class="cloud cloud-one">
+            ☁️
+          </div>
+
+          <div class="cloud cloud-two">
+            ☁️
+          </div>
+
+        </div>
+
+
+        <!-- SAFE AREA / TOP -->
+
+        <div class="safe-area">
+
+          <span>
+            🏆 TEMPAT AMAN
+          </span>
+
+        </div>
+
+
+        <!-- CHARACTER -->
+
+        <div
+          id="player"
+          class="player"
+          aria-label="Karakter pemain"
+        >
+          🧒
+        </div>
+
+
+        <!-- BOX PATH -->
+
+        <div
+          id="boxPath"
+          class="box-path"
+        >
+          <!--
+            Box akan dibuat otomatis
+            melalui JavaScript.
+          -->
+        </div>
+
+
+        <!-- WATER -->
+
+        <div
+          id="water"
+          class="water"
+        >
+
+          <div class="wave wave-one">
+            🌊
+          </div>
+
+          <div class="wave wave-two">
+            🌊
+          </div>
+
+          <div class="wave wave-three">
+            🌊
+          </div>
+
+        </div>
+
+
+        <!-- TIMER -->
+
+        <div class="timer-box">
+
+          <span>
+            ⏱️ Waktu
+          </span>
+
+          <strong id="timer">
+            15
+          </strong>
+
+        </div>
+
+      </div>
+
+
+
+      <!-- ===============================================
+           QUESTION
+           =============================================== -->
+
+      <div class="question-card">
+
+        <span class="question-label">
+          🧠 TEBAK BAHASA BANJAR
+        </span>
+
+
+        <p class="question-text">
+          Apa Bahasa Banjar dari kata berikut?
+        </p>
+
+
+        <div
+          id="indonesiaWord"
+          class="indonesia-word"
+        >
+          Memuat...
+        </div>
+
+
+        <!-- ANSWER FORM -->
+
+        <form
+          id="answerForm"
+          class="answer-form"
+        >
+
+          <label
+            for="answerInput"
+            class="sr-only"
+          >
+            Jawaban Bahasa Banjar
+          </label>
+
+          <input
+            id="answerInput"
+            type="text"
+            autocomplete="off"
+            placeholder="Ketik Bahasa Banjar..."
+            maxlength="50"
+            required
+          >
+
+          <button
+            type="submit"
+            class="primary-button"
+          >
+            ✓ Cek Jawaban
+          </button>
+
+        </form>
+
+
+        <!-- FEEDBACK -->
+
+        <div
+          id="feedback"
+          class="feedback"
+          aria-live="polite"
+        ></div>
+
+      </div>
+
+    </section>
+
+
+
+    <!-- ===================================================
+         RESULT SECTION
+         =================================================== -->
+
+    <section
+      id="resultSection"
+      class="panel result-panel hidden"
+    >
+
+      <div
+        id="resultIcon"
+        class="result-icon"
+      >
+        🎉
+      </div>
+
+
+      <h2 id="resultTitle">
+        Kamu Berhasil!
+      </h2>
+
+
+      <p id="resultText">
+        Selamat! Kamu berhasil menghindari ombak.
+      </p>
+
+
+      <!-- FINAL SCORE -->
+
+      <div class="final-score">
+
+        <span>
+          SKOR AKHIR
+        </span>
+
+        <strong id="finalScore">
+          0
+        </strong>
+
+      </div>
+
+
+      <!-- RESULT DETAIL -->
+
+      <div class="result-detail">
+
+        <div>
+
+          <span>
+            ❤️ Nyawa tersisa
+          </span>
+
+          <strong id="finalLives">
+            0
+          </strong>
+
+        </div>
+
+
+        <div>
+
+          <span>
+            🧱 Tingkat dicapai
+          </span>
+
+          <strong id="finalLevel">
+            0
+          </strong>
+
+        </div>
+
+      </div>
+
+
+      <button
+        id="playAgainButton"
+        class="primary-button"
+        type="button"
+      >
+        🌊 Main Lagi
+      </button>
+
+    </section>
+
+  </main>
+
+
+
+  <!-- =====================================================
+       FOOTER
+       ===================================================== -->
+
+  <footer>
+
+    <div class="footer-brand">
+
+      <strong>
+        LANTING KATA
+      </strong>
+
+    </div>
+
+    <p>
+      Belajar Bahasa Banjar menjadi lebih mudah,
+      menyenangkan, dan interaktif.
+    </p>
+
+  </footer>
+
+
+  <!-- =====================================================
+       JAVASCRIPT
+       ===================================================== -->
+
+  <script src="js/hindari-ombak.js"></script>
+
+</body>
+</html>

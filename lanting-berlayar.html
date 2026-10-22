@@ -1,0 +1,148 @@
+
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#087f8c">
+  <title>Lanting Kata Berlayar | LANTING KATA</title>
+  <link rel="stylesheet" href="css/lanting-berlayar.css">
+</head>
+
+<body class="berlayar-page">
+  <header class="berlayar-header">
+    <a class="back-button" href="games.html">← Kembali ke Games</a>
+
+    <div class="brand">
+      <span class="brand-mark">🛶</span>
+      <span>LANTING KATA</span>
+    </div>
+
+    <div class="header-content">
+      <span class="eyebrow">PETUALANGAN PASAR TERAPUNG</span>
+      <h1>Lanting Kata Berlayar</h1>
+      <p>
+        Berlayar menyusuri pasar terapung, temukan kosakata
+        Bahasa Banjar sesuai misi, lalu kumpulkan belanjaanmu!
+      </p>
+    </div>
+  </header>
+
+  <main class="main-content">
+    <section id="startSection" class="panel start-panel">
+      <div class="section-icon">🛶</div>
+      <span class="small-label">SELAMAT DATANG, SANAK!</span>
+      <h2>Siap Berlayar?</h2>
+      <p>
+        Selesaikan 5 ronde petualangan! Temukan 3 kosakata
+        Bahasa Banjar yang sesuai dengan petunjuk di setiap ronde.
+      </p>
+
+      <div class="rules-grid">
+        <div class="rule-item">
+          <span>🚤</span>
+          <strong>5 Ronde</strong>
+        </div>
+        <div class="rule-item">
+          <span>📚</span>
+          <strong>10 Pilihan</strong>
+        </div>
+        <div class="rule-item">
+          <span>🧺</span>
+          <strong>3 Target</strong>
+        </div>
+      </div>
+
+      <button id="startButton" class="primary-button" type="button" disabled>
+        🛶 Memuat Kamus...
+      </button>
+
+      <p id="loadingText" class="loading-text" role="status" aria-live="polite">
+        Memuat kosakata dari Kamus LANTING KATA...
+      </p>
+    </section>
+
+    <section id="gameSection" class="game-section hidden">
+      <div class="mission-card">
+        <div class="mission-content">
+          <span id="roundIndicator" class="small-label">
+            RONDE 1 / 5
+          </span>
+          <h2 id="missionTitle">Misi Belanja</h2>
+          <div id="missionText" class="mission-text"></div>
+        </div>
+
+        <div class="score-box">
+          <span>SKOR</span>
+          <strong id="score">0</strong>
+          <span class="lives-label">❤️ <b id="lives">5</b></span>
+        </div>
+      </div>
+
+      <div class="river-scene">
+        <div class="sun" aria-hidden="true">☀️</div>
+        <div class="cloud cloud-one" aria-hidden="true">☁️</div>
+        <div class="cloud cloud-two" aria-hidden="true">☁️</div>
+        <div class="shore shore-left" aria-hidden="true">🌴 🌳 🌴</div>
+        <div class="shore shore-right" aria-hidden="true">🌳 🌴 🌳</div>
+        <div class="water-lines" aria-hidden="true"></div>
+
+        <div class="market-area" id="marketArea" aria-label="Pilihan kosakata"></div>
+
+        <div class="player-boat" id="playerBoat" aria-hidden="true">🛶</div>
+        <div class="boat-label">Jukungmu</div>
+      </div>
+
+      <div class="shopping-bar">
+        <div class="shopping-content">
+          <span class="small-label">🧺 HASIL BELANJA</span>
+          <div id="basket" class="basket">
+            <span class="basket-empty">Belum ada belanjaan</span>
+          </div>
+        </div>
+
+        <div class="progress-box">
+          <strong id="progress">0 / 3</strong>
+          <span>barang terkumpul</span>
+        </div>
+      </div>
+
+      <div id="feedback" class="feedback" role="status" aria-live="polite">
+        Baca petunjuk, lalu pilih perahu yang tepat.
+      </div>
+    </section>
+
+    <section id="resultSection" class="panel result-panel hidden">
+      <div id="resultIcon" class="result-icon">🎉</div>
+      <span class="small-label">HASIL PETUALANGAN</span>
+      <h2 id="resultTitle">Petualangan Selesai!</h2>
+      <p id="resultText"></p>
+
+      <div class="result-score">
+        <span>Skor Akhir</span>
+        <strong id="finalScore">0</strong>
+        <span class="score-max">dari 100 poin</span>
+      </div>
+
+      <p class="rounds-summary">
+        Ronde selesai:
+        <strong id="roundsCompleted">0 / 5</strong>
+      </p>
+
+      <button id="playAgainButton" class="primary-button" type="button">
+        🛶 Main Lagi
+      </button>
+
+      <a class="secondary-link" href="games.html">Kembali ke Games</a>
+    </section>
+  </main>
+
+  <footer class="berlayar-footer">
+    <div class="footer-brand">🛶 <strong>LANTING KATA</strong></div>
+    <p>Belajar Bahasa Banjar menjadi lebih mudah, menyenangkan, dan interaktif.</p>
+    <span>Melestarikan bahasa, mengenalkan budaya Banjar.</span>
+  </footer>
+
+  <script src="js/lanting-berlayar.js"></script>
+</body>
+</html>
